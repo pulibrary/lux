@@ -1,3 +1,6 @@
+/* This is css for a global branding/nav that can be used on all Princeton University Library sites. 
+Note that Twitter Bootstrap's dropdown css and javascript are a dependency.  This file overrides some 
+of Bootstrap's default navbar styles within the "thinbar". */
 
 .thinbar {
     /* this is usually in the body, but included here to maintain consistency when cutting and pasting */
