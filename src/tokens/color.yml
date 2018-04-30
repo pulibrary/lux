@@ -1,0 +1,74 @@
+#
+# COLOR TOKENS
+# Use these tokens to set a color.
+# For reference, see http://hslpicker.com/
+#
+# To make things a little simpler for your team,
+# utilize both global & local tokens for colors.
+#
+
+aliases:
+  white:
+    value: "#ffffff"
+  black:
+    value: "#000000"
+  gainsboro:
+    value: "#DCDCDC"
+  gray:
+    value: "47, 16%"
+  green:
+    value: "120, 41%"
+  orange:
+    value: "#e87511"
+  blue:
+    value: "#337ab7"
+  red:
+    value: "#A72925"
+  university_black:
+    value: "040404"
+props:
+  color_orange:
+    value: "{!orange}"
+    category: color_group_1
+  color_orange_dark:
+    value: "#89440a"
+    category: color_group_1
+  color_princeton:
+    value: "#F57A00"
+    category: color_group_1
+  color_university_black:
+    value: "{!university_black}"
+    category: color_group_1
+  color_white:
+    value: "{!white}"
+    category: color_group_1
+  color_gainsboro:
+    value: "{!gainsboro}"
+    category: color_group_2
+  color_gray:
+    value: "hsla({!gray},89%, 1)"
+    category: color_group_2
+  color_gray_dark:
+    value: "#494f57"
+    category: color_group_2
+  color_gray_light:
+    value: "#f5f4f1"
+    category: color_group_2
+  color_blue:
+    value: "{!blue}"
+    category: color_group_3
+  color_blue_dark:
+    value: "#196076"
+    category: color_group_3
+  color_green:
+    value: "hsla({!green}, 28%, 1)"
+    category: color_group_3
+  color_green_dark:
+    value: "hsla({!green}, 19%, 1)"
+    category: color_group_3
+  color_red:
+    value: "{!red}"
+    category: color_group_3
+global:
+  type: color
+  category: color
