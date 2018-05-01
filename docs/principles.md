@@ -46,4 +46,4 @@ We test hypotheses, learn, and improve our ideas.
 
 ---
 
-Thanks to [Design Manifesto](https://www.designmanifesto.org/) for inspiration.
+Special thanks to [Design Manifesto](https://www.designmanifesto.org/) for inspiration.
