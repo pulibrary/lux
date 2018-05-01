@@ -1,35 +1,49 @@
 ### Principles are the foundation of the system. They form the basis of a good product and help the team with decision making. They are here to guide you and your team when working with the myriad parts of the system and help you do better and more informed decisions.
 
-You’re looking at Vue Design System’s demo <code>design principles</code>. Everything you see here is editable in Markdown format. To change or remove this content, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md). To get started defining your own principles, see my [article on getting started](https://viljamis.com/2018/vue-design-system/) with Vue Design System.
+## 1. We start with user needs.
 
-## 1. Design is how it works
+Do research, analyse data, talk to users. Don't make assumptions. Be human. Define the problem first.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 2. We add more value by presenting fewer choices.
 
-## 2. Reduce concepts to increase confidence
+Less is more. We seek to reduce clutter and cognitive load. Every piece of functionality we add to the system should add value for our users.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 3. We are consistent.
 
-## 3. Design with real data
+We are consistent with our designs, the language we use on interfaces, our code, and our data.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 4. We design with data.
 
-## 4. Design systems, not pages
+We embrace data-driven decision making. We measure and evaluate against the original goals.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 5. We use our user's language.
 
-## 5. Involve code early
+Words can both clarify and confuse. We seek to use language that is familiar to our users and avoid using jargon.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 6. We make it accessible, responsive, and inclusive.
 
-## 6. Fast is better than slow
+Everything we build is WCAG 2.0 AA compliant. We sacrifice elegance to inclusiveness, readability, and legibility.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 7. We provide context.
 
-## 7. Let content determine breakpoints
+By communicating how everything interrelates, people are much more likely to understand the importance of what
+they are looking at. The design should keep people aware of where they are within the overall experience at all times in a consistent and clear fashion.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 8. We collaborate.
 
-## 8. Strive for universality
+We tackle problems together. We listen, we understand, we critique, and we encourage rather than force
+solutions. We learn from each other and understand the value of what we're building.
 
-To edit or remove this principle, see [/docs/principles.md](https://github.com/viljamis/vue-design-system/blob/master/docs/principles.md).
+## 9. We make it shareable and reusable.
+
+If we have found a way of doing something that works, we share it whenever we can instead of reinventing the
+wheel every time.
+
+## 10. We test and iterate.
+
+We are aware that our solutions are assumptions unless tested with real users.
+We test hypotheses, learn, and improve our ideas.
+
+---
+
+Thanks to [Design Manifesto](https://www.designmanifesto.org/) for inspiration.
