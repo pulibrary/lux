@@ -5,8 +5,8 @@
       {name: 'Living Docs', href: 'http://localhost:6060/'}
     ]"/>
     <wrapper>
-      <heading level="h1">PUL Design System</heading>
-      <text-style>The PUL Design System is a set of organized tools, patterns, and practices that work as the foundation for PUL web and application development. It aims to increase consistency, improve accessibility, reduce design debt, and accelerate the design and development process. It works as the foundation for your application development.</text-style>
+      <heading level="h1">LUX</heading>
+      <text-style>LUX (Library User Experience) is a set of organized tools, patterns, and practices that work as the foundation for PUL web and application development. It aims to increase consistency, improve accessibility, reduce design debt, and accelerate the design and development process. Overall, it aims to illuminate the Library for our users.</text-style>
     </wrapper>
   </component>
 </template>
