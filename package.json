@@ -27,7 +27,7 @@
     "theo:onchange": "onchange \"./src/tokens/*.yml\" -- npm run theo",
     "test": "npm-run-all theo unit",
     "precommit": "pretty-quick --staged",
-    "deploy": "npm run build:system && git add . && git commit -m 'deploy' && git subtree push --prefix dist origin gh-pages"
+    "deploy": "npm run build:system && git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
