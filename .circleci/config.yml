@@ -30,3 +30,8 @@ jobs:
           command: yarn test
   # to deploy, we would have it as a different job
   #deploy:
+  deployment:
+    production:
+      branch: master
+      commands:
+      - ./scripts/deploy-ghpages.sh build
