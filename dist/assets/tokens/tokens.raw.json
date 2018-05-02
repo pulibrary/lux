@@ -113,12 +113,12 @@
       "originalValue": "{!blue}",
       "name": "color_blue"
     },
-    "color_purple": {
+    "color_orchid": {
       "type": "color",
       "category": "color_group_3",
       "value": "rgb(153, 50, 204)",
       "originalValue": "#9932CC",
-      "name": "color_purple"
+      "name": "color_orchid"
     },
     "color_gray": {
       "type": "color",
