@@ -69,8 +69,8 @@ props:
   color_red:
     value: "{!red}"
     category: color_group_3
-  color_orchid:
-    value: "#9932CC"
+  color_pink:
+    value: "#FFB6C1"
     category: color_group_3
 global:
   type: color
