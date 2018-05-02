@@ -28,10 +28,26 @@ jobs:
       - run:
           name: Testing
           command: yarn test
+      - run:
+          name: Deploy to GH-Pages
+          command: yarn run deploy
   # to deploy, we would have it as a different job
   #deploy:
-  deployment:
-    production:
-      branch: master
-      commands:
-      - ./scripts/deploy-ghpages.sh build
+  # deployment:
+  #   working_directory: ~/lux
+  #   docker:
+  #     - image: circleci/node:9.11.1-browsers
+  #   steps:
+  #     - checkout
+  #     # Restore local dependencies from cache
+  #     - restore_cache:
+  #         keys:
+  #         - v1-dependencies-{{ checksum "package.json" }}
+  #         - v1-dependencies-
+  #     # Install project dependencies
+  #     - run:
+  #         name: Install local dependencies
+  #         command: yarn install
+  #     - run:
+  #         name: Deploy to GH-Pages
+  #         command: yarn run deploy
