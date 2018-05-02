@@ -10,7 +10,7 @@ describe("Color.vue", () => {
   })
 
   it("should render multiple colors", () => {
-    expect(vm.$el.querySelectorAll(".color").length).toBeGreaterThan(50)
+    expect(vm.$el.querySelectorAll(".color").length).toBeGreaterThan(2)
   })
 
   it("should create code elements for copy pasting", () => {
