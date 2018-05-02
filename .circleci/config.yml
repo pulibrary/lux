@@ -1,8 +1,32 @@
 version: 2
 jobs:
-   build:
-     docker:
-       - image: circleci/node:8.6.0
-     steps:
-       - checkout
-       - run: echo "hello world"
+  build:
+    working_directory: ~/lux
+    docker:
+      - image: circleci/node:9.11.1-browsers
+    steps:
+      - checkout
+      # Log the current branch
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+      # Restore local dependencies from cache
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      # Install project dependencies
+      - run:
+          name: Install local dependencies
+          command: npm install
+      # Cache local dependencies if they don't exist
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+              - node_modules
+      # Test the source code
+      - run:
+          name: Testing
+          command: npm test
+  # to deploy, we would have it as a different job
+  #deploy:
