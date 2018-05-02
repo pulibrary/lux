@@ -75,6 +75,9 @@ props:
   color_purple:
     value: "#551A8B"
     category: color_group_3
+  color_magenta:
+    value: "#FF00FF"
+    category: color_group_3
 global:
   type: color
   category: color
