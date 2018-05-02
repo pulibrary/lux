@@ -113,6 +113,13 @@
       "originalValue": "{!blue}",
       "name": "color_blue"
     },
+    "color_purple": {
+      "type": "color",
+      "category": "color_group_3",
+      "value": "rgb(153, 50, 204)",
+      "originalValue": "#9932CC",
+      "name": "color_purple"
+    },
     "color_gray": {
       "type": "color",
       "category": "color_group_2",
