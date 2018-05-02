@@ -72,6 +72,9 @@ props:
   color_pink:
     value: "#FFB6C1"
     category: color_group_3
+  color_purple:
+    value: "#551A8B"
+    category: color_group_3
 global:
   type: color
   category: color
