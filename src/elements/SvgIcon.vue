@@ -76,7 +76,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <svg-icon name="add-box" fill="rgb(37, 138, 239)" size="24px" />
+    <svg-icon name="add-box" ariaLabel="add item" fill="rgb(37, 138, 239)" size="24px" />
     <svg-icon name="archives" fill="rgb(37, 138, 239)" size="24px" />
     <svg-icon name="file-pdf" fill="rgb(37, 138, 239)" size="24px" />
   </div>
