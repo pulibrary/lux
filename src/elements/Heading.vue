@@ -83,20 +83,23 @@ h6 {
   ```
 
   ```jsx noeditor
-  <div class="do">
-    <heading level="h1">Do this.</heading>
-    <heading level="h2">Do this.</heading>
-    <p>Nest headings appropriately by level to make it accessible.</p>
-  </div>
-  ```
+  <div class="dos-n-donts">
+    <div class="do">
+      <div>
+        <heading level="h1">Do this.</heading>
+        <heading level="h2">Do this.</heading>
+      </div>
+      <p>Nest headings appropriately by level.</p>
+    </div>
 
-  ```jsx noeditor
-  <div class="dont">
-    <heading level="h2">Don't do this.</heading>
-    <heading level="h1">Don't do this.</heading>
-    <p>If you nest headings out of order, your site will confuse users with screen readers.</p>
+    <div class="dont">
+      <div>
+        <heading level="h2">Don't do this.</heading>
+        <heading level="h1">Don't do this.</heading>
+      </div>
+      <p>If you nest headings out of order or skip levels, the lack of organization of content on the page will confuse users.</p>
+    </div>
   </div>
-
   ```
 
 </docs>
