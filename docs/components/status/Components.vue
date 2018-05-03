@@ -34,11 +34,12 @@
         <tr v-for="(component, index) in components" :key="index" class="component">
           <td v-if="component.name">
             <code class="name">
-              {{component.name}}
+              <a :href="'/#!/' + component.type + 's?id=' + component.name.toLowerCase()">{{component.name}}</a>
             </code>
           </td>
           <td v-else>N/A</td>
           <td v-if="component.release">
+
             {{component.release}}
           </td>
           <td v-else>N/A</td>

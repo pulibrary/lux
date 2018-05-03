@@ -25,6 +25,7 @@ export default {
   name: "FormInput",
   status: "ready",
   release: "1.0.0",
+  type: "Element",
   props: {
     /**
      * The type of the form input field.

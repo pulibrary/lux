@@ -19,8 +19,9 @@ export default {
   name: "Index",
   status: "deprecated",
   release: "1.0.0",
+  type: "Template",
   metaInfo: {
-    title: "PUL Design System",
+    title: "LUX Design System",
     htmlAttrs: {
       lang: "en",
     },

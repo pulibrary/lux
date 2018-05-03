@@ -14,6 +14,7 @@ export default {
   name: "TextStyle",
   status: "ready",
   release: "1.0.0",
+  type: "Element",
   props: {
     /**
      * The html element name used for the text

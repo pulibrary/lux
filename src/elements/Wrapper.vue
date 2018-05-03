@@ -13,6 +13,7 @@ export default {
   name: "Wrapper",
   status: "review",
   release: "1.0.0",
+  type: "Element",
   props: {
     /**
      * The html element name used for the wrapper.
