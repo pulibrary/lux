@@ -569,3 +569,13 @@ ul a[href*="?id=components"],
 ul a[href*="/#!/Private Components"] {
   display: none !important;
 }
+
+.do {
+  border: solid 1px green;
+  padding: 15px;
+}
+
+.dont {
+  border: solid 1px red;
+  padding: 15px;
+}

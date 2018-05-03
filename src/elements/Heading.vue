@@ -81,4 +81,22 @@ h6 {
     <heading level="h4">The quick brown fox</heading>
   </div>
   ```
+
+  ```jsx noeditor
+  <div class="do">
+    <heading level="h1">Do this.</heading>
+    <heading level="h2">Do this.</heading>
+    <p>Nest headings appropriately by level to make it accessible.</p>
+  </div>
+  ```
+
+  ```jsx noeditor
+  <div class="dont">
+    <heading level="h2">Don't do this.</heading>
+    <heading level="h1">Don't do this.</heading>
+    <p>If you nest headings out of order, your site will confuse users with screen readers.</p>
+  </div>
+
+  ```
+
 </docs>

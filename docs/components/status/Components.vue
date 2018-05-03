@@ -6,15 +6,15 @@
         <p>Ready</p>
       </li>
       <li>
-        <svg-icon name="review" :fill="tokens.color_ucla_gold.value" size="16px" />
+        <svg-icon name="review" :fill="tokens.color_green.value" size="16px" />
         <p>Under review</p>
       </li>
       <li>
-        <svg-icon name="deprecated" :fill="tokens.color_vermilion.value" size="16px" />
+        <svg-icon name="deprecated" :fill="tokens.color_red.value" size="16px" />
       <p>Deprecated</p>
       </li>
       <li>
-        <svg-icon name="prototype" :fill="tokens.color_bleu_de_france.value" size="16px" />
+        <svg-icon name="prototype" :fill="tokens.color_blue.value" size="16px" />
         <p>Prototype</p>
       </li>
       <li>
@@ -52,19 +52,19 @@
             <svg-icon
               v-if="component.status === 'under-review' || component.status === 'review'"
               name="review"
-              :fill="tokens.color_ucla_gold.value"
+              :fill="tokens.color_green.value"
               size="16px"
             />
             <svg-icon
               v-if="component.status === 'prototype'"
               name="prototype"
-              :fill="tokens.color_bleu_de_france.value"
+              :fill="tokens.color_blue.value"
               size="16px"
             />
             <svg-icon
               v-if="component.status === 'deprecated'"
               name="deprecated"
-              :fill="tokens.color_vermilion.value"
+              :fill="tokens.color_red.value"
               size="16px"
             />
           </td>
