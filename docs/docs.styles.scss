@@ -589,9 +589,10 @@ ul a[href*="/#!/Private Components"] {
     position: relative;
 
     &::before {
-      background-color: orange;
+      background-color: $color-ucla-gold;
       border-radius: 100%;
       bottom: -24px;
+      box-shadow: $box-shadow-small;
       color: black;
       font-family: Courier, Courier New;
       font-size: $font-size-large;
