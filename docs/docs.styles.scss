@@ -570,12 +570,67 @@ ul a[href*="/#!/Private Components"] {
   display: none !important;
 }
 
+// Do's and Don'ts section for components
+.dos-n-donts {
+  display: flex;
+
+  p {
+    font-size: $font-size-small;
+  }
+}
+
+.do,
+.dont {
+  flex: 50%;
+
+  div {
+    border: 1px solid $color-silver;
+    padding: $space-small;
+    position: relative;
+
+    &::before {
+      background-color: orange;
+      border-radius: 100%;
+      bottom: -24px;
+      color: black;
+      font-family: Courier, Courier New;
+      font-size: $font-size-large;
+      font-weight: $font-weight-bold;
+      height: 40px;
+      line-height: 35px;
+      position: absolute;
+      right: $space-x-small;
+      text-align: center;
+      transform: rotate(90deg);
+      width: 40px;
+    }
+  }
+}
+
 .do {
-  border: solid 1px green;
-  padding: 15px;
+  padding-right: $space-x-small;
+
+  div {
+    border-bottom: solid $space-x-small green;
+
+    &::before {
+      content: ":)";
+    }
+  }
 }
 
 .dont {
-  border: solid 1px red;
-  padding: 15px;
+  padding-left: $space-x-small;
+
+  div {
+    border-bottom: solid $space-x-small red;
+
+    &::before {
+      content: ":(";
+    }
+  }
+}
+
+img {
+  max-width: 100%;
 }
