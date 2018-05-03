@@ -1,15 +1,15 @@
 {
   "name": "lux-design-system",
-  "version": "0.0.1",
-  "description": "Library User Experience guide for Princeton University Libary based on Vue Design System",
+  "version": "0.0.0",
+  "description": "Library User Experience and Style guide for Princeton University Libary based on Vue Design System",
   "author": "viljamis <me@viljamis.com>",
   "contributors": [
     {
-      "name": "axamei",
+      "name": "Axa Mei Liauw",
       "email": "axa.mei.liauw@princeton.edu"
     },
     {
-      "name": "sdellis",
+      "name": "Shaun Ellis",
       "email": "shaun@sdellis.com"
     }
   ],
@@ -17,8 +17,7 @@
   "files": [
     "lib/system"
   ],
-  "homepage": "https://vueds.com",
-  "private": true,
+  "homepage": "https://pulibrary.github.io/lux/",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --config ./build/webpack.dev.conf.js",
@@ -41,15 +40,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viljamis/vue-design-system.git"
+    "url": "git+https://github.com/pulibrary/lux.git"
   },
   "keywords": [
-    "vue design system",
-    "design system",
-    "vue.js",
-    "vue",
-    "design",
-    "system"
+    "lux design system",
+    "library ux",
+    "princeton"
   ],
   "babel": {
     "presets": [
@@ -187,7 +183,7 @@
     "webpack-merge-and-include-globally": "^1.0.1"
   },
   "engines": {
-    "node": ">= 8.6.0",
+    "node": ">= 9.11.1",
     "npm": ">= 3.0.0"
   },
   "browserslist": [
