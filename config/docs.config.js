@@ -6,7 +6,7 @@ module.exports = {
   /**
    * Name of your design system. Changes both page title and sidebar logo.
    */
-  title: "Lux Design System",
+  title: "LUX Design System",
   /**
    * Enabling the following option splits sections into separate views.
    */
