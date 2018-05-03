@@ -83,9 +83,6 @@ import orderBy from "lodash/orderBy"
 export default {
   name: "Components",
   methods: {
-    lowerCase: function(string) {
-      return string.charAt(0).toLowerCase() + string.slice(1)
-    },
     getComponents: function() {
       const contexts = [
         require.context("@/elements/", true, /\.vue$/),
