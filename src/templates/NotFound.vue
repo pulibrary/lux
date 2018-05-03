@@ -17,8 +17,9 @@
  */
 export default {
   name: "NotFound",
+  type: "Template",
   metaInfo: {
-    title: "Page Not Found | Vue Design System",
+    title: "Page Not Found | LUX Design System",
     htmlAttrs: {
       lang: "en",
     },

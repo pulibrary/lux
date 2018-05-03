@@ -16,6 +16,7 @@ export default {
   name: "SvgIcon",
   status: "review",
   release: "1.0.0",
+  type: "Element",
   props: {
     /**
      * The name of the icon to display.
