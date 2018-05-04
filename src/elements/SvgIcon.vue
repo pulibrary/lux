@@ -47,9 +47,16 @@ export default {
       default: "span",
     },
     /**
-     * The size of the icon.
+     * The width of the icon.
      */
-    size: {
+    width: {
+      type: String,
+      default: "16px",
+    },
+    /**
+     * The height of the icon.
+     */
+    height: {
       type: String,
       default: "16px",
     },
@@ -66,8 +73,8 @@ export default {
     if (cache.has(currPath)) {
       this.$el.innerHTML = await cache.get(currPath)
       this.$el.children[0].style.fill = this.fill
-      this.$el.children[0].style.width = this.size
-      this.$el.children[0].style.height = this.size
+      this.$el.children[0].style.width = this.width
+      this.$el.children[0].style.height = this.height
     }
   },
 }
@@ -76,9 +83,10 @@ export default {
 <docs>
   ```jsx
   <div>
-    <svg-icon name="add-box" ariaLabel="add item" fill="rgb(37, 138, 239)" size="24px" />
-    <svg-icon name="archives" fill="rgb(37, 138, 239)" size="24px" />
-    <svg-icon name="file-pdf" fill="rgb(37, 138, 239)" size="24px" />
+    <svg-icon name="add-box" ariaLabel="add item" fill="rgb(37, 138, 239)" width="24px" height="24px" />
+    <svg-icon name="archives" fill="rgb(37, 138, 239)" width="24px" height="24px" />
+    <svg-icon name="file-pdf" fill="rgb(37, 138, 239)" width="24px" height="24px" />
+    <svg-icon name="university-logo" width="200px" height="55px" />
   </div>
   ```
 </docs>
