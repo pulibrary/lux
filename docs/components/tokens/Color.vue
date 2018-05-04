@@ -22,7 +22,9 @@ import orderBy from "lodash/orderBy"
  * The color palette comes with 5 different weights for each hue. These hues
  * should be used purposefully to communicate how things function in the
  * interface. Keep in mind that `vermilion` is only used in special cases
- * like destructive actions and error messages. To edit the colors, see
+ * like destructive actions and error messages.
+ *
+ * On the Web, #e77500 is used on white and #f58025 on black. Note that Princeton orange on white is not an accessible color when used for small type. Please reserve its use for headers or other elements displayed at greater than 24px regular or 19px bold. To edit the colors, see
  * [/src/tokens/color.yml](https://github.com/viljamis/vue-design-system/blob/master/src/tokens/color.yml).
  */
 export default {
@@ -44,8 +46,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../docs.tokens.scss";
-
 /* STYLES
 --------------------------------------------- */
 
@@ -97,7 +97,7 @@ h3 {
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
   font-size: $font-size-small;
   font-family: $font-family-text;
-  color: $color-university-black;
+  color: $color-rich-black;
   border-radius: $border-radius-default;
   overflow: hidden;
   text-align: left;
@@ -108,13 +108,13 @@ h3 {
   }
   &:hover {
     span {
-      color: shade($color-gray-dark, 40%);
+      color: shade($color-silver, 40%);
     }
   }
   span {
     margin-bottom: $space-x-small;
     line-height: 1.3;
-    color: $color-gray-dark;
+    color: $color-silver;
     font-size: $font-size-small;
     width: 100%;
     float: left;

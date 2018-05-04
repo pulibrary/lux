@@ -38,8 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../docs.tokens.scss";
-
 /* STYLES
 --------------------------------------------- */
 
@@ -52,7 +50,7 @@ export default {
   font-family: $font-family-heading;
   font-weight: $font-weight-bold;
   line-height: $line-height-heading;
-  color: $color-university-black;
+  color: $color-rich-black;
   margin-bottom: $space-small;
   font-style: normal;
   span {

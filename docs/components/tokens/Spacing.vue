@@ -39,8 +39,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../docs.tokens.scss";
-
 /* STYLES
 --------------------------------------------- */
 
@@ -57,7 +55,7 @@ export default {
   margin-bottom: $space-x-small;
   font-size: $font-size-small;
   font-family: $font-family-text;
-  color: $color-university-black;
+  color: $color-rich-black;
   background: tint(#c4cdd5, 85%);
   text-align: center;
   position: relative;

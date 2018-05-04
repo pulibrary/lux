@@ -38,11 +38,11 @@ export default {
 
 <style lang="scss" scoped>
 // Design Tokens with local scope
-$color-template-background: $color-university-black;
+$color-template-background: $color-rich-black;
 $color-template-background-top: tint($color-template-background, 5%);
 $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
-$color-template-link: $color-blue;
+$color-template-link: $color-oxford-blue;
 
 .not-found {
   @include reset;

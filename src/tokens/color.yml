@@ -8,73 +8,89 @@
 #
 
 aliases:
+  vermilion:
+    value: "7, 83%"
+  ucla_gold:
+    value: "43, 100%"
+  bleu_de_france:
+    value: "210, 86%"
+  oxford_blue:
+    value: "210, 100%"
+  rich_black:
+    value: "#001123"
   white:
-    value: "#ffffff"
-  black:
-    value: "#000000"
-  gainsboro:
-    value: "#DCDCDC"
-  gray:
-    value: "47, 16%"
-  green:
-    value: "120, 41%"
-  orange:
-    value: "#e87511"
-  blue:
-    value: "#337ab7"
-  red:
-    value: "#A72925"
-  university_black:
-    value: "040404"
+    value: "#fff"
 props:
-  color_orange:
-    value: "{!orange}"
+  color_princeton_orange_on_white:
+    value: "#e77500"
     category: color_group_1
-  color_orange_dark:
-    value: "#89440a"
+  color_princeton_orange_on_black:
+    value: "#f58025"
     category: color_group_1
-  color_princeton:
-    value: "#F57A00"
-    category: color_group_1
-  color_university_black:
-    value: "{!university_black}"
-    category: color_group_1
+
+  color_vermilion_darker:
+    value: "hsla({!vermilion}, 33%, 1)"
+    category: color_group_10
+  color_vermilion_dark:
+    value: "hsla({!vermilion}, 43%, 1)"
+    category: color_group_10
+  color_vermilion:
+    value: "hsla({!vermilion}, 53%, 1)"
+    category: color_group_10
+  color_vermilion_light:
+    value: "hsla({!vermilion}, 63%, 1)"
+    category: color_group_10
+  color_vermilion_lighter:
+    value: "hsla({!vermilion}, 75%, 1)"
+    category: color_group_10
+
+  color_ucla_gold_darker:
+    value: "hsla({!ucla_gold}, 35%, 1)"
+    category: color_group_10
+  color_ucla_gold_dark:
+    value: "hsla({!ucla_gold}, 45%, 1)"
+    category: color_group_10
+  color_ucla_gold:
+    value: "hsla({!ucla_gold}, 52%, 1)"
+    category: color_group_10
+  color_ucla_gold_light:
+    value: "hsla({!ucla_gold}, 65%, 1)"
+    category: color_group_10
+  color_ucla_gold_lighter:
+    value: "hsla({!ucla_gold}, 75%, 1)"
+    category: color_group_10
+
+  color_bleu_de_france_darker:
+    value: "hsla({!bleu_de_france}, 34%, 1)"
+    category: color_group_10
+  color_bleu_de_france_dark:
+    value: "hsla({!bleu_de_france}, 44%, 1)"
+    category: color_group_10
+  color_bleu_de_france:
+    value: "hsla({!bleu_de_france}, 54%, 1)"
+    category: color_group_10
+  color_bleu_de_france_light:
+    value: "hsla({!bleu_de_france}, 64%, 1)"
+    category: color_group_10
+  color_bleu_de_france_lighter:
+    value: "hsla({!bleu_de_france}, 74%, 1)"
+    category: color_group_10
+
+  color_oxford_blue:
+    value: "hsla({!oxford_blue}, 15%, 1)"
+    category: color_group_10
+  color_rich_black:
+    value: "{!rich_black}"
+    category: color_group_10
   color_white:
     value: "{!white}"
-    category: color_group_1
-  color_gainsboro:
-    value: "{!gainsboro}"
-    category: color_group_2
-  color_gray:
-    value: "hsla({!gray},89%, 1)"
-    category: color_group_2
-  color_gray_dark:
-    value: "#494f57"
-    category: color_group_2
-  color_gray_light:
-    value: "#f5f4f1"
-    category: color_group_2
-  color_blue:
-    value: "{!blue}"
-    category: color_group_3
-  color_blue_dark:
-    value: "#196076"
-    category: color_group_3
-  color_green:
-    value: "hsla({!green}, 28%, 1)"
-    category: color_group_3
-  color_green_dark:
-    value: "hsla({!green}, 19%, 1)"
-    category: color_group_3
-  color_red:
-    value: "{!red}"
-    category: color_group_3
-  color_pink:
-    value: "#FFB6C1"
-    category: color_group_3
-  color_purple:
-    value: "#551A8B"
-    category: color_group_3
+    category: color_group_10
+  color_silver:
+    value: "#7F8891"
+    category: color_group_10
+  color_cloud:
+    value: "#E9F3FD"
+    category: color_group_10
 global:
   type: color
   category: color
