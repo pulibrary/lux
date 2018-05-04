@@ -58,7 +58,7 @@ export default {
      */
     height: {
       type: String,
-      default: "16px",
+      default: "auto",
     },
   },
   async mounted() {
@@ -83,10 +83,10 @@ export default {
 <docs>
   ```jsx
   <div>
-    <svg-icon name="add-box" ariaLabel="add item" fill="rgb(37, 138, 239)" width="24px" height="24px" />
-    <svg-icon name="archives" fill="rgb(37, 138, 239)" width="24px" height="24px" />
-    <svg-icon name="file-pdf" fill="rgb(37, 138, 239)" width="24px" height="24px" />
-    <svg-icon name="university-logo" width="200px" height="55px" />
+    <svg-icon name="add-box" ariaLabel="add item" fill="rgb(37, 138, 239)" width="55px" />
+    <svg-icon name="archives" fill="rgb(37, 138, 239)" width="55px" />
+    <svg-icon name="file-pdf" fill="rgb(37, 138, 239)" width="55px" />
+    <svg-icon name="university-logo" width="200px" />
   </div>
   ```
 </docs>
