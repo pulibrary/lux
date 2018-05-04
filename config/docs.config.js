@@ -6,7 +6,7 @@ module.exports = {
   /**
    * Name of your design system. Changes both page title and sidebar logo.
    */
-  title: "Vue Design System",
+  title: "LUX Design System",
   /**
    * Enabling the following option splits sections into separate views.
    */
@@ -83,13 +83,18 @@ module.exports = {
       components: "../src/templates/**/[A-Z]*.vue",
     },
     {
-      name: "Downloads",
-      content: "../docs/downloads.md",
+      name: "Adding Icons",
+      content: "../docs/adding-icons.md",
       components: "../docs/utils/section.vue",
     },
     {
       name: "FAQ",
       content: "../docs/faq.md",
+      components: "../docs/utils/section.vue",
+    },
+    {
+      name: "Glossary",
+      content: "../docs/glossary.md",
       components: "../docs/utils/section.vue",
     },
     {
