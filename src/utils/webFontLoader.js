@@ -8,4 +8,7 @@ WebFont.load({
   google: {
     families: ["Fira+Sans:300,400,400i,600,700"],
   },
+  typekit: {
+    id: "gwb8hdb",
+  },
 })
