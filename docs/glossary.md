@@ -1,4 +1,6 @@
-### Without language, we can't collaborate. When we don't share a language with our users and our stakeholders, we have to work that much harder to communicate clearly. - Abby Covert
+<div class="introduction">
+	<p>Without language, we can't collaborate. When we don't share a language with our users and our stakeholders, we have to work that much harder to communicate clearly. - Abby Covert</p>
+</div>
 
 <dl>
   <dt>Affordance</dt>
