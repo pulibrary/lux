@@ -19,7 +19,7 @@ _Note: We recommend importing this directory (and any other sets) into [IconJar]
 5.  Open IconJar and select "Import IconJar" from the "+" dropdown. Navigate to the expanded Iconjar.zip directory and load the `line icon.iconjar`.
 6.  Drag and Drop each icon you want to add directly from IconJar into pul-icons via Icomoon.
 7.  When you've done this, select all the PUL-icons and click "Generate Font" at the bottom of the screen, and click Preferences at the top. Make sure your preference screen looks like this (in the near future we plan to prefix with `pul-icon-`):
-    ![IcoMoon Preferences](https://raw.githubusercontent.com/pulibrary/UI-Components/master/img/icomoon-preferences.png)
+    ![IcoMoon Preferences](https://raw.githubusercontent.com/pulibrary/lux/master/docs/icomoon-preferences.png)
 8.  Click "Download".
 9.  You will then want to go back to your pul-icons and download the json file. Replace the json file in the [Google Drive folder](https://drive.google.com/drive/folders/0B7lJwwFLye5XaTNzdFAwRTEyNlk) with your updated version.
 10. If you're project is a Rails app, replace the files in `app/assets/fonts/icons` with the files in the `pul-icons/fonts` directory found in the zip file you just downloaded.
