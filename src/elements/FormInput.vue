@@ -123,7 +123,7 @@ export default {
 
 <style lang="scss" scoped>
 // Design Tokens with local scope
-$color-placeholder: tint($color-silver, 50%);
+$color-placeholder: tint($color-grayscale, 50%);
 
 .input {
   @include stack-space($space-small);
@@ -173,7 +173,7 @@ $color-placeholder: tint($color-silver, 50%);
     &:focus,
     &[focus] {
       transition: box-shadow 0.2s ease;
-      box-shadow: inset 0 0 0 1px $color-oxford-blue, 0 0 0 1px $color-oxford-blue;
+      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
       outline: 0;
     }
     &[disabled] {

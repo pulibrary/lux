@@ -15,7 +15,7 @@ $docs-status-ready: #7cb518;
 $docs-breakpoint: 800px;
 $docs-breakpoint-small: 600px;
 $docs-color-heading: rgb(30, 30, 30);
-$docs-color-text: shade($color-silver, 50%);
+$docs-color-text: shade($color-grayscale, 50%);
 
 /* BASE
 --------------------------------------------- */
@@ -37,7 +37,7 @@ div[class^="rsg--root"] {
   a[class^="rsg--link"] {
     color: $color-bleu_de_france;
     &:hover {
-      color: $color-oxford-blue;
+      color: $color-bleu-de-france;
     }
   }
 }
@@ -70,7 +70,7 @@ div[class^="rsg--wrapper"] > h1[class^="rsg--heading"] {
   padding: $space-x-large $space-x-large;
   width: calc(100% + #{$space-x-large * 2});
   margin: -#{$space-small} -#{$space-x-large} $space-large -#{$space-x-large};
-  background: $color-cloud;
+  background: $color-bleu-de-france-lighter;
   font-size: $font-size-xx-large;
   @media (max-width: 1300px) {
     padding: $space-large $space-x-large;
@@ -87,7 +87,7 @@ header[class^="rsg--header"] {
 }
 div[class^="rsg--wrapper"] > h1[class^="rsg--heading"] a {
   font-weight: $font-weight-regular;
-  color: $color-oxford-blue;
+  color: $color-bleu-de-france;
   letter-spacing: -1px;
   &:hover {
     text-decoration: none;
@@ -186,7 +186,7 @@ pre + p[class^="rsg--para"] {
 
 p[class^="rsg--para"] code {
   background: tint($docs-grey, 75%);
-  color: shade($color-silver, 20%);
+  color: shade($color-grayscale, 20%);
   padding: $space-xx-small;
   border-radius: $border-radius-default;
   font-size: 87.5%;
@@ -204,7 +204,7 @@ div[class^="rsg--sidebar"] {
       color: $color-bleu_de_france-lighter;
     }
     &:active {
-      color: $color-oxford-blue;
+      color: $color-bleu-de-france;
     }
   }
   .vueds-active {
@@ -369,7 +369,7 @@ div[class^="rsg--toolbar"] {
 }
 .cm-s-night span.cm-number,
 .cm-s-night span.cm-attribute {
-  color: $color-ucla-gold-light !important;
+  color: $color-grayscale-light !important;
 }
 .cm-s-night span.cm-string {
   color: lighten($docs-status-ready, 20%) !important;
@@ -377,19 +377,19 @@ div[class^="rsg--toolbar"] {
 
 span[class^="rsg--type"],
 code[class^="rsg--code"] {
-  color: $color-silver;
+  color: $color-grayscale;
 }
 span[class^="rsg--name"] code[class^="rsg--code"],
 code.name {
   font-weight: $font-weight-bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: shade($color-silver, 50%);
+  color: shade($color-grayscale, 50%);
 }
 span[class^="rsg--type"] code[class^="rsg--code"],
 code.type {
   background: tint($docs-grey, 75%);
-  color: shade($color-silver, 20%);
+  color: shade($color-grayscale, 20%);
   padding: $space-xx-small;
   border-radius: $border-radius-default;
 }
@@ -431,7 +431,7 @@ div[class^="rsg--root"] div[class^="rsg--tabs"] {
   }
   &-review,
   &-under-review {
-    background: $color-ucla-gold;
+    background: $color-yellow;
     color: $color-rich-black;
   }
   &-prototype {
@@ -439,7 +439,7 @@ div[class^="rsg--root"] div[class^="rsg--tabs"] {
     color: $color-white;
   }
   &-deprecated {
-    background: $color-vermilion;
+    background: $color-red;
     color: $color-white;
   }
 }
@@ -450,7 +450,7 @@ div[class^="rsg--root"] div[class^="rsg--tabs"] {
 tr {
   transition: background-color 0.1s ease;
   &:hover {
-    background: rgba($color-cloud, 0.3);
+    background: rgba($color-bleu-de-france-lighter, 0.3);
   }
 }
 
@@ -469,8 +469,8 @@ table[class^="rsg--table"] {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     border-radius: 0;
-    background: $color-cloud;
-    color: tint($color-oxford-blue, 10%);
+    background: $color-bleu-de-france-lighter;
+    color: tint($color-bleu-de-france, 10%);
     text-align: left;
   }
   th[class^="rsg--cellHeading"],
@@ -584,12 +584,12 @@ ul a[href*="/#!/Private Components"] {
   flex: 50%;
 
   div {
-    border: 1px solid $color-silver;
+    border: 1px solid $color-grayscale;
     padding: $space-small;
     position: relative;
 
     &::before {
-      background-color: $color-ucla-gold;
+      background-color: $color-grayscale;
       border-radius: 100%;
       bottom: -24px;
       box-shadow: $box-shadow-small;

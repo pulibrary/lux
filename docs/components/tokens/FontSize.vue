@@ -57,7 +57,7 @@ export default {
     letter-spacing: -0.02em;
     margin-left: 10px;
     font-weight: $font-weight-regular;
-    color: $color-silver;
+    color: $color-grayscale;
   }
 }
 </style>

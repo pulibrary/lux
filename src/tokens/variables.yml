@@ -1,0 +1,23 @@
+#
+# VARIABLES
+# Use these variables in other YAML files.
+#
+
+aliases:
+  princeton_orange_on_white:
+    value: "#e77500"
+  princeton_orange_on_black:
+    value: "#f58025"
+  tan:
+    value: "32, 44%"
+  grayscale:
+    value: "217, 9%"
+  bleu_de_france:
+    value: "210, 60%"
+  rich_black:
+    value: "#001123"
+  white:
+    value: "#fff"
+global:
+  type: global
+  category: aliases
