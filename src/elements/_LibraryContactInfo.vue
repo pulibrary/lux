@@ -14,8 +14,8 @@
 
 <script>
 /**
- * Used to show the University’s copyright notice, including the current year
- * (“© 20xx The Trustees of Princeton University”) in the footer.
+ * Used to show Library's contact information, including address and phone, is
+ * clear and in the footer.
  */
 export default {
   name: "LibraryContactInfo",

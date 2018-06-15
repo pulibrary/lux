@@ -6,8 +6,7 @@
 
 <script>
 /**
- * Used to show the University’s copyright notice, including the current year
- * (“© 20xx The Trustees of Princeton University”) in the footer.
+ * Used to show the University’s Accessibility site in the footer.
  */
 export default {
   name: "UniversityAccessibility",

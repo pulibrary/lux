@@ -1,13 +1,13 @@
 <template>
   <component :is="type" class="university-logo">
-    <svg-icon name="university-logo" ariaLabel="Princeton University" width="200px"></svg-icon>
+    <a href="https://princeton.edu"><svg-icon name="university-logo" ariaLabel="Princeton University" width="200px"></svg-icon></a>
   </component>
 </template>
 
 <script>
 /**
- * Used to show the University’s copyright notice, including the current year
- * (“© 20xx The Trustees of Princeton University”) in the footer.
+ * Used to identify that the site is a Princeton University site in the footer
+ * and links to princeton.edu.
  */
 export default {
   name: "UniversityLogo",
