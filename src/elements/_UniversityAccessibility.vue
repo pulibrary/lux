@@ -1,0 +1,44 @@
+<template>
+  <component :is="type" class="accessibility">
+    <a href="https://accessibility.princeton.edu/">Accessibility</a>
+  </component>
+</template>
+
+<script>
+/**
+ * Used to show the University’s Accessibility site in the footer.
+ */
+export default {
+  name: "UniversityAccessibility",
+  status: "review",
+  release: "1.0.0",
+  type: "Element",
+  props: {
+    /**
+     * The html element name used for the wrapper.
+     */
+    type: {
+      type: String,
+      default: "",
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.accessibility {
+  @include reset;
+  @include stack-space($space-base);
+  font-family: $font-family-heading;
+  font-size: $font-size-x-small;
+  line-height: $line-height-heading;
+  color: $color-rich-black;
+}
+</style>
+
+
+<docs>
+  ```jsx
+  <university-accessibility type="span"></university-accessibility>
+  ```
+</docs>
