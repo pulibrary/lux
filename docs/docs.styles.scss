@@ -70,7 +70,7 @@ div[class^="rsg--wrapper"] > h1[class^="rsg--heading"] {
   padding: $space-x-large $space-x-large;
   width: calc(100% + #{$space-x-large * 2});
   margin: -#{$space-small} -#{$space-x-large} $space-large -#{$space-x-large};
-  background: $color-bleu-de-france-lighter;
+  background: $color-grayscale-lighter;
   font-size: $font-size-xx-large;
   @media (max-width: 1300px) {
     padding: $space-large $space-x-large;
@@ -469,7 +469,7 @@ table[class^="rsg--table"] {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     border-radius: 0;
-    background: $color-bleu-de-france-lighter;
+    background: $color-grayscale-lighter;
     color: tint($color-bleu-de-france, 10%);
     text-align: left;
   }
@@ -589,7 +589,7 @@ ul a[href*="/#!/Private Components"] {
     position: relative;
 
     &::before {
-      background-color: $color-grayscale;
+      background-color: $color-yellow;
       border-radius: 100%;
       bottom: -24px;
       box-shadow: $box-shadow-small;

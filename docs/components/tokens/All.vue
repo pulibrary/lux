@@ -82,7 +82,7 @@ export default {
   }
   thead th {
     padding: $space-small $space-large $space-small $space-small;
-    background: $color-bleu-de-france-lighter;
+    background: $color-grayscale-lighter;
     font-size: $font-size-small;
     font-weight: $font-weight-bold;
     color: $color-bleu-de-france;

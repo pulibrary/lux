@@ -18,67 +18,67 @@ props:
 
   color_tan_darker:
     value: "hsla({!tan}, 33%, 1)"
-    category: color_group_10
+    category: color_group_3
   color_tan_dark:
     value: "hsla({!tan}, 43%, 1)"
-    category: color_group_10
+    category: color_group_3
   color_tan:
     value: "hsla({!tan}, 53%, 1)"
-    category: color_group_10
+    category: color_group_3
   color_tan_light:
     value: "hsla({!tan}, 63%, 1)"
-    category: color_group_10
+    category: color_group_3
   color_tan_lighter:
     value: "hsla({!tan}, 75%, 1)"
-    category: color_group_10
+    category: color_group_3
 
   color_grayscale_darker:
     value: "hsla({!grayscale}, 28%, 1)"
-    category: color_group_10
+    category: color_group_4
   color_grayscale_dark:
     value: "hsla({!grayscale}, 55%, 1)"
-    category: color_group_10
+    category: color_group_4
   color_grayscale:
     value: "hsla({!grayscale}, 62%, 1)"
-    category: color_group_10
+    category: color_group_4
   color_grayscale_light:
     value: "hsla({!grayscale}, 75%, 1)"
-    category: color_group_10
+    category: color_group_4
   color_grayscale_lighter:
     value: "hsla({!grayscale}, 95%, 1)"
-    category: color_group_10
+    category: color_group_4
 
   color_bleu_de_france_darker:
     value: "hsla({!bleu_de_france}, 34%, 1)"
-    category: color_group_10
+    category: color_group_2
   color_bleu_de_france_dark:
     value: "hsla({!bleu_de_france}, 44%, 1)"
-    category: color_group_10
+    category: color_group_2
   color_bleu_de_france:
     value: "hsla({!bleu_de_france}, 43%, 1)"
-    category: color_group_10
+    category: color_group_2
   color_bleu_de_france_light:
     value: "hsla({!bleu_de_france}, 64%, 1)"
-    category: color_group_10
+    category: color_group_2
   color_bleu_de_france_lighter:
     value: "hsla({!bleu_de_france}, 74%, 1)"
-    category: color_group_10
+    category: color_group_2
 
   color_green:
     value: "#7cb518"
-    category: color_group_10
+    category: color_group_5
   color_yellow:
     value: "#FFBA0A"
-    category: color_group_10
+    category: color_group_5
   color_red:
     value: "#C92813"
-    category: color_group_10
+    category: color_group_5
   color_rich_black:
     value: "{!rich_black}"
-    category: color_group_10
+    category: color_group_6
   color_white:
     value: "{!white}"
-    category: color_group_10
+    category: color_group_6
 global:
   type: color
   category: color
