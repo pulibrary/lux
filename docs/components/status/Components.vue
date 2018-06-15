@@ -6,15 +6,15 @@
         <p>Ready</p>
       </li>
       <li>
-        <svg-icon name="review" :fill="tokens.color_ucla_gold.value" size="16px" />
+        <svg-icon name="review" :fill="tokens.color_yellow.value" size="16px" />
         <p>Under review</p>
       </li>
       <li>
-        <svg-icon name="deprecated" :fill="tokens.color_vermilion.value" size="16px" />
+        <svg-icon name="deprecated" :fill="tokens.color_red.value" size="16px" />
       <p>Deprecated</p>
       </li>
       <li>
-        <svg-icon name="prototype" :fill="tokens.color_oxford_blue.value" size="16px" />
+        <svg-icon name="prototype" :fill="tokens.color_bleu_de_france.value" size="16px" />
         <p>Prototype</p>
       </li>
       <li>
@@ -53,19 +53,19 @@
             <svg-icon
               v-if="component.status === 'under-review' || component.status === 'review'"
               name="review"
-              :fill="tokens.color_ucla_gold.value"
+              :fill="tokens.color_yellow.value"
               size="16px"
             />
             <svg-icon
               v-if="component.status === 'prototype'"
               name="prototype"
-              :fill="tokens.color_oxford_blue.value"
+              :fill="tokens.color_bleu_de_france.value"
               size="16px"
             />
             <svg-icon
               v-if="component.status === 'deprecated'"
               name="deprecated"
-              :fill="tokens.color_vermilion.value"
+              :fill="tokens.color_red.value"
               size="16px"
             />
           </td>
@@ -132,10 +132,10 @@ export default {
   }
   thead th {
     padding: $space-small;
-    background: $color-cloud;
+    background: $color-grayscale-lighter;
     font-size: $font-size-small;
     font-weight: $font-weight-bold;
-    color: $color-oxford-blue;
+    color: $color-bleu-de-france;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: $font-weight-semi-bold;
@@ -181,7 +181,7 @@ export default {
     }
     li {
       margin: 0 $space-base 0 0;
-      color: $color-silver;
+      color: $color-grayscale;
       font-size: $font-size-small;
       align-items: center;
       display: flex;

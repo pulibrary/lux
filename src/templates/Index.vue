@@ -44,7 +44,7 @@ $color-template-background: $color-rich-black;
 $color-template-background-top: tint($color-template-background, 5%);
 $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
-$color-template-link: $color-oxford-blue;
+$color-template-link: $color-bleu-de-france;
 
 .index {
   @include reset;
@@ -78,7 +78,7 @@ $color-template-link: $color-oxford-blue;
   }
   a {
     font-family: $font-family-text;
-    color: $color-oxford-blue;
+    color: $color-bleu-de-france;
     text-decoration: underline;
   }
 }

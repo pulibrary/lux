@@ -63,7 +63,7 @@ export default {
   width: 100%;
   span {
     margin-left: 5px;
-    color: $color-silver;
+    color: $color-grayscale;
   }
 }
 </style>

@@ -108,13 +108,13 @@ h3 {
   }
   &:hover {
     span {
-      color: shade($color-silver, 40%);
+      color: shade($color-grayscale, 40%);
     }
   }
   span {
     margin-bottom: $space-x-small;
     line-height: 1.3;
-    color: $color-silver;
+    color: $color-grayscale;
     font-size: $font-size-small;
     width: 100%;
     float: left;

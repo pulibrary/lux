@@ -42,7 +42,7 @@ $color-template-background: $color-rich-black;
 $color-template-background-top: tint($color-template-background, 5%);
 $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
-$color-template-link: $color-oxford-blue;
+$color-template-link: $color-bleu-de-france;
 
 .not-found {
   @include reset;

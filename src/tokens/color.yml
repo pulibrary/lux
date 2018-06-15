@@ -6,91 +6,79 @@
 # To make things a little simpler for your team,
 # utilize both global & local tokens for colors.
 #
-
-aliases:
-  vermilion:
-    value: "7, 83%"
-  ucla_gold:
-    value: "43, 100%"
-  bleu_de_france:
-    value: "210, 86%"
-  oxford_blue:
-    value: "210, 100%"
-  rich_black:
-    value: "#001123"
-  white:
-    value: "#fff"
+imports:
+  - ./variables.yml
 props:
   color_princeton_orange_on_white:
-    value: "#e77500"
+    value: "{!princeton_orange_on_white}"
     category: color_group_1
   color_princeton_orange_on_black:
-    value: "#f58025"
+    value: "{!princeton_orange_on_black}"
     category: color_group_1
 
-  color_vermilion_darker:
-    value: "hsla({!vermilion}, 33%, 1)"
-    category: color_group_10
-  color_vermilion_dark:
-    value: "hsla({!vermilion}, 43%, 1)"
-    category: color_group_10
-  color_vermilion:
-    value: "hsla({!vermilion}, 53%, 1)"
-    category: color_group_10
-  color_vermilion_light:
-    value: "hsla({!vermilion}, 63%, 1)"
-    category: color_group_10
-  color_vermilion_lighter:
-    value: "hsla({!vermilion}, 75%, 1)"
-    category: color_group_10
+  color_tan_darker:
+    value: "hsla({!tan}, 33%, 1)"
+    category: color_group_3
+  color_tan_dark:
+    value: "hsla({!tan}, 43%, 1)"
+    category: color_group_3
+  color_tan:
+    value: "hsla({!tan}, 53%, 1)"
+    category: color_group_3
+  color_tan_light:
+    value: "hsla({!tan}, 63%, 1)"
+    category: color_group_3
+  color_tan_lighter:
+    value: "hsla({!tan}, 75%, 1)"
+    category: color_group_3
 
-  color_ucla_gold_darker:
-    value: "hsla({!ucla_gold}, 35%, 1)"
-    category: color_group_10
-  color_ucla_gold_dark:
-    value: "hsla({!ucla_gold}, 45%, 1)"
-    category: color_group_10
-  color_ucla_gold:
-    value: "hsla({!ucla_gold}, 52%, 1)"
-    category: color_group_10
-  color_ucla_gold_light:
-    value: "hsla({!ucla_gold}, 65%, 1)"
-    category: color_group_10
-  color_ucla_gold_lighter:
-    value: "hsla({!ucla_gold}, 75%, 1)"
-    category: color_group_10
+  color_grayscale_darker:
+    value: "hsla({!grayscale}, 28%, 1)"
+    category: color_group_4
+  color_grayscale_dark:
+    value: "hsla({!grayscale}, 55%, 1)"
+    category: color_group_4
+  color_grayscale:
+    value: "hsla({!grayscale}, 62%, 1)"
+    category: color_group_4
+  color_grayscale_light:
+    value: "hsla({!grayscale}, 75%, 1)"
+    category: color_group_4
+  color_grayscale_lighter:
+    value: "hsla({!grayscale}, 95%, 1)"
+    category: color_group_4
 
   color_bleu_de_france_darker:
     value: "hsla({!bleu_de_france}, 34%, 1)"
-    category: color_group_10
+    category: color_group_2
   color_bleu_de_france_dark:
     value: "hsla({!bleu_de_france}, 44%, 1)"
-    category: color_group_10
+    category: color_group_2
   color_bleu_de_france:
-    value: "hsla({!bleu_de_france}, 54%, 1)"
-    category: color_group_10
+    value: "hsla({!bleu_de_france}, 43%, 1)"
+    category: color_group_2
   color_bleu_de_france_light:
     value: "hsla({!bleu_de_france}, 64%, 1)"
-    category: color_group_10
+    category: color_group_2
   color_bleu_de_france_lighter:
     value: "hsla({!bleu_de_france}, 74%, 1)"
-    category: color_group_10
+    category: color_group_2
 
-  color_oxford_blue:
-    value: "hsla({!oxford_blue}, 15%, 1)"
-    category: color_group_10
+  color_green:
+    value: "#7cb518"
+    category: color_group_5
+  color_yellow:
+    value: "#FFBA0A"
+    category: color_group_5
+  color_red:
+    value: "#C92813"
+    category: color_group_5
   color_rich_black:
     value: "{!rich_black}"
-    category: color_group_10
+    category: color_group_6
   color_white:
     value: "{!white}"
-    category: color_group_10
-  color_silver:
-    value: "#7F8891"
-    category: color_group_10
-  color_cloud:
-    value: "#E9F3FD"
-    category: color_group_10
+    category: color_group_6
 global:
   type: color
   category: color
