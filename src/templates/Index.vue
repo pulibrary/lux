@@ -6,7 +6,6 @@
     ]"/>
     <wrapper>
       <heading level="h1">LUX</heading>
-      <text-style>{{here}}</text-style>
       <text-style>LUX (Library User Experience) is a set of organized tools, patterns, and practices that work as the foundation for PUL web and application development. It aims to increase consistency, improve accessibility, reduce design debt, and accelerate the design and development process. Overall, it aims to illuminate the Library for our users.</text-style>
     </wrapper>
   </component>
@@ -35,15 +34,6 @@ export default {
       type: String,
       default: "div",
     },
-  },
-  computed: {
-    // ...mapGetters(["count"]),
-    here() {
-      return this.$store.getters.here
-    },
-  },
-  mounted: function() {
-    console.log("foo")
   },
 }
 </script>

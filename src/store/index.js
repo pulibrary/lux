@@ -9,14 +9,3 @@ export default new Vuex.Store({
   getters,
   mutations,
 })
-
-// export default new Vuex.Store({
-//   state: {
-//     here: "test",
-//   },
-//   getters: {
-//     here(state) {
-//       return state.here
-//     },
-//   },
-// })
