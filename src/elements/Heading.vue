@@ -1,5 +1,5 @@
 <template>
-  <component :is="level" class="heading">
+  <component :is="level" class="heading" :class="{'hidden': hidden}">
     <slot/>
   </component>
 </template>
@@ -27,6 +27,14 @@ export default {
         return value.match(/(h1|h2|h3|h4|h5|h6)/)
       },
     },
+    /**
+     * Whether the heading is visually hidden or not.
+     * `true, false`
+     */
+    hidden: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
@@ -41,6 +49,9 @@ export default {
   @media #{$media-query-large} {
     // This is how you’d use design tokens with media queries
   }
+}
+.hidden {
+  @include visually-hidden;
 }
 h1 {
   letter-spacing: $letter-spacing-x-small;
@@ -76,7 +87,7 @@ h6 {
 <docs>
   ```jsx
   <div>
-    <heading level="h1">The quick brown fox</heading>
+    <heading level="h1" hidden>The quick brown fox</heading>
     <heading level="h2">The quick brown fox</heading>
     <heading level="h3">The quick brown fox</heading>
     <heading level="h4">The quick brown fox</heading>
