@@ -2,29 +2,20 @@
 <div class="CounterButton">
 	<button class="button"
 		@click.prevent="increment">
-		0
+		{{count}}
 	</button>
-	<span>{{message}}</span>
 </div>
 </template>
 
 <script>
-//import { mapGetters } from "vuex";
-
 /**
  * Button that counts how many times it was pressed and exposes a `@public` method to reset itself.
  */
 export default {
   name: "CounterButton",
-  data: function() {
-    return {
-      message: "hello!",
-    }
-  },
   computed: {
-    // ...mapGetters(["count"]),
-    here() {
-      return this.$store.getters.here
+    count() {
+      return this.$store.getters.count
     },
   },
   methods: {
@@ -32,14 +23,13 @@ export default {
      * Increments the counter. This method is not marked @public and is not visible in the styleguide.
      */
     increment() {
-      console.log(this.$store.getters.here)
-      // this.$store.commit('increment')
-      // /**
-      //  * After increment event
-      //  * @event after
-      //  * @type {number}
-      //  */
-      // this.$emit("after", this.value);
+      this.$store.commit("increment")
+      /**
+       * After increment event
+       * @event after
+       * @type {number}
+       */
+      this.$emit("after", this.value)
     },
   },
 }

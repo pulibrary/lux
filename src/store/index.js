@@ -1,22 +1,22 @@
 import Vue from "vue"
 import Vuex from "vuex"
-// import { state, mutations, getters } from './mutations';
+import { state, mutations, getters } from "./mutations"
 
 Vue.use(Vuex)
 
-// export default new Vuex.Store({
-// 	state,
-// 	getters,
-// 	mutations,
-// });
-
 export default new Vuex.Store({
-  state: {
-    here: "test",
-  },
-  getters: {
-    here(state) {
-      return state.here
-    },
-  },
+  state,
+  getters,
+  mutations,
 })
+
+// export default new Vuex.Store({
+//   state: {
+//     here: "test",
+//   },
+//   getters: {
+//     here(state) {
+//       return state.here
+//     },
+//   },
+// })
