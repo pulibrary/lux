@@ -1,5 +1,5 @@
 <template>
-<div class="CounterButton">
+<div class="VuexCounterButton">
 	<button class="button"
 		@click.prevent="increment">
 		{{count}}
