@@ -9,10 +9,41 @@
 
 <script>
 /**
- * Button that counts how many times it was pressed and exposes a `@public` method to reset itself.
+ * Button that counts how many times it was pressed. State management is handled
+ * by Vuex, so the corresponding Vuex module (_counterModule_) must be loaded
+ * into the application store. Here's a sample application store that uses both a
+ * a local store (with state, mutations, actions, and getters) along with this
+ * _CounterButton_ component vuex module:
+ *
+ * ```
+ *
+ * import Vue from 'vue/dist/vue.esm'
+ * import Vuex from 'vuex'
+ * import state from './vuex/state'
+ * import mutations from './vuex/mutations'
+ * import actions from './vuex/actions'
+ * import getters from './vuex/getters'
+ * import {modules} from 'lux-design-system'
+ * Vue.use(Vuex)
+ * const store = new Vuex.Store({
+ * 	state,
+ * 	mutations,
+ * 	actions,
+ * 	getters,
+ * 	modules: {
+ * 		counter: modules.counterModule,
+ * 	}
+ * })
+ * export default store
+ *
+ * ```
+ *
  */
 export default {
-  name: "CounterButton",
+  name: "VuexCounterButton",
+  status: "prototype",
+  release: "1.0.0",
+  type: "Element",
   computed: {
     count() {
       return this.$store.getters.count
@@ -35,9 +66,10 @@ export default {
 }
 </script>
 <docs>
+<br/>
 Don't forget that you can debug it with [vue-devtools](https://github.com/vuejs/vue-devtools)
 
 ```js
-    <counter-button></counter-button>
+    <vuex-counter-button></vuex-counter-button>
 ```
 </docs>
