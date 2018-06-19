@@ -46,16 +46,16 @@ export default {
        * @event increment
        * @type {number}
        */
-      this.$parent.$emit("update:count", this.mutableCount)
+      this.$emit("update-count", this.mutableCount)
     },
     decrement() {
       this.mutableCount = this.mutableCount - 1
       /**
-       * After increment event
+       * After decrement event
        * @event decrement
        * @type {number}
        */
-      this.$parent.$emit("update:count", this.mutableCount)
+      this.$emit("update-count", this.mutableCount)
     },
   },
 }

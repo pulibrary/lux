@@ -1,14 +1,18 @@
 <template>
-  <component :is="type" class="index">
-    <counter v-bind:count="count"
-  v-on:update:count="count = $event"></counter>
-    <svg-icon name="pul-icon-warning" v-on:update:count = "updateColor($event)" v-bind:fill="iconColor" width="55px"></svg-icon>
-  </component>
+  <div id="counter-event-example">
+    <counter @update-count="updateTotal($event)"></counter>
+    <svg-icon v-if="total >= 5" key="warning" name="pul-icon-warning" fill="rgb(255,0,0)" width="55px"></svg-icon>
+    <svg-icon v-else key="digital" name="pul-icon-digital" fill="rgb(0, 0, 239)" width="55px"></svg-icon>
+  </div>
 </template>
 
 <script>
 /**
- * Shows how to layout and structure a home page.
+ * This example is a grouping of the _counter_ and the _svg-icon_ elements. It
+ * demonstrates how to do simple state management in a template. When the counter total
+ * reaches 5, the icon is replaced by a warning.
+ *
+ * More complex state management should be handled with Vuex.
  */
 export default {
   name: "CounterIcon",
@@ -16,14 +20,15 @@ export default {
   release: "1.0.0",
   type: "Template",
   metaInfo: {
-    title: "LUX Counter Icon",
+    title: "LUX Counter Icon: Simple State Management",
     htmlAttrs: {
       lang: "en",
     },
   },
   data: function() {
     return {
-      iconColor: "rgb(37, 138, 239)",
+      iconColor: "rgb(0, 0, 239)",
+      total: 0,
     }
   },
   props: {
@@ -40,9 +45,8 @@ export default {
     },
   },
   methods: {
-    updateColor(event) {
-      console.log(event)
-      this.iconColor = "rgb(255,0,0)"
+    updateTotal(event) {
+      this.total = event
     },
   },
 }
