@@ -3,6 +3,8 @@
  * Used both in dev environment and when exporting the system.
  */
 import instance from "@/utils/vueInstance"
+import vuexModules from "@/store/modules"
+export const modules = vuexModules
 
 // Defines contexts to require
 const contexts = [

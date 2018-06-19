@@ -143,4 +143,5 @@ module.exports = {
   //     res.redirect(req.params.file)
   //   })
   // },
+  vuex: "../src/store/index",
 }
