@@ -1,6 +1,6 @@
 <template>
   <div id="counter-event-example">
-    <counter @update-count="updateTotal($event)"></counter>
+    <counter :count="passedCount" @update-count="updateTotal($event)"></counter>
     <svg-icon v-if="total >= 5" key="warning" name="pul-icon-warning" fill="rgb(255,0,0)" width="55px"></svg-icon>
     <svg-icon v-else key="digital" name="pul-icon-digital" fill="rgb(0, 0, 239)" width="55px"></svg-icon>
   </div>
@@ -29,6 +29,7 @@ export default {
     return {
       iconColor: "rgb(0, 0, 239)",
       total: 0,
+      passedCount: parseInt(this.count),
     }
   },
   props: {
@@ -57,6 +58,6 @@ export default {
 
 <docs>
   ```jsx
-  <counter-icon></counter-icon>
+  <counter-icon count="4"></counter-icon>
   ```
 </docs>
