@@ -16,52 +16,22 @@ export const counterModule = {
 }
 
 export const resourceModule = {
-  state: { resource: { id: "", label: "Resource not available." } },
+  state: { resource: { id: "", label: "Resource not available.", isMultiVolume: false, members: [] } },
 
   mutations: {
     SET_RESOURCE(state, resource) {
-      state.resource = resource
+      state.resource.id = resource.id
+      state.resource.label = resource.label
+      state.resource.members = resource.members
     },
   },
 
-  // actions: {
-  //   async getResourceById({ commit }, id) {
-  //     console.time(`getResourceById ${id}`)
-  //
-  //     if(typeof gql !== "undefined") {
-  //       const query = gql`
-  //         query GetResource($id: ID!) {
-  //           resource(id: $id) {
-  //             id,
-  //             label
-  //           }
-  //         }`
-  //
-  //       const variables = {
-  //         id: id
-  //       }
-  //
-  //       const response = await apollo.query({
-  //         query, variables
-  //       })
-  //
-  //       // const { getResource } = response.data
-  //       // commit('SET_RESOURCE', { getResource })
-  //       const resource = response.data
-  //       commit('SET_RESOURCE', resource)
-  //     } else {
-  //       // This is for demo purposes on LUX Docs site.
-  //       const resource = {id: id, label: "Resource with ID: " + id }
-  //       commit('SET_RESOURCE', resource )
-  //     }
-  //
-  //     console.timeEnd(`getResourceById ${id}`)
-  //   },
-  // },
+  // actions: any async actions are should be handled by the host app
 
   getters: {
-    label: state => {
-      return state.resource.label
+    isMultiVolume: state => {
+      const volumes = state.resource.members.filter(member => member.__typename === "ScannedResource")
+      return volumes.length > 0 ? true : false
     },
   },
 }
