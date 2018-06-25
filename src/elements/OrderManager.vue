@@ -1,5 +1,10 @@
 <template>
 <div class="OrderManager">
+  <transition name="fade">
+    <div v-if="loading" class="overlay">
+      <loader size="medium"></loader>
+    </div>
+  </transition>
   <div class="title">{{resource.label}}</div>
   <div>MultiVolume: {{ isMultiVolume }}</div>
   <ul>
@@ -15,11 +20,10 @@ import { mapState, mapGetters } from "vuex"
 /**
  * OrderManager comes with its own Vuex store that it needs to manage state.
  * The easiest way to load the OrderManager is to simply pass a resource in as a prop.
- * You can try this below by adding `:resource-object="{id: 'foo', label: 'bar'}"` as an attribute/prop
- * to the ``<ordermanager>` component.
+ * You can see how this is done in the example below.
  *
  * You can also use an API that will update the store. To do this, you
- * could wrap the OrderManager in a component that handles any syncing between the backend
+ * could wrap the OrderManager (with no attributes/props) in a component that handles any syncing between the backend
  * and the Vuex store. Example: [todo]
  */
 export default {
@@ -34,10 +38,13 @@ export default {
     ...mapState({
       resource: state => state.ordermanager.resource,
     }),
+    loading: function() {
+      return this.resource.loadState !== "LOADED" ? true : false
+    },
   },
   props: {
     /**
-     * The html element name used for the nav bar.
+     * The resource object in json format. Example: [todo]
      */
     resourceObject: {
       type: Object,
@@ -46,6 +53,7 @@ export default {
   },
   mounted() {
     if (this.resourceObject) {
+      // if props are passed in set the resource on mount
       this.$store.commit("SET_RESOURCE", this.resourceObject)
     }
   },
@@ -60,6 +68,6 @@ export default {
 Don't forget that you can debug it with [vue-devtools](https://github.com/vuejs/vue-devtools)
 
 ```js
-    <order-manager></order-manager>
+    <order-manager :resource-object="{id: 'foo', label: 'My Component', members: []}"></order-manager>
 ```
 </docs>
