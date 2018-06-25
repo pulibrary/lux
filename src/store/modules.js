@@ -27,6 +27,9 @@ export const resourceModule = {
   },
 
   mutations: {
+    CHANGE_RESOURCE_LOAD_STATE(state, loadState) {
+      state.resource.loadState = loadState
+    },
     SET_RESOURCE(state, resource) {
       state.resource.id = resource.id
       state.resource.label = resource.label
