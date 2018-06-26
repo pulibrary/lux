@@ -6,7 +6,8 @@
 
 <script>
 /**
- * Loaders are ...
+ * Loaders indicate to the user that the component is waiting for some task to finish
+ * before updating the view.
  */
 export default {
   name: "Loader",
