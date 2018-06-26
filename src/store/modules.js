@@ -16,13 +16,25 @@ export const counterModule = {
 }
 
 export const resourceModule = {
-  state: { resource: { id: "", label: "Resource not available.", isMultiVolume: false, members: [] } },
+  state: {
+    resource: {
+      id: "",
+      label: "Resource not available.",
+      isMultiVolume: false,
+      members: [],
+      loadState: "NOT_LOADED",
+    },
+  },
 
   mutations: {
+    CHANGE_RESOURCE_LOAD_STATE(state, loadState) {
+      state.resource.loadState = loadState
+    },
     SET_RESOURCE(state, resource) {
       state.resource.id = resource.id
       state.resource.label = resource.label
       state.resource.members = resource.members
+      state.resource.loadState = "LOADED"
     },
   },
 
