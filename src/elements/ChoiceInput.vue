@@ -1,20 +1,32 @@
 <template>
   <component :is="wrapper" class="input">
     <label v-if="label">{{ label }}</label>
-    <input
+    <!-- type = select -->
+    <select v-if="isSelect"
       :id="id"
-      :disabled="disabled"
-      :type="type"
-      :hover="hover"
-      :focus="focus"
-      :value="value"
-      :placeholder="placeholder"
-      :errormessage="errormessage"
       :class="['input', { 'input-error': hasError }, {'input-expand': width === 'expand'}]"
-      @input="input($event.target.value)"
-      @blur="inputblur($event.target)"
-      />
-      <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
+      :disabled="disabled"
+      :focus="focus"
+      :errormessage="errormessage"
+      @change="change($event.target.value)"
+      @blur="inputblur($event.target)">
+        <option
+          v-for="(option, index) in options"
+          :key="index"
+          :value="option.value"
+          :disabled="option.disabled"
+          :selected="option.selected">
+          {{ option.label }}
+        </option>
+    </select>
+    <!-- type = checkbox -->
+    <fieldset v-if="isCheckbox">
+      <div v-for="(option, index) in options">
+        <input type="checkbox" :id="option.id" :name="option.label" :value="option.value" :checked="option.selected">
+        <label :for="option.id">{{ option.label | snakeToTitleCase }}</label>
+      </div>
+    </fieldset>
+    <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
   </component>
 </template>
 
@@ -25,40 +37,42 @@
  * formats including numbers. For longer input, use the `FormTextarea` element.
  */
 export default {
-  name: "FormInput",
-  status: "ready",
+  name: "ChoiceInput",
+  status: "prototype",
   release: "1.0.0",
   type: "Element",
   computed: {
     hasError() {
       return this.errormessage.length
     },
+    isSelect() {
+      return this.type === "select"
+    },
+    isCheckbox() {
+      return this.type === "checkbox"
+    },
+    isRadio() {
+      return this.type === "radio"
+    },
   },
   props: {
     /**
-     * The type of the form input field.
-     * `text, number, email`
+     * The type of the choice input field.
+     * `radio, checkbox, select`
      */
     type: {
       type: String,
-      default: "text",
+      default: "select",
       validator: value => {
-        return value.match(/(text|number|email)/)
+        return value.match(/(radio|checkbox|select)/)
       },
     },
     /**
-     * Text value of the form input field.
+     * The available options to check.
      */
-    value: {
-      type: String,
-      default: "",
-    },
-    /**
-     * The placeholder value for the form input field.
-     */
-    placeholder: {
-      type: String,
-      default: "",
+    options: {
+      required: true,
+      type: Array,
     },
     /**
      * The label of the form input field.
@@ -130,11 +144,23 @@ export default {
     },
   },
   methods: {
-    input(value) {
+    change(value) {
       this.$emit("change", value)
     },
     inputblur(value) {
       this.$emit("inputblur", value)
+    },
+  },
+  filters: {
+    snakeToTitleCase: function(value) {
+      if (!value) return ""
+      //ref: https://gist.github.com/kkiernan/91298079d34f0f832054
+      return value
+        .split("_")
+        .map(function(item) {
+          return item.charAt(0).toUpperCase() + item.substring(1)
+        })
+        .join(" ")
     },
   },
 }
@@ -215,11 +241,6 @@ $color-placeholder: tint($color-grayscale, 50%);
 
 <docs>
   ```jsx
-  <div>
-    <form-input label="Input" placeholder="Write your text" />
-    <form-input label=":hover" hover placeholder="Write your text" />
-    <form-input label=":focus" focus placeholder="Write your text" />
-    <form-input label="[disabled]" disabled placeholder="Disabled input" />
-  </div>
+  <choice-input id="myChoice" type="select" :options="[{label: 'opt 1', value: 'foo', selected: true}, {label: 'opt 2', value: 'bar'}]"></choice-input>
   ```
 </docs>
