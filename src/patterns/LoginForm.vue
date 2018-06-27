@@ -1,7 +1,7 @@
 <template>
   <form id="app" novalidate="true">
-    <form-input id="email" :errormessage="errormessageEmail" :value="emailValue" label="Email" @inputblur="validate($event)" placeholder="Write your text" />
-    <form-input id="pwd" :errormessage="errormessagePwd" :value="pwdValue" label="Password" @inputblur="validate($event)" placeholder="Write your text" />
+    <input-text id="email" :errormessage="errormessageEmail" :value="emailValue" label="Email" @inputblur="validate($event)" placeholder="Write your text" />
+    <input-text id="pwd" :errormessage="errormessagePwd" :value="pwdValue" label="Password" @inputblur="validate($event)" placeholder="Write your text" />
   </form>
 </template>
 
