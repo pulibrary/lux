@@ -2,7 +2,7 @@
   <component :is="wrapper" class="input">
     <label v-if="label">{{ label }}</label>
     <div v-for="(option, index) in options" :class="{ inline: !vertical }">
-      <input type="checkbox"
+      <input type="radio"
       :id="option.id"
       :name="label"
       :value="option.value"
@@ -23,7 +23,7 @@
  * formats including numbers. For longer input, use the `FormTextarea` element.
  */
 export default {
-  name: "InputCheckbox",
+  name: "InputRadio",
   status: "prototype",
   release: "1.0.0",
   type: "Element",
@@ -34,14 +34,14 @@ export default {
   },
   props: {
     /**
-     * If true, the checkboxes will be stacked vertically. Otherwise they will be horizontal (inline).
+     * If true, the radio buttons will be stacked vertically. Otherwise they will be horizontal (inline).
      */
     vertical: {
       type: Boolean,
       default: false,
     },
     /**
-     * The available options to check.
+     * The available options to check. Option properties are: id, value, disabled, checked
      */
     options: {
       required: true,
@@ -125,6 +125,6 @@ export default {
 
 <docs>
   ```jsx
-  <input-checkbox label="Where is my mind?" id="myChoice" :options="[{label: 'opt 1', value: 'In the clouds', checked: true}, {label: 'opt 2', value: 'I don\'t know'}]"></choice-input>
+  <input-radio vertical=true label="Where is my mind?" id="myChoice" :options="[{label: 'opt 1', value: 'In the clouds', checked: true}, {label: 'opt 2', value: 'I don\'t know'}]"></choice-input>
   ```
 </docs>
