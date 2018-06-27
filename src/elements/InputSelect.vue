@@ -1,61 +1,68 @@
 <template>
   <component :is="wrapper" class="input">
     <label v-if="label">{{ label }}</label>
-    <input
+    <select
       :id="id"
+      :class="['input', { 'input-error': hasError }, {'input-expand': width === 'expand'}]"
       :disabled="disabled"
-      :type="type"
-      :hover="hover"
       :focus="focus"
-      :value="value"
-      :placeholder="placeholder"
-      :class="['input', {'input-expand': width === 'expand'}]"
-      @input="input($event.target.value)"
-      />
+      :multiple="multiple"
+      :errormessage="errormessage"
+      @change="change($event.target.value)"
+      @blur="inputblur($event.target)">
+        <option
+          v-for="(option, index) in options"
+          :key="index"
+          :value="option.value"
+          :disabled="option.disabled"
+          :selected="option.selected">
+          {{ option.label }}
+        </option>
+    </select>
+    <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
   </component>
 </template>
 
 <script>
 /**
- * Form Inputs are used to allow users to provide text input when the expected
- * input is short. Form Input has a range of options and supports several text
- * formats including numbers. For longer input, use the `FormTextarea` element.
+ * Input Selects are used to allow users to choose among a number of options.
  */
 export default {
-  name: "FormInput",
-  status: "ready",
+  name: "InputSelect",
+  status: "prototype",
   release: "1.0.0",
   type: "Element",
+  computed: {
+    hasError() {
+      return this.errormessage.length
+    },
+  },
   props: {
     /**
-     * The type of the form input field.
-     * `text, number, email`
+     * Determines whether the user can select multiple options.
      */
-    type: {
-      type: String,
-      default: "text",
-      validator: value => {
-        return value.match(/(text|number|email)/)
-      },
+    multiple: {
+      type: Boolean,
+      default: false,
     },
     /**
-     * Text value of the form input field.
+     * The available options to check.
      */
-    value: {
-      type: String,
-      default: "",
+    options: {
+      required: true,
+      type: Array,
     },
     /**
-     * The placeholder value for the form input field.
-     */
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    /**
-     * The label of the form input field.
+     * The label of the input select field.
      */
     label: {
+      type: String,
+      default: "",
+    },
+    /**
+     * The validation message a user should get.
+     */
+    errormessage: {
       type: String,
       default: "",
     },
@@ -71,14 +78,15 @@ export default {
       },
     },
     /**
-     * Unique identifier of the form input field.
+     * Unique identifier of the input select field.
      */
     id: {
       type: String,
       default: "",
+      required: true,
     },
     /**
-     * The width of the form input field.
+     * The width of the input select field.
      * `auto, expand`
      */
     width: {
@@ -114,8 +122,23 @@ export default {
     },
   },
   methods: {
-    input(value) {
+    change(value) {
       this.$emit("change", value)
+    },
+    inputblur(value) {
+      this.$emit("inputblur", value)
+    },
+  },
+  filters: {
+    snakeToTitleCase: function(value) {
+      if (!value) return ""
+      //ref: https://gist.github.com/kkiernan/91298079d34f0f832054
+      return value
+        .split("_")
+        .map(function(item) {
+          return item.charAt(0).toUpperCase() + item.substring(1)
+        })
+        .join(" ")
     },
   },
 }
@@ -140,6 +163,13 @@ $color-placeholder: tint($color-grayscale, 50%);
     font-size: $font-size-small;
     color: tint($color-rich-black, 20%);
     @include stack-space($space-x-small);
+  }
+  .error {
+    margin-top: $space-x-small;
+    color: $color-red;
+  }
+  .input-error {
+    border: 1px solid $color-red;
   }
   input {
     @include reset;
@@ -189,11 +219,6 @@ $color-placeholder: tint($color-grayscale, 50%);
 
 <docs>
   ```jsx
-  <div>
-    <form-input label="Input" placeholder="Write your text" />
-    <form-input label=":hover" hover placeholder="Write your text" />
-    <form-input label=":focus" focus placeholder="Write your text" />
-    <form-input label="[disabled]" disabled placeholder="Disabled input" />
-  </div>
+  <input-select id="myChoice" :options="[{label: 'opt 1', value: 'foo', selected: true}, {label: 'opt 2', value: 'bar'}]"></choice-input>
   ```
 </docs>
