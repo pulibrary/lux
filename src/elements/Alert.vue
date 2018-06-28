@@ -1,7 +1,24 @@
 <template>
-  <div :class="['alert', { 'alert-success': isSuccess }, { 'alert-info': isInfo },]" @systemalert="showAlert($event)" role="alert">
-    {{ alertMessage }}
-  </div>
+  <transition name="fade">
+    <div v-if="show"
+      :class="['alert',
+              {'alert-dismissible': dismissible},
+              { 'alert-success': isSuccess },
+              { 'alert-warning': isWarning },
+              { 'alert-error': isError },
+              { 'alert-info': isInfo },
+              { 'alert-fullscreen': isFullScreen },]"
+              @click="hideAlert()"
+              @systemalert="showAlert($event)"
+              role="alert">
+      <slot>
+      {{ alertMessage }}
+      </slot>
+      <button v-if="dismissible" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -21,7 +38,8 @@ export default {
   },
   data: function() {
     return {
-      alertMessage: "Something just happened, but we don't know what.",
+      alertMessage: "Something happened, but we're not sure what.",
+      show: true,
     }
   },
   computed: {
@@ -30,6 +48,15 @@ export default {
     },
     isInfo() {
       return this.status === "info" ? true : false
+    },
+    isWarning() {
+      return this.status === "warning" ? true : false
+    },
+    isError() {
+      return this.status === "error" ? true : false
+    },
+    isFullScreen() {
+      return this.type === "alert" ? true : false
     },
   },
   props: {
@@ -54,7 +81,7 @@ export default {
       },
     },
     /**
-     * Automatically hides the notification.
+     * Automatically hides the notification after 2 seconds.
      */
     autoclear: {
       type: Boolean,
@@ -71,12 +98,36 @@ export default {
   methods: {
     showAlert(event) {
       console.log(event)
+      if (this.autoclear) {
+        setTimeout(() => {
+          this.show = false
+        }, 500)
+      }
     },
+    hideAlert() {
+      this.show = false
+    },
+  },
+  mounted() {
+    if (this.autoclear) {
+      setTimeout(() => {
+        this.show = false
+      }, 2000)
+    }
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.alert-fullscreen {
+  position: absolute;
+  left: 0px;
+  top: 100px;
+  left: 50%; /* move the left edge to the center … */
+  // margin-left: -275px; /* … and move it to the left half the box’ width. */
+  z-index: 9999;
+}
+
 .alert {
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
@@ -103,10 +154,50 @@ export default {
   border-color: #bcdff1;
   color: #31708f;
 }
+
+.alert-dismissible .close {
+  position: relative;
+  top: -0.95rem;
+  right: -1.25rem;
+  padding: 0.75rem 1.25rem;
+  color: inherit;
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
 
 <docs>
   ```jsx
-  <alert></alert>
+  <div>
+    <alert status="warning" autoclear=true>How to disappear completely...</alert>
+    <alert status="error"></alert>
+    <alert status="success">Like a boss!</alert>
+    <alert status="info" dismissible=true>Here's some dismissible info for you.</alert>
+  </div>
   ```
 </docs>
