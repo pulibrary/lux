@@ -1,6 +1,6 @@
 <template>
   <component :is="wrapper" class="input">
-    <label v-if="label">{{ label }}</label>
+    <label v-if="label" :for="id">{{ label }}</label>
     <select
       :id="id"
       :class="['input', { 'input-error': hasError }, {'input-expand': width === 'expand'}]"
@@ -219,6 +219,6 @@ $color-placeholder: tint($color-grayscale, 50%);
 
 <docs>
   ```jsx
-  <input-select id="myChoice" :options="[{label: 'opt 1', value: 'foo', selected: true}, {label: 'opt 2', value: 'bar'}]"></choice-input>
+  <input-select label="Select..." id="myChoice" :options="[{label: 'opt 1', value: 'foo', selected: true}, {label: 'opt 2', value: 'bar'}]"></input-select>
   ```
 </docs>
