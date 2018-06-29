@@ -14,7 +14,7 @@
       </li>
     </ul>
   </wrapper>
-  <wrapper class="sidePanel" type="div">
+  <wrapper class="sidePanel" type="div" :fullWidth="false">
     <resource-form></resource-form>
   </wrapper>
 </div>
