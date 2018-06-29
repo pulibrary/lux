@@ -1,5 +1,6 @@
 <template>
-  <component :is="type" class="wrapper">
+  <component :is="type" class="wrapper"
+    :class="['wrapper', { 'full-width': fullWidth }]">
     <slot/>
   </component>
 </template>
@@ -22,6 +23,13 @@ export default {
       type: String,
       default: "div",
     },
+    /**
+     * Determines whether the wrapper takes up 100% of the parent container.
+     */
+    fullWidth: {
+      type: Boolean,
+      default: true,
+    },
   },
 }
 </script>
@@ -34,9 +42,11 @@ export default {
   font-weight: $font-weight-regular;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  width: 100%;
   @media #{$media-query-large} {
     @include inset-space($space-x-large);
+  }
+  .full-width {
+    width: 100%;
   }
 }
 </style>

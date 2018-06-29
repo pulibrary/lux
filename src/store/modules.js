@@ -19,9 +19,12 @@ export const resourceModule = {
   state: {
     resource: {
       id: "",
+      bibId: "",
       label: "Resource not available.",
       isMultiVolume: false,
       members: [],
+      viewingHint: null,
+      viewingDirection: null,
       loadState: "NOT_LOADED",
     },
   },
@@ -34,13 +37,23 @@ export const resourceModule = {
       state.resource.id = resource.id
       state.resource.label = resource.label
       state.resource.members = resource.members
+      state.resource.viewingHint = resource.viewingHint
       state.resource.loadState = "LOADED"
+    },
+    UPDATE_VIEWDIR(state, viewDir) {
+      state.viewingDirection = viewDir
+    },
+    UPDATE_VIEWHINT(state, viewHint) {
+      state.resource.viewingHint = viewHint
     },
   },
 
   // actions: any async actions are should be handled by the host app
 
   getters: {
+    getMemberCount: state => {
+      return state.resource.members.length
+    },
     isMultiVolume: state => {
       const volumes = state.resource.members.filter(member => member.__typename === "ScannedResource")
       return volumes.length > 0 ? true : false

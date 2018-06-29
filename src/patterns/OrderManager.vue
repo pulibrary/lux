@@ -1,17 +1,22 @@
 <template>
-<div class="OrderManager">
+<div class="orderManager">
   <transition name="fade">
     <div v-if="loading" class="overlay">
       <loader size="medium"></loader>
     </div>
   </transition>
-  <div class="title">{{resource.label}}</div>
-  <div>MultiVolume: {{ isMultiVolume }}</div>
-  <ul>
-    <li v-for="member in resource.members">
-      {{ member.id }} : {{ member.__typename }}
-    </li>
-  </ul>
+  <wrapper class="galleryPanel" type="div">
+    <div class="title">{{resource.label}}</div>
+    <div>MultiVolume: {{ isMultiVolume }}</div>
+    <ul>
+      <li v-for="member in resource.members">
+        {{ member.id }} : {{ member.__typename }}
+      </li>
+    </ul>
+  </wrapper>
+  <wrapper class="sidePanel" type="div" :fullWidth="false">
+    <resource-form></resource-form>
+  </wrapper>
 </div>
 </template>
 
@@ -163,11 +168,62 @@ export default {
 .title {
   font-weight: bold;
 }
+.orderManager {
+  position: relative;
+  height: 80vh;
+}
+.sidePanel {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  height: 95%;
+  width: 28.5%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  padding: 0 30px 0 30px;
+  // height: 100%;
+  overflow-y: scroll;
+}
+.galleryPanel {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  height: 95%;
+  width: 70%;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
 </style>
 <docs>
 <br/>Don't forget that you can debug it with [vue-devtools](https://github.com/vuejs/vue-devtools)
 
 ```js
-    <order-manager :resource-object="{id: 'foo', label: 'My Component', members: []}"></order-manager>
+    <order-manager :resource-object='{
+      "id": "aea40813-e0ed-4307-aae9-aec53b26bdda",
+      "label": "Resource with 3 files",
+      "viewingHint": "individuals",
+      "__typename": "ScannedResource",
+      "members": [
+        {
+          "id": "8ffd7a03-ec0e-46c1-a347-e4b19cb7839f",
+          "label": "example.tif",
+          "viewingHint": null,
+          "__typename": "FileSet"
+        },
+        {
+          "id": "8f0a0908-317f-414e-a78a-c38a4a3b28e3",
+          "label": "example.tif",
+          "viewingHint": null,
+          "__typename": "FileSet"
+        },
+        {
+          "id": "ea01019e-f644-4416-b99c-1b44bf49d060",
+          "label": "example.tif",
+          "viewingHint": null,
+          "__typename": "FileSet"
+        }
+      ]
+    }'></order-manager>
 ```
 </docs>
