@@ -1,17 +1,16 @@
 <template>
   <component :is="wrapper" class="input">
     <legend v-if="groupLabel">{{ groupLabel }}</legend>
-    <div v-for="(option, index) in options" class="checkbox" :class="{ inline: !vertical }">
+    <div v-for="(option, index) in options" :class="{ inline: !vertical }">
       <input type="checkbox"
       :id="option.id"
-      :name="option.name"
+      :name="label"
       :value="option.value"
       :checked="option.checked"
       :disabled="option.disabled"
       @change="change($event.target.value)"
       @blur="inputblur($event.target)">
       <label :for="option.id">{{ option.value }}</label>
-      <span></span>
     </div>
     <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
   </component>
@@ -19,14 +18,20 @@
 
 <script>
 /**
- * Checkboxes should only be used when a user can select one or more options.
- * For mutual exclusion use radio buttons.
+ * Form Inputs are used to allow users to provide text input when the expected
+ * input is short. Form Input has a range of options and supports several text
+ * formats including numbers. For longer input, use the `FormTextarea` element.
  */
 export default {
   name: "InputCheckbox",
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  data: function() {
+    return {
+      wrapper: this.groupLabel.length ? "fieldset" : "div",
+    }
+  },
   computed: {
     hasError() {
       return this.errormessage.length
@@ -50,7 +55,7 @@ export default {
     /**
      * The label of the form input field.
      */
-    groupLabel: {
+    label: {
       type: String,
       default: "",
     },
@@ -65,12 +70,9 @@ export default {
      * The html element name used for the wrapper.
      * `div, section`
      */
-    wrapper: {
+    groupLabel: {
       type: String,
-      default: "div",
-      validator: value => {
-        return value.match(/(div|section|fieldset)/)
-      },
+      default: "",
     },
     /**
      * Unique identifier of the form input field.
@@ -231,6 +233,6 @@ fieldset {
 
 <docs>
   ```jsx
-  <input-checkbox wrapper="fieldset" groupLabel="Where is my mind?" :options="[{name: 'opt 1', value: 'In the clouds', id: 'checkbox-opt1', checked: true}, {name: 'opt 2', value: 'I don\'t know', id: 'checkbox-opt2'}]"></input-checkbox>
+  <input-checkbox groupLabel="Where is my mind?" :options="[{name: 'opt 1', value: 'In the clouds', id: 'checkbox-opt1', checked: true}, {name: 'opt 2', value: 'I don\'t know', id: 'checkbox-opt2'}]"></input-checkbox>
   ```
 </docs>

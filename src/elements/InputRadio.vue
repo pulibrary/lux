@@ -26,6 +26,11 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  data: function() {
+    return {
+      wrapper: this.groupLabel.length ? "fieldset" : "div",
+    }
+  },
   computed: {
     hasError() {
       return this.errormessage.length
@@ -59,17 +64,6 @@ export default {
     errormessage: {
       type: String,
       default: "",
-    },
-    /**
-     * The html element name used for the wrapper.
-     * `div, section`
-     */
-    wrapper: {
-      type: String,
-      default: "div",
-      validator: value => {
-        return value.match(/(div|section|fieldset)/)
-      },
     },
     /**
      * Unique identifier of the form input field.
@@ -227,6 +221,6 @@ fieldset {
 
 <docs>
   ```jsx
-  <input-radio vertical wrapper="fieldset" groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
+  <input-radio vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
   ```
 </docs>

@@ -3,7 +3,28 @@
     <heading level="h2">Set Properties <small>for this <span>multi-volume</span> resource</small></heading>
      <!-- <span class="file_count">Total files: {{fileCount}}</span><span v-if="bibId" class="bibid"> | BibId: {{bibId}}</span> -->
     <form id="app" novalidate="true">
-      <input-radio vertical id="viewDir" groupLabel="Viewing Direction" :options="[{name: 'viewDir', value: 'left-to-right', id: 'radio-opt1'}, {name: 'viewDir', value: 'right-to-left', id: 'radio-opt2'}, {name: 'viewDir', value: 'top-to-bottom', id: 'radio-opt3'}, {name: 'viewDir', value: 'bottom-to-top', id: 'radio-opt4'}]"></input-radio>
+      <input-radio vertical id="viewDir" groupLabel="Viewing Direction"
+        :options="[
+        {
+          name: 'viewDir',
+          value: 'left-to-right',
+          id: 'radio-opt1'
+        },
+        {
+          name: 'viewDir',
+          value: 'right-to-left',
+          id: 'radio-opt2'
+        },
+        {
+          name: 'viewDir',
+          value: 'top-to-bottom',
+          id: 'radio-opt3'
+        },
+        {
+          name: 'viewDir',
+          value: 'bottom-to-top',
+          id: 'radio-opt4'
+        }]"></input-radio>
       <input-radio vertical id="viewHint" groupLabel="Viewing Hint" :options="[{name: 'viewHint', value: 'individuals', id: 'radio-opt1'}, {name: 'viewHint', value: 'paged', id: 'radio-opt2'}, {name: 'viewHint', value: 'continuous', id: 'radio-opt3'}]"></input-radio>
     </form>
   </div>

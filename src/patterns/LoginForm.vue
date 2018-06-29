@@ -1,7 +1,14 @@
 <template>
   <form id="app" novalidate="true">
+    <alert v-if="alert" type="alert" :status="alertStatus" :autoclear=true>{{ alertMessage }}</alert>
     <input-text id="email" :errormessage="errormessageEmail" :value="emailValue" label="Email" @inputblur="validate($event)" placeholder="Write your text" />
     <input-text id="pwd" :errormessage="errormessagePwd" :value="pwdValue" label="Password" @inputblur="validate($event)" placeholder="Write your text" />
+    <input-button v-on:system-alert="showAlert($event)"
+      :customAlertEvent="{ 'alertStatus': 'success', 'alertMessage': 'Successfully logged in!'}"
+      type="button"
+      variation="solid" block>
+        Login
+    </input-button>
   </form>
 </template>
 
@@ -30,6 +37,9 @@ export default {
       errormessagePwd: "",
       emailValue: "",
       pwdValue: "",
+      alert: false,
+      alertStatus: "info",
+      alertMessage: "Testing",
     }
   },
   methods: {
@@ -50,6 +60,11 @@ export default {
           this.errormessagePwd = ""
         }
       }
+    },
+    showAlert(values) {
+      this.alertMessage = values.alertMessage
+      this.alertStatus = values.alertStatus
+      this.alert = true
     },
   },
 }

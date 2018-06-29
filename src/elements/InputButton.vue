@@ -1,5 +1,12 @@
 <template>
-  <button :type="type" :class="[variation, size, {'expanded' : (block==true) }]" :disabled="disabled">{{label}}</button>
+  <button :type="type"
+    :class="[variation, size, {'expanded' : (block==true) }]"
+    :disabled="disabled"
+    @click="buttonClicked($event)">
+    <slot>
+    {{ label }}
+    </slot>
+  </button>
 </template>
 
 <script>
@@ -12,14 +19,12 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  data: function() {
+    return {
+      label: "Submit",
+    }
+  },
   props: {
-    /**
-     * Sets the text in the button
-     */
-    label: {
-      type: String,
-      default: "",
-    },
     /**
      * The button's type attribute
      */
@@ -58,19 +63,33 @@ export default {
       default: "false",
     },
     /**
-     * Whether the button has been toggled and in progress
-     */
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    /**
      * Whether the button is disabled or not
      * `true, false`
      */
     disabled: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Clicking this button can emit a custom event that should trigger an alert.
+     * You must supply an alertStatus and alertMessage, like so:
+     * { 'alertStatus': 'success', 'alertMessage': 'This is my message.'}
+     */
+    customAlertEvent: {
+      type: Object,
+      default: null,
+    },
+  },
+  methods: {
+    buttonClicked(value) {
+      if (this.customAlertEvent) {
+        this.$emit("system-alert", {
+          event: value,
+          alertStatus: this.customAlertEvent.alertStatus,
+          alertMessage: this.customAlertEvent.alertMessage,
+        })
+      }
+      this.$emit("button-clicked", value)
     },
   },
 }
@@ -146,13 +165,13 @@ button {
 <docs>
   ```jsx
   <div>
-    <input-button label="Apply Changes" type="button" variation="solid" size="small"></input-button>
-    <input-button label="Apply Changes" type="button" variation="solid"></input-button>
-    <input-button label="Apply Changes" type="button" variation="solid" size="large" disabled></input-button>
-    
-    <input-button label="Submit" type="button" variation="solid" block></input-button>
+    <input-button type="button" variation="solid" size="small">Apply Changes</input-button>
+    <input-button type="button" variation="solid">Apply Changes</input-button>
+    <input-button type="button" variation="solid" size="large" disabled>Apply Changes</input-button>
 
-    <input-button label="Manage Files" type="button" variation="text"></input-button>
+    <input-button type="button" variation="solid" block></input-button>
+
+    <input-button type="button" variation="text">Manage Files</input-button>
   </div>
   ```
 </docs>
