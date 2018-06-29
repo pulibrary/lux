@@ -1,31 +1,13 @@
 <template>
   <div>
     <heading level="h2">Set Properties <small>for this <span>multi-volume</span> resource</small></heading>
-     <!-- <span class="file_count">Total files: {{fileCount}}</span><span v-if="bibId" class="bibid"> | BibId: {{bibId}}</span> -->
+    <span class="file_count">Total files: {{ memberCount }}</span>
+    <span v-if="resource.bibId" class="bibid"> | BibId: {{resource.bibId}}</span>
     <form id="app" novalidate="true">
-      <input-radio vertical id="viewDir" groupLabel="Viewing Direction"
-        :options="[
-        {
-          name: 'viewDir',
-          value: 'left-to-right',
-          id: 'radio-opt1'
-        },
-        {
-          name: 'viewDir',
-          value: 'right-to-left',
-          id: 'radio-opt2'
-        },
-        {
-          name: 'viewDir',
-          value: 'top-to-bottom',
-          id: 'radio-opt3'
-        },
-        {
-          name: 'viewDir',
-          value: 'bottom-to-top',
-          id: 'radio-opt4'
-        }]"></input-radio>
-      <input-radio vertical id="viewHint" groupLabel="Viewing Hint" :options="[{name: 'viewHint', value: 'individuals', id: 'radio-opt1'}, {name: 'viewHint', value: 'paged', id: 'radio-opt2'}, {name: 'viewHint', value: 'continuous', id: 'radio-opt3'}]"></input-radio>
+      <input-radio @change="updateViewDir($event)" vertical id="viewDir" groupLabel="Viewing Direction"
+        :options="viewDirs"></input-radio>
+      <input-radio @change="updateViewHint($event)" vertical id="viewHint" groupLabel="Viewing Hint"
+        :options="viewHints"></input-radio>
     </form>
   </div>
 </template>
@@ -34,6 +16,7 @@
 /**
  * This is the Resource Form for the Order Manager in Figgy
  */
+import { mapState, mapGetters } from "vuex"
 export default {
   name: "ResourceForm",
   status: "Prototype",
@@ -47,10 +30,33 @@ export default {
   },
   data: function() {
     return {
-      errormessageEmail: "",
-      errormessagePwd: "",
-      emailValue: "",
-      pwdValue: "",
+      viewHints: [
+        { name: "viewHint", value: "individuals", id: "individuals" },
+        { name: "viewHint", value: "paged", id: "paged" },
+        { name: "viewHint", value: "continuous", id: "continuous" },
+      ],
+      viewDirs: [
+        {
+          name: "viewDir",
+          value: "left-to-right",
+          id: "left-to-right",
+        },
+        {
+          name: "viewDir",
+          value: "right-to-left",
+          id: "right-to-left",
+        },
+        {
+          name: "viewDir",
+          value: "top-to-bottom",
+          id: "top-to-bottom",
+        },
+        {
+          name: "viewDir",
+          value: "bottom-to-top",
+          id: "bottom-to-top",
+        },
+      ],
     }
   },
   props: {
@@ -66,24 +72,20 @@ export default {
       default: 0,
     },
   },
+  computed: {
+    memberCount: function() {
+      return this.$store.getters.getMemberCount
+    },
+    ...mapState({
+      resource: state => state.ordermanager.resource,
+    }),
+  },
   methods: {
-    validate(field) {
-      if (field.id == "email") {
-        this.emailValue = field.value
-        if (!field.value.length) {
-          this.errormessageEmail = "You need to supply an email."
-        } else {
-          this.errormessageEmail = ""
-        }
-      }
-      if (field.id == "pwd") {
-        this.pwdValue = field.value
-        if (!field.value.length) {
-          this.errormessagePwd = "You need to supply a password."
-        } else {
-          this.errormessagePwd = ""
-        }
-      }
+    updateViewDir(value) {
+      this.$store.commit("UPDATE_VIEWDIR", value)
+    },
+    updateViewHint(value) {
+      this.$store.commit("UPDATE_VIEWHINT", value)
     },
   },
 }

@@ -34,7 +34,7 @@ export default {
   font-weight: $font-weight-regular;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  width: 100%;
+  //width: 100%;
   @media #{$media-query-large} {
     @include inset-space($space-x-large);
   }
