@@ -9,7 +9,6 @@
               { 'alert-info': isInfo },
               { 'alert-fullscreen': isFullScreen },]"
               @click="hideAlert()"
-              @systemalert="showAlert($event)"
               role="alert">
       <slot>
       {{ alertMessage }}
@@ -96,14 +95,6 @@ export default {
     },
   },
   methods: {
-    showAlert(event) {
-      console.log(event)
-      if (this.autoclear) {
-        setTimeout(() => {
-          this.show = false
-        }, 500)
-      }
-    },
     hideAlert() {
       this.show = false
     },

@@ -1,10 +1,10 @@
 <template>
   <component :is="wrapper" class="input">
-    <label v-if="label">{{ label }}</label>
-    <div v-for="(option, index) in options" :class="{ inline: !vertical }">
+    <legend v-if="groupLabel">{{ groupLabel }}</legend>
+    <div v-for="(option, index) in options" class="radio" :class="{ inline: !vertical }">
       <input type="radio"
       :id="option.id"
-      :name="label"
+      :name="option.name"
       :value="option.value"
       :checked="option.checked"
       :disabled="option.disabled"
@@ -18,15 +18,19 @@
 
 <script>
 /**
- * Form Inputs are used to allow users to provide text input when the expected
- * input is short. Form Input has a range of options and supports several text
- * formats including numbers. For longer input, use the `FormTextarea` element.
+ * Radio buttons should only be used when a user can select one option.
+ * For multiple selections, use checkboxes.
  */
 export default {
   name: "InputRadio",
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  data: function() {
+    return {
+      wrapper: this.groupLabel.length ? "fieldset" : "div",
+    }
+  },
   computed: {
     hasError() {
       return this.errormessage.length
@@ -50,7 +54,7 @@ export default {
     /**
      * The label of the form input field.
      */
-    label: {
+    groupLabel: {
       type: String,
       default: "",
     },
@@ -60,17 +64,6 @@ export default {
     errormessage: {
       type: String,
       default: "",
-    },
-    /**
-     * The html element name used for the wrapper.
-     * `div, section`
-     */
-    wrapper: {
-      type: String,
-      default: "div",
-      validator: value => {
-        return value.match(/(div|section)/)
-      },
     },
     /**
      * Unique identifier of the form input field.
@@ -117,14 +110,117 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+fieldset {
+  border: 0;
+  padding: 0;
+}
+
+.input {
+  @include stack-space($space-small);
+  font-weight: $font-weight-regular;
+  font-family: $font-family-text;
+  font-size: $font-size-base;
+
+  legend {
+    margin-bottom: $space-x-small;
+  }
+
+  label {
+    padding-right: $space-base;
+  }
+}
+
+.radio {
+  @include reset;
+  @include stack-space($space-x-small);
+  font-family: $font-family-text;
+  line-height: $line-height-base;
+}
+
+.radio input[type="radio"] {
+  @include visually-hidden;
+}
+
+.radio label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: $space-xx-small;
+  cursor: pointer;
+  padding-left: $space-base;
+}
+
+.radio label::before,
+.radio label::after {
+  position: absolute;
+  content: "";
+
+  /*Needed for the line-height to take effect*/
+  display: inline-block;
+}
+
+/*Outer box of the fake radio*/
+.radio label::before {
+  height: 16px;
+  width: 16px;
+  background-color: $color-white;
+  border: 0;
+  border-radius: $border-radius-circle;
+  box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+  left: 0;
+  top: 4px;
+}
+
+/* On mouse-over, add a grey background color */
+.radio label:hover::before {
+  box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+}
+
+.radio input:checked + label::before {
+  transition: box-shadow 0.2s ease;
+  background-color: $color-bleu-de-france;
+  box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+  outline: 0;
+}
+
+/*Checkmark of the fake radio*/
+.radio label::after {
+  height: 6px;
+  width: 6px;
+  border-radius: $border-radius-circle;
+  background-color: $color-white;
+  left: 5px;
+  top: 9px;
+}
+
+/*Hide the checkmark by default*/
+.radio input[type="radio"] + label::after {
+  content: none;
+}
+
+/*Unhide on the checked state*/
+.radio input[type="radio"]:checked + label::after {
+  content: "";
+}
+
+/*Adding focus styles on the outer-box of the fake radio*/
+.radio input[type="radio"]:focus + label::before {
+  transition: box-shadow 0.2s ease;
+  box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+  outline: 0;
+}
+
 .inline {
   display: inline-block;
+}
+
+[disabled] {
+  cursor: not-allowed;
 }
 </style>
 
 
 <docs>
   ```jsx
-  <input-radio vertical=true label="Where is my mind?" id="myChoice" :options="[{label: 'opt 1', value: 'In the clouds', checked: true}, {label: 'opt 2', value: 'I don\'t know'}]"></choice-input>
+  <input-radio vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
   ```
 </docs>
