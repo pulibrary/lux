@@ -32,19 +32,6 @@ export default {
       pwdValue: "",
     }
   },
-  props: {
-    /**
-     * The html element name used for the component.
-     */
-    type: {
-      type: String,
-      default: "div",
-    },
-    count: {
-      type: Number,
-      default: 0,
-    },
-  },
   methods: {
     validate(field) {
       if (field.id == "email") {
