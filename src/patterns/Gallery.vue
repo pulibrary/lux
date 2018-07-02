@@ -1,6 +1,22 @@
 <template>
 <div class="gallery">
-  <card v-for="(item, index) in galleryItems"
+  <draggable v-model="items" tag="div">
+    <card v-for="(item, index) in items"
+      :id="item.id"
+      :key="item.id"
+      class="galleryCard"
+      size="medium"
+      :selected="isSelected(item)"
+      :disabled="item.disabled"
+      :edited="item.edited"
+      @card-click="select($event)">
+      <media-image :src="item.mediaUrl" height="medium"></media-image>
+      <heading level="h2">{{ item.title }}</heading>
+      <text-style variation="default">{{ item.caption }}</text-style>
+    </card>
+  </draggable>
+
+  <!-- <card v-for="(item, index) in galleryItems"
     :id="item.id"
     :key="item.id"
     class="galleryCard"
@@ -12,12 +28,13 @@
     <media-image :src="item.mediaUrl" height="medium"></media-image>
     <heading level="h2">{{ item.title }}</heading>
     <text-style variation="default">{{ item.caption }}</text-style>
-  </card>
+  </card> -->
 </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex"
+import draggable from "vuedraggable"
 /*
  * Gallery is a grid of images with captions.
  */
@@ -26,12 +43,18 @@ export default {
   status: "review",
   release: "1.0.0",
   type: "Pattern",
-  data: function() {
-    return {
-      items: this.galleryItems,
-    }
+  components: {
+    draggable,
   },
   computed: {
+    items: {
+      get() {
+        return this.resource.items
+      },
+      set(value) {
+        this.$store.commit("SORT_ITEMS", value)
+      },
+    },
     isMultiVolume() {
       return this.$store.getters.isMultiVolume
     },
@@ -64,7 +87,8 @@ export default {
         .indexOf(id)
     },
     isSelected: function(item) {
-      console.log(this.resource.selected.indexOf(item) > -1)
+      console.log(item)
+      console.log(this.resource.selected)
       return this.resource.selected.indexOf(item) > -1
     },
     select: function(event) {

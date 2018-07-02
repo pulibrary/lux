@@ -52,6 +52,9 @@ export const resourceModule = {
       state.resource.viewingHint = resource.viewingHint
       state.resource.loadState = "LOADED"
     },
+    SORT_ITEMS(state, value) {
+      state.resource.items = [...value]
+    },
     UPDATE_VIEWDIR(state, viewDir) {
       state.viewingDirection = viewDir
     },
