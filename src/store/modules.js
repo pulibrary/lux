@@ -22,9 +22,12 @@ export const resourceModule = {
       bibId: "",
       label: "Resource not available.",
       isMultiVolume: false,
-      members: [],
       viewingHint: null,
       viewingDirection: null,
+      members: [],
+      items: [],
+      selected: [],
+      cut: [],
       loadState: "NOT_LOADED",
     },
   },
@@ -33,10 +36,19 @@ export const resourceModule = {
     CHANGE_RESOURCE_LOAD_STATE(state, loadState) {
       state.resource.loadState = loadState
     },
+    SELECT(state, itemArray) {
+      state.resource.selected = [...itemArray]
+    },
     SET_RESOURCE(state, resource) {
       state.resource.id = resource.id
       state.resource.label = resource.label
       state.resource.members = resource.members
+      state.resource.items = resource.members.map(member => ({
+        id: member.id,
+        title: member.label,
+        caption: member.__typename + " : " + member.id,
+        mediaUrl: "https://picsum.photos/600/300/?random",
+      }))
       state.resource.viewingHint = resource.viewingHint
       state.resource.loadState = "LOADED"
     },

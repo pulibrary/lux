@@ -1,6 +1,14 @@
 <template>
 <div class="gallery">
-  <card v-for="(item, index) in galleryItems" :key="item.id" class="galleryCard" size="medium">
+  <card v-for="(item, index) in galleryItems"
+    :id="item.id"
+    :key="item.id"
+    class="galleryCard"
+    size="medium"
+    :selected="isSelected(item)"
+    :disabled="item.disabled"
+    :edited="item.edited"
+    @card-click="select($event)">
     <media-image :src="item.mediaUrl" height="medium"></media-image>
     <heading level="h2">{{ item.title }}</heading>
     <text-style variation="default">{{ item.caption }}</text-style>
@@ -18,6 +26,11 @@ export default {
   status: "review",
   release: "1.0.0",
   type: "Pattern",
+  data: function() {
+    return {
+      items: this.galleryItems,
+    }
+  },
   computed: {
     isMultiVolume() {
       return this.$store.getters.isMultiVolume
@@ -36,6 +49,44 @@ export default {
     galleryItems: {
       required: true,
       type: Array,
+    },
+  },
+  methods: {
+    getItemById: function(id) {
+      var elementPos = this.getItemIndexById(id)
+      return this.galleryItems[elementPos]
+    },
+    getItemIndexById: function(id) {
+      return this.galleryItems
+        .map(function(item) {
+          return item.id
+        })
+        .indexOf(id)
+    },
+    isSelected: function(item) {
+      console.log(this.resource.selected.indexOf(item) > -1)
+      return this.resource.selected.indexOf(item) > -1
+    },
+    select: function(event) {
+      let selected = []
+      if (event.metaKey) {
+        selected = this.resource.selected
+        selected.push(this.getItemById(event.target.id))
+        this.$store.commit("SELECT", selected)
+      } else {
+        if (this.resource.selected.length === 1 && event.shiftKey) {
+          var first = this.getItemIndexById(this.resource.selected[0].id)
+          var second = this.getItemIndexById(event.target.id)
+          var min = Math.min(first, second)
+          var max = Math.max(first, second)
+          for (var i = min; i <= max; i++) {
+            selected.push(this.galleryItems[i])
+          }
+          this.$store.commit("SELECT", selected)
+        } else {
+          this.$store.commit("SELECT", [this.getItemById(event.target.id)])
+        }
+      }
     },
   },
   mounted() {

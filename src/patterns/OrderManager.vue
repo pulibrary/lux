@@ -7,7 +7,7 @@
   </transition>
   <heading level="h2">{{resource.label}} <small v-if="isMultiVolume">Multi-volume</small></heading>
   <wrapper class="galleryPanel" type="div">
-    <gallery :galleryItems="galleryItems"></gallery>
+    <gallery :galleryItems="resource.items"></gallery>
   </wrapper>
   <wrapper class="sidePanel" type="div" :fullWidth="false">
     <resource-form></resource-form>
@@ -40,14 +40,6 @@ export default {
     }),
     loading: function() {
       return this.resource.loadState !== "LOADED" ? true : false
-    },
-    galleryItems: function() {
-      return this.resource.members.map(member => ({
-        id: member.id,
-        title: member.label,
-        caption: member.__typename + " : " + member.id,
-        mediaUrl: "https://picsum.photos/600/300/?random",
-      }))
     },
   },
   props: {
@@ -112,19 +104,19 @@ export default {
       "members": [
         {
           "id": "8ffd7a03-ec0e-46c1-a347-e4b19cb7839f",
-          "label": "example.tif",
+          "label": "a",
           "viewingHint": null,
           "__typename": "FileSet"
         },
         {
           "id": "8f0a0908-317f-414e-a78a-c38a4a3b28e3",
-          "label": "example.tif",
+          "label": "b",
           "viewingHint": null,
           "__typename": "FileSet"
         },
         {
           "id": "ea01019e-f644-4416-b99c-1b44bf49d060",
-          "label": "example.tif",
+          "label": "c",
           "viewingHint": null,
           "__typename": "FileSet"
         }
