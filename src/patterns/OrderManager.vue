@@ -5,14 +5,9 @@
       <loader size="medium"></loader>
     </div>
   </transition>
+  <heading level="h2">{{resource.label}} <small v-if="isMultiVolume">Multi-volume</small></heading>
   <wrapper class="galleryPanel" type="div">
-    <div class="title">{{resource.label}}</div>
-    <div>MultiVolume: {{ isMultiVolume }}</div>
-    <ul>
-      <li v-for="member in resource.members">
-        {{ member.id }} : {{ member.__typename }}
-      </li>
-    </ul>
+    <gallery :galleryItems="galleryItems"></gallery>
   </wrapper>
   <wrapper class="sidePanel" type="div" :fullWidth="false">
     <resource-form></resource-form>
@@ -29,105 +24,7 @@ import { mapState, mapGetters } from "vuex"
  * You can see how this is done in the live code example at the end of this section.
  *
  * However you will still need to load the corresponding
- * Vuex module, *resourceModule*. The example below shows you how to add the Vuex module to `store/index.js` in your host app:
- *
- * ```
- *
- * import Vue from 'vue/dist/vue.esm'
- * import Vuex from 'vuex'
- * import state from './vuex/state'
- * import mutations from './vuex/mutations'
- * import actions from './vuex/actions'
- * import getters from './vuex/getters'
- * import {modules} from 'lux-design-system'
- * Vue.use(Vuex)
- *
- * const store = new Vuex.Store({
- *  state,
- *  mutations,
- *  actions,
- *  getters,
- *  modules: {
- *    counter: modules.counterModule,
- *    ordermanager: modules.resourceModule
- *  }
- * })
- *
- *  export default store
- *
- * ```
- *
- * #### API configuration
- * You can also use an API to load resource data into the store. To do this, you
- * could wrap the OrderManager (with no attributes/props) in a component that triggers a
- * backend request, and you must supply the Vuex actions that work with your backend.
- * Example:
- *
- * ```
- * // order-manager-wrapper single file component in host app
- * <template>
- *  <wrapper type="div">
- *   <order-manager></order-manager>
- *  </wrapper>
- * </template>
- *
- * <script>
- * export default {
- *   name: 'orderManagerWrapper',
- *   beforeMount: function () {
- *     this.resourceId = this.$el.attributes['data-resource'].value
- *     this.$store.dispatch('loadResource', this.resourceId)
- *   },
- * }
- * < /script>
- *
- * ```
- *
- * ```
- * // store/actions.js
- * import apollo from '../../helpers/apolloClient'
- * import gql from 'graphql-tag'
- *
- * const actions = {
- *  ...
- *  async loadImageCollectionGql (context, resource) {
- *    let id = resource.id
- *    const query = gql`
- *      query GetResource($id: ID!) {
- *        resource(id: $id) {
- *          id,
- *          label,
- *          __typename,
- *          members {
- *            id,
- *             __typename
- *          }
- *        }
- *      }`
- *
- *    const variables = {
- *      id: id
- *    }
- *
- *    try {
- *      const response = await apollo.query({
- *        query, variables
- *      })
- *      context.commit('SET_RESOURCE', response.data.resource)
- *    } catch(err) {
- *      context.commit('CHANGE_RESOURCE_LOAD_STATE', 'LOADING_ERROR')
- *      console.error(err)
- *    }
- * },
- * ...
- *
- * ```
- *
- *
- *
- *
- *
- *
+ * Vuex module, *resourceModule*. Please see [the state management documentation](/#!/State%20Management) for how to manage state in complex patterns.
  */
 export default {
   name: "OrderManager",
@@ -143,6 +40,14 @@ export default {
     }),
     loading: function() {
       return this.resource.loadState !== "LOADED" ? true : false
+    },
+    galleryItems: function() {
+      return this.resource.members.map(member => ({
+        id: member.id,
+        title: member.label,
+        caption: member.__typename + " : " + member.id,
+        mediaUrl: "https://picsum.photos/600/300/?random",
+      }))
     },
   },
   props: {
