@@ -15,6 +15,34 @@ export const counterModule = {
   },
 }
 
+export const galleryModule = {
+  state: {
+    items: [],
+    selected: [],
+    cut: [],
+  },
+
+  mutations: {
+    SELECT(state, itemArray) {
+      state.selected = [...itemArray]
+    },
+    SET_GALLERY(state, items) {
+      state.items = items
+    },
+    SORT_ITEMS(state, value) {
+      state.items = [...value]
+    },
+  },
+
+  // actions: any async actions are should be handled by the host app
+
+  getters: {
+    getItemCount: state => {
+      return state.items.length
+    },
+  },
+}
+
 export const resourceModule = {
   state: {
     resource: {
@@ -22,9 +50,12 @@ export const resourceModule = {
       bibId: "",
       label: "Resource not available.",
       isMultiVolume: false,
-      members: [],
       viewingHint: null,
       viewingDirection: null,
+      members: [],
+      // items: [],
+      // selected: [],
+      // cut: [],
       loadState: "NOT_LOADED",
     },
   },
@@ -37,9 +68,18 @@ export const resourceModule = {
       state.resource.id = resource.id
       state.resource.label = resource.label
       state.resource.members = resource.members
+      // state.resource.items = resource.members.map(member => ({
+      //   id: member.id,
+      //   title: member.label,
+      //   caption: member.__typename + " : " + member.id,
+      //   mediaUrl: "https://picsum.photos/600/300/?random",
+      // }))
       state.resource.viewingHint = resource.viewingHint
       state.resource.loadState = "LOADED"
     },
+    // SORT_ITEMS(state, value) {
+    //   state.resource.items = [...value]
+    // },
     UPDATE_VIEWDIR(state, viewDir) {
       state.viewingDirection = viewDir
     },
@@ -59,7 +99,10 @@ export const resourceModule = {
       return volumes.length > 0 ? true : false
     },
   },
+  modules: {
+    gallery: galleryModule,
+  },
 }
 
 let modules
-export default (modules = { counterModule, resourceModule })
+export default (modules = { counterModule, galleryModule, resourceModule })

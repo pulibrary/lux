@@ -1,5 +1,11 @@
 <template>
-  <article class="card" :class="[size, { 'card-selected': selected }, { 'card-edited': edited }, { 'card-disabled': disabled }]">
+  <article :id="id" @click.capture="select($event)" class="card"
+    :class="[
+      size,
+      { 'card-selected': selected },
+      { 'card-edited': edited },
+      { 'card-disabled': disabled }
+    ]">
     <slot/>
   </article>
 </template>
@@ -14,6 +20,13 @@ export default {
   release: "1.0.0",
   type: "Element",
   props: {
+    /**
+     * Sets the id to reference this card with.
+     */
+    id: {
+      type: String,
+      default: "",
+    },
     /**
      * Sets the URL linking to the card content
      */
@@ -60,6 +73,11 @@ export default {
       default: "",
     },
   },
+  methods: {
+    select: function(event) {
+      this.$emit("card-click", event)
+    },
+  },
 }
 </script>
 
@@ -104,6 +122,12 @@ export default {
     padding: 0 1rem;
   }
 
+  .heading,
+  .text-style,
+  .media-image {
+    pointer-events: none;
+  }
+
   .text-style {
     padding-bottom: 1rem;
   }
@@ -112,7 +136,7 @@ export default {
 
 <docs>
   ```jsx
-  <card size="medium">
+  <card id="myCard" size="medium">
     <media-image src="https://picsum.photos/600/300/?random" height="medium"></media-image>
     <heading level="h2">Title</heading>
     <text-style variation="default">Design isn’t just about the look and feel. Design is how it works.</text-style>

@@ -83,6 +83,11 @@ module.exports = {
       components: "../src/templates/**/[A-Z]*.vue",
     },
     {
+      name: "State Management",
+      content: "../docs/state-management.md",
+      components: "../docs/utils/section.vue",
+    },
+    {
       name: "Adding Icons",
       content: "../docs/adding-icons.md",
       components: "../docs/utils/section.vue",
