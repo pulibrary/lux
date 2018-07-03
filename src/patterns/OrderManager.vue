@@ -10,7 +10,12 @@
     <gallery :galleryItems="galleryItems"></gallery>
   </wrapper>
   <wrapper class="sidePanel" type="div" :fullWidth="false">
-    <resource-form></resource-form>
+    <!-- Resource Form-->
+    <resource-form v-if="selectedTotal === 0"></resource-form>
+    <!-- Multiple Selected Form-->
+    <filesets-form v-if="selectedTotal > 1"></filesets-form>
+    <!-- Single Selected Form-->
+    <fileset-form v-if="selectedTotal === 1"></fileset-form>
   </wrapper>
 </div>
 </template>
@@ -38,13 +43,18 @@ export default {
         title: member.label,
         caption: member.__typename + " : " + member.id,
         mediaUrl: "https://picsum.photos/600/300/?random",
+        viewingHint: member.viewingHint,
       }))
+    },
+    selectedTotal() {
+      return this.gallery.selected.length
     },
     isMultiVolume() {
       return this.$store.getters.isMultiVolume
     },
     ...mapState({
       resource: state => state.ordermanager.resource,
+      gallery: state => state.gallery,
     }),
     loading: function() {
       return this.resource.loadState !== "LOADED" ? true : false
