@@ -6,6 +6,7 @@
     <slot>
     {{ label }}
     </slot>
+    <svg-icon v-if="variation === 'dropdown'" name="pul-icon-arrow-down" fill="rgb(0,0,0)" width="8px"></svg-icon>
   </button>
 </template>
 
@@ -32,7 +33,7 @@ export default {
       type: String,
       default: "button",
       validator: value => {
-        return value.match(/(solid|outline|text)/)
+        return value.match(/(solid|outline|text|dropdown)/)
       },
     },
     /**
@@ -131,6 +132,16 @@ button {
 
 .text {
   background-color: transparent;
+}
+
+.dropdown {
+  background: $color-white;
+  box-shadow: $box-shadow-small;
+  color: $color-rich-black;
+
+  .svg-icon {
+    margin-left: 0.25rem;
+  }
 }
 
 .small {

@@ -1,13 +1,29 @@
 <template>
-  <component :is="type" class="nav">
-    <a
-      v-for="(item, index) in navItems"
-      :key="index"
-      :href="item.href"
-      :class="{active: localActive === item.component}"
-      v-html="item.name">
-    </a>
-  </component>
+  <nav v-if="type === 'nav'" class="nav">
+    <ul>
+      <li v-for="(item, index) in navItems">
+        <a
+          :key="index"
+          :href="item.href"
+          :class="{active: localActive === item.component}"
+          v-html="item.name">
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div v-else-if="type === 'menu'" class="menu">
+    <ul>
+      <li v-for="(item, index) in navItems">
+        <button
+          :key="index"
+          :href="item.href"
+          :class="['menu-item', {active: localActive === item.component}]"
+          v-html="item.name">
+        </button>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -29,11 +45,21 @@ export default {
     type: {
       type: String,
       default: "nav",
+      validator: value => {
+        return value.match(/(nav|menu)/)
+      },
     },
     /**
      * State which tab is active when initiated (using name of the component).
      */
     active: {
+      required: true,
+      type: String,
+    },
+    /**
+     * State which item is disabled
+     */
+    disabled: {
       required: true,
       type: String,
     },
@@ -74,6 +100,17 @@ $color-nav-link-active: $color-bleu-de-france;
   @media #{$media-query-large} {
     // This is how you’d use design tokens with media queries
   }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
   a {
     color: $color-nav-link;
     padding: $space-x-small 0;
@@ -90,11 +127,53 @@ $color-nav-link-active: $color-bleu-de-france;
     }
   }
 }
+
+.menu {
+  background: $color-white;
+  box-shadow: $box-shadow-small;
+
+  position: absolute;
+  min-width: calc(100% - 1px);
+  margin: 1px 0 0;
+  z-index: 999;
+  transition: opacity 0.1s ease;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: block;
+  }
+
+  .menu-item {
+    background: $color-white;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: left;
+    font-size: $font-size-small;
+
+    &:hover,
+    &:focus {
+      background: $color-grayscale-lighter;
+      transition: opacity 0.1s ease;
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+}
 </style>
 
 <docs>
   ```jsx
-  <nav-bar active="Dashboard" :navItems="[
+  <nav-bar type="nav" active="Dashboard" :navItems="[
     {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
     {name: 'Posts', component: 'Posts', href: '/example/'},
     {name: 'Users', component: 'Users', href: '/example/'},
