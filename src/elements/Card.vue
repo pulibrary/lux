@@ -91,6 +91,10 @@ export default {
   box-shadow: $box-shadow-small;
   color: $color-rich-black;
 
+  &:active {
+    cursor: move;
+  }
+
   &:focus,
   &-selected {
     box-shadow: $box-shadow-selected;
