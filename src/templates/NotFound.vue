@@ -1,6 +1,6 @@
 <template>
   <component :is="type" class="not-found">
-    <nav-bar active="NotFound" :navItems="[
+    <menu-bar active="NotFound" :menuItems="[
       {name: 'Template', component: 'Index', href: '/#/'},
       {name: 'Living Docs', href: 'http://localhost:6060/'}
     ]"/>
