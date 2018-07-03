@@ -1,6 +1,5 @@
 <template>
-<div class="gallery">
-  <draggable v-model="items" tag="div">
+  <draggable class="gallery" v-model="items" tag="div">
     <card v-for="(item, index) in items"
       :id="item.id"
       :key="item.id"
@@ -15,21 +14,6 @@
       <text-style variation="default">{{ item.caption }}</text-style>
     </card>
   </draggable>
-
-  <!-- <card v-for="(item, index) in galleryItems"
-    :id="item.id"
-    :key="item.id"
-    class="galleryCard"
-    size="medium"
-    :selected="isSelected(item)"
-    :disabled="item.disabled"
-    :edited="item.edited"
-    @card-click="select($event)">
-    <media-image :src="item.mediaUrl" height="medium"></media-image>
-    <heading level="h2">{{ item.title }}</heading>
-    <text-style variation="default">{{ item.caption }}</text-style>
-  </card> -->
-</div>
 </template>
 
 <script>
@@ -49,21 +33,15 @@ export default {
   computed: {
     items: {
       get() {
-        return this.resource.items
+        return this.gallery.items
       },
       set(value) {
         this.$store.commit("SORT_ITEMS", value)
       },
     },
-    isMultiVolume() {
-      return this.$store.getters.isMultiVolume
-    },
     ...mapState({
-      resource: state => state.ordermanager.resource,
+      gallery: state => state.gallery,
     }),
-    loading: function() {
-      return this.resource.loadState !== "LOADED" ? true : false
-    },
   },
   props: {
     /**
@@ -77,34 +55,32 @@ export default {
   methods: {
     getItemById: function(id) {
       var elementPos = this.getItemIndexById(id)
-      return this.galleryItems[elementPos]
+      return this.items[elementPos]
     },
     getItemIndexById: function(id) {
-      return this.galleryItems
+      return this.items
         .map(function(item) {
           return item.id
         })
         .indexOf(id)
     },
     isSelected: function(item) {
-      console.log(item)
-      console.log(this.resource.selected)
-      return this.resource.selected.indexOf(item) > -1
+      return this.gallery.selected.indexOf(item) > -1
     },
     select: function(event) {
       let selected = []
       if (event.metaKey) {
-        selected = this.resource.selected
+        selected = this.gallery.selected
         selected.push(this.getItemById(event.target.id))
         this.$store.commit("SELECT", selected)
       } else {
-        if (this.resource.selected.length === 1 && event.shiftKey) {
-          var first = this.getItemIndexById(this.resource.selected[0].id)
+        if (this.gallery.selected.length === 1 && event.shiftKey) {
+          var first = this.getItemIndexById(this.gallery.selected[0].id)
           var second = this.getItemIndexById(event.target.id)
           var min = Math.min(first, second)
           var max = Math.max(first, second)
           for (var i = min; i <= max; i++) {
-            selected.push(this.galleryItems[i])
+            selected.push(this.items[i])
           }
           this.$store.commit("SELECT", selected)
         } else {
@@ -114,9 +90,9 @@ export default {
     },
   },
   mounted() {
-    if (this.resourceObject) {
+    if (this.galleryItems) {
       // if props are passed in set the resource on mount
-      this.$store.commit("SET_RESOURCE", this.resourceObject)
+      this.$store.commit("SET_GALLERY", this.galleryItems)
     } else {
       this.$store.commit("CHANGE_RESOURCE_LOAD_STATE", "LOADING")
     }
@@ -137,11 +113,6 @@ export default {
   .card {
     margin: 1rem;
   }
-}
-
-.img_gallery[data-v-8452714c] {
-  overflow: auto;
-  height: calc(100% - 40px);
 }
 </style>
 <docs>

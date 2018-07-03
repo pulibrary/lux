@@ -7,7 +7,7 @@
   </transition>
   <heading level="h2">{{resource.label}} <small v-if="isMultiVolume">Multi-volume</small></heading>
   <wrapper class="galleryPanel" type="div">
-    <gallery :galleryItems="resource.items"></gallery>
+    <gallery :galleryItems="galleryItems"></gallery>
   </wrapper>
   <wrapper class="sidePanel" type="div" :fullWidth="false">
     <resource-form></resource-form>
@@ -32,6 +32,14 @@ export default {
   release: "1.0.0",
   type: "Element",
   computed: {
+    galleryItems() {
+      return this.resource.members.map(member => ({
+        id: member.id,
+        title: member.label,
+        caption: member.__typename + " : " + member.id,
+        mediaUrl: "https://picsum.photos/600/300/?random",
+      }))
+    },
     isMultiVolume() {
       return this.$store.getters.isMultiVolume
     },
