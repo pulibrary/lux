@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['dropdown-menu', variation]">
+  <component :is="type" :class="['dropdown-menu']">
     <slot/>
   </component>
 </template>
@@ -79,10 +79,10 @@ export default {
   ```jsx
   <dropdown-menu>
     <input-button variation="dropdown">Selection Options</input-button>
-    <nav-bar type="menu" active="All" :navItems="[
+    <menu-bar type="menu" active="All" :menuItems="[
       {name: 'All', component: 'All'},
       {name: 'None', component: 'None'},
-      {name: 'Alternate', component: 'Alternate', disabled},
+      {name: 'Alternate', component: 'Alternate', disabled: true},
       {name: 'Inverse', component: 'Inverse'}
     ]"/>
   </dropdown-menu>

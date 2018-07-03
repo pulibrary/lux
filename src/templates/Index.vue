@@ -1,6 +1,6 @@
 <template>
   <component :is="type" class="index">
-    <nav-bar active="Index" :navItems="[
+    <menu-bar active="Index" :menuItems="[
       {name: 'Template', component: 'Index', href: '/#/'},
       {name: 'Living Docs', href: 'http://localhost:6060/'}
     ]"/>

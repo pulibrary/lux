@@ -1,7 +1,7 @@
 <template>
   <nav v-if="type === 'nav'" class="nav">
     <ul>
-      <li v-for="(item, index) in navItems">
+      <li v-for="(item, index) in menuItems">
         <a
           :key="index"
           :href="item.href"
@@ -14,11 +14,14 @@
 
   <div v-else-if="type === 'menu'" class="menu">
     <ul>
-      <li v-for="(item, index) in navItems">
+      <li v-for="(item, index) in menuItems">
         <button
           :key="index"
           :href="item.href"
-          :class="['menu-item', {active: localActive === item.component}]"
+          :class="[
+            'menu-item',
+            {active: localActive === item.component},
+            {disabled: item.disabled}]"
           v-html="item.name">
         </button>
       </li>
@@ -31,7 +34,7 @@
  * Used as main page navigation in templates.
  */
 export default {
-  name: "NavBar",
+  name: "MenuBar",
   status: "ready",
   release: "1.0.0",
   type: "Pattern",
@@ -57,16 +60,9 @@ export default {
       type: String,
     },
     /**
-     * State which item is disabled
+     * Menu items are options to be displayed to the user.
      */
-    disabled: {
-      required: true,
-      type: String,
-    },
-    /**
-     * Menu items to be displayed on the nav bar.
-     */
-    navItems: {
+    menuItems: {
       required: true,
       type: Array,
     },
@@ -168,12 +164,23 @@ $color-nav-link-active: $color-bleu-de-france;
       transform: scale(0.99);
     }
   }
+
+  .disabled {
+    color: $color-grayscale-dark;
+
+    &:hover,
+    &:focus {
+      background: $color-white;
+      cursor: not-allowed;
+      outline: none;
+    }
+  }
 }
 </style>
 
 <docs>
   ```jsx
-  <nav-bar type="nav" active="Dashboard" :navItems="[
+  <menu-bar type="nav" active="Dashboard" :menuItems="[
     {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
     {name: 'Posts', component: 'Posts', href: '/example/'},
     {name: 'Users', component: 'Users', href: '/example/'},
