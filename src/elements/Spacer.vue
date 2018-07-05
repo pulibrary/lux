@@ -6,8 +6,7 @@
 
 <script>
 /**
- * Used to build the outer wrapper of a page, including the page title and
- * associated actions. Wrapper doesn’t provide customizable options.
+ * Used to fill available space or make space between two components.
  */
 export default {
   name: "Spacer",
@@ -21,13 +20,6 @@ export default {
     type: {
       type: String,
       default: "div",
-    },
-    /**
-     * Determines whether the wrapper takes up 100% of the parent container.
-     */
-    fullWidth: {
-      type: Boolean,
-      default: true,
     },
   },
 }
