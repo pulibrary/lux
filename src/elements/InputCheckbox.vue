@@ -75,14 +75,6 @@ export default {
       default: "",
     },
     /**
-     * Unique identifier of the form input field.
-     */
-    id: {
-      type: String,
-      default: "",
-      required: true,
-    },
-    /**
      * Whether the form input field is disabled or not.
      * `true, false`
      */

@@ -11,6 +11,8 @@
       :placeholder="placeholder"
       :errormessage="errormessage"
       :class="['input', { 'input-error': hasError }, {'input-expand': width === 'expand'}]"
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
       @input="input($event.target.value)"
       @blur="inputblur($event.target)"
       />

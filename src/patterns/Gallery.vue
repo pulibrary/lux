@@ -1,5 +1,5 @@
 <template>
-  <draggable class="gallery" v-model="items" tag="div">
+  <draggable class="gallery" v-model="items" tag="div" @click.native="deselect($event)">
     <card v-for="(item, index) in items"
       :id="item.id"
       :key="item.id"
@@ -7,7 +7,7 @@
       size="medium"
       :selected="isSelected(item)"
       :disabled="item.disabled"
-      :edited="item.edited"
+      :edited="hasChanged(item.id)"
       @card-click="select($event)">
       <media-image :src="item.mediaUrl" height="medium"></media-image>
       <heading level="h2">{{ item.title }}</heading>
@@ -53,6 +53,15 @@ export default {
     },
   },
   methods: {
+    deselect: function(event) {
+      if (event.target.className === "gallery") {
+        console.log(event.target.className)
+        this.selectNone()
+      }
+    },
+    selectNone: function() {
+      this.$store.commit("SELECT", [])
+    },
     getItemById: function(id) {
       var elementPos = this.getItemIndexById(id)
       return this.items[elementPos]
@@ -63,6 +72,9 @@ export default {
           return item.id
         })
         .indexOf(id)
+    },
+    hasChanged: function(id) {
+      return this.gallery.changeList.indexOf(id) > -1
     },
     isSelected: function(item) {
       return this.gallery.selected.indexOf(item) > -1
@@ -89,7 +101,7 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
     if (this.galleryItems) {
       // if props are passed in set the resource on mount
       this.$store.commit("SET_GALLERY", this.galleryItems)

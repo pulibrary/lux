@@ -20,6 +20,7 @@ export const galleryModule = {
     items: [],
     selected: [],
     cut: [],
+    changeList: [],
   },
 
   mutations: {
@@ -31,6 +32,12 @@ export const galleryModule = {
     },
     SORT_ITEMS(state, value) {
       state.items = [...value]
+    },
+    UPDATE_CHANGES(state, changeList) {
+      state.changeList = [...changeList]
+    },
+    UPDATE_ITEMS(state, items) {
+      state.items = [...items]
     },
   },
 
@@ -49,13 +56,12 @@ export const resourceModule = {
       id: "",
       bibId: "",
       label: "Resource not available.",
+      thumbnail: "",
+      startCanvas: "",
       isMultiVolume: false,
       viewingHint: null,
       viewingDirection: null,
       members: [],
-      // items: [],
-      // selected: [],
-      // cut: [],
       loadState: "NOT_LOADED",
     },
   },
@@ -77,11 +83,14 @@ export const resourceModule = {
       state.resource.viewingHint = resource.viewingHint
       state.resource.loadState = "LOADED"
     },
-    // SORT_ITEMS(state, value) {
-    //   state.resource.items = [...value]
-    // },
+    UPDATE_STARTCANVAS(state, startCanvas) {
+      state.resource.startCanvas = startCanvas
+    },
+    UPDATE_THUMBNAIL(state, thumbnail) {
+      state.resource.thumbnail = thumbnail
+    },
     UPDATE_VIEWDIR(state, viewDir) {
-      state.viewingDirection = viewDir
+      state.resource.viewingDirection = viewDir
     },
     UPDATE_VIEWHINT(state, viewHint) {
       state.resource.viewingHint = viewHint
@@ -99,9 +108,9 @@ export const resourceModule = {
       return volumes.length > 0 ? true : false
     },
   },
-  modules: {
-    gallery: galleryModule,
-  },
+  // modules: {
+  //   gallery: galleryModule,
+  // },
 }
 
 let modules
