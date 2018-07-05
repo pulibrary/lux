@@ -38,7 +38,6 @@ export default {
 <style lang="scss" scoped>
 .dropdown-menu {
   @include reset;
-  @include stack-space($space-small);
   margin: 0.25rem;
   font-family: $font-family-text;
   font-size: $font-size-base;
