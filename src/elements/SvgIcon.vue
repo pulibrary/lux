@@ -80,6 +80,13 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+.svg-icon {
+  display: inline-flex;
+  align-self: center;
+}
+</style>
+
 <docs>
   ```jsx
   <div>

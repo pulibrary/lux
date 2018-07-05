@@ -18,10 +18,10 @@
         <button
           :key="index"
           :href="item.href"
+          :disabled="item.disabled"
           :class="[
             'menu-item',
-            {active: localActive === item.component},
-            {disabled: item.disabled}]"
+            {active: localActive === item.component}]"
           v-html="item.name">
         </button>
       </li>
@@ -165,7 +165,7 @@ $color-nav-link-active: $color-bleu-de-france;
     }
   }
 
-  .disabled {
+  [disabled] {
     color: $color-grayscale-dark;
 
     &:hover,
