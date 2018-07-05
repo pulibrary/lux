@@ -8,6 +8,8 @@
       :focus="focus"
       :multiple="multiple"
       :errormessage="errormessage"
+      v-bind:value="value"
+      v-on:change="$emit('change', $event.target.value)"
       @change="change($event.target.value)"
       @blur="inputblur($event.target)">
         <option

@@ -2,21 +2,27 @@
   <div>
     <heading level="h2">Edit <small>the selected item</small></heading>
     <form id="app" novalidate="true">
-      <input-text @input="updateSingle()" id="itemLabel" :value="singleForm.label" label="Label" placeholder="e.g., example.tif" />
+      <input-text v-model="title" id="itemLabel" label="Label" placeholder="e.g., example.tif" />
+      <!-- <input-select v-model="viewingHint" label="Page Type" id="pageType"
+        :options="[
+          {label: 'Single Page (Default)', value: 'single'},
+          {label: 'Non-paged', value: 'non-paged'},
+          {label: 'Facing Pages', value: 'facing'}
+        ]"></input-select> -->
       <div class="form-group">
         <label class="control-label" for="pageType">Page Type</label>
-        <select @change="updateSingle()" v-model="singleForm.viewingHint" id="pageType" class="form-control">
+        <select v-model="viewingHint" id="pageType" class="form-control">
           <option value="single">Single Page (Default)</option>
           <option value="non-paged">Non-Paged</option>
           <option value="facing">Facing Pages</option>
         </select>
       </div>
       <label class="vertical">
-        <input @change="updateStartCanvas()" v-model="isStartCanvas" id="isStartCanvas" type="checkbox" :value="startCanvas">
+        <input v-model="isStartCanvas" id="isStartCanvas" type="checkbox" :value="startCanvas">
         Set as Start Page</a>
       </label>
       <label class="vertical">
-        <input @change="updateThumbnail()" v-model="isThumbnail" id="isThumbnail" type="checkbox" :value="thumbnail">
+        <input v-model="isThumbnail" id="isThumbnail" type="checkbox" :value="thumbnail">
         Set as Resource Thumbnail</input>
       </label>
     </form>
@@ -55,20 +61,45 @@ export default {
     thumbnail: function() {
       return this.resource.thumbnail
     },
-    isStartCanvas() {
-      let id = this.gallery.selected[0].id
-      return this.resource.startCanvas === id
+    isStartCanvas: {
+      get() {
+        let id = this.gallery.selected[0].id
+        return this.resource.startCanvas === id
+      },
+      set() {
+        let id = this.gallery.selected[0].id
+        this.$store.commit("UPDATE_STARTCANVAS", id)
+      },
     },
-    isThumbnail() {
-      let id = this.gallery.selected[0].id
-      return this.resource.thumbnail === id
+    isThumbnail: {
+      get() {
+        let id = this.gallery.selected[0].id
+        return this.resource.thumbnail === id
+      },
+      set() {
+        let id = this.gallery.selected[0].id
+        this.$store.commit("UPDATE_THUMBNAIL", id)
+      },
     },
-    singleForm() {
-      return {
-        label: this.gallery.selected[0].label,
-        id: this.gallery.selected[0].id,
-        viewingHint: this.gallery.selected[0].viewingHint,
-      }
+    title: {
+      get() {
+        return this.gallery.selected[0].title
+      },
+      set(value) {
+        let selected = this.gallery.selected[0]
+        selected.title = value
+        this.updateSingle(selected)
+      },
+    },
+    viewingHint: {
+      get() {
+        return this.gallery.selected[0].viewingHint
+      },
+      set(value) {
+        let selected = this.gallery.selected[0]
+        selected.viewingHint = value
+        this.updateSingle(selected)
+      },
     },
   },
   props: {
@@ -85,47 +116,23 @@ export default {
     // },
   },
   methods: {
-    updateStartCanvas() {
-      var startCanvas = this.gallery.selected[0].id
-      this.$store.commit("UPDATE_STARTCANVAS", startCanvas)
-    },
-    updateThumbnail() {
-      let thumbnail = this.gallery.selected[0].id
-      this.$store.commit("UPDATE_THUMBNAIL", thumbnail)
-    },
-    updateSingle() {
+    updateSingle(selected) {
       console.log("update")
-      //var changeList = this.$store.state.changeList
-      //var images = this.$store.state.images
-      // var index = this.$store.state.images.map(function (img) {
-      //   return img.id
-      // }).indexOf(this.$store.state.selected[0].id)
-      // images[index] = this.singleForm
+      let changeList = this.gallery.changeList
+      let items = this.gallery.items
+      let index = this.gallery.items
+        .map(function(item) {
+          return item.id
+        })
+        .indexOf(selected.id)
+      items[index] = selected
 
-      // if (changeList.indexOf(this.$store.state.selected[0].id) === -1) {
-      //   changeList.push(this.$store.state.selected[0].id)
-      // }
+      if (changeList.indexOf(selected.id) === -1) {
+        changeList.push(selected.id)
+      }
 
-      // this.$store.dispatch('updateChanges', changeList)
-      // this.$store.dispatch('updateImages', images)
-    },
-    validate(field) {
-      if (field.id == "email") {
-        this.emailValue = field.value
-        if (!field.value.length) {
-          this.errormessageEmail = "You need to supply an email."
-        } else {
-          this.errormessageEmail = ""
-        }
-      }
-      if (field.id == "pwd") {
-        this.pwdValue = field.value
-        if (!field.value.length) {
-          this.errormessagePwd = "You need to supply a password."
-        } else {
-          this.errormessagePwd = ""
-        }
-      }
+      this.$store.commit("UPDATE_CHANGES", changeList)
+      this.$store.commit("UPDATE_ITEMS", items)
     },
   },
 }

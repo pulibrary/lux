@@ -20,6 +20,7 @@ export const galleryModule = {
     items: [],
     selected: [],
     cut: [],
+    changeList: [],
   },
 
   mutations: {
@@ -31,6 +32,12 @@ export const galleryModule = {
     },
     SORT_ITEMS(state, value) {
       state.items = [...value]
+    },
+    UPDATE_CHANGES(state, changeList) {
+      state.changeList = [...changeList]
+    },
+    UPDATE_ITEMS(state, items) {
+      state.items = [...items]
     },
   },
 
