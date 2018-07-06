@@ -61,7 +61,7 @@ export default {
      */
     block: {
       type: Boolean,
-      default: "false",
+      default: false,
     },
     /**
      * Whether the button is disabled or not

@@ -2,19 +2,54 @@
   <div>
     <heading level="h2">Generate Labels <small>for selected items</small></heading>
     <form id="app" novalidate="true">
-      <input-text id="unitLabel" :value="unitLabel" label="Unit Label" placeholder="e.g., p." />
-      <input-text id="startNum" :value="startNum" label="Starting Numeral" placeholder="e.g., 10" />
+      <div class="form-group">
+        <label class="control-label" for="unitLabel">Unit Label</label>
+        <input @input="updateMultiLabels()" v-model="labelerOpts.unitLabel" type="text" name="unitLabel" id="unitLabel" value="" placeholder="e.g., p." class="form-control">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="startNum">Starting Numeral</label>
+        <input @input="updateMultiLabels()" v-model="labelerOpts.start" type="text" name="startNum" id="startNum" value="" placeholder="e.g., 10" class="form-control">
+      </div>
       <input-checkbox vertical :options="[{name: 'addBrackets', value: 'Add Brackets', id: 'addBrackets'}]"></input-checkbox>
-      <input-select label="Labeling Method" id="labelingMethod" :options="[{label: 'Paginate (Default)', value: 'paginate', selected: true}, {label: 'Foliate', value: 'foliate'}]"></input-select>
-
-      <input-text id="frontLabel" :value="frontLabel" label="Front Label" placeholder="e.g., (recto)" />
-      <input-text id="backLabel" :value="backLabel" label="Back Label" placeholder="e.g., (verso)" />
-      <input-select label="Start With" id="startWith" :options="[{label: 'Front (Default)', value: 'front', selected: true}, {label: 'Back', value: 'back'}]"></input-select>
+      <div class="checkbox">
+        <label>
+          <input v-model="labelerOpts.bracket" name="addBrackets" id="addBrackets" type="checkbox" value="">
+          <label for="addBrackets">Add Brackets</label>
+        </label>
+      </div>
+      <div v-if="!isMultiVolume" class="form-group">
+        <label class="control-label" for="labelMethod">Labeling Method</label>
+        <select @change="updateMultiLabels()" v-model="labelerOpts.method" id="labelMethod" class="form-control">
+          <option value="paginate">Paginate (Default)</option>
+          <option value="foliate">Foliate</option>
+        </select>
+      </div>
+      <div v-if="labelerOpts.method === 'foliate'" class="row">
+        <fieldset>
+          <div class="form-group">
+            <label class="control-label" for="frontLabel">Front Label</label>
+            <input @input="updateMultiLabels()" v-model="labelerOpts.frontLabel" type="text" name="frontLabel" id="frontLabel" value="" placeholder="(recto)" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="backLabel">Back Label</label>
+            <input @input="updateMultiLabels()" v-model="labelerOpts.backLabel" type="text" name="backLabel" id="backLabel" value="" placeholder="(verso)" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="startWith">Start With</label>
+            <select @change="updateMultiLabels()" v-model="labelerOpts.startWith" id="startWith" class="form-control">
+              <option value="front">Front (Default)</option>
+              <option value="back">Back</option>
+            </select>
+          </div>
+        </fieldset>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
+import Lablr from "../utils/lablr"
+import { mapState, mapGetters } from "vuex"
 /**
  * This is the Filesets Form for the Order Manager in Figgy
  */
@@ -31,10 +66,15 @@ export default {
   },
   data: function() {
     return {
-      errormessageEmail: "",
-      errormessagePwd: "",
-      emailValue: "",
-      pwdValue: "",
+      labelerOpts: {
+        start: "1",
+        method: "paginate",
+        frontLabel: "",
+        backLabel: "",
+        startWith: "front",
+        unitLabel: "p. ",
+        bracket: false,
+      },
     }
   },
   props: {
@@ -45,29 +85,44 @@ export default {
       type: String,
       default: "div",
     },
-    count: {
-      type: Number,
-      default: 0,
+  },
+  computed: {
+    ...mapState({
+      resource: state => state.ordermanager.resource,
+      gallery: state => state.gallery,
+    }),
+    isMultiVolume() {
+      return this.$store.getters.isMultiVolume
+    },
+    selectedTotal() {
+      return this.gallery.selected.length
     },
   },
   methods: {
-    validate(field) {
-      if (field.id == "email") {
-        this.emailValue = field.value
-        if (!field.value.length) {
-          this.errormessageEmail = "You need to supply an email."
-        } else {
-          this.errormessageEmail = ""
+    isNormalInteger(str) {
+      return /^\+?(0|[1-9]\d*)$/.test(str)
+    },
+    updateMultiLabels() {
+      let changeList = this.gallery.changeList
+      let items = this.gallery.items
+      this.labelerOpts.start = this.isNormalInteger(this.labelerOpts.start)
+        ? this.labelerOpts.start - 0
+        : this.labelerOpts.start
+      let generator = Lablr.pageLabelGenerator(this.labelerOpts)
+      for (let i = 0; i < this.selectedTotal; i++) {
+        let index = this.gallery.items
+          .map(function(item) {
+            return item.id
+          })
+          .indexOf(this.gallery.selected[i].id)
+        items[index].title = generator.next().value
+
+        if (changeList.indexOf(this.gallery.selected[i].id) === -1) {
+          changeList.push(this.gallery.selected[i].id)
         }
       }
-      if (field.id == "pwd") {
-        this.pwdValue = field.value
-        if (!field.value.length) {
-          this.errormessagePwd = "You need to supply a password."
-        } else {
-          this.errormessagePwd = ""
-        }
-      }
+      this.$store.commit("UPDATE_CHANGES", changeList)
+      this.$store.commit("UPDATE_ITEMS", items)
     },
   },
 }
