@@ -1,7 +1,7 @@
 <template>
   <component :is="type" :class="['library-header ', variation]">
     <library-logo></library-logo>
-    <a class="app-name" href="/">{{appName}}</a>
+    <a class="app-name" :href="appUrl">{{appName}}</a>
     <spacer></spacer>
     <slot/>
   </component>
@@ -27,6 +27,13 @@ export default {
      * The name of the application or site
      */
     appName: {
+      type: String,
+      default: "",
+    },
+    /**
+     * The URL of landing page for the application or site
+     */
+    appUrl: {
       type: String,
       default: "",
     },
@@ -88,7 +95,7 @@ export default {
 
 <docs>
   ```jsx
-  <library-header app-name="Catalog">
+  <library-header app-name="Catalog" app-url="https://catalog.princeton.edu">
   <menu-bar type="nav" :menuItems="[
       {name: 'Help', component: 'Help', href: '/help/'},
       {name: 'Feedback', component: 'Feedback', href: '/feedback/'},
