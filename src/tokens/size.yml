@@ -4,6 +4,8 @@
 #
 
 props:
+  height_header:
+    value: "55px"
   height_footer:
     value: "64px"
   tappable_square:
