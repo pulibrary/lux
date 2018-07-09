@@ -1,6 +1,6 @@
 <template>
   <component :is="type" class="university-logo">
-    <a href="https://princeton.edu"><svg-icon name="university-logo" ariaLabel="Princeton University" width="200px"></svg-icon></a>
+    <a href="https://princeton.edu"><svg-icon name="university-logo" ariaLabel="Princeton University" width="142px" height="40px"></svg-icon></a>
   </component>
 </template>
 
@@ -20,16 +20,16 @@ export default {
      */
     type: {
       type: String,
-      default: "",
+      default: "div",
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.accessibility {
+.university-logo {
   @include reset;
-  @include stack-space($space-base);
+  @include stack-space($space-x-small);
   font-family: $font-family-heading;
   font-size: $font-size-x-small;
   line-height: $line-height-heading;

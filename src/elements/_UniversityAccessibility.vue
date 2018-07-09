@@ -19,7 +19,7 @@ export default {
      */
     type: {
       type: String,
-      default: "",
+      default: "span",
     },
   },
 }
@@ -33,6 +33,16 @@ export default {
   font-size: $font-size-x-small;
   line-height: $line-height-heading;
   color: $color-rich-black;
+
+  a {
+    color: $color-rich-black;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 }
 </style>
 

@@ -28,7 +28,7 @@ export default {
      */
     fullWidth: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
 }
@@ -37,13 +37,10 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   @include reset;
-  @include inset-space($space-large);
-  font-family: $font-family-text;
-  font-weight: $font-weight-regular;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  margin: auto;
+
   @media #{$media-query-large} {
-    @include inset-space($space-x-large);
+    max-width: 1170px;
   }
   .full-width {
     width: 100%;
