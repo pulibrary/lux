@@ -1,14 +1,19 @@
 <template>
   <component :is="type" class="library-contact">
     <div itemscope itemtype="http://schema.org/Organization">
-      <span itemprop="name">Princeton University Library</span> 
+      <h2 itemprop="name">Princeton University Library</h2> 
       <div itemscope itemtype="http://schema.org/PostalAddress">
         <span itemprop="streetAddress">One Washington Road</span> <br>
         <span itemprop="addressLocality">Princeton</span>, <span itemprop="addressRegion">NJ</span> <span itemprop="postalCode">08544</span> <span itemprop="addressCountry">USA</span>
       </div>
       <span itemprop="telephone"><a href="tel:1-609-258-1470">(609) 258-1470</a></span>
     </div>
-    <!-- icons (facebook, twitter, govdocs, friends) -->
+    <ul class="icons">
+      <li><a href="http://www.facebook.com/PULibrary"><svg-icon name="pul-icon-facebook" width="24px" height="24px" ariaLabel="Facebook"></svg-icon></a></li>
+      <li><a href="http://twitter.com/PULibrary"><svg-icon name="pul-icon-twitter" width="24px" height="24px" ariaLabel="Twitter"></svg-icon></a></li>
+      <li><a href="https://libguides.princeton.edu/usgovdocs"><svg-icon name="pul-icon-govdocs" width="24px"  height="24px" ariaLabel="Government documents"></svg-icon></a></li>
+      <li><a href="https://fpul.princeton.edu/"><svg-icon name="pul-icon-friends" width="87px" height="24px" ariaLabel="Friends of the Library"></svg-icon></a></li>
+    </ul>      
   </component>
 </template>
 
@@ -28,7 +33,7 @@ export default {
      */
     type: {
       type: String,
-      default: "",
+      default: "div",
     },
   },
 }
@@ -37,11 +42,33 @@ export default {
 <style lang="scss" scoped>
 .library-contact {
   @include reset;
-  @include stack-space($space-base);
+  @include stack-space($space-x-small);
   font-family: $font-family-heading;
-  font-size: $font-size-x-small;
-  line-height: $line-height-heading;
+  font-size: $font-size-small;
+  line-height: $line-height-base;
   color: $color-rich-black;
+
+  a {
+    text-decoration: none;
+    color: $color-rich-black;
+  }
+
+  h2 {
+    color: $color-rich-black;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-heading;
+  }
+}
+
+.icons {
+  list-style-type: none;
+  margin: 8px 0 0;
+  padding: 0;
+
+  li {
+    display: inline;
+  }
 }
 </style>
 

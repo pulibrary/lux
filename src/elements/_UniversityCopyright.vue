@@ -20,7 +20,7 @@ export default {
      */
     type: {
       type: String,
-      default: "",
+      default: "span",
     },
   },
 }
@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .copyright {
   @include reset;
-  @include stack-space($space-base);
+  @include stack-space($space-xx-small);
   font-family: $font-family-heading;
   font-size: $font-size-x-small;
   line-height: $line-height-heading;
