@@ -4,6 +4,7 @@
  */
 import instance from "@/utils/vueInstance"
 import vuexModules from "@/store/modules"
+import WebFontLoader from "@/utils/webFontLoader"
 export const modules = vuexModules
 
 // Defines contexts to require
