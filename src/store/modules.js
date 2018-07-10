@@ -26,6 +26,12 @@ export const galleryModule = {
   },
 
   mutations: {
+    CUT(state, itemArray) {
+      state.cut = [...itemArray]
+    },
+    PASTE(state, itemArray) {
+      state.items = [...itemArray]
+    },
     SELECT(state, itemArray) {
       state.selected = [...itemArray]
     },

@@ -4,12 +4,13 @@
       :id="item.id"
       :key="item.id"
       class="galleryCard"
+      :cardPixelWidth="cardPixelWidth"
       size="medium"
       :selected="isSelected(item)"
-      :disabled="item.disabled"
+      :disabled="isDisabled(item)"
       :edited="hasChanged(item.id)"
-      @card-click="select($event)">
-      <media-image :src="item.mediaUrl" height="medium"></media-image>
+      @card-click="select(item.id, $event)">
+      <media-image :src="item.mediaUrl"></media-image>
       <heading level="h2">{{ item.title }}</heading>
       <text-style variation="default">{{ item.caption }}</text-style>
     </card>
@@ -51,11 +52,17 @@ export default {
       required: true,
       type: Array,
     },
+    /**
+     * Pixel width of the cards in the gallery.
+     */
+    cardPixelWidth: {
+      required: false,
+      default: 300,
+    },
   },
   methods: {
     deselect: function(event) {
       if (event.target.className === "gallery") {
-        console.log(event.target.className)
         this.selectNone()
       }
     },
@@ -76,27 +83,33 @@ export default {
     hasChanged: function(id) {
       return this.gallery.changeList.indexOf(id) > -1
     },
+    isDisabled: function(item) {
+      return this.gallery.cut.indexOf(item) > -1
+    },
     isSelected: function(item) {
       return this.gallery.selected.indexOf(item) > -1
     },
-    select: function(event) {
-      let selected = []
-      if (event.metaKey) {
-        selected = this.gallery.selected
-        selected.push(this.getItemById(event.target.id))
-        this.$store.commit("SELECT", selected)
-      } else {
-        if (this.gallery.selected.length === 1 && event.shiftKey) {
-          var first = this.getItemIndexById(this.gallery.selected[0].id)
-          var second = this.getItemIndexById(event.target.id)
-          var min = Math.min(first, second)
-          var max = Math.max(first, second)
-          for (var i = min; i <= max; i++) {
-            selected.push(this.items[i])
-          }
+    select: function(id, event) {
+      if (!this.isDisabled(this.getItemById(id))) {
+        // can't select disabled item
+        let selected = []
+        if (event.metaKey) {
+          selected = this.gallery.selected
+          selected.push(this.getItemById(event.target.id))
           this.$store.commit("SELECT", selected)
         } else {
-          this.$store.commit("SELECT", [this.getItemById(event.target.id)])
+          if (this.gallery.selected.length === 1 && event.shiftKey) {
+            var first = this.getItemIndexById(this.gallery.selected[0].id)
+            var second = this.getItemIndexById(event.target.id)
+            var min = Math.min(first, second)
+            var max = Math.max(first, second)
+            for (var i = min; i <= max; i++) {
+              selected.push(this.items[i])
+            }
+            this.$store.commit("SELECT", selected)
+          } else {
+            this.$store.commit("SELECT", [this.getItemById(event.target.id)])
+          }
         }
       }
     },
@@ -113,6 +126,9 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+
   overflow: auto;
   height: calc(100% - 40px);
   border-radius: 4px;
@@ -121,6 +137,13 @@ export default {
 
   .card {
     margin: 1rem;
+    height: auto;
+    overflow: hidden;
+    white-space: wrap;
+
+    .media-image img {
+      height: auto;
+    }
   }
 }
 </style>

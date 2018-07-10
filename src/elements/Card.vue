@@ -1,11 +1,12 @@
 <template>
   <article :id="id" @click.capture="select($event)" class="card"
     :class="[
-      size,
+      /* size, */
       { 'card-selected': selected },
       { 'card-edited': edited },
       { 'card-disabled': disabled }
-    ]">
+    ]"
+    v-bind:style="{'max-width': cardPixelWidth + 'px' }" >
     <slot/>
   </article>
 </template>
@@ -33,6 +34,12 @@ export default {
     cardUrl: {
       type: String,
       default: "",
+    },
+    /**
+     * Sets arbitrary card width. It's recommended to use size over this setting.
+     */
+    cardPixelWidth: {
+      default: 300,
     },
     /**
      * Sets the size of the card `small, medium, large`

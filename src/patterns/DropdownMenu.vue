@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['dropdown-menu']">
+  <component :is="type" :class="['lux-dropdown-menu']">
     <slot/>
   </component>
 </template>
@@ -36,8 +36,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dropdown-menu {
+.lux-dropdown-menu {
   @include reset;
+  @include stack-space($space-small);
   margin: 0.25rem;
   font-family: $font-family-text;
   font-size: $font-size-base;
@@ -45,6 +46,7 @@ export default {
   color: set-text-color($color-rich-black, $color-white);
   position: relative;
   display: inline-block;
+  top: 0;
 
   .dropdown {
     position: relative;

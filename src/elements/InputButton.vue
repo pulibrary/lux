@@ -114,26 +114,21 @@ button {
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
-
   &:active {
     transform: scale(0.99);
   }
 }
-
 .solid {
   background: $color-bleu-de-france;
   color: $color-white;
-
   &:hover,
   &:focus {
     background: $color-bleu-de-france-darker;
   }
 }
-
 .text {
   background-color: transparent;
 }
-
 .dropdown {
   background: $color-white;
   box-shadow: $box-shadow-small;
@@ -146,29 +141,23 @@ button {
     margin-left: $space-xx-small;
   }
 }
-
 .small {
   font-size: $font-size-small;
 }
-
 .medium {
   font-size: $font-size-base;
 }
-
 .large {
   font-size: $font-size-large;
 }
-
 .expanded {
   display: block;
   width: 100%;
   max-width: 100%;
 }
-
 [disabled] {
   background: $color-grayscale-light;
   cursor: not-allowed;
-
   &:hover,
   &:focus {
     background: $color-grayscale-light;

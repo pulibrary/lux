@@ -34,7 +34,7 @@ export default {
      */
     height: {
       type: String,
-      default: "medium",
+      default: "",
     },
   },
 }
@@ -47,12 +47,13 @@ export default {
   font-family: $font-family-text;
   line-height: $line-height-base;
   color: $color-rich-black;
-
   overflow: hidden;
   position: relative;
+  height: auto;
 
   img {
     background-color: $color-grayscale-lighter;
+    height: auto;
     max-width: 100%;
     vertical-align: middle;
   }
