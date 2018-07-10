@@ -5,7 +5,6 @@
       <loader size="medium"></loader>
     </div>
   </transition>
-  <heading level="h2">{{resource.label}} <small v-if="isMultiVolume">Multi-volume</small></heading>
   <wrapper class="galleryPanel" type="div">
     <gallery :galleryItems="galleryItems"></gallery>
   </wrapper>
