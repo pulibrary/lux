@@ -23,21 +23,15 @@ export default {
      */
     name: {
       required: true,
-      default: "settings",
+      default: "pul-icon-data-file",
     },
     /**
-     * The fill color of the SVG icon.
-     */
-    fill: {
-      type: String,
-      default: "#00264c",
-    },
-    /**
-     * Descriptive text to be read to screenreaders.
+     * Descriptive text to be read to screenreaders. Do not include if use of
+     * icon is decorative.
      */
     ariaLabel: {
       type: String,
-      default: "icon",
+      default: "",
     },
     /**
      * The html element name used for the icon.
@@ -47,18 +41,31 @@ export default {
       default: "span",
     },
     /**
-     * The width of the icon.
+     * The fill color of the SVG icon.
+     */
+    fill: {
+      type: String,
+      default: "rgb(0, 17, 35)",
+    },
+    /**
+     * The width of the icon. For square icons use values of `11px, 13px,
+     * 16px, 24px, 36px, 48px, 64px` to follow visual heirachy set by
+     * typography.
      */
     width: {
+      required: true,
       type: String,
       default: "16px",
     },
     /**
-     * The height of the icon.
+     * The height of the icon. For square icons use values of `11px, 13px,
+     * 16px, 24px, 36px, 48px, 64px` to follow visual heirachy set by
+     * typography.
      */
     height: {
+      required: true,
       type: String,
-      default: "auto",
+      default: "16px",
     },
   },
   async mounted() {
@@ -90,71 +97,73 @@ export default {
 <docs>
   ```jsx
   <div>
-    <svg-icon name="pul-icon-add-box" ariaLabel="add item" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-archives" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-article-express--small" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-audio" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-best-bet" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-book" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-bookmark" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-bookslibrary" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-calendar" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-caret-left" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-caret-right" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-cd" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-chat" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-cite" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-clock" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-collections" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-compass" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-data-file" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-databases" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-digital" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-dissertation" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-down" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-email" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-file-format-xml" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-file-pdf" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-film" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-guide" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-home" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-journal" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-library" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-links" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-location" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-lp" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-manuscript" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-map" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-minus-sign-alt" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-mixed-material" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-mobile" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-moveback" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-musical-score" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-newspaper" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-newtab" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-phone-book" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-phone" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-plus-sign-alt" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-print" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-question" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-refresh" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-remove" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-right" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-rssfeed" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-search" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-senior-thesis" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-share" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-spinner" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-staff" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-text" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-toggle.collapsed" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-toggle" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-unknown" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-video-projected-medium" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-visual-material" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-warning" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-web" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
-    <svg-icon name="pul-icon-windows" fill="rgb(37, 138, 239)" width="55px"></svg-icon>
+    <svg-icon name="pul-icon-add-box" fill="rgb(44, 110, 175)" ariaLabel="add item" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-archives" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-arrow-down" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-article-express--small" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-audio" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-best-bet" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-book" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-bookmark" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-bookslibrary" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-calendar" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-caret-left" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-caret-right" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-cd" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-chat" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-cite" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-clock" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-collections" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-compass" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-data-file" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-databases" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-digital" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-dissertation" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-down" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-email" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-file-format-xml" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-file-pdf" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-film" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-guide" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-home" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-journal" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-library" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-links" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-location" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-lp" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-manuscript" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-map" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-minus-sign-alt" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-mixed-material" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-mobile" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-moveback" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-musical-score" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-newspaper" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-newtab" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-phone-book" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-phone" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-picture-solid" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-plus-sign-alt" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-print" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-question" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-refresh" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-remove" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-right" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-rssfeed" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-search" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-senior-thesis" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-share" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-spinner" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-staff" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-text" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-toggle.collapsed" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-toggle" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-unknown" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-video-projected-medium" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-visual-material" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-warning" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-web" width="48px" height="48px"></svg-icon>
+    <svg-icon name="pul-icon-windows" width="48px" height="48px"></svg-icon>
   </div>
   ```
 </docs>
