@@ -1,7 +1,7 @@
 <template>
   <div class="media-image" :class="[height, {'default-thumbnail': !src}]">
     <img v-if="src" :src="src" :alt="alt">
-    <svg-icon v-else name="pul-icon-data-file" fill="rgb(225,225,225)" width="55px"></svg-icon>
+    <svg-icon v-else name="pul-icon-file" fill="rgb(225,225,225)" width="64px" height="64px"></svg-icon>
   </div>
 </template>
 

@@ -9,10 +9,10 @@
       <span itemprop="telephone"><a href="tel:1-609-258-1470">(609) 258-1470</a></span>
     </div>
     <ul class="icons">
-      <li><a href="http://www.facebook.com/PULibrary"><svg-icon name="pul-icon-facebook" width="24px" height="24px" ariaLabel="Facebook"></svg-icon></a></li>
-      <li><a href="http://twitter.com/PULibrary"><svg-icon name="pul-icon-twitter" width="24px" height="24px" ariaLabel="Twitter"></svg-icon></a></li>
-      <li><a href="https://libguides.princeton.edu/usgovdocs"><svg-icon name="pul-icon-govdocs" width="24px"  height="24px" ariaLabel="Government documents"></svg-icon></a></li>
-      <li><a href="https://fpul.princeton.edu/"><svg-icon name="pul-icon-friends" width="87px" height="24px" ariaLabel="Friends of the Library"></svg-icon></a></li>
+      <li><a href="http://www.facebook.com/PULibrary"><svg-icon name="logo-facebook" width="24px" height="24px" ariaLabel="Facebook"></svg-icon></a></li>
+      <li><a href="http://twitter.com/PULibrary"><svg-icon name="logo-twitter" width="24px" height="24px" ariaLabel="Twitter"></svg-icon></a></li>
+      <li><a href="https://libguides.princeton.edu/usgovdocs"><svg-icon name="logo-govdocs" width="24px"  height="24px" ariaLabel="Government documents"></svg-icon></a></li>
+      <li><a href="https://fpul.princeton.edu/"><svg-icon name="logo-friends" width="87px" height="24px" ariaLabel="Friends of the Library"></svg-icon></a></li>
     </ul>      
   </component>
 </template>
