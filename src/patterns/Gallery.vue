@@ -101,11 +101,8 @@ export default {
       }
     },
   },
-  created() {
-    if (this.galleryItems) {
-      // if props are passed in set the resource on mount
-      this.$store.commit("SET_GALLERY", this.galleryItems)
-    } else {
+  mounted() {
+    if (!this.galleryItems) {
       this.$store.commit("CHANGE_RESOURCE_LOAD_STATE", "LOADING")
     }
   },
