@@ -10,7 +10,7 @@
       :disabled="isDisabled(item)"
       :edited="hasChanged(item.id)"
       @card-click="select(item.id, $event)">
-      <media-image :src="item.mediaUrl" height="medium"></media-image>
+      <media-image :src="item.mediaUrl"></media-image>
       <heading level="h2">{{ item.title }}</heading>
       <text-style variation="default">{{ item.caption }}</text-style>
     </card>
@@ -126,9 +126,24 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  overflow: auto;
+  height: calc(100% - 40px);
+  border-radius: 4px;
+  margin-bottom: 40px;
+  clear: both;
 
   .card {
     margin: 1rem;
+    height: auto;
+    overflow: hidden;
+    white-space: wrap;
+
+    .media-image img {
+      height: auto;
+    }
   }
 }
 </style>
