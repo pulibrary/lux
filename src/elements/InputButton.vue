@@ -6,7 +6,7 @@
     <slot>
     {{ label }}
     </slot>
-    <svg-icon v-if="variation === 'dropdown'" name="pul-icon-arrow-down" fill="rgb(0,0,0)" width="8px"></svg-icon>
+    <span v-if="variation === 'dropdown'" class="caret"> &#9660;</span>
   </button>
 </template>
 
@@ -139,8 +139,11 @@ button {
   box-shadow: $box-shadow-small;
   color: $color-rich-black;
 
-  .svg-icon {
-    margin-left: 0.25rem;
+  .caret {
+    line-height: 1;
+    font-size: $font-size-x-small;
+    color: $color-grayscale-darker;
+    margin-left: $space-xx-small;
   }
 }
 
