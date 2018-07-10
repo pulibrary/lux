@@ -6,7 +6,8 @@
           :key="index"
           :href="item.href"
           :class="{active: localActive === item.component}"
-          v-html="item.name">
+          v-html="item.name"
+          @click="menuItemClicked($event)">
         </a>
       </li>
     </ul>
@@ -18,11 +19,12 @@
         <button
           :key="index"
           :href="item.href"
-          :disabled="item.disabled"
           :class="[
             'menu-item',
-            {active: localActive === item.component}]"
-          v-html="item.name">
+            {active: localActive === item.component},
+            {disabled: item.disabled}]"
+          v-html="item.name"
+          @click="menuItemClicked($event)">
         </button>
       </li>
     </ul>
@@ -56,7 +58,7 @@ export default {
      * State which tab is active when initiated (using name of the component).
      */
     active: {
-      required: true,
+      required: false,
       type: String,
     },
     /**
@@ -75,6 +77,11 @@ export default {
       set(val) {
         this.$emit("input", val)
       },
+    },
+  },
+  methods: {
+    menuItemClicked(value) {
+      this.$emit("menu-item-clicked", value)
     },
   },
 }
@@ -165,7 +172,7 @@ $color-nav-link-active: $color-bleu-de-france;
     }
   }
 
-  [disabled] {
+  .disabled {
     color: $color-grayscale-dark;
 
     &:hover,

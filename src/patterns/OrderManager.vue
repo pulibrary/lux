@@ -6,7 +6,8 @@
     </div>
   </transition>
   <wrapper class="galleryPanel" type="div">
-    <gallery :galleryItems="galleryItems"></gallery>
+    <toolbar v-on:cards-resized="resizeCards($event)"></toolbar>
+    <gallery :cardPixelWidth="cardPixelWidth" :galleryItems="galleryItems"></gallery>
   </wrapper>
   <wrapper class="sidePanel" type="div" :fullWidth="false">
     <!-- Resource Form-->
@@ -35,6 +36,12 @@ export default {
   status: "review",
   release: "1.0.0",
   type: "Element",
+  data: function() {
+    return {
+      cardPixelWidth: 300,
+      captionPixelPadding: 9,
+    }
+  },
   computed: {
     galleryItems() {
       return this.resource.members.map(member => ({
@@ -66,6 +73,16 @@ export default {
     resourceObject: {
       type: Object,
       default: null,
+    },
+  },
+  methods: {
+    resizeCards: function(event) {
+      this.cardPixelWidth = event.target.value
+      if (this.cardPixelWidth < 75) {
+        this.captionPixelPadding = 0
+      } else {
+        this.captionPixelPadding = 9
+      }
     },
   },
   mounted() {

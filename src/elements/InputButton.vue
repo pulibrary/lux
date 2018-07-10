@@ -6,7 +6,7 @@
     <slot>
     {{ label }}
     </slot>
-    <svg-icon v-if="variation === 'dropdown'" name="pul-icon-arrow-down" fill="rgb(0,0,0)" width="8px"></svg-icon>
+    <svg-icon v-if="variation === 'dropdown'" name="pul-icon-arrow-down" fill="rgb(0,0,0)" width="8px" height="8px"></svg-icon>
   </button>
 </template>
 
