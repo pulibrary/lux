@@ -7,7 +7,7 @@
   </transition>
   <wrapper class="galleryPanel" type="div">
     <toolbar v-on:cards-resized="resizeCards($event)"></toolbar>
-    <gallery :cardPixelWidth="cardPixelWidth" :galleryItems="galleryItems"></gallery>
+    <gallery class="galleryWrapper" :cardPixelWidth="cardPixelWidth" :galleryItems="galleryItems"></gallery>
   </wrapper>
   <wrapper class="sidePanel" type="div" :fullWidth="false">
     <!-- Resource Form-->
@@ -124,6 +124,13 @@ export default {
   width: 70%;
   border-radius: 4px;
   border: 1px solid #ddd;
+}
+.galleryWrapper {
+  overflow: auto;
+  height: calc(100% - 80px);
+  border-radius: 4px;
+  margin-bottom: 80px;
+  clear: both;
 }
 </style>
 <docs>

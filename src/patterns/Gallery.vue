@@ -126,11 +126,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  overflow: auto;
-  height: calc(100% - 40px);
-  border-radius: 4px;
-  margin-bottom: 40px;
-  clear: both;
 
   .card {
     margin: 1rem;
