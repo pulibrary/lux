@@ -133,6 +133,7 @@ button {
   background: $color-white;
   box-shadow: $box-shadow-small;
   color: $color-rich-black;
+
   .caret {
     line-height: 1;
     font-size: $font-size-x-small;

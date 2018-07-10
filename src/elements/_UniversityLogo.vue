@@ -1,6 +1,6 @@
 <template>
   <component :is="type" class="university-logo">
-    <a href="https://princeton.edu"><svg-icon name="university-logo" ariaLabel="Princeton University" width="142px" height="40px"></svg-icon></a>
+    <a href="https://princeton.edu"><svg-icon name="logo-university" ariaLabel="Princeton University" width="142px" height="40px"></svg-icon></a>
   </component>
 </template>
 
