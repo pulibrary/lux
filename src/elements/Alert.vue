@@ -26,7 +26,7 @@
  */
 export default {
   name: "Alert",
-  status: "Prototype",
+  status: "prototype",
   release: "1.0.0",
   type: "Element",
   metaInfo: {

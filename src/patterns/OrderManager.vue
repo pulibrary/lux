@@ -35,7 +35,7 @@ export default {
   name: "OrderManager",
   status: "review",
   release: "1.0.0",
-  type: "Element",
+  type: "Pattern",
   data: function() {
     return {
       cardPixelWidth: 300,
