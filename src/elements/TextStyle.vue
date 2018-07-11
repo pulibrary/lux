@@ -54,7 +54,7 @@ $positive-text: #7cb518;
     // This is how you’d use design tokens with media queries
   }
   &.disabled {
-    color: tint($color-rich-black, 50%);
+    color: tint($color-rich-black, 40%);
     text-decoration: line-through;
   }
   &.strong {
