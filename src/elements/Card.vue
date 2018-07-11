@@ -147,8 +147,8 @@ export default {
 
 <docs>
   ```jsx
-  <card id="myCard" size="medium">
-    <media-image src="https://picsum.photos/600/300/?random" height="medium"></media-image>
+  <card id="myCard">
+    <media-image src="https://picsum.photos/600/300/?random" height="medium" cover></media-image>
     <heading level="h2">Title</heading>
     <text-style variation="default">Design isn’t just about the look and feel. Design is how it works.</text-style>
   </card>

@@ -1,6 +1,6 @@
 <template>
   <div class="media-image" :class="[height, {'default-thumbnail': !src}]">
-    <img v-if="src" :src="src" :alt="alt">
+    <img v-if="src" :src="src" :alt="alt" :class="[{'cover': cover}, {'contain': contain}]">
     <svg-icon v-else name="pul-icon-file" fill="rgb(225,225,225)" width="64px" height="64px"></svg-icon>
   </div>
 </template>
@@ -23,18 +23,32 @@ export default {
       default: null,
     },
     /**
-     * The alternative text describing the image
+     * The alternative text describing the image. Do not include if image is decorative.
      */
     alt: {
       type: String,
       default: "",
     },
     /**
-     * Manually define the heiht of the image for a card
+     * Manually define the height of the image for a card
      */
     height: {
       type: String,
       default: "",
+    },
+    /**
+     * Whether the image fills the container maintaining aspect ratio and is cropped
+     */
+    cover: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Whether the full image is contained within the container maintaining aspect ratio. Note that this property is not recommened for use when the `height` prop is used as it will show the background of the container.
+     */
+    contain: {
+      type: Boolean,
+      default: false,
     },
   },
 }
@@ -56,6 +70,14 @@ export default {
     height: auto;
     max-width: 100%;
     vertical-align: middle;
+  }
+
+  .cover {
+    object-fit: cover;
+  }
+
+  .contain {
+    object-fit: contain;
   }
 
   &.default-thumbnail {
