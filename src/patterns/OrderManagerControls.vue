@@ -2,17 +2,17 @@
   <wrapper class="bg">
     <div class="controls">
       <alert v-if="orderChanged" status="info">Page order has changed.</alert>
-      <input-button @click="saveHandler" id="save_btn" variation="solid" size="large" :disabled="isDisabled">
+      <input-button @click="saveHandler" id="save_btn" variation="solid" size="medium" :disabled="isDisabled">
         Apply Changes
       </input-button>
       <a v-if="!hidden" :href="editLink" id="replace-file-button">Manage Page Files</a>
     </div>
     <heading v-if="selectedTotal === 1" level="h2">Zoom <small>on the selected item</small></heading>
-    <wrapper v-if="selectedTotal === 1" class="osd-wrapper">
+    <div v-if="selectedTotal === 1" class="osd-wrapper">
       <div class="osd">
         <div class="viewport" :id="viewerId"></div>
       </div>
-    </wrapper>
+    </div>
   </wrapper>
 </template>
 
@@ -139,6 +139,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+small {
+  font-size: 1rem;
+  font-weight: 400;
+}
 #replace-file-button {
   padding: 1.5rem;
   display: inline-block;
