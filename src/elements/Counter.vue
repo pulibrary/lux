@@ -18,7 +18,7 @@
  */
 export default {
   name: "Counter",
-  status: "review",
+  status: "deprecated",
   release: "1.0.0",
   type: "Element",
   data: function() {
