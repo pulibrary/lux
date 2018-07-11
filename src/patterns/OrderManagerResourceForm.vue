@@ -19,7 +19,7 @@
 import { mapState, mapGetters } from "vuex"
 export default {
   name: "ResourceForm",
-  status: "Prototype",
+  status: "prototype",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {

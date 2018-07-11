@@ -22,7 +22,7 @@
  */
 export default {
   name: "LoginForm",
-  status: "Prototype",
+  status: "prototype",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {

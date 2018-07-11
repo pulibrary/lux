@@ -15,6 +15,7 @@ export default {
   name: "LibraryHeader",
   status: "prototype",
   release: "1.0.0",
+  type: "Pattern",
   props: {
     /**
      * The html element name used for the container
