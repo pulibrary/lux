@@ -22,7 +22,7 @@
 
 <script>
 /**
- * This component is used to provide timely information to a user in response to some event.
+ * Alerts are used to provide timely information to a user in response to some event.
  */
 export default {
   name: "Alert",
@@ -121,6 +121,8 @@ export default {
 }
 
 .alert {
+  @include reset;
+  font-family: $font-family-text;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
@@ -186,10 +188,10 @@ button.close {
 <docs>
   ```jsx
   <div>
-    <alert status="warning" autoclear=true>How to disappear completely...</alert>
+    <alert status="warning" autoclear>How to disappear completely...</alert>
     <alert status="error"></alert>
     <alert status="success">Like a boss!</alert>
-    <alert status="info" dismissible=true>Here's some dismissible info for you.</alert>
+    <alert status="info" dismissible>Here's some dismissible info for you.</alert>
   </div>
   ```
 </docs>
