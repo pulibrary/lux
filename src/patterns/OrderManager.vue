@@ -16,6 +16,7 @@
     <filesets-form v-if="selectedTotal > 1"></filesets-form>
     <!-- Single Selected Form-->
     <fileset-form v-if="selectedTotal === 1"></fileset-form>
+    <controls viewerId="viewer"></controls>
   </wrapper>
 </div>
 </template>

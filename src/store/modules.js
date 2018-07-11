@@ -23,6 +23,7 @@ export const galleryModule = {
     selected: [],
     cut: [],
     changeList: [],
+    ogItems: [],
   },
 
   mutations: {
@@ -37,6 +38,7 @@ export const galleryModule = {
     },
     SET_GALLERY(state, items) {
       state.items = items
+      state.ogItems = items
     },
     SORT_ITEMS(state, value) {
       state.items = [...value]
@@ -54,6 +56,7 @@ export const resourceModule = {
   state: {
     resource: {
       id: "",
+      resourceClassName: "",
       bibId: "",
       label: "Resource not available.",
       thumbnail: "",
@@ -63,6 +66,7 @@ export const resourceModule = {
       viewingDirection: null,
       members: [],
       loadState: "NOT_LOADED",
+      ogState: {},
     },
   },
 
@@ -72,17 +76,26 @@ export const resourceModule = {
     },
     SET_RESOURCE(state, resource) {
       state.resource.id = resource.id
+      state.resource.resourceClassName = resource.__typename
       state.resource.label = resource.label
       state.resource.members = resource.members
-      state.gallery.items = resource.members.map(member => ({
+      const items = resource.members.map(member => ({
         id: member.id,
         title: member.label,
         viewingHint: member.viewingHint,
         caption: member.__typename + " : " + member.id,
         mediaUrl: "https://picsum.photos/600/300/?random",
       }))
+      state.gallery.items = items
+      state.gallery.ogItems = items
       state.resource.viewingHint = resource.viewingHint
       state.resource.loadState = "LOADED"
+      state.resource.ogState = {
+        startCanvas: resource.startCanvas,
+        thumbnail: resource.thumbnail,
+        viewingHint: resource.viewingHint,
+        viewingDirection: resource.viewingDirection,
+      }
     },
     UPDATE_STARTCANVAS(state, startCanvas) {
       state.resource.startCanvas = startCanvas
@@ -107,6 +120,25 @@ export const resourceModule = {
     isMultiVolume: state => {
       const volumes = state.resource.members.filter(member => member.__typename === "ScannedResource")
       return volumes.length > 0 ? true : false
+    },
+    orderChanged: state => {
+      let ogOrder = JSON.stringify(state.gallery.ogItems.map(item => item.id))
+      let imgOrder = JSON.stringify(state.gallery.items.map(item => item.id))
+      return ogOrder !== imgOrder
+    },
+    stateChanged: (state, getters) => {
+      var propsChanged = []
+      propsChanged.push(state.resource.ogState.thumbnail !== state.thumbnail)
+      propsChanged.push(state.resource.ogState.startPage !== state.startPage)
+      propsChanged.push(state.resource.ogState.viewingHint !== state.viewingHint)
+      propsChanged.push(state.resource.ogState.viewingDirection !== state.viewingDirection)
+      propsChanged.push(state.gallery.changeList.length > 0)
+      propsChanged.push(getters.orderChanged)
+      if (propsChanged.indexOf(true) > -1) {
+        return true
+      } else {
+        return false
+      }
     },
   },
   modules: {
