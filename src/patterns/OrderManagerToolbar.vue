@@ -21,7 +21,7 @@
     <div class="zoom-slider">
       <svg-icon name="pul-icon-picture-solid" fill="rgb(0,0,0)" width="12px" height="12px"></svg-icon>
       <label for="img_zoom">Image zoom</label>
-      <input @input="resizeCards($event)" type="range" id="img_zoom" min="40" max="400" value="200">
+      <input @input="resizeCards($event)" type="range" id="img_zoom" min="40" max="500" value="300">
       <svg-icon name="pul-icon-picture-solid" fill="rgb(0,0,0)" width="24px" height="24px"></svg-icon>
     </div>
   </component>
@@ -50,6 +50,9 @@ export default {
       resource: state => state.ordermanager.resource,
       gallery: state => state.gallery,
     }),
+    // selectedTotal() {
+    //   return this.gallery.selected.length
+    // },
     cut: {
       get() {
         return this.gallery.cut

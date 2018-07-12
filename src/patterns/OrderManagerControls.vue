@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import OpenSeadragon from "openseadragon"
 import { mapState, mapGetters } from "vuex"
 /**
  * This is the Fileset Form for the Order Manager in Figgy
@@ -31,6 +32,12 @@ export default {
     htmlAttrs: {
       lang: "en",
     },
+  },
+  data: function() {
+    return {
+      viewer: null,
+      osdId: this.viewerId,
+    }
   },
   computed: {
     ...mapState({
@@ -92,6 +99,17 @@ export default {
     },
   },
   methods: {
+    initOSD: function() {
+      if (this.viewer) {
+        this.viewer.destroy()
+        this.viewer = null
+      }
+      this.viewer = OpenSeadragon({
+        id: this.osdId,
+        showNavigationControl: false,
+        tileSources: [this.gallery.selected[0].service + "/info.json"],
+      })
+    },
     hidden: function() {
       if (this.selectedTotal != 1) {
         return true
@@ -134,6 +152,11 @@ export default {
       }
       this.$store.dispatch("saveState", body)
     },
+  },
+  updated: function() {
+    if (this.selectedTotal === 1) {
+      this.initOSD()
+    }
   },
 }
 </script>
@@ -187,6 +210,6 @@ h3.osd-title {
 
 <docs>
   ```jsx
-  <controls viewerId="viewer"></controls>
+  <controls></controls>
   ```
 </docs>

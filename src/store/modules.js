@@ -84,9 +84,14 @@ export const resourceModule = {
         title: member.label,
         viewingHint: member.viewingHint,
         caption: member.__typename + " : " + member.id,
-        mediaUrl: member.thumbnail.iiifServiceUrl
-          ? member.thumbnail.iiifServiceUrl + "/full/400,/0/default.jpg"
-          : "https://picsum.photos/600/300/?random",
+        service:
+          typeof member.thumbnail.iiifServiceUrl != "undefined"
+            ? member.thumbnail.iiifServiceUrl
+            : "https://picsum.photos/600/300/?random",
+        mediaUrl:
+          typeof member.thumbnail.iiifServiceUrl != "undefined"
+            ? member.thumbnail.iiifServiceUrl + "/full/300,/0/default.jpg"
+            : "https://picsum.photos/600/300/?random",
       }))
       state.gallery.items = items
       state.gallery.ogItems = items

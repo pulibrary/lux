@@ -30,6 +30,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     library: "[name]",
     libraryTarget: "umd",
   },
+  externals: {
+    openseadragon: "openseadragon",
+  },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
