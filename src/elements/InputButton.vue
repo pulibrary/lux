@@ -1,5 +1,5 @@
 <template>
-  <button :type="type"
+  <button :type="!!type ? type : false"
     :class="[variation, size, {'expanded' : (block==true) }]"
     :disabled="disabled"
     @click="buttonClicked($event)">
@@ -27,7 +27,7 @@ export default {
   },
   props: {
     /**
-     * The button's type attribute
+     * The button's variations `solid, outline, text, dropdown`
      */
     variation: {
       type: String,
@@ -41,9 +41,9 @@ export default {
      */
     type: {
       type: String,
-      default: "button",
+      default: "",
       validator: value => {
-        return value.match(/(button|submit)/)
+        return value.match(/(|button|submit)/)
       },
     },
     /**
@@ -118,6 +118,7 @@ button {
     transform: scale(0.99);
   }
 }
+
 .solid {
   background: $color-bleu-de-france;
   color: $color-white;
@@ -126,9 +127,11 @@ button {
     background: $color-bleu-de-france-darker;
   }
 }
+
 .text {
   background-color: transparent;
 }
+
 .dropdown {
   background: $color-white;
   box-shadow: $box-shadow-small;
@@ -141,20 +144,25 @@ button {
     margin-left: $space-xx-small;
   }
 }
+
 .small {
   font-size: $font-size-small;
 }
+
 .medium {
   font-size: $font-size-base;
 }
+
 .large {
   font-size: $font-size-large;
 }
+
 .expanded {
   display: block;
   width: 100%;
   max-width: 100%;
 }
+
 [disabled] {
   background: $color-grayscale-light;
   cursor: not-allowed;
@@ -168,7 +176,7 @@ button {
 <docs>
   ```jsx
   <div>
-    <input-button type="button" variation="solid" size="small">Apply Changes</input-button>
+    <input-button variation="solid" size="small">Apply Changes</input-button>
     <input-button type="button" variation="solid">Apply Changes</input-button>
     <input-button type="button" variation="solid" size="large" disabled>Apply Changes</input-button>
 
