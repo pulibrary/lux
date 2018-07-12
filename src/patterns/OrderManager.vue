@@ -16,6 +16,7 @@
     <filesets-form v-if="selectedTotal > 1"></filesets-form>
     <!-- Single Selected Form-->
     <fileset-form v-if="selectedTotal === 1"></fileset-form>
+    <controls viewerId="viewer"></controls>
   </wrapper>
 </div>
 </template>
@@ -48,7 +49,10 @@ export default {
         id: member.id,
         title: member.label,
         caption: member.__typename + " : " + member.id,
-        mediaUrl: "https://picsum.photos/600/300/?random",
+        mediaUrl:
+          typeof member.thumbnail.iiifServiceUrl != "undefined"
+            ? member.thumbnail.iiifServiceUrl + "/full/300,/0/default.jpg"
+            : "https://picsum.photos/600/300/?random",
         viewingHint: member.viewingHint,
       }))
     },
@@ -147,18 +151,27 @@ export default {
           "id": "8ffd7a03-ec0e-46c1-a347-e4b19cb7839f",
           "label": "a",
           "viewingHint": null,
+          "thumbnail": {
+            "iiifServiceUrl": "https://libimages1.princeton.edu/loris/figgy_prod/f7%2F67%2Ffe%2Ff767fe4247524c5f96e16eba2ff93301%2Fintermediate_file.jp2"
+          },
           "__typename": "FileSet"
         },
         {
           "id": "8f0a0908-317f-414e-a78a-c38a4a3b28e3",
           "label": "b",
           "viewingHint": null,
+          "thumbnail": {
+            "iiifServiceUrl": "https://libimages1.princeton.edu/loris/figgy_prod/a5%2F15%2F62%2Fa515627580594c978ce5352653c9442a%2Fintermediate_file.jp2"
+          },
           "__typename": "FileSet"
         },
         {
           "id": "ea01019e-f644-4416-b99c-1b44bf49d060",
           "label": "c",
           "viewingHint": null,
+          "thumbnail": {
+            "iiifServiceUrl": "https://libimages1.princeton.edu/loris/figgy_prod/d9%2Fb5%2F8c%2Fd9b58c8f3e554706bec4d977b12cd4e4%2Fintermediate_file.jp2"
+          },
           "__typename": "FileSet"
         }
       ]

@@ -62,7 +62,8 @@ export default {
   },
   methods: {
     deselect: function(event) {
-      if (event.target.className === "gallery") {
+      console.log(event.target.className)
+      if (event.target.className === "gallery" || event.target.className === "gallery galleryWrapper") {
         this.selectNone()
       }
     },

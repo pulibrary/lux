@@ -82,6 +82,20 @@ h6 {
   font-size: $font-size-small;
   font-weight: $font-weight-regular;
 }
+
+.orderManager .heading {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 12px 0 12px 0;
+  font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
+  line-height: 0.75;
+  color: #001123;
+}
+
+.orderManager h2 {
+  letter-spacing: 0px;
+  font-size: 24px;
+}
 </style>
 
 <docs>
