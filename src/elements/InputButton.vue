@@ -6,7 +6,7 @@
     <slot>
     {{ label }}
     </slot>
-    <span v-if="variation === 'dropdown'" class="caret"> &#9660;</span>
+    <span v-if="variation === 'dropdown'" class="dropdown-indicator"> &#9660;</span>
   </button>
 </template>
 
@@ -137,7 +137,7 @@ button {
   box-shadow: $box-shadow-small;
   color: $color-rich-black;
 
-  .caret {
+  .dropdown-indicator {
     line-height: 1;
     font-size: $font-size-x-small;
     color: $color-grayscale-darker;
