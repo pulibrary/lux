@@ -20,7 +20,9 @@
 import OpenSeadragon from "openseadragon"
 import { mapState, mapGetters } from "vuex"
 /**
- * This is the Fileset Form for the Order Manager in Figgy
+ * This is the Persistence and Deep Zoom pieces of the Order Manager interface.
+ * In the interest of keeping the package size small, OpenSeadragon is _NOT_ included in LUX.
+ * Consuming apps must `npm install openseadragon` for deep zoom to work.
  */
 export default {
   name: "Controls",
