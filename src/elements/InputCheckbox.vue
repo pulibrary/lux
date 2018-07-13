@@ -1,7 +1,7 @@
 <template>
   <component :is="wrapper" class="input">
     <legend v-if="groupLabel">{{ groupLabel }}</legend>
-    <div v-for="(option, index) in options" :class="{ inline: !vertical }">
+    <div v-for="(option, index) in options" :class="['checkbox', { inline: !vertical }]">
       <input type="checkbox"
       :id="option.id"
       :name="label"
