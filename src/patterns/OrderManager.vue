@@ -107,6 +107,15 @@ export default {
   position: relative;
   height: 80vh;
 }
+.orderManager /deep/ .heading {
+  margin: 12px 0 12px 0;
+  line-height: 0.75;
+  color: #001123;
+}
+.orderManager /deep/ h2 {
+  letter-spacing: 0;
+  font-size: 24px;
+}
 .sidePanel {
   position: absolute;
   top: 20px;

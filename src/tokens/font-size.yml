@@ -4,6 +4,27 @@
 #
 
 props:
+  font_size_xxx_large_max:
+    value: "3.157em"
+  font_size_xxx_large_min:
+    value: "1.602em"
+  font_size_xx_large_max:
+    value: "2.369em"
+  font_size_xx_large_min:
+    value: "1.424em"
+  font_size_x_large_max:
+    value: "1.777em"
+  font_size_x_large_min:
+    value: "1.266em"
+  font_size_large_max:
+    value: "1.333em"
+  font_size_large_min:
+    value: "1.125em"
+  font_size_base_max:
+    value: "1.125em"
+  font_size_base_min:
+    value: "1em"
+
   font_size_xxx_large:
     value: "64px"
   font_size_xx_large:
