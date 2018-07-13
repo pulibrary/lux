@@ -117,6 +117,10 @@ button {
   &:active {
     transform: scale(0.99);
   }
+  &:focus {
+    transition: box-shadow $duration-quickly ease;
+    box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+  }
 }
 
 .solid {
@@ -130,6 +134,10 @@ button {
 
 .text {
   background-color: transparent;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 .dropdown {
@@ -155,6 +163,9 @@ button {
 
 .large {
   font-size: $font-size-large;
+  .dropdown-indicator {
+    font-size: $font-size-base;
+  }
 }
 
 .expanded {
