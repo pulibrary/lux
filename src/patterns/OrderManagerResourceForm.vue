@@ -19,7 +19,7 @@
 import { mapState, mapGetters } from "vuex"
 export default {
   name: "ResourceForm",
-  status: "prototype",
+  status: "Prototype",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {
@@ -38,23 +38,23 @@ export default {
       viewDirs: [
         {
           name: "viewDir",
-          value: "left-to-right",
-          id: "left-to-right",
+          value: "LEFTTORIGHT",
+          id: "LEFTTORIGHT",
         },
         {
           name: "viewDir",
-          value: "right-to-left",
-          id: "right-to-left",
+          value: "RIGHTTOLEFT",
+          id: "RIGHTTOLEFT",
         },
         {
           name: "viewDir",
-          value: "top-to-bottom",
-          id: "top-to-bottom",
+          value: "TOPTOBOTTOM",
+          id: "TOPTOBOTTOM",
         },
         {
           name: "viewDir",
-          value: "bottom-to-top",
-          id: "bottom-to-top",
+          value: "BOTTOMTOTOP",
+          id: "BOTTOMTOTOP",
         },
       ],
     }
