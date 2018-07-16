@@ -2,8 +2,8 @@
   <div>
     <heading level="h2">Generate Labels <small>for selected items</small></heading>
     <form id="app" novalidate="true">
-      <input-text @input="updateMultiLabels()" v-model="labelerOpts.unitLabel" id="unitLabel" label="Label" placeholder="e.g., p." class="form-control" />
-      <input-text @input="updateMultiLabels()" v-model="labelerOpts.start" id="startNum" label="Starting Numeral" placeholder="e.g., 10" class="form-control" />
+      <input-text @input="updateMultiLabels()" v-model="labelerOpts.unitLabel" id="unitLabel" label="Label" placeholder="e.g., p." />
+      <input-text @input="updateMultiLabels()" v-model="labelerOpts.start" id="startNum" label="Starting Numeral" placeholder="e.g., 10" />
       <!-- <input-checkbox vertical :options="[{name: 'addBrackets', value: 'Add Brackets', id: 'addBrackets'}]"></input-checkbox> -->
       <div class="checkbox">
         <label>

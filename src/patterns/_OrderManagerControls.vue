@@ -119,6 +119,12 @@ export default {
         return false
       }
     },
+    galleryToResource: function(items) {
+      var members = items.map(item => {
+        return { id: item.id, label: item.caption, viewingHint: item.viewingHint }
+      })
+      return members
+    },
     saveHandler: function(event) {
       if (this.isMultiVolume) {
         this.saveMVW()
@@ -135,7 +141,9 @@ export default {
         viewingHint: this.resource.viewingHint,
         startPage: this.resource.startCanvas,
         thumbnailId: this.resource.thumbnail,
+        memberIds: this.galleryToResource(this.gallery.items),
       }
+      window.body = body
       this.$store.dispatch("saveStateGql", body)
     },
     saveMVW: function() {
