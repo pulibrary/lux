@@ -47,8 +47,8 @@ export default {
     galleryItems() {
       return this.resource.members.map(member => ({
         id: member.id,
-        title: member.label,
-        caption: member.__typename + " : " + member.id,
+        // title: member.label,
+        caption: member.label, // member.__typename + " : " + member.id,
         mediaUrl:
           typeof member.thumbnail.iiifServiceUrl != "undefined"
             ? member.thumbnail.iiifServiceUrl + "/full/300,/0/default.jpg"

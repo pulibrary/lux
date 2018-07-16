@@ -2,15 +2,9 @@
   <div>
     <heading level="h2">Generate Labels <small>for selected items</small></heading>
     <form id="app" novalidate="true">
-      <div class="form-group">
-        <label class="control-label" for="unitLabel">Unit Label</label>
-        <input @input="updateMultiLabels()" v-model="labelerOpts.unitLabel" type="text" name="unitLabel" id="unitLabel" value="" placeholder="e.g., p." class="form-control">
-      </div>
-      <div class="form-group">
-        <label class="control-label" for="startNum">Starting Numeral</label>
-        <input @input="updateMultiLabels()" v-model="labelerOpts.start" type="text" name="startNum" id="startNum" value="" placeholder="e.g., 10" class="form-control">
-      </div>
-      <input-checkbox vertical :options="[{name: 'addBrackets', value: 'Add Brackets', id: 'addBrackets'}]"></input-checkbox>
+      <input-text @input="updateMultiLabels()" v-model="labelerOpts.unitLabel" id="unitLabel" label="Label" placeholder="e.g., p." class="form-control" />
+      <input-text @input="updateMultiLabels()" v-model="labelerOpts.start" id="startNum" label="Starting Numeral" placeholder="e.g., 10" class="form-control" />
+      <!-- <input-checkbox vertical :options="[{name: 'addBrackets', value: 'Add Brackets', id: 'addBrackets'}]"></input-checkbox> -->
       <div class="checkbox">
         <label>
           <input v-model="labelerOpts.bracket" name="addBrackets" id="addBrackets" type="checkbox" value="">
@@ -115,7 +109,7 @@ export default {
             return item.id
           })
           .indexOf(this.gallery.selected[i].id)
-        items[index].title = generator.next().value
+        items[index].caption = generator.next().value
 
         if (changeList.indexOf(this.gallery.selected[i].id) === -1) {
           changeList.push(this.gallery.selected[i].id)

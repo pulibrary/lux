@@ -83,11 +83,11 @@ export default {
     },
     title: {
       get() {
-        return this.gallery.selected[0].title
+        return this.gallery.selected[0].caption
       },
       set(value) {
         let selected = this.gallery.selected[0]
-        selected.title = value
+        selected.caption = value
         this.updateSingle(selected)
       },
     },
