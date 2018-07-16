@@ -129,7 +129,9 @@ export default {
     save: function() {
       let body = {
         id: this.resource.id,
-        viewingDirection: this.resource.viewingDirection,
+        viewingDirection: this.resource.viewingDirection
+          ? this.resource.viewingDirection.replace(/-/g, "").toUpperCase()
+          : this.resource.viewingDirection,
         viewingHint: this.resource.viewingHint,
         startPage: this.resource.startCanvas,
         thumbnailId: this.resource.thumbnail,
