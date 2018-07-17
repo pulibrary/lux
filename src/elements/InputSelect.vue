@@ -1,16 +1,14 @@
 <template>
-  <component :is="wrapper" class="input">
+  <component :is="wrapper" class="select">
     <label v-if="label" :for="id">{{ label }}</label>
     <select
       :id="id"
-      :class="['input', { 'input-error': hasError }, {'input-expand': width === 'expand'}]"
+      :class="['select', { 'select-error': hasError }, {'select-expand': width === 'expand'}]"
       :disabled="disabled"
       :focus="focus"
       :multiple="multiple"
       :errormessage="errormessage"
-      v-bind:value="value"
-      v-on:change="$emit('change', $event.target.value)"
-      @change="change($event.target.value)"
+      @change="change($event)"
       @blur="inputblur($event.target)">
         <option
           v-for="(option, index) in options"
@@ -150,14 +148,14 @@ export default {
 // Design Tokens with local scope
 $color-placeholder: tint($color-grayscale, 50%);
 
-.input {
+.select {
   @include stack-space($space-small);
   font-weight: $font-weight-regular;
   font-family: $font-family-text;
   font-size: $font-size-base;
   line-height: $line-height-heading;
   width: auto;
-  &.input-expand {
+  &.select-expand {
     width: 100%;
   }
   label {
@@ -170,10 +168,10 @@ $color-placeholder: tint($color-grayscale, 50%);
     margin-top: $space-x-small;
     color: $color-red;
   }
-  .input-error {
+  .select-error {
     border: 1px solid $color-red;
   }
-  input {
+  select {
     @include reset;
     @include inset-squish-space($space-small);
     transition: all 0.2s ease;
@@ -185,19 +183,9 @@ $color-placeholder: tint($color-grayscale, 50%);
     color: set-text-color($color-rich-black, $color-white);
     margin: 0;
     border: 0;
+    cursor: pointer;
     box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
-    &::-webkit-input-placeholder {
-      -webkit-font-smoothing: antialiased;
-      color: $color-placeholder;
-    }
-    &:-ms-input-placeholder {
-      color: $color-placeholder;
-    }
-    &::-moz-placeholder {
-      color: $color-placeholder;
-      -moz-osx-font-smoothing: grayscale;
-      opacity: 1;
-    }
+
     &:hover,
     &[hover] {
       box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
@@ -206,7 +194,6 @@ $color-placeholder: tint($color-grayscale, 50%);
     &[focus] {
       transition: box-shadow 0.2s ease;
       box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
-      outline: 0;
     }
     &[disabled] {
       box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);

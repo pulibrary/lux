@@ -2,7 +2,7 @@
   <wrapper class="bg">
     <div class="controls">
       <alert v-if="orderChanged" status="info">Page order has changed.</alert>
-      <input-button @click="saveHandler" id="save_btn" variation="solid" size="medium" :disabled="isDisabled">
+      <input-button @button-clicked="saveHandler($event)" id="save_btn" variation="solid" size="medium" :disabled="isDisabled">
         Apply Changes
       </input-button>
       <a v-if="!hidden" :href="editLink" id="replace-file-button">Manage Page Files</a>
@@ -119,7 +119,13 @@ export default {
         return false
       }
     },
-    saveHandler: function() {
+    galleryToResource: function(items) {
+      var members = items.map(item => {
+        return { id: item.id, label: item.caption, viewingHint: item.viewingHint }
+      })
+      return members
+    },
+    saveHandler: function(event) {
       if (this.isMultiVolume) {
         this.saveMVW()
       } else {
@@ -128,18 +134,17 @@ export default {
     },
     save: function() {
       let body = {
-        resource: {},
-        file_sets: this.payloadFileset,
+        id: this.resource.id,
+        viewingDirection: this.resource.viewingDirection
+          ? this.resource.viewingDirection.replace(/-/g, "").toUpperCase()
+          : this.resource.viewingDirection,
+        viewingHint: this.resource.viewingHint,
+        startPage: this.resource.startCanvas,
+        thumbnailId: this.resource.thumbnail,
+        // memberIds: this.galleryToResource(this.gallery.items),
       }
-      body.resource[this.resourceClassName] = {
-        member_ids: this.imageIdList,
-        thumbnail_id: this.thumbnail,
-        start_canvas: this.startPage,
-        viewing_hint: this.viewingHint,
-        viewing_direction: this.viewingDirection,
-        id: this.id,
-      }
-      this.$store.dispatch("saveState", body)
+      window.body = body
+      this.$store.dispatch("saveStateGql", body)
     },
     saveMVW: function() {
       let body = {

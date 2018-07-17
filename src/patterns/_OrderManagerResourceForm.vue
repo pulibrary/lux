@@ -1,13 +1,13 @@
 <template>
   <div>
-    <heading level="h2">Set Properties <small>for this <span>multi-volume</span> resource</small></heading>
+    <heading level="h2">Set Properties <small>for this <span v-if="isMultiVolume">multi-volume</span> resource</small></heading>
     <span class="file_count">Total files: {{ memberCount }}</span>
     <span v-if="resource.bibId" class="bibid"> | BibId: {{resource.bibId}}</span>
     <form id="app" novalidate="true">
       <input-radio @change="updateViewDir($event)" vertical id="viewDir" groupLabel="Viewing Direction"
         :options="viewDirs"></input-radio>
       <input-radio @change="updateViewHint($event)" vertical id="viewHint" groupLabel="Viewing Hint"
-        :options="viewHints"></input-radio>
+        :options="viewHints" :value="viewHints.label"></input-radio>
     </form>
   </div>
 </template>
@@ -19,7 +19,7 @@
 import { mapState, mapGetters } from "vuex"
 export default {
   name: "ResourceForm",
-  status: "prototype",
+  status: "Prototype",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {
@@ -75,6 +75,9 @@ export default {
   computed: {
     memberCount: function() {
       return this.$store.getters.getMemberCount
+    },
+    isMultiVolume() {
+      return this.$store.getters.isMultiVolume
     },
     ...mapState({
       resource: state => state.ordermanager.resource,
