@@ -78,6 +78,9 @@ export const resourceModule = {
       state.resource.id = resource.id
       state.resource.resourceClassName = resource.__typename
       state.resource.label = resource.label
+      state.resource.startCanvas = resource.startPage
+      state.resource.viewingHint = resource.viewingHint
+      state.resource.viewingHint = resource.viewingDirection
       state.resource.members = resource.members
       const items = resource.members.map(member => ({
         id: member.id,
@@ -95,10 +98,9 @@ export const resourceModule = {
       }))
       state.gallery.items = items
       state.gallery.ogItems = items
-      state.resource.viewingHint = resource.viewingHint
       state.resource.loadState = "LOADED"
       state.resource.ogState = {
-        startCanvas: resource.startCanvas,
+        startCanvas: resource.startPage,
         thumbnail: resource.thumbnail,
         viewingHint: resource.viewingHint,
         viewingDirection: resource.viewingDirection,

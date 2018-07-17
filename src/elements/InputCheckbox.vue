@@ -8,7 +8,7 @@
       :value="option.value"
       :checked="option.checked"
       :disabled="option.disabled"
-      @change="change($event.target.value)"
+      @change="change($event)"
       @blur="inputblur($event.target)">
       <label :for="option.id">{{ option.value }}</label>
     </div>
