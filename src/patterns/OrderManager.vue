@@ -154,6 +154,7 @@ export default {
       "id": "aea40813-e0ed-4307-aae9-aec53b26bdda",
       "label": "Resource with 3 files",
       "viewingHint": "individuals",
+      "startPage": "8ffd7a03-ec0e-46c1-a347-e4b19cb7839f",
       "__typename": "ScannedResource",
       "members": [
         {
