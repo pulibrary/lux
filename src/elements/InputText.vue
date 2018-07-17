@@ -202,7 +202,6 @@ $color-placeholder: tint($color-grayscale, 50%);
     &[focus] {
       transition: box-shadow 0.2s ease;
       box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
-      outline: 0;
     }
     &[disabled] {
       box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);

@@ -2,29 +2,19 @@
   <div>
     <heading level="h2">Edit <small>the selected item</small></heading>
     <form id="app" novalidate="true">
-      <input-text v-model="title" id="itemLabel" label="Label" placeholder="e.g., example.tif" />
-      <!-- <input-select v-model="viewingHint" label="Page Type" id="pageType"
-        :options="[
-          {label: 'Single Page (Default)', value: 'single'},
-          {label: 'Non-paged', value: 'non-paged'},
-          {label: 'Facing Pages', value: 'facing'}
-        ]"></input-select> -->
-      <div class="form-group">
-        <label class="control-label" for="pageType">Page Type</label>
-        <select v-model="viewingHint" id="pageType" class="form-control">
-          <option value="single">Single Page (Default)</option>
-          <option value="non-paged">Non-Paged</option>
-          <option value="facing">Facing Pages</option>
-        </select>
-      </div>
-      <label class="vertical">
-        <input v-model="isStartCanvas" id="isStartCanvas" type="checkbox" :value="startCanvas">
-        Set as Start Page</a>
-      </label>
-      <label class="vertical">
-        <input v-model="isThumbnail" id="isThumbnail" type="checkbox" :value="thumbnail">
-        Set as Resource Thumbnail</input>
-      </label>
+      <!-- <input-text v-model="title" id="itemLabel" label="Label" placeholder="e.g., example.tif" /> -->
+      <input-text v-on:input="updateSingle()" v-model="singleForm.caption" id="itemLabel" label="Label" placeholder="e.g., example.tif" />
+
+      <input-select v-on:change="updateViewHint($event)"
+        label="Page Type" id="pageType"
+        :options="viewHintOpts"></input-select>
+
+      <input-checkbox
+          v-on:change="updateStartCanvas($event)"
+          :options="startCanvasOpts" />
+      <input-checkbox
+          v-on:change="updateThumbnail($event)"
+          :options="thumbnailOpts" />
     </form>
   </div>
 </template>
@@ -61,45 +51,50 @@ export default {
     thumbnail: function() {
       return this.resource.thumbnail
     },
-    isStartCanvas: {
-      get() {
-        let id = this.gallery.selected[0].id
-        return this.resource.startCanvas === id
-      },
-      set() {
-        let id = this.gallery.selected[0].id
-        this.$store.commit("UPDATE_STARTCANVAS", id)
-      },
+    isStartCanvas: function() {
+      let id = this.gallery.selected[0].id
+      return this.resource.startCanvas === id
     },
-    isThumbnail: {
-      get() {
-        let id = this.gallery.selected[0].id
-        return this.resource.thumbnail === id
-      },
-      set() {
-        let id = this.gallery.selected[0].id
-        this.$store.commit("UPDATE_THUMBNAIL", id)
-      },
+    isThumbnail: function() {
+      let id = this.gallery.selected[0].id
+      return this.resource.thumbnail === id
     },
-    title: {
-      get() {
-        return this.gallery.selected[0].title
-      },
-      set(value) {
-        let selected = this.gallery.selected[0]
-        selected.title = value
-        this.updateSingle(selected)
-      },
+    startCanvasOpts: function() {
+      return [
+        {
+          name: "isStartCanvas",
+          value: "Set as Start Page",
+          id: "isStartCanvas",
+          checked: this.isStartCanvas,
+        },
+      ]
     },
-    viewingHint: {
-      get() {
-        return this.gallery.selected[0].viewingHint
-      },
-      set(value) {
-        let selected = this.gallery.selected[0]
-        selected.viewingHint = value
-        this.updateSingle(selected)
-      },
+    thumbnailOpts: function() {
+      return [
+        {
+          name: "isThumbnail",
+          value: "Set as Resource Thumbnail",
+          id: "isThumbnail",
+          checked: this.isThumbnail,
+        },
+      ]
+    },
+    viewHintOpts: function() {
+      return [
+        { label: "Single Page (Default)", value: "single", selected: this.isViewHint("single") },
+        { label: "Non-paged", value: "non-paged", selected: this.isViewHint("non-paged") },
+        { label: "Facing Pages", value: "facing", selected: this.isViewHint("facing") },
+      ]
+    },
+    singleForm() {
+      return {
+        caption: this.gallery.selected[0].caption,
+        id: this.gallery.selected[0].id,
+        mediaUrl: this.gallery.selected[0].mediaUrl,
+        service: this.gallery.selected[0].service,
+        title: this.gallery.selected[0].title,
+        viewingHint: this.gallery.selected[0].viewingHint,
+      }
     },
   },
   props: {
@@ -110,25 +105,45 @@ export default {
       type: String,
       default: "div",
     },
-    // item: {
-    //   type: Object,
-    //   default: {},
-    // },
   },
   methods: {
-    updateSingle(selected) {
-      console.log("update")
-      let changeList = this.gallery.changeList
-      let items = this.gallery.items
-      let index = this.gallery.items
+    isViewHint(hint) {
+      return this.singleForm.viewingHint === hint
+    },
+    updateStartCanvas(event) {
+      let startCanvas = null
+      if (event.target.checked) {
+        startCanvas = this.gallery.selected[0].id
+      }
+      this.$store.commit("UPDATE_STARTCANVAS", startCanvas)
+    },
+    updateThumbnail(event) {
+      let thumbnail = null
+      if (event.target.checked) {
+        thumbnail = this.gallery.selected[0].id
+      }
+      this.$store.commit("UPDATE_THUMBNAIL", thumbnail)
+    },
+    updateViewHint(event) {
+      let viewHint = this.gallery.selected[0].viewingHint
+      if (event.target.value) {
+        viewHint = event.target.value
+      }
+      this.singleForm.viewingHint = viewHint
+      this.updateSingle()
+    },
+    updateSingle() {
+      var changeList = this.gallery.changeList
+      var items = this.gallery.items
+      var index = this.gallery.items
         .map(function(item) {
           return item.id
         })
-        .indexOf(selected.id)
-      items[index] = selected
+        .indexOf(this.gallery.selected[0].id)
+      items[index] = this.singleForm
 
-      if (changeList.indexOf(selected.id) === -1) {
-        changeList.push(selected.id)
+      if (changeList.indexOf(this.gallery.selected[0].id) === -1) {
+        changeList.push(this.gallery.selected[0].id)
       }
 
       this.$store.commit("UPDATE_CHANGES", changeList)

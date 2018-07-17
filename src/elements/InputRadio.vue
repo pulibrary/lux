@@ -204,9 +204,13 @@ fieldset {
 
 /*Adding focus styles on the outer-box of the fake radio*/
 .radio input[type="radio"]:focus + label::before {
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow $duration-quickly ease;
   box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
-  outline: 0;
+}
+
+.radio input[type="radio"]:focus + label {
+  transition: text-decoration $duration-quickly ease;
+  text-decoration: underline;
 }
 
 .inline {
