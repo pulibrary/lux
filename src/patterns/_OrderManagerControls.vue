@@ -141,7 +141,7 @@ export default {
         viewingHint: this.resource.viewingHint,
         startPage: this.resource.startCanvas,
         thumbnailId: this.resource.thumbnail,
-        memberIds: this.galleryToResource(this.gallery.items),
+        // memberIds: this.galleryToResource(this.gallery.items),
       }
       window.body = body
       this.$store.dispatch("saveStateGql", body)

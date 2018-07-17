@@ -2,7 +2,6 @@
   <div>
     <heading level="h2">Edit <small>the selected item</small></heading>
     <form id="app" novalidate="true">
-      <!-- <input-text v-model="title" id="itemLabel" label="Label" placeholder="e.g., example.tif" /> -->
       <input-text v-on:input="updateSingle()" v-model="singleForm.caption" id="itemLabel" label="Label" placeholder="e.g., example.tif" />
 
       <input-select v-on:change="updateViewHint($event)"
