@@ -1182,6 +1182,13 @@ fieldset[data-v-d6ae4992] {
   margin-bottom: 80px;
   clear: both;
 }
+small[data-v-79f39396] {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.vertical[data-v-79f39396] {
+  display: block;
+}
 small[data-v-3f795d00] {
   font-size: 1rem;
   font-weight: 400;
@@ -1221,13 +1228,6 @@ h3.osd-title[data-v-3f795d00] {
 .viewport[data-v-3f795d00] {
   height: 100%;
   width: 100%;
-}
-small[data-v-4bb89ccd] {
-  font-size: 1rem;
-  font-weight: 400;
-}
-.vertical[data-v-4bb89ccd] {
-  display: block;
 }
 small[data-v-5db4ee5a],
 small[data-v-28bd21d4] {
