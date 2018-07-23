@@ -83,6 +83,11 @@ module.exports = {
       components: "../src/templates/**/[A-Z]*.vue",
     },
     {
+      name: "Installing LUX",
+      content: "../docs/installing-lux.md",
+      components: "../docs/utils/section.vue",
+    },
+    {
       name: "State Management",
       content: "../docs/state-management.md",
       components: "../docs/utils/section.vue",

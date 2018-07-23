@@ -30,6 +30,9 @@ To add to your project:
 npm i --save lux-design-system
 ```
 
+If you are looking to integrate LUX into an existing Rails, Drupal, or even JSFiddle, check out
+our documentation for [How to Install LUX](https://pulibrary.github.io/lux/docs/#!/Installing%20LUX).
+
 To ride the bleeding edge, pull directly from the GitHub in package.json dependencies:
 
 ```
