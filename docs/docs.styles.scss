@@ -119,7 +119,21 @@ h2[class^="rsg--heading"] {
 
 // Heading, level 3
 h3[class^="rsg--heading"],
-h3[class^="rsg--heading"] a,
+h3[class^="rsg--heading"] a {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-weight: $font-weight-light;
+  line-height: $line-height-base;
+  margin-top: $space-large;
+  font-size: $font-size-x-large;
+  color: $docs-color-text;
+  max-width: 1200px;
+  width: 100%;
+  @media (max-width: #{$docs-breakpoint}) {
+    font-size: $font-size-large / 1.2;
+    margin: 0 0 $space-base;
+  }
+}
+
 .introduction p {
   -webkit-font-smoothing: subpixel-antialiased;
   font-weight: $font-weight-light;
@@ -166,8 +180,8 @@ div[class^="rsg--docs"],
 p[class^="rsg--para"],
 h3[class^="rsg--heading"],
 h4[class^="rsg--heading"] {
-  max-width: 800px;
-  width: 75%;
+  max-width: 1200px;
+  width: 100%;
   p[class^="rsg--para"] {
     width: 100%;
   }
