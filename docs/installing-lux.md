@@ -4,7 +4,15 @@
 
 #### Step 1
 
-Add the latest Webpacker to your Gemfile.
+You will need to have Rails 5.1+. You can create a new app using the `--webpack=vue` option.
+
+```
+# Rails 5.1+
+rails new myapp --webpack=vue
+```
+
+(or run `bundle exec rails webpacker:install:vue` on a Rails app already setup with Webpacker). More info on how to set up a
+Rails app with Webpacker and Vue.js can be found on the [Webpacker README page](https://github.com/rails/webpacker#vue).
 
 ```html
 gem "webpacker", "~> 3.3"
