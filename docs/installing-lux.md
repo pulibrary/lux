@@ -1,12 +1,12 @@
 ## How to install LUX in a Rails app
 
-### Install Webpacker
+### Install Webpacker and Vue
 
 #### Step 1
 
 You will need to have Rails 5.1+, and make sure you have the `webpacker` gem in your Gemfile. Run:
 
-```
+```html
 # Rails 5.1+
 bundle exec rails webpacker:install
 ```
@@ -15,7 +15,7 @@ bundle exec rails webpacker:install
 
 The next command configures Webpacker for use with Vue.js:
 
-```
+```html
 bundle exec rails webpacker:install:vue
 ```
 
@@ -25,7 +25,7 @@ More info on how to set up a Rails app with Webpacker and Vue.js can be found on
 
 Verify that your `package.json` file also has `@rails/webpacker` listed as a dependency, as well as `vue`.
 
-### Install Vue and LUX
+### Install LUX, and optionally Vuex
 
 #### Step 4
 
@@ -44,7 +44,7 @@ If you followed all the steps, verify that your `package.json` file has the foll
 ```html
 "dependencies": {
   "@rails/webpacker": "^3.3.1",
-  "lux-design-system": "^0.0.9",
+  "lux-design-system": "^0.0.11",
   "vue": "^2.5.3",
   "vuex": "^2.4.1"
 },
@@ -58,7 +58,7 @@ If Webpacker installed correctly, you should be able to find this file: `app/jav
 
 #### Step 8
 
-If you are not using TurboLinks, replace what is in that file with the following code:
+If you _*are not using TurboLinks*_, replace what is in that file with the following code:
 
 ```html
 import Vue from 'vue/dist/vue.esm'
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 (This assumes a Vuex store to be defined one directory up. You can omit the "store" import and param if not using a Vuex store. If you need to use Vuex, you will need to touch a few other files. Please refer to the [State Management documentation](https://pulibrary.github.io/lux/docs/#!/State%20Management) for details.)
 
-If you _are_ using TurboLinks, do the following:
+If you _*are using TurboLinks*_, replace what is in `app/javascript/packs/application.js` with the following code:
 
 ```html
 yarn add vue-turbolinks
@@ -106,8 +106,12 @@ document.addEventListener('turbolinks:load', () => {
 Next, go to your application.html.erb layout (or whatever you named your main layout) and add the following to the `<head>` section:
 
 ```html
+<head>
+  ...
 <%= javascript_pack_tag 'application' %>
 <%= stylesheet_pack_tag 'application' %>
+  ...
+</head>
 ```
 
 #### Step 10
@@ -118,7 +122,7 @@ In the same file (application.html.erb), add the data-behavior attribute to the 
 <div class="container" data-behavior="vue">
 ```
 
-_*Note*: You cannot mount Vue apps on `<html>` or `<body>` elements._
+_Note: You cannot mount Vue apps on `<html>` or `<body>` elements._
 
 #### Step 11
 
