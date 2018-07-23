@@ -21,7 +21,9 @@
 <script>
 import { mapState, mapGetters } from "vuex"
 /**
- * This is the Fileset Form for the Order Manager in Figgy
+ * This is the Fileset Form for the Order Manager in Figgy.
+ * The only reason you can currently see this pattern is because hiding it causes an OpenSeadragon bug in the Order Manager.
+ * Nothing to see here...
  */
 export default {
   name: "FilesetForm",
