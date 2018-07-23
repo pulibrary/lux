@@ -97,7 +97,7 @@ export default {
 <docs>
   ```jsx
   <library-header app-name="Catalog" app-url="https://catalog.princeton.edu">
-  <menu-bar type="nav" :menuItems="[
+  <menu-bar type="nav" :menu-items="[
       {name: 'Help', component: 'Help', href: '/help/'},
       {name: 'Feedback', component: 'Feedback', href: '/feedback/'},
       {name: 'Your Account', component: 'Account', href: '/account/'}

@@ -4,35 +4,38 @@
 
 #### Step 1
 
-You will need to have Rails 5.1+. You can create a new app using the `--webpack=vue` option.
+You will need to have Rails 5.1+, and make sure you have the `webpacker` gem in your Gemfile. Run:
 
 ```
 # Rails 5.1+
-rails new myapp --webpack=vue
+bundle exec rails webpacker:install
 ```
-
-(or run `bundle exec rails webpacker:install:vue` on a Rails app already setup with Webpacker). More info on how to set up a
-Rails app with Webpacker and Vue.js can be found on the [Webpacker README page](https://github.com/rails/webpacker#vue).
 
 #### Step 2
 
-Make sure your `package.json` file also has `@rails/webpacker": "^3.3.1"` listed as a dependency.
+The next command configures Webpacker for use with Vue.js:
+
+```
+bundle exec rails webpacker:install:vue
+```
+
+More info on how to set up a Rails app with Webpacker and Vue.js can be found on the [Webpacker README page](https://github.com/rails/webpacker#vue).
 
 #### Step 3
 
-Run `bundle install`
+Verify that your `package.json` file also has `@rails/webpacker` listed as a dependency, as well as `vue`.
 
 ### Install Vue and LUX
 
 #### Step 4
 
 Install Vue and LUX:
-`npm install vue lux-design-system`
+`yarn add lux-design-system`
 
 #### Step 5 (optional)
 
 If you are using Vuex, install that as well:
-`npm install vuex`
+`yarn add vuex`
 
 #### Step 6
 
@@ -55,7 +58,7 @@ If Webpacker installed correctly, you should be able to find this file: `app/jav
 
 #### Step 8
 
-Replace what is in that file with the following code:
+If you are not using TurboLinks, replace what is in that file with the following code:
 
 ```html
 import Vue from 'vue/dist/vue.esm'
@@ -74,25 +77,48 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-(You can omit the "store" import and param if not using a Vuex store.)
+(This assumes a Vuex store to be defined one directory up. You can omit the "store" import and param if not using a Vuex store. If you need to use Vuex, you will need to touch a few other files. Please refer to the [State Management documentation](https://pulibrary.github.io/lux/docs/#!/State%20Management) for details.)
+
+If you _are_ using TurboLinks, do the following:
+
+```html
+yarn add vue-turbolinks
+```
+
+```html
+import Vue from 'vue/dist/vue.esm'
+import system from 'lux-design-system'
+import 'lux-design-system/lib/system/system.css'
+import TurbolinksAdapter from 'vue-turbolinks';
+
+Vue.use(system)
+Vue.use(TurbolinksAdapter)
+
+document.addEventListener('turbolinks:load', () => {
+  const app = new Vue({
+    el: '[data-behavior="vue"]'
+  })
+})
+```
 
 #### Step 9
 
-Next, go to your application.html.erb layout and add the following to the `<head>` section:
+Next, go to your application.html.erb layout (or whatever you named your main layout) and add the following to the `<head>` section:
 
 ```html
 <%= javascript_pack_tag 'application' %>
+<%= stylesheet_pack_tag 'application' %>
 ```
-
-This creates a `javascript_pack_tag` reference to the application.js file in the previous step.
 
 #### Step 10
 
-In the same file (application.html.erb), add the data-behavior attribute to the element you want to use LUX components in:
+In the same file (application.html.erb), add the data-behavior attribute to the element you want to use LUX components in like this:
 
 ```html
 <div class="container" data-behavior="vue">
 ```
+
+_*Note*: You cannot mount Vue apps on `<html>` or `<body>` elements._
 
 #### Step 11
 
@@ -126,10 +152,6 @@ you should see the icon of a mountain scene:
 ```html
 <svg-icon name="pul-icon-picture-solid" width="48px" height="48px"></svg-icon>
 ```
-
-#### Step 15
-
-If you need to use Vuex, you will need to touch a few other files. Please refer to the [State Management documentation](https://pulibrary.github.io/lux/docs/#!/State%20Management) for details.
 
 ## How to install LUX in a Drupal app
 

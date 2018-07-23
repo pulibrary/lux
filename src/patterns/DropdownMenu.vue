@@ -81,7 +81,7 @@ export default {
   ```jsx
   <dropdown-menu>
     <input-button variation="dropdown">Selection Options</input-button>
-    <menu-bar type="menu" active="All" :menuItems="[
+    <menu-bar type="menu" active="All" :menu-items="[
       {name: 'All', component: 'All'},
       {name: 'None', component: 'None'},
       {name: 'Alternate', component: 'Alternate', disabled: true},
