@@ -91,6 +91,11 @@ export default {
 .svg-icon {
   display: inline-flex;
   align-self: center;
+
+  svg {
+    top: 0.125em;
+    position: relative;
+  }
 }
 </style>
 

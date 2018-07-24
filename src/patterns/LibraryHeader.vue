@@ -1,9 +1,11 @@
 <template>
   <component :is="type" :class="['library-header ', variation]">
-    <library-logo></library-logo>
-    <a class="app-name" :href="appUrl">{{appName}}</a>
-    <spacer></spacer>
-    <slot/>
+    <wrapper class="header-content">
+      <library-logo></library-logo>
+      <a class="app-name" :href="appUrl">{{appName}}</a>
+      <spacer></spacer>
+      <slot/>
+    </wrapper>
   </component>
 </template>
 
@@ -55,10 +57,6 @@ export default {
   background: $color-grayscale-darker;
   color: set-text-color($color-rich-black, $color-white);
 
-  height: $height-footer;
-
-  align-items: center;
-  display: flex;
   padding: 0 24px;
 
   border-top: 3px solid $color-princeton-orange-on-black;
@@ -66,28 +64,36 @@ export default {
     @include stack-space($space-base);
   }
 
-  .app-name {
-    border-left: 1px solid $color-grayscale-light;
-    color: $color-white;
-    font-size: $font-size-x-large;
-    font-weight: 400;
-    height: 35px;
-    letter-spacing: 1px;
-    line-height: 33px;
-    margin-left: 1rem;
-    padding-left: 1rem;
-    text-decoration: none;
+  .header-content {
+    align-items: center;
+    display: flex;
+    width: auto;
+    padding: 8px;
+
+    .app-name {
+      border-left: 1px solid $color-grayscale-light;
+      color: $color-white;
+      font-size: $font-size-x-large;
+      font-weight: 400;
+      height: 35px;
+      letter-spacing: 1px;
+      line-height: 33px;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      text-decoration: none;
+    }
   }
 
-  .nav {
+  /deep/ .nav {
     width: auto;
   }
 
-  .nav /deep/ a {
+  /deep/ .nav a {
     color: $color-white;
 
     &:hover,
     &:focus {
+      color: $color-white;
       text-decoration: underline;
     }
   }
