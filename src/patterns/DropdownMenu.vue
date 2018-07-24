@@ -61,7 +61,8 @@ export default {
     }
   }
 
-  .menu {
+  .menu,
+  .nav {
     visibility: hidden;
     opacity: 0;
     display: none;
@@ -69,10 +70,69 @@ export default {
 
   &:hover > .menu,
   &:focus > .menu,
-  &:focus-within > .menu {
+  &:focus-within > .menu,
+  &:hover > .nav,
+  &:focus > .nav,
+  &:focus-within > .nav {
     visibility: visible;
     opacity: 1;
     display: block;
+  }
+
+  /deep/ .nav {
+    background: $color-white;
+    box-shadow: $box-shadow-small;
+
+    position: absolute;
+    min-width: calc(100% - 1px);
+    margin: 1px 0 0;
+    z-index: 9999;
+    transition: opacity 0.1s ease;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: block;
+    }
+
+    .nav-item {
+      background: $color-white;
+      border: 0;
+      color: $color-rich-black;
+      cursor: pointer;
+      display: block;
+      padding: 0.5rem 1rem;
+      margin: 0;
+      width: 100%;
+      text-align: left;
+      font-size: $font-size-small;
+
+      &:hover,
+      &:focus {
+        color: $color-rich-black;
+        background: $color-grayscale-lighter;
+        transition: opacity 0.1s ease;
+      }
+
+      &:active {
+        transform: scale(0.99);
+      }
+    }
+
+    .disabled {
+      color: $color-grayscale-dark;
+
+      &:hover,
+      &:focus {
+        background: $color-white;
+        cursor: not-allowed;
+        outline: none;
+      }
+    }
   }
 }
 </style>

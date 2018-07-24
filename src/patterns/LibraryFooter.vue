@@ -1,8 +1,7 @@
 <template>
   <component :is="type" :class="['library-footer']">
-    <wrapper>
-      <div class="footer-content">
-        <div class="library-links">
+    <wrapper class="footer-content">
+      <div class="library-links">
         <nav role="navigation" aria-label="Research Tools">
           <h2><a href="https://library.princeton.edu/research">Research Tools</a></h2>
           <ul>
@@ -51,7 +50,6 @@
         <university-logo></university-logo>
         <university-copyright type="div"></university-copyright>
         <university-accessibility></university-accessibility>
-      </div>
       </div>
     </wrapper>
   </component>
