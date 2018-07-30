@@ -81,6 +81,7 @@ export const resourceModule = {
       state.resource.startCanvas = resource.startPage
       state.resource.viewingHint = resource.viewingHint
       state.resource.viewingDirection = resource.viewingDirection
+      state.resource.thumbnail = resource.thumbnail.id
       state.resource.members = resource.members
       const items = resource.members.map(member => ({
         id: member.id,

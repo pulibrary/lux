@@ -163,6 +163,11 @@ export default {
       "viewingHint": "individuals",
       "viewingDirection": "LEFTTORIGHT",
       "startPage": "8ffd7a03-ec0e-46c1-a347-e4b19cb7839f",
+      "thumbnail": {
+        "id": "8ffd7a03-ec0e-46c1-a347-e4b19cb7839f",
+        "thumbnailUrl": "http://localhost:3000/image-service/8ffd7a03-ec0e-46c1-a347-e4b19cb7839f/full/!200,150/0/default.jpg",
+        "iiifServiceUrl": "http://localhost:3000/image-service/8ffd7a03-ec0e-46c1-a347-e4b19cb7839f"
+      },
       "__typename": "ScannedResource",
       "members": [
         {
