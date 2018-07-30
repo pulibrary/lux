@@ -85,8 +85,7 @@ export const resourceModule = {
       state.resource.members = resource.members
       const items = resource.members.map(member => ({
         id: member.id,
-        // title: member.label,
-        viewingHint: member.viewingHint,
+        viewingHint: member.viewingHint != null ? member.viewingHint : "single",
         caption: member.label, // member.__typename + " : " + member.id,
         service:
           typeof member.thumbnail.iiifServiceUrl != "undefined"
