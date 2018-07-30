@@ -5,9 +5,9 @@
     <span v-if="resource.bibId" class="bibid"> | BibId: {{resource.bibId}}</span>
     <form id="app" novalidate="true">
       <input-radio @change="updateViewDir($event)" vertical id="viewDir" groupLabel="Viewing Direction"
-        :options="viewDirs"></input-radio>
+        :options="viewDirs" :value="viewDirs.value"></input-radio>
       <input-radio @change="updateViewHint($event)" vertical id="viewHint" groupLabel="Viewing Hint"
-        :options="viewHints" :value="viewHints.label"></input-radio>
+        :options="viewHints" :value="viewHints.value"></input-radio>
     </form>
   </div>
 </template>
@@ -27,37 +27,6 @@ export default {
     htmlAttrs: {
       lang: "en",
     },
-  },
-  data: function() {
-    return {
-      viewHints: [
-        { name: "viewHint", value: "individuals", id: "individuals" },
-        { name: "viewHint", value: "paged", id: "paged" },
-        { name: "viewHint", value: "continuous", id: "continuous" },
-      ],
-      viewDirs: [
-        {
-          name: "viewDir",
-          value: "left-to-right",
-          id: "left-to-right",
-        },
-        {
-          name: "viewDir",
-          value: "right-to-left",
-          id: "right-to-left",
-        },
-        {
-          name: "viewDir",
-          value: "top-to-bottom",
-          id: "top-to-bottom",
-        },
-        {
-          name: "viewDir",
-          value: "bottom-to-top",
-          id: "bottom-to-top",
-        },
-      ],
-    }
   },
   props: {
     /**
@@ -82,8 +51,62 @@ export default {
     ...mapState({
       resource: state => state.ordermanager.resource,
     }),
+    viewHints: function() {
+      return [
+        {
+          name: "viewHint",
+          value: "individuals",
+          id: "individuals",
+          checked: this.resource.viewingHint === "individuals",
+        },
+        { name: "viewHint", value: "paged", id: "paged", checked: this.resource.viewingHint === "paged" },
+        {
+          name: "viewHint",
+          value: "continuous",
+          id: "continuous",
+          checked: this.resource.viewingHint === "continuous",
+        },
+      ]
+    },
+    viewDirs: function() {
+      return [
+        {
+          name: "viewDir",
+          value: "left-to-right",
+          id: "left-to-right",
+          checked: this.resource.viewingDirection === "LEFTTORIGHT",
+        },
+        {
+          name: "viewDir",
+          value: "right-to-left",
+          id: "right-to-left",
+          checked: this.resource.viewingDirection === "RIGHTTOLEFT",
+        },
+        {
+          name: "viewDir",
+          value: "top-to-bottom",
+          id: "top-to-bottom",
+          checked: this.resource.viewingDirection === "TOPTOBOTTOM",
+        },
+        {
+          name: "viewDir",
+          value: "bottom-to-top",
+          id: "bottom-to-top",
+          checked: this.resource.viewingDirection === "BOTTOMTOTOP",
+        },
+      ]
+    },
   },
   methods: {
+    isIndividuals: function() {
+      return this.resource.viewingHint === "individuals"
+    },
+    isPaged: function() {
+      return this.resource.viewingHint === "paged"
+    },
+    isContinuous: function() {
+      return this.resource.viewingHint === "continuous"
+    },
     updateViewDir(value) {
       this.$store.commit("UPDATE_VIEWDIR", value)
     },
