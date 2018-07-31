@@ -1248,18 +1248,18 @@ small[data-v-7a797a4c] {
 .vertical[data-v-7a797a4c] {
   display: block;
 }
-small[data-v-2d33fb82] {
+small[data-v-ba672538] {
   font-size: 1rem;
   font-weight: 400;
 }
-#replace-file-button[data-v-2d33fb82] {
+#replace-file-button[data-v-ba672538] {
   padding: 1.5rem;
   display: inline-block;
 }
-.is-hidden[data-v-2d33fb82] {
+.is-hidden[data-v-ba672538] {
   display: none;
 }
-.bg[data-v-2d33fb82] {
+.bg[data-v-ba672538] {
   background: #f9f9f9;
   margin-left: -30px;
   margin-right: -30px;
@@ -1268,12 +1268,12 @@ small[data-v-2d33fb82] {
   flex-direction: column;
   height: 100%;
 }
-.osd[data-v-2d33fb82] {
+.osd[data-v-ba672538] {
   background: #fff;
   height: 100%;
   width: 100%;
 }
-.osd-wrapper[data-v-2d33fb82] {
+.osd-wrapper[data-v-ba672538] {
   background: #fff;
   flex-basis: 40%;
   border-radius: 4px;
@@ -1281,10 +1281,10 @@ small[data-v-2d33fb82] {
   box-shadow: 0 0 10px #9ecaed;
   padding: 10px;
 }
-h3.osd-title[data-v-2d33fb82] {
+h3.osd-title[data-v-ba672538] {
   font-size: 18px;
 }
-.viewport[data-v-2d33fb82] {
+.viewport[data-v-ba672538] {
   height: 100%;
   width: 100%;
 }

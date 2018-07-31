@@ -139,7 +139,8 @@ export default {
       }
     },
     save: function() {
-      let body = {
+      let resource = {}
+      resource.body = {
         id: this.resource.id,
         viewingDirection: this.resource.viewingDirection
           ? this.resource.viewingDirection.replace(/-/g, "").toUpperCase()
@@ -149,8 +150,7 @@ export default {
         thumbnailId: this.resource.thumbnail,
         memberIds: this.galleryToResource(this.gallery.items),
       }
-      window.body = body
-      this.$store.dispatch("saveStateGql", body)
+      resource.filesets = []
       // filesets ... only send what has changed!
       // Rather than making multiple requests here, instead
       // include both body and members body in the same call and build
@@ -158,9 +158,10 @@ export default {
       let membersBody = this.galleryToFileset(this.gallery.items)
       let memberNum = membersBody.length
       for (let i = 0; i < memberNum; i++) {
-        console.log(membersBody[i])
-        // this.$store.dispatch("saveStateGql", membersBody[i])
+        resource.filesets.push(membersBody[i])
       }
+      window.resource = resource
+      this.$store.dispatch("saveStateGql", resource)
     },
     saveMVW: function() {
       let body = {
