@@ -1,7 +1,7 @@
 <template>
   <component :is="type" class="library-contact">
     <div itemscope itemtype="http://schema.org/Organization">
-      <h2 itemprop="name">Princeton University Library</h2> 
+      <h2 itemprop="name">Princeton University Library</h2>
       <div itemscope itemtype="http://schema.org/PostalAddress">
         <span itemprop="streetAddress">One Washington Road</span> <br>
         <span itemprop="addressLocality">Princeton</span>, <span itemprop="addressRegion">NJ</span> <span itemprop="postalCode">08544</span> <span itemprop="addressCountry">USA</span>
@@ -13,7 +13,7 @@
       <li><a href="http://twitter.com/PULibrary"><svg-icon name="logo-twitter" width="24px" height="24px" ariaLabel="Twitter"></svg-icon></a></li>
       <li><a href="https://libguides.princeton.edu/usgovdocs"><svg-icon name="logo-govdocs" width="24px"  height="24px" ariaLabel="Government documents"></svg-icon></a></li>
       <li><a href="https://fpul.princeton.edu/"><svg-icon name="logo-friends" width="87px" height="24px" ariaLabel="Friends of the Library"></svg-icon></a></li>
-    </ul>      
+    </ul>
   </component>
 </template>
 
@@ -55,6 +55,7 @@ export default {
 
   h2 {
     color: $color-rich-black;
+    font-family: $font-family-heading;
     font-size: $font-size-base;
     font-weight: $font-weight-bold;
     line-height: $line-height-heading;

@@ -1,6 +1,6 @@
 <template>
-  <component :is="type" class="wrapper"
-    :class="['wrapper', { 'full-width': fullWidth }]">
+  <component :is="type"
+    :class="['lux-wrapper', { 'full-width': fullWidth }]">
     <slot/>
   </component>
 </template>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.lux-wrapper {
   @include reset;
   margin: auto;
 

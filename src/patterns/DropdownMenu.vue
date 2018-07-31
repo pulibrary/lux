@@ -63,9 +63,8 @@ export default {
 
   .menu,
   .nav {
-    visibility: hidden;
     opacity: 0;
-    display: none;
+    transition: opacity 0.2s ease-in-out 1s;
   }
 
   &:hover > .menu,
@@ -73,10 +72,12 @@ export default {
   &:focus-within > .menu,
   &:hover > .nav,
   &:focus > .nav,
-  &:focus-within > .nav {
-    visibility: visible;
+  &:focus-within > .nav,
+  .menu:hover,
+  .nav:hover {
     opacity: 1;
-    display: block;
+    z-index: 9999;
+    transition-delay: 0s;
   }
 
   /deep/ .nav {
@@ -87,7 +88,6 @@ export default {
     min-width: calc(100% - 1px);
     margin: 1px 0 0;
     z-index: 9999;
-    transition: opacity 0.1s ease;
 
     ul {
       list-style-type: none;

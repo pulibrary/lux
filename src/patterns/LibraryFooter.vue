@@ -83,8 +83,8 @@ export default {
   font-family: $font-family-heading;
   line-height: $line-height-heading;
   color: $color-rich-black;
-
   background: $color-grayscale-lighter;
+  padding-bottom: 1em;
 }
 
 .footer-content {
@@ -94,6 +94,7 @@ export default {
   justify-content: center;
   align-content: stretch;
   align-items: flex-start;
+  padding: 1em;
 
   @media #{$media-query-large} {
     flex-direction: row;
@@ -106,6 +107,7 @@ export default {
   flex: 1;
 
   h2 {
+    font-family: $font-family-heading;
     font-size: $font-size-base;
     font-weight: $font-weight-bold;
   }
