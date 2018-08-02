@@ -1199,41 +1199,41 @@ fieldset[data-v-d6ae4992] {
   cursor: not-allowed;
   outline: none;
 }
-.title[data-v-198a0d3a] {
+.title[data-v-273a97a0] {
   font-weight: 700;
 }
-.orderManager[data-v-198a0d3a] {
+.orderManager[data-v-273a97a0] {
   position: relative;
   height: 80vh;
 }
-.orderManager[data-v-198a0d3a] .heading {
+.orderManager[data-v-273a97a0] .heading {
   margin: 12px 0;
   line-height: 0.75;
   color: #001123;
 }
-.orderManager[data-v-198a0d3a] h2 {
+.orderManager[data-v-273a97a0] h2 {
   letter-spacing: 0;
   font-size: 24px;
 }
-.sidePanel[data-v-198a0d3a] {
+.sidePanel[data-v-273a97a0] {
   right: 10px;
   width: 28.5%;
   padding: 0 30px;
   overflow-y: scroll;
 }
-.galleryPanel[data-v-198a0d3a],
-.sidePanel[data-v-198a0d3a] {
+.galleryPanel[data-v-273a97a0],
+.sidePanel[data-v-273a97a0] {
   position: absolute;
   top: 20px;
   height: 95%;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-.galleryPanel[data-v-198a0d3a] {
+.galleryPanel[data-v-273a97a0] {
   left: 0;
   width: 70%;
 }
-.galleryWrapper[data-v-198a0d3a] {
+.galleryWrapper[data-v-273a97a0] {
   overflow: auto;
   height: calc(100% - 80px);
   border-radius: 4px;
