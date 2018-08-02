@@ -119,9 +119,15 @@ export default {
         return false
       }
     },
+    galleryToFileset: function(items) {
+      var members = items.filter(item => this.gallery.changeList.indexOf(item.id) > -1).map(item => {
+        return { id: item.id, label: item.caption, viewingHint: item.viewingHint }
+      })
+      return members
+    },
     galleryToResource: function(items) {
       var members = items.map(item => {
-        return { id: item.id, label: item.caption, viewingHint: item.viewingHint }
+        return item.id
       })
       return members
     },
@@ -133,7 +139,8 @@ export default {
       }
     },
     save: function() {
-      let body = {
+      let resource = {}
+      resource.body = {
         id: this.resource.id,
         viewingDirection: this.resource.viewingDirection
           ? this.resource.viewingDirection.replace(/-/g, "").toUpperCase()
@@ -141,10 +148,16 @@ export default {
         viewingHint: this.resource.viewingHint,
         startPage: this.resource.startCanvas,
         thumbnailId: this.resource.thumbnail,
-        // memberIds: this.galleryToResource(this.gallery.items),
+        memberIds: this.galleryToResource(this.gallery.items),
       }
-      window.body = body
-      this.$store.dispatch("saveStateGql", body)
+      resource.filesets = []
+      let membersBody = this.galleryToFileset(this.gallery.items)
+      let memberNum = membersBody.length
+      for (let i = 0; i < memberNum; i++) {
+        resource.filesets.push(membersBody[i])
+      }
+      window.resource = resource
+      this.$store.dispatch("saveStateGql", resource)
     },
     saveMVW: function() {
       let body = {

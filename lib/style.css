@@ -1200,41 +1200,41 @@ fieldset[data-v-d6ae4992] {
   cursor: not-allowed;
   outline: none;
 }
-.title[data-v-16f76136] {
+.title[data-v-61fd18bb] {
   font-weight: 700;
 }
-.orderManager[data-v-16f76136] {
+.orderManager[data-v-61fd18bb] {
   position: relative;
   height: 80vh;
 }
-.orderManager[data-v-16f76136] .heading {
+.orderManager[data-v-61fd18bb] .heading {
   margin: 12px 0;
   line-height: 0.75;
   color: #001123;
 }
-.orderManager[data-v-16f76136] h2 {
+.orderManager[data-v-61fd18bb] h2 {
   letter-spacing: 0;
   font-size: 24px;
 }
-.sidePanel[data-v-16f76136] {
+.sidePanel[data-v-61fd18bb] {
   right: 10px;
   width: 28.5%;
   padding: 0 30px;
   overflow-y: scroll;
 }
-.galleryPanel[data-v-16f76136],
-.sidePanel[data-v-16f76136] {
+.galleryPanel[data-v-61fd18bb],
+.sidePanel[data-v-61fd18bb] {
   position: absolute;
   top: 20px;
   height: 95%;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-.galleryPanel[data-v-16f76136] {
+.galleryPanel[data-v-61fd18bb] {
   left: 0;
   width: 70%;
 }
-.galleryWrapper[data-v-16f76136] {
+.galleryWrapper[data-v-61fd18bb] {
   overflow: auto;
   height: calc(100% - 80px);
   border-radius: 4px;
@@ -1248,18 +1248,18 @@ small[data-v-7a797a4c] {
 .vertical[data-v-7a797a4c] {
   display: block;
 }
-small[data-v-3f795d00] {
+small[data-v-ba672538] {
   font-size: 1rem;
   font-weight: 400;
 }
-#replace-file-button[data-v-3f795d00] {
+#replace-file-button[data-v-ba672538] {
   padding: 1.5rem;
   display: inline-block;
 }
-.is-hidden[data-v-3f795d00] {
+.is-hidden[data-v-ba672538] {
   display: none;
 }
-.bg[data-v-3f795d00] {
+.bg[data-v-ba672538] {
   background: #f9f9f9;
   margin-left: -30px;
   margin-right: -30px;
@@ -1268,12 +1268,12 @@ small[data-v-3f795d00] {
   flex-direction: column;
   height: 100%;
 }
-.osd[data-v-3f795d00] {
+.osd[data-v-ba672538] {
   background: #fff;
   height: 100%;
   width: 100%;
 }
-.osd-wrapper[data-v-3f795d00] {
+.osd-wrapper[data-v-ba672538] {
   background: #fff;
   flex-basis: 40%;
   border-radius: 4px;
@@ -1281,15 +1281,15 @@ small[data-v-3f795d00] {
   box-shadow: 0 0 10px #9ecaed;
   padding: 10px;
 }
-h3.osd-title[data-v-3f795d00] {
+h3.osd-title[data-v-ba672538] {
   font-size: 18px;
 }
-.viewport[data-v-3f795d00] {
+.viewport[data-v-ba672538] {
   height: 100%;
   width: 100%;
 }
 small[data-v-5db4ee5a],
-small[data-v-28bd21d4] {
+small[data-v-122a997c] {
   font-size: 1rem;
   font-weight: 400;
 }
