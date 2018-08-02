@@ -784,7 +784,7 @@ fieldset[data-v-d6ae4992] {
   top: 0.125em;
   position: relative;
 }
-.text-style[data-v-75d961c3] {
+.text-style[data-v-211035c7] {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -795,20 +795,23 @@ fieldset[data-v-d6ae4992] {
   font-size: 16px;
   line-height: 1.6;
 }
-.text-style[data-v-75d961c3]:last-child {
+.text-style[data-v-211035c7]:last-child {
   margin-bottom: 0;
 }
-.text-style.disabled[data-v-75d961c3] {
+.text-style.disabled[data-v-211035c7] {
   color: #66707b;
   text-decoration: line-through;
 }
-.text-style.strong[data-v-75d961c3] {
+.text-style.strong[data-v-211035c7] {
   font-weight: 600;
 }
-.text-style.positive[data-v-75d961c3] {
+.text-style.emphasis[data-v-211035c7] {
+  font-style: italic;
+}
+.text-style.positive[data-v-211035c7] {
   color: #639113;
 }
-.text-style.negative[data-v-75d961c3] {
+.text-style.negative[data-v-211035c7] {
   color: #c92813;
 }
 .wrapper[data-v-2d97387e] {
@@ -1199,52 +1202,52 @@ fieldset[data-v-d6ae4992] {
   cursor: not-allowed;
   outline: none;
 }
-.title[data-v-273a97a0] {
+.title[data-v-69c5149c] {
   font-weight: 700;
 }
-.orderManager[data-v-273a97a0] {
+.orderManager[data-v-69c5149c] {
   position: relative;
   height: 80vh;
 }
-.orderManager[data-v-273a97a0] .heading {
+.orderManager[data-v-69c5149c] .heading {
   margin: 12px 0;
   line-height: 0.75;
   color: #001123;
 }
-.orderManager[data-v-273a97a0] h2 {
+.orderManager[data-v-69c5149c] h2 {
   letter-spacing: 0;
   font-size: 24px;
 }
-.sidePanel[data-v-273a97a0] {
+.sidePanel[data-v-69c5149c] {
   right: 10px;
   width: 28.5%;
   padding: 0 30px;
   overflow-y: scroll;
 }
-.galleryPanel[data-v-273a97a0],
-.sidePanel[data-v-273a97a0] {
+.galleryPanel[data-v-69c5149c],
+.sidePanel[data-v-69c5149c] {
   position: absolute;
   top: 20px;
   height: 95%;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-.galleryPanel[data-v-273a97a0] {
+.galleryPanel[data-v-69c5149c] {
   left: 0;
   width: 70%;
 }
-.galleryWrapper[data-v-273a97a0] {
+.galleryWrapper[data-v-69c5149c] {
   overflow: auto;
   height: calc(100% - 80px);
   border-radius: 4px;
   margin-bottom: 80px;
   clear: both;
 }
-small[data-v-7a797a4c] {
+small[data-v-5cbe6c9a] {
   font-size: 1rem;
   font-weight: 400;
 }
-.vertical[data-v-7a797a4c] {
+.vertical[data-v-5cbe6c9a] {
   display: block;
 }
 small[data-v-39685238] {
@@ -1287,8 +1290,8 @@ h3.osd-title[data-v-39685238] {
   height: 100%;
   width: 100%;
 }
-small[data-v-5db4ee5a],
-small[data-v-122a997c] {
+small[data-v-2c8000ac],
+small[data-v-5db4ee5a] {
   font-size: 1rem;
   font-weight: 400;
 }

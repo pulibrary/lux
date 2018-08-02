@@ -4,11 +4,12 @@
     <form id="app" novalidate="true">
       <input-text v-on:input="updateSingle()" v-model="singleForm.caption" id="itemLabel" label="Label" placeholder="e.g., example.tif" />
 
-      <input-select v-on:change="updateViewHint($event)"
+      <input-select v-if="!isMultiVolume" v-on:change="updateViewHint($event)"
         label="Page Type" id="pageType"
         :options="viewHintOpts"></input-select>
 
       <input-checkbox
+          v-if="!isMultiVolume"
           v-on:change="updateStartCanvas($event)"
           :options="startCanvasOpts" />
       <input-checkbox
@@ -51,6 +52,9 @@ export default {
     },
     thumbnail: function() {
       return this.resource.thumbnail
+    },
+    isMultiVolume() {
+      return this.$store.getters.isMultiVolume
     },
     isStartCanvas: function() {
       let id = this.gallery.selected[0].id
