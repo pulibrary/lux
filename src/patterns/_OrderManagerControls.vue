@@ -120,7 +120,7 @@ export default {
       }
     },
     galleryToFileset: function(items) {
-      var members = items.map(item => {
+      var members = items.filter(item => this.gallery.changeList.indexOf(item.id) > -1).map(item => {
         return { id: item.id, label: item.caption, viewingHint: item.viewingHint }
       })
       return members
