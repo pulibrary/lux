@@ -71,6 +71,11 @@ export const resourceModule = {
   },
 
   mutations: {
+    APPLY_STATE(state) {
+      state.resource.ogState = state.resource
+      state.gallery.ogItems = state.gallery.items
+      state.gallery.changeList = []
+    },
     CHANGE_RESOURCE_LOAD_STATE(state, loadState) {
       state.resource.loadState = loadState
     },
@@ -137,10 +142,10 @@ export const resourceModule = {
     },
     stateChanged: (state, getters) => {
       var propsChanged = []
-      propsChanged.push(state.resource.ogState.thumbnail !== state.thumbnail)
-      propsChanged.push(state.resource.ogState.startPage !== state.startPage)
-      propsChanged.push(state.resource.ogState.viewingHint !== state.viewingHint)
-      propsChanged.push(state.resource.ogState.viewingDirection !== state.viewingDirection)
+      propsChanged.push(state.resource.ogState.thumbnail.id !== state.resource.thumbnail)
+      propsChanged.push(state.resource.ogState.startPage !== state.resource.startPage)
+      propsChanged.push(state.resource.ogState.viewingHint !== state.resource.viewingHint)
+      propsChanged.push(state.resource.ogState.viewingDirection !== state.resource.viewingDirection)
       propsChanged.push(state.gallery.changeList.length > 0)
       propsChanged.push(getters.orderChanged)
       if (propsChanged.indexOf(true) > -1) {
