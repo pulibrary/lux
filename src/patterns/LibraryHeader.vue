@@ -68,7 +68,7 @@ export default {
     .app-name:not(:empty) {
       border-left: 0;
       color: $color-white;
-      font-size: $font-size-x-large;
+      font-size: $font-size-large;
       font-weight: 400;
       height: 35px;
       letter-spacing: 1px;

@@ -64,7 +64,8 @@ export default {
   .menu,
   .nav {
     opacity: 0;
-    transition: opacity 0.2s ease-in-out 1s;
+    transition: all 0s ease-in-out 1s;
+    visibility: hidden;
   }
 
   &:hover > .menu,
@@ -78,6 +79,7 @@ export default {
     opacity: 1;
     z-index: 9999;
     transition-delay: 0s;
+    visibility: visible;
   }
 
   /deep/ .nav {
