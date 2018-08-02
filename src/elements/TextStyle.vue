@@ -60,6 +60,9 @@ $positive-text: #7cb518;
   &.strong {
     font-weight: $font-weight-semi-bold;
   }
+  &.emphasis {
+    font-style: italic;
+  }
   &.positive {
     color: shade($positive-text, 20%);
   }
@@ -75,7 +78,8 @@ $positive-text: #7cb518;
   <div>
     <text-style variation="default">Design isn’t just about the look and feel. Design is how it works.</text-style>
     <text-style variation="disabled">Design isn’t just about the look and feel.</text-style>
-    <text-style variation="strong">Design isn’t just about</text-style>
+    <text-style variation="strong">Design isn’t just about look and feel.</text-style>
+    <text-style variation="emphasis">Design is how it works.</text-style>
   </div>
   ```
 </docs>
