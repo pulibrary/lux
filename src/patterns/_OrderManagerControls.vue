@@ -151,10 +151,6 @@ export default {
         memberIds: this.galleryToResource(this.gallery.items),
       }
       resource.filesets = []
-      // filesets ... only send what has changed!
-      // Rather than making multiple requests here, instead
-      // include both body and members body in the same call and build
-      // a single request for multiple mutations.
       let membersBody = this.galleryToFileset(this.gallery.items)
       let memberNum = membersBody.length
       for (let i = 0; i < memberNum; i++) {
