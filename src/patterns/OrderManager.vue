@@ -5,6 +5,8 @@
       <loader size="medium"></loader>
     </div>
   </transition>
+  <alert v-if="saved" status="success" type="alert" autoclear dismissible>Your work has been saved!</alert>
+  <alert v-if="saveError" status="error" type="alert" autoclear dismissible>Sorry, there was a problem saving your work!</alert>
   <wrapper class="galleryPanel" type="div">
     <toolbar v-on:cards-resized="resizeCards($event)"></toolbar>
     <gallery class="galleryWrapper" :cardPixelWidth="cardPixelWidth" :galleryItems="galleryItems"></gallery>
@@ -68,6 +70,12 @@ export default {
     }),
     loading: function() {
       return this.resource.loadState !== "LOADED" ? true : false
+    },
+    saved() {
+      return this.resource.saveState === "SAVED" ? true : false
+    },
+    saveError() {
+      return this.resource.saveState === "ERROR" ? true : false
     },
   },
   props: {

@@ -66,18 +66,28 @@ export const resourceModule = {
       viewingDirection: null,
       members: [],
       loadState: "NOT_LOADED",
+      saveState: "NOT_SAVED",
       ogState: {},
     },
   },
 
   mutations: {
     APPLY_STATE(state) {
-      state.resource.ogState = state.resource
       state.gallery.ogItems = state.gallery.items
       state.gallery.changeList = []
+      state.resource.ogState = {
+        startCanvas: resource.startPage,
+        thumbnail: resource.thumbnail,
+        viewingHint: resource.viewingHint,
+        viewingDirection: resource.viewingDirection,
+      }
+      state.resource.saveState = "NOT_SAVED"
     },
     CHANGE_RESOURCE_LOAD_STATE(state, loadState) {
       state.resource.loadState = loadState
+    },
+    SAVED_STATE(state, saveStatus) {
+      state.resource.saveState = saveStatus
     },
     SET_RESOURCE(state, resource) {
       state.resource.id = resource.id
@@ -106,7 +116,7 @@ export const resourceModule = {
       state.resource.loadState = "LOADED"
       state.resource.ogState = {
         startCanvas: resource.startPage,
-        thumbnail: resource.thumbnail,
+        thumbnail: resource.thumbnail.id,
         viewingHint: resource.viewingHint,
         viewingDirection: resource.viewingDirection,
       }
@@ -142,7 +152,7 @@ export const resourceModule = {
     },
     stateChanged: (state, getters) => {
       var propsChanged = []
-      propsChanged.push(state.resource.ogState.thumbnail.id !== state.resource.thumbnail)
+      propsChanged.push(state.resource.ogState.thumbnail !== state.resource.thumbnail)
       propsChanged.push(state.resource.ogState.startPage !== state.resource.startPage)
       propsChanged.push(state.resource.ogState.viewingHint !== state.resource.viewingHint)
       propsChanged.push(state.resource.ogState.viewingDirection !== state.resource.viewingDirection)

@@ -112,10 +112,9 @@ export default {
 <style lang="scss" scoped>
 .alert-fullscreen {
   position: fixed;
-  left: 0px;
   top: 5vh;
   left: 50%; /* move the left edge to the center … */
-  margin-left: -25vw; /* … and move it to the left half the box’ width. */
+  margin-left: -25vw !important; /* … and move it to the left half the box’ width. */
   z-index: 9999;
   width: 50vw;
 }
