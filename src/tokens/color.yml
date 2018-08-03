@@ -45,7 +45,7 @@ props:
     value: "hsla({!grayscale}, 75%, 1)"
     category: color_group_4
   color_grayscale_lighter:
-    value: "hsla({!grayscale}, 95%, 1)"
+    value: "hsla(0, 0%, 96%, 1)"
     category: color_group_4
 
   color_bleu_de_france_darker:
