@@ -16,6 +16,18 @@ To start development server:
 yarn start
 ```
 
+To run all unit tests:
+
+```
+yarn test
+```
+
+To run a single test:
+
+```
+yarn unit mytest.spec.js
+```
+
 To deploy [docs](https://pulibrary.github.io/lux/docs/#!/Getting%20Started):
 
 ```
@@ -52,3 +64,13 @@ To use an older version, add pin the npm version you want to your package.json d
 }
 ...
 ```
+
+To publish a new version to npm:
+
+1.  Pull latest master with merged changes.
+2.  Run `yarn build:system`
+3.  Bump the npm version with `npm version {semantic version number}`
+4.  Commit generated files
+5.  Run `npm publish`
+6.  Push fresh commits to master
+7.  Create a Github Release tag with change log
