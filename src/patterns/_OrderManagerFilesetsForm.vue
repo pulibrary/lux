@@ -4,20 +4,26 @@
     <form id="app" novalidate="true">
       <input-text @input="updateMultiLabels()" v-model="labelerOpts.unitLabel" id="unitLabel" label="Label" placeholder="e.g., p." />
       <input-text @input="updateMultiLabels()" v-model="labelerOpts.start" id="startNum" label="Starting Numeral" placeholder="e.g., 10" />
-      <!-- <input-checkbox vertical :options="[{name: 'addBrackets', value: 'Add Brackets', id: 'addBrackets'}]"></input-checkbox> -->
-      <div class="checkbox">
-        <label>
-          <input v-model="labelerOpts.bracket" name="addBrackets" id="addBrackets" type="checkbox" value="">
-          <label for="addBrackets">Add Brackets</label>
-        </label>
-      </div>
-      <div v-if="!isMultiVolume" class="form-group">
+      <input-checkbox
+          v-if="!isMultiVolume"
+          @change="updateMultiLabels()"
+          v-model="labelerOpts.bracket"
+          :options="addBracketOpts" />
+
+      <input-select id="labelMethod"
+        v-if="!isMultiVolume"
+        v-model="labelerOpts.method"
+        label="Labeling Method"
+        @change="updateMultiLabels()"
+        :options="methodOpts" />
+
+      <!-- <div v-if="!isMultiVolume" class="form-group">
         <label class="control-label" for="labelMethod">Labeling Method</label>
         <select @change="updateMultiLabels()" v-model="labelerOpts.method" id="labelMethod" class="form-control">
           <option value="paginate">Paginate (Default)</option>
           <option value="foliate">Foliate</option>
         </select>
-      </div>
+      </div> -->
       <div v-if="labelerOpts.method === 'foliate'" class="row">
         <fieldset>
           <div class="form-group">
@@ -91,12 +97,26 @@ export default {
     selectedTotal() {
       return this.gallery.selected.length
     },
+    addBracketOpts: function() {
+      return [
+        {
+          name: "addBrackets",
+          value: "Add Brackets",
+          id: "addBrackets",
+          checked: this.labelerOpts.bracket,
+        },
+      ]
+    },
+    methodOpts: function() {
+      return [{ label: "Paginate (Default)", value: "paginate" }, { label: "Foliate", value: "foliate" }]
+    },
   },
   methods: {
     isNormalInteger(str) {
       return /^\+?(0|[1-9]\d*)$/.test(str)
     },
     updateMultiLabels() {
+      console.log(this.labelerOpts)
       let changeList = this.gallery.changeList
       let items = this.gallery.items
       this.labelerOpts.start = this.isNormalInteger(this.labelerOpts.start)

@@ -8,14 +8,14 @@
       :focus="focus"
       :multiple="multiple"
       :errormessage="errormessage"
+      :value="value"
       @change="change($event)"
       @blur="inputblur($event.target)">
         <option
           v-for="(option, index) in options"
           :key="index"
           :value="option.value"
-          :disabled="option.disabled"
-          :selected="option.selected">
+          :disabled="option.disabled">
           {{ option.label }}
         </option>
     </select>
@@ -32,12 +32,21 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  model: {
+    event: "change",
+  },
   computed: {
     hasError() {
       return this.errormessage.length
     },
   },
   props: {
+    /**
+     * Sets the value of the selected option.
+     */
+    value: {
+      type: String,
+    },
     /**
      * Determines whether the user can select multiple options.
      */
@@ -122,8 +131,8 @@ export default {
     },
   },
   methods: {
-    change(value) {
-      this.$emit("change", value)
+    change(event) {
+      this.$emit("change", event.target.value)
     },
     inputblur(value) {
       this.$emit("inputblur", value)
@@ -208,6 +217,6 @@ $color-placeholder: tint($color-grayscale, 50%);
 
 <docs>
   ```jsx
-  <input-select label="Select..." id="myChoice" :options="[{label: 'opt 1', value: 'foo', selected: true}, {label: 'opt 2', value: 'bar'}]"></input-select>
+  <input-select label="Select..." id="myChoice" value="bar" :options="[{label: 'opt 1', value: 'foo'}, {label: 'opt 2', value: 'bar'}]"></input-select>
   ```
 </docs>

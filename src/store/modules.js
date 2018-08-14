@@ -153,7 +153,7 @@ export const resourceModule = {
     stateChanged: (state, getters) => {
       var propsChanged = []
       propsChanged.push(state.resource.ogState.thumbnail !== state.resource.thumbnail)
-      propsChanged.push(state.resource.ogState.startPage !== state.resource.startPage)
+      propsChanged.push(state.resource.ogState.startCanvas !== state.resource.startCanvas)
       propsChanged.push(state.resource.ogState.viewingHint !== state.resource.viewingHint)
       propsChanged.push(state.resource.ogState.viewingDirection !== state.resource.viewingDirection)
       propsChanged.push(state.gallery.changeList.length > 0)
