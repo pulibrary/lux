@@ -115,16 +115,16 @@ export default {
     isViewHint(hint) {
       return this.singleForm.viewingHint === hint
     },
-    updateStartCanvas(event) {
+    updateStartCanvas(checked) {
       let startCanvas = null
-      if (event.target.checked) {
+      if (checked) {
         startCanvas = this.gallery.selected[0].id
       }
       this.$store.commit("UPDATE_STARTCANVAS", startCanvas)
     },
-    updateThumbnail(event) {
+    updateThumbnail(checked) {
       let thumbnail = null
-      if (event.target.checked) {
+      if (checked) {
         thumbnail = this.gallery.selected[0].id
       }
       this.$store.commit("UPDATE_THUMBNAIL", thumbnail)

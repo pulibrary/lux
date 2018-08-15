@@ -27,6 +27,10 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  model: {
+    prop: "checked",
+    event: "change",
+  },
   data: function() {
     return {
       wrapper: this.groupLabel.length ? "fieldset" : "div",
@@ -100,8 +104,8 @@ export default {
     },
   },
   methods: {
-    change(value) {
-      this.$emit("change", value)
+    change(event) {
+      this.$emit("change", event.target.checked)
     },
     inputblur(value) {
       this.$emit("inputblur", value)
