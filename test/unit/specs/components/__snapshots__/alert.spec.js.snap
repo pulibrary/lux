@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert.vue has the expected html structure 1`] = `
+<div
+  class="alert alert-info"
+  name="fade"
+  role="alert"
+>
+  Here's some info for you. 
+  <!---->
+</div>
+`;

@@ -13,6 +13,10 @@ describe("Alert.vue", () => {
       slots: {
         default: "Here's some info for you.",
       },
+      // if props are set here, buttons aren't rendered
+      // props: {
+      //   dismissible: true,
+      // }
     })
   })
 
@@ -58,5 +62,9 @@ describe("Alert.vue", () => {
     setTimeout(() => {
       expect(wrapper.vm.show).toBe(false)
     }, 3000)
+  })
+
+  it("has the expected html structure", () => {
+    expect(wrapper.element).toMatchSnapshot()
   })
 })

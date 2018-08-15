@@ -114,11 +114,20 @@ export default {
       }
     },
   },
-  mounted() {
-    if (!this.galleryItems) {
-      this.$store.commit("CHANGE_RESOURCE_LOAD_STATE", "LOADING")
+  beforeMount: function() {
+    if (this.galleryItems) {
+      // if props are passed in set the cards on mount
+      this.$store.commit("SET_GALLERY", this.galleryItems)
+    } else {
+      // retrieve the data via an asyn action
     }
   },
+  // This is calling a mutation in another module... may not be necessary
+  // mounted() {
+  //   if (!this.galleryItems) {
+  //     this.$store.commit("CHANGE_RESOURCE_LOAD_STATE", "LOADING")
+  //   }
+  // },
 }
 </script>
 <style lang="scss" scoped>

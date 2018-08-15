@@ -17,6 +17,7 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/src/ExampleComponent.js",
     "<rootDir>/src/elements/*.{js,vue}",
+    "<rootDir>/src/patterns/*.{js,vue}",
     "<rootDir>/src/util/**/*.{js,vue}",
     "<rootDir>/docs/**/*.{js,vue}",
     "!<rootDir>/src/main.js",
