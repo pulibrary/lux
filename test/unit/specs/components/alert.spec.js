@@ -4,17 +4,21 @@ import Alert from "@/elements/Alert.vue"
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
 
-const wrapper = mount(Alert, {
-  localVue,
-  slots: {
-    default: "Here's some dismissible info for you.",
-  },
-})
-
 describe("Alert.vue", () => {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = mount(Alert, {
+      localVue,
+      slots: {
+        default: "Here's some info for you.",
+      },
+    })
+  })
+
   it("should have an alert message", () => {
     const el = wrapper.find(".alert")
-    expect(el.text()).toBe("Here's some dismissible info for you.")
+    expect(el.text()).toBe("Here's some info for you.")
   })
 
   it("should have a button when dismissible", () => {
@@ -29,5 +33,30 @@ describe("Alert.vue", () => {
     const button = wrapper.find("button")
     button.trigger("click")
     expect(wrapper.isEmpty()).toBe(true)
+  })
+
+  it("should be accessible", () => {
+    const el = wrapper.find(".alert")
+    expect(el.attributes().role).toBe("alert")
+  })
+
+  it("should default to info type", () => {
+    expect(wrapper.vm.isInfo).toBe(true)
+  })
+
+  it("should hide alert when hideAlert() is called", () => {
+    expect(wrapper.vm.show).toBe(true)
+    wrapper.vm.hideAlert()
+    expect(wrapper.vm.show).toBe(false)
+  })
+
+  it("should hide after 2 seconds when autoclear is true", () => {
+    wrapper.setProps({ autoclear: true })
+    const el = wrapper.find(".alert")
+    expect(wrapper.vm.show).toBe(true)
+    // wait 3 seconds and see if it's hidden
+    setTimeout(() => {
+      expect(wrapper.vm.show).toBe(false)
+    }, 3000)
   })
 })
