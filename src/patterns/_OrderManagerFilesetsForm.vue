@@ -17,31 +17,15 @@
         @change="updateMultiLabels()"
         :options="methodOpts" />
 
-      <!-- <div v-if="!isMultiVolume" class="form-group">
-        <label class="control-label" for="labelMethod">Labeling Method</label>
-        <select @change="updateMultiLabels()" v-model="labelerOpts.method" id="labelMethod" class="form-control">
-          <option value="paginate">Paginate (Default)</option>
-          <option value="foliate">Foliate</option>
-        </select>
-      </div> -->
       <div v-if="labelerOpts.method === 'foliate'" class="row">
-        <fieldset>
-          <div class="form-group">
-            <label class="control-label" for="frontLabel">Front Label</label>
-            <input @input="updateMultiLabels()" v-model="labelerOpts.frontLabel" type="text" name="frontLabel" id="frontLabel" value="" placeholder="(recto)" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="backLabel">Back Label</label>
-            <input @input="updateMultiLabels()" v-model="labelerOpts.backLabel" type="text" name="backLabel" id="backLabel" value="" placeholder="(verso)" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="startWith">Start With</label>
-            <select @change="updateMultiLabels()" v-model="labelerOpts.startWith" id="startWith" class="form-control">
-              <option value="front">Front (Default)</option>
-              <option value="back">Back</option>
-            </select>
-          </div>
-        </fieldset>
+        <input-text @input="updateMultiLabels()" v-model="labelerOpts.frontLabel" label="Front Label" id="frontLabel" placeholder="(recto)" />
+        <input-text @input="updateMultiLabels()" v-model="labelerOpts.backLabel" label="Back Label" id="backLabel" placeholder="(verso)" />
+        <input-select id="startWith"
+          v-if="!isMultiVolume"
+          v-model="labelerOpts.startWith"
+          label="Start With"
+          @change="updateMultiLabels()"
+          :options="startWithOpts" />
       </div>
     </form>
   </div>
@@ -109,6 +93,9 @@ export default {
     },
     methodOpts: function() {
       return [{ label: "Paginate (Default)", value: "paginate" }, { label: "Foliate", value: "foliate" }]
+    },
+    startWithOpts: function() {
+      return [{ label: "Front (Default)", value: "front" }, { label: "Back", value: "back" }]
     },
   },
   methods: {
