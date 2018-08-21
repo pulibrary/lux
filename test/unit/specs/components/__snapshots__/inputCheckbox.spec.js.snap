@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputCheckbox.vue has the expected html structure 1`] = `
+<div
+  class="input"
+>
+  <!---->
+   
+  <div
+    class="checkbox inline"
+  >
+    <input
+      id="checkbox-opt1"
+      name=""
+      type="checkbox"
+      value="one"
+    />
+     
+    <label
+      for="checkbox-opt1"
+    >
+      one
+    </label>
+  </div>
+  <div
+    class="checkbox inline"
+  >
+    <input
+      id="checkbox-opt2"
+      name=""
+      type="checkbox"
+      value="two"
+    />
+     
+    <label
+      for="checkbox-opt2"
+    >
+      two
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
