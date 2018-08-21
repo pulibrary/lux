@@ -53,6 +53,8 @@ export const galleryModule = {
 }
 
 export const resourceModule = {
+  // namespaced: true,
+
   state: {
     resource: {
       id: "",
