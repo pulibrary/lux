@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputRadio.vue has the expected html structure 1`] = `
+<div
+  class="input"
+>
+  <!---->
+   
+  <div
+    class="radio inline"
+  >
+    <input
+      id="radio-opt1"
+      name="opt 1"
+      type="radio"
+      value="one"
+    />
+     
+    <label
+      for="radio-opt1"
+    >
+      one
+    </label>
+  </div>
+  <div
+    class="radio inline"
+  >
+    <input
+      id="radio-opt2"
+      name="opt 2"
+      type="radio"
+      value="two"
+    />
+     
+    <label
+      for="radio-opt2"
+    >
+      two
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;

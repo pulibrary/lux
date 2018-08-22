@@ -31,7 +31,7 @@ export default {
       type: String,
       default: "default",
       validator: value => {
-        return value.match(/(default|disabled|strong|positive|negative)/)
+        return value.match(/(default|disabled|strong|emphasis|positive|negative)/)
       },
     },
   },
