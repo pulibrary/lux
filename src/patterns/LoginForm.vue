@@ -46,10 +46,10 @@ export default {
     validate(field) {
       if (field.id == "email") {
         this.emailValue = field.value
-        if (!field.value.length) {
-          this.errormessageEmail = "You need to supply an email."
-        } else {
+        if (/(.+)@(.+){2,}\.(.+){2,}/.test(field.value)) {
           this.errormessageEmail = ""
+        } else {
+          this.errormessageEmail = "You need to supply an email."
         }
       }
       if (field.id == "pwd") {
