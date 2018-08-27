@@ -14,7 +14,12 @@ module.exports = {
   snapshotSerializers: ["<rootDir>/node_modules/jest-serializer-vue"],
   setupFiles: ["<rootDir>/test/unit/setup"],
   coverageDirectory: "<rootDir>/test/unit/coverage",
-  testPathIgnorePatterns: ["/node_modules/", "/cypress/", "<rootDir>/test/unit/gallery-store-config.spec.js"],
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/cypress/",
+    "<rootDir>/test/unit/gallery-store-config.spec.js",
+    "<rootDir>/test/unit/resource-store-config.spec.js",
+  ],
   collectCoverageFrom: [
     "<rootDir>/src/ExampleComponent.js",
     "<rootDir>/src/elements/*.{js,vue}",
@@ -24,6 +29,7 @@ module.exports = {
     "!<rootDir>/cypress/**",
     "!<rootDir>/src/main.js",
     "!<rootDir>/test/unit/gallery-store-config.spec.js",
+    "!<rootDir>/test/unit/resource-store-config.spec.js",
     "!<rootDir>/src/patterns/_OrderManager*",
     "!<rootDir>/src/patterns/OrderManager*",
     "!<rootDir>/src/router/index.js",
