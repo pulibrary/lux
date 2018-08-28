@@ -3,10 +3,7 @@ jobs:
   build:
     working_directory: ~/lux
     docker:
-      - image: cypress/base:10
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
+      - image: circleci/node:9.11.1-browsers
     steps:
       - checkout
       # Log the current branch
@@ -18,24 +15,15 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
-      # Install wait-on
-      - run:
-          name: Install wait-on for Cypress
-          command: npm install -g wait-on
       # Install project dependencies
       - run:
           name: Install local dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
               - node_modules
-              - ~/.cache
-      # Start the server
-      - run:
-          name: Testing
-          command: yarn start:test & wait-on http://localhost:6060
       # Test the source code
       - run:
           name: Testing
