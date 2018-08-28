@@ -28,6 +28,10 @@ jobs:
           paths:
               - node_modules
               - ~/.cache
+      # Start the server
+      - run:
+          name: Testing
+          command: yarn start
       # Test the source code
       - run:
           name: Testing
