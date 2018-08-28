@@ -1,30 +1,57 @@
+# version: 2
+# jobs:
+#   build:
+#     working_directory: ~/lux
+#     docker:
+#       - image: circleci/node:9.11.1-browsers
+#     steps:
+#       - checkout
+#       # Log the current branch
+#       - run:
+#           name: Show current branch
+#           command: echo ${CIRCLE_BRANCH}
+#       # Restore local dependencies from cache
+#       - restore_cache:
+#           keys:
+#           - v1-dependencies-{{ checksum "package.json" }}
+#           - v1-dependencies-
+#       # Install project dependencies
+#       - run:
+#           name: Install local dependencies
+#           command: yarn install
+#       # Cache local dependencies if they don't exist
+#       - save_cache:
+#           key: v1-dependencies-{{ checksum "package.json" }}
+#           paths:
+#               - node_modules
+#       # Test the source code
+#       - run:
+#           name: Testing
+#           command: yarn test
+
 version: 2
 jobs:
   build:
-    working_directory: ~/lux
     docker:
-      - image: circleci/node:9.11.1-browsers
+      - image: cypress/base:8
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/lux
     steps:
       - checkout
-      # Log the current branch
-      - run:
-          name: Show current branch
-          command: echo ${CIRCLE_BRANCH}
-      # Restore local dependencies from cache
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-      # Install project dependencies
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+          key: v1-deps-{{ .Branch }}
+          key: v1-deps
       - run:
-          name: Install local dependencies
-          command: yarn install
-      # Cache local dependencies if they don't exist
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
       - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-              - node_modules
-      # Test the source code
+            - ~/.cache  ## cache both yarn and Cypress!
       - run:
           name: Testing
           command: yarn test
+      ## - run: $(yarn bin)/cypress run --record --key <record_key>
