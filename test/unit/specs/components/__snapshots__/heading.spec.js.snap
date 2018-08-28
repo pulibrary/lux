@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading.vue has the expected html structure 1`] = `
+<h1
+  class="heading"
+>
+  Here's a heading.
+</h1>
+`;

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm.vue has the expected html structure 1`] = `
+<form
+  id="app"
+  novalidate="novalidate"
+>
+  <!---->
+   
+  <input-text-stub
+    errormessage=""
+    id="email"
+    label="Email"
+    placeholder="Write your text"
+    value=""
+  />
+   
+  <input-text-stub
+    errormessage=""
+    id="pwd"
+    label="Password"
+    placeholder="Write your text"
+    value=""
+  />
+   
+  <input-button-stub
+    block=""
+    customalertevent="[object Object]"
+    type="button"
+    variation="solid"
+  >
+    
+      Login
+  
+  </input-button-stub>
+</form>
+`;

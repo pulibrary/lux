@@ -138,18 +138,18 @@ export default {
       this.$emit("inputblur", value)
     },
   },
-  filters: {
-    snakeToTitleCase: function(value) {
-      if (!value) return ""
-      //ref: https://gist.github.com/kkiernan/91298079d34f0f832054
-      return value
-        .split("_")
-        .map(function(item) {
-          return item.charAt(0).toUpperCase() + item.substring(1)
-        })
-        .join(" ")
-    },
-  },
+  // filters: {
+  //   snakeToTitleCase: function(value) {
+  //     if (!value) return ""
+  //     //ref: https://gist.github.com/kkiernan/91298079d34f0f832054
+  //     return value
+  //       .split("_")
+  //       .map(function(item) {
+  //         return item.charAt(0).toUpperCase() + item.substring(1)
+  //       })
+  //       .join(" ")
+  //   },
+  // },
 }
 </script>
 

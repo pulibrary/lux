@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gallery.vue has the expected html structure 1`] = `
+<div
+  class="gallery"
+  tag="div"
+>
+  <card-stub
+    cardpixelwidth="300"
+    class="galleryCard"
+    id="1"
+    selected="true"
+    size="medium"
+  >
+    <media-image-stub
+      src="https://picsum.photos/600/300/?random"
+    />
+     
+    <heading-stub
+      level="h2"
+    >
+      First
+    </heading-stub>
+     
+    <text-style-stub
+      variation="default"
+    >
+      one
+    </text-style-stub>
+  </card-stub>
+  <card-stub
+    cardpixelwidth="300"
+    class="galleryCard"
+    edited="true"
+    id="2"
+    size="medium"
+  >
+    <media-image-stub
+      src="https://picsum.photos/600/300/?random"
+    />
+     
+    <heading-stub
+      level="h2"
+    >
+      Second
+    </heading-stub>
+     
+    <text-style-stub
+      variation="default"
+    >
+      two
+    </text-style-stub>
+  </card-stub>
+  <card-stub
+    cardpixelwidth="300"
+    class="galleryCard"
+    id="3"
+    size="medium"
+  >
+    <media-image-stub
+      src="https://picsum.photos/600/300/?random"
+    />
+     
+    <heading-stub
+      level="h2"
+    >
+      Third
+    </heading-stub>
+     
+    <text-style-stub
+      variation="default"
+    >
+      three
+    </text-style-stub>
+  </card-stub>
+</div>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputText.vue has the expected html structure 1`] = `
+<div
+  class="input"
+>
+  <!---->
+   
+  <input
+    class="input input-expand"
+    errormessage=""
+    id="foo"
+    placeholder=""
+    type="text"
+  />
+   
+  <!---->
+</div>
+`;

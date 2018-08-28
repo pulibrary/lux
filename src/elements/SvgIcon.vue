@@ -4,8 +4,8 @@
 </template>
 
 <script>
+const req = require("../utils/icon-loader")
 let cache = new Map()
-const req = require.context("@/assets/icons/", true, /^\.\/.*\.svg$/)
 
 /**
  * Icons are used to visually communicate core parts of the product and

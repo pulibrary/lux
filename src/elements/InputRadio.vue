@@ -31,11 +31,6 @@ export default {
       wrapper: this.groupLabel.length ? "fieldset" : "div",
     }
   },
-  computed: {
-    hasError() {
-      return this.errormessage.length
-    },
-  },
   props: {
     /**
      * If true, the radio buttons will be stacked vertically. Otherwise they will be horizontal (inline).
