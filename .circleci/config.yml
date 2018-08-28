@@ -19,6 +19,9 @@ jobs:
       - run:
           name: Install local dependencies
           command: yarn install
+      - run:
+          name: Restore cache
+          command: chmod -R 777 ~/lux && chmod -R 777 ~/.cache
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
