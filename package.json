@@ -184,7 +184,6 @@
     "vue-style-loader": "^4.1.0",
     "vue-styleguidist": "git+https://git@github.com/viljamis/vue-styleguidist.git",
     "vue-template-compiler": "^2.5.16",
-    "wait-on": "^2.1.0",
     "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-dev-server": "^2.11.2",

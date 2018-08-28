@@ -18,6 +18,10 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+      # Install wait-on
+      - run:
+          name: Install wait-on for Cypress
+          command: npm install -g wait-on
       # Install project dependencies
       - run:
           name: Install local dependencies
