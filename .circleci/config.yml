@@ -3,7 +3,10 @@ jobs:
   build:
     working_directory: ~/lux
     docker:
-      - image: circleci/node:9.11.1-browsers
+      - image: cypress/base:8
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
     steps:
       - checkout
       # Log the current branch
@@ -18,7 +21,7 @@ jobs:
       # Install project dependencies
       - run:
           name: Install local dependencies
-          command: yarn install
+          command: yarn install --frozen-lockfile
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
