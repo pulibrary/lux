@@ -4,9 +4,6 @@ jobs:
     working_directory: ~/lux
     docker:
       - image: circleci/node:9.11.1-browsers
-          environment:
-            ## this enables colors in the output
-            TERM: xterm
     steps:
       - checkout
       # Log the current branch
@@ -27,35 +24,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
               - node_modules
-              _ ~/.cache
+              - ~/.cache
       # Test the source code
       - run:
           name: Testing
           command: yarn test
-
-# version: 2
-# jobs:
-#   build:
-#     docker:
-#       - image: cypress/base:8
-#         environment:
-#           ## this enables colors in the output
-#           TERM: xterm
-#     working_directory: ~/lux
-#     steps:
-#       - checkout
-#       - restore_cache:
-#           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
-#           key: v1-deps-{{ .Branch }}
-#           key: v1-deps
-#       - run:
-#           name: Install Dependencies
-#           command: yarn install --frozen-lockfile
-#       - save_cache:
-#           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
-#           paths:
-#             - ~/.cache  ## cache both yarn and Cypress!
-#       - run:
-#           name: Testing
-#           command: yarn test
-#       ## - run: $(yarn bin)/cypress run --record --key <record_key>
