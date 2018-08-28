@@ -110,7 +110,6 @@ export default {
       this.$store.commit("SET_RESOURCE", this.resourceObject)
     } else {
       let resource = { id: this.resourceId }
-      console.log(this.resourceId)
       this.$store.commit("CHANGE_RESOURCE_LOAD_STATE", "LOADING")
       this.$store.dispatch("loadImageCollectionGql", resource)
     }

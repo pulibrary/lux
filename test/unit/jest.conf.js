@@ -31,7 +31,7 @@ module.exports = {
     "!<rootDir>/test/unit/gallery-store-config.spec.js",
     "!<rootDir>/test/unit/resource-store-config.spec.js",
     "!<rootDir>/src/patterns/_OrderManager*",
-    "!<rootDir>/src/patterns/OrderManager*",
+    "!<rootDir>/src/patterns/OrderManagerFilesetForm.vue",
     "!<rootDir>/src/router/index.js",
     "!<rootDir>/node_modules/**",
     "!<rootDir>/src/system.js",
