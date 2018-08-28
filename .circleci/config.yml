@@ -35,7 +35,7 @@ jobs:
       # Start the server
       - run:
           name: Testing
-          command: yarn start & wait-on http://localhost:6060
+          command: yarn start:test & wait-on http://localhost:6060
       # Test the source code
       - run:
           name: Testing

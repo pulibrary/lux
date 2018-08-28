@@ -23,6 +23,8 @@
     "cypress:test": "cypress run",
     "cypress:open": "cypress open",
     "dev": "webpack-dev-server --inline --config ./build/webpack.dev.conf.js",
+    "test:server": "webpack-dev-server --inline --config ./build/webpack.test.conf.js",
+    "start:test": "npm-run-all --parallel styleguide theo:onchange theo test:server",
     "start": "npm-run-all --parallel styleguide theo:onchange theo dev",
     "unit": "jest --config ./test/unit/jest.conf.js --coverage",
     "build": "npm-run-all theo node:build",
