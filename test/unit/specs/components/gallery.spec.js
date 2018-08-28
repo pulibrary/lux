@@ -2,7 +2,7 @@ import Vuex from "vuex"
 import { createLocalVue, mount, shallowMount } from "@vue/test-utils"
 import Gallery from "@/patterns/Gallery.vue"
 import Card from "@/elements/Card.vue"
-import { resourceModule, galleryModule } from "@/store/modules"
+import { galleryMutations } from "@/store/gallery"
 
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
@@ -35,21 +35,15 @@ describe("Gallery.vue", () => {
       ogItems: items,
     }
 
-    mutations = {
-      SET_GALLERY: jest.fn(),
-    }
-
     store = new Vuex.Store({
       modules: {
-        // ordermanager: resourceModule,
         gallery: {
           state,
-          mutations,
+          mutations: galleryMutations,
         },
       },
     })
 
-    // const Card = createStub("Card")
     wrapper = mount(Gallery, {
       localVue,
       store,
@@ -95,31 +89,37 @@ describe("Gallery.vue", () => {
     expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(true)
   })
 
-  // it("selects the correct items", () => {
-  //   wrapper.setMethods({ select: selectStub })
-  //   // console.log(wrapper.find(Card))
-  //   const card1 = wrapper.findAll(".galleryCard").at(0)
-  //   const card2 = wrapper.findAll(".galleryCard").at(1)
-  //   console.log(card1.attributes())
-  //   console.log(card2.attributes())
-  //   // const foo = wrapper.findAll(".galleryCard")
-  //   // expect(wrapper.find(".galleryCard").length).to.equal(1)
-  //   wrapper.vm.$emit('card-click', { shiftkey: false, target: { id: '1' } })
-  //   wrapper.vm.$emit('card-click', { shiftkey: true, target: { id: '2' } })
-  //   // card1.trigger('card-click')
-  //   // card2.trigger('card-click', {
-  //   //   shiftKey: true
-  //   // })
-  //   // // wrapper.findAll('.galleryCard').at(1).trigger('click', {
-  //   // //   metaKey: true
-  //   // // })
-  //   console.log(selectStub.mock)
-  //   //
-  //   // // the first click selects one element, while the second sekects two (with Shift+Click)
-  //   // expect(selectStub.mock.calls[0][1].length).toBe(1)
-  //   // expect(selectStub.mock.calls[1][1].length).toBe(2)
-  //   // expect(selectStub.mock.calls.length).toBe(2)
-  // })
+  it("selects the correct items", () => {
+    expect(wrapper.vm.isSelected(wrapper.vm.items[1])).toBe(false)
+    wrapper.vm.select("2", { shiftKey: false, metaKey: false, target: { id: "2" } })
+    expect(wrapper.vm.isSelected(wrapper.vm.items[1])).toBe(true)
+    wrapper.vm.selectNone()
+    expect(wrapper.vm.isSelected(wrapper.vm.items[1])).toBe(false)
+    wrapper.vm.select("1", { shiftKey: false, metaKey: false, target: { id: "1" } })
+    wrapper.vm.select("3", { shiftKey: true, metaKey: false, target: { id: "3" } })
+    expect(wrapper.vm.isSelected(wrapper.vm.items[1])).toBe(true)
+    wrapper.vm.selectNone()
+    expect(wrapper.vm.isSelected(wrapper.vm.items[1])).toBe(false)
+    wrapper.vm.select("1", { shiftKey: false, metaKey: false, target: { id: "1" } })
+    wrapper.vm.select("3", { shiftKey: false, metaKey: true, target: { id: "3" } })
+    expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(true)
+    expect(wrapper.vm.isSelected(wrapper.vm.items[1])).toBe(false)
+  })
+
+  it("deselects the correct items", () => {
+    wrapper.vm.select("1", { shiftKey: false, metaKey: false, target: { id: "1" } })
+    expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(true)
+    wrapper.vm.deselect({ shiftKey: false, metaKey: false, target: { className: "foo" } })
+    expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(true)
+    wrapper.vm.deselect({ shiftKey: false, metaKey: false, target: { className: "gallery" } })
+    expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(false)
+  })
+
+  it("sorts the items", () => {
+    expect(wrapper.vm.items[0].id).toBe("1")
+    wrapper.vm.items = reordered
+    expect(wrapper.vm.items[0].id).toBe("3")
+  })
 
   it("has the expected html structure", () => {
     expect(wrapper.element).toMatchSnapshot()
