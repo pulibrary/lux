@@ -27,8 +27,8 @@ describe("MediaImage.vue", () => {
     expect(mediaimg.classes()).toContain("medium")
     wrapper.setProps({ height: "large" })
     expect(mediaimg.classes()).toContain("large")
-    expect(mediaimg.classes()).toContain("cover")
     const svg = wrapper.find('[name="pul-icon-file"]')
+    expect(svg.classes()).toContain("cover")
     expect(wrapper.find('[name="pul-icon-file"]').exists()).toBe(true)
     expect(wrapper.find("img").exists()).toBe(false)
     expect(svg.attributes().alt).toBe("alt text")
@@ -49,7 +49,7 @@ describe("MediaImage.vue", () => {
     expect(wrapper2.find("img").exists()).toBe(true)
     const img = wrapper2.find("img")
     expect(img.attributes().alt).toBe("alt text")
-    expect(mediaimg.classes()).toContain("contain")
+    expect(img.classes()).toContain("contain")
   })
 
   it("has the expected html structure", () => {

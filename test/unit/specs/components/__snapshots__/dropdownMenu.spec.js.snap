@@ -3,5 +3,7 @@
 exports[`DropdownMenu.vue has the expected html structure 1`] = `
 <div
   class="lux-dropdown-menu"
-/>
+>
+   
+</div>
 `;

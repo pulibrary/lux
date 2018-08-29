@@ -13,7 +13,6 @@ exports[`Gallery.vue has the expected html structure 1`] = `
     size="medium"
   >
     <media-image-stub
-      height="large"
       src="https://picsum.photos/600/300/?random"
     />
      
@@ -37,7 +36,6 @@ exports[`Gallery.vue has the expected html structure 1`] = `
     size="medium"
   >
     <media-image-stub
-      height="large"
       src="https://picsum.photos/600/300/?random"
     />
      
@@ -60,7 +58,6 @@ exports[`Gallery.vue has the expected html structure 1`] = `
     size="medium"
   >
     <media-image-stub
-      height="large"
       src="https://foo/bar"
     />
      

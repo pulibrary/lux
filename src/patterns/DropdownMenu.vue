@@ -1,6 +1,7 @@
 <template>
   <component :is="type" :class="['lux-dropdown-menu']">
-    <slot/>
+    <slot name="button"></slot>
+    <slot></slot>
   </component>
 </template>
 
@@ -142,7 +143,7 @@ export default {
 <docs>
   ```jsx
   <dropdown-menu>
-    <input-button variation="dropdown">Selection Options</input-button>
+    <input-button slot="button" variation="dropdown">Selection Options</input-button>
     <menu-bar type="menu" active="All" :menu-items="[
       {name: 'All', component: 'All'},
       {name: 'None', component: 'None'},
