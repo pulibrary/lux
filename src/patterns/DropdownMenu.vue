@@ -1,6 +1,6 @@
 <template>
   <component :is="type" :class="['lux-dropdown-menu']">
-    <slot/>
+    <slot></slot>
   </component>
 </template>
 

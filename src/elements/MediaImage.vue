@@ -1,7 +1,7 @@
 <template>
-  <div class="media-image" :class="[height, {'default-thumbnail': !src}]">
-    <img v-if="src" :src="src" :alt="alt" :class="[{'cover': cover}, {'contain': contain}]">
-    <svg-icon v-else name="pul-icon-file" fill="rgb(225,225,225)" width="64px" height="64px"></svg-icon>
+  <div class="media-image" :class="[height, {'default-thumbnail': !source}]">
+    <img v-if="source" @error="source = null" :src="source" :alt="alt" :class="[{'cover': cover}, {'contain': contain}]">
+    <svg-icon v-else name="pul-icon-file" :alt="alt" :class="[{'cover': cover}, {'contain': contain}]" fill="rgb(225,225,225)" width="64px" height="64px"></svg-icon>
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  data: function() {
+    return {
+      source: this.src,
+    }
+  },
   props: {
     /**
      * The image displayed
@@ -84,6 +89,8 @@ export default {
     background: $color-grayscale;
     display: flex;
     align-items: center;
+    height: 300px;
+    width: 300px;
 
     .svg-icon,
     svg {

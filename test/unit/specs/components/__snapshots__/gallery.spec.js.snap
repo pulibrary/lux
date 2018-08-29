@@ -58,7 +58,7 @@ exports[`Gallery.vue has the expected html structure 1`] = `
     size="medium"
   >
     <media-image-stub
-      src="https://picsum.photos/600/300/?random"
+      src="https://foo/bar"
     />
      
     <heading-stub

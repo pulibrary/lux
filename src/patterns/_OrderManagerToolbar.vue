@@ -169,6 +169,11 @@ export default {
     margin: 0;
   }
 
+  input[type="range"] {
+    display: inline;
+    width: auto;
+  }
+
   label {
     @include visually-hidden;
   }

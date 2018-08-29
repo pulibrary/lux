@@ -15,10 +15,10 @@ let mutations
 let items = [
   { id: "1", title: "First", caption: "one", mediaUrl: "https://picsum.photos/600/300/?random" },
   { id: "2", title: "Second", caption: "two", mediaUrl: "https://picsum.photos/600/300/?random" },
-  { id: "3", title: "Third", caption: "three", mediaUrl: "https://picsum.photos/600/300/?random" },
+  { id: "3", title: "Third", caption: "three", mediaUrl: "https://foo/bar" },
 ]
 let reordered = [
-  { id: "3", title: "Third", caption: "three", mediaUrl: "https://picsum.photos/600/300/?random" },
+  { id: "3", title: "Third", caption: "three", mediaUrl: "https://foo/bar" },
   { id: "2", title: "Second", caption: "two", mediaUrl: "https://picsum.photos/600/300/?random" },
   { id: "1", title: "First", caption: "one", mediaUrl: "https://picsum.photos/600/300/?random" },
 ]

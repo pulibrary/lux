@@ -6,7 +6,7 @@
           :key="index"
           :href="item.href"
           :class="[
-            'nav-item', 
+            'nav-item',
             {active: localActive === item.component}]"
           v-html="item.name"
           @click="menuItemClicked($event)">
