@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaImage.vue has the expected html structure 1`] = `
+<div
+  class="media-image medium default-thumbnail"
+>
+  <svg-icon-stub
+    alt="alt text"
+    class="cover"
+    fill="rgb(225,225,225)"
+    height="64px"
+    name="pul-icon-file"
+    width="64px"
+  />
+</div>
+`;
