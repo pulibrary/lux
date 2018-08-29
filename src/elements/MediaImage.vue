@@ -89,15 +89,13 @@ export default {
     background: $color-grayscale;
     display: flex;
     align-items: center;
-    width: 300px;
+    height: 300px;
     width: 300px;
 
     .svg-icon,
     svg {
       display: block;
       margin: auto;
-      width: 128px;
-      width: 128px;
     }
   }
 }
