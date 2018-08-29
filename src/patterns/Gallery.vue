@@ -10,7 +10,7 @@
       :disabled="isDisabled(item)"
       :edited="hasChanged(item.id)"
       @card-click="select(item.id, $event)">
-      <media-image :src="item.mediaUrl" height="large"></media-image>
+      <media-image :src="item.mediaUrl"></media-image>
       <heading level="h2">{{ item.title }}</heading>
       <text-style variation="default">{{ item.caption }}</text-style>
     </card>
