@@ -26,7 +26,8 @@
             {active: localActive === item.component},
             {disabled: item.disabled}]"
           v-html="item.name"
-          @click="menuItemClicked($event)">
+          :disabled="item.disabled"
+          @click="menuItemClicked($event, item)">
         </button>
       </li>
     </ul>
@@ -82,7 +83,7 @@ export default {
     },
   },
   methods: {
-    menuItemClicked(value) {
+    menuItemClicked(value, item) {
       this.$emit("menu-item-clicked", value)
     },
   },

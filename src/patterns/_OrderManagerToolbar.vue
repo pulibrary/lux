@@ -1,22 +1,16 @@
 <template>
   <component :is="type" :class="['toolbar']">
-    <dropdown-menu>
-      <input-button variation="dropdown">Selection Options</input-button>
-      <menu-bar v-on:menu-item-clicked="menuSelection($event)" type="menu" active="All" :menuItems="[
-        {name: 'All', component: 'All'},
-        {name: 'None', component: 'None'},
-        {name: 'Alternate', component: 'Alternate'},
-        {name: 'Inverse', component: 'Inverse'}
-      ]"/>
-    </dropdown-menu>
-    <dropdown-menu>
-      <input-button variation="dropdown">With Selected...</input-button>
-      <menu-bar v-on:menu-item-clicked="menuSelection($event)" type="menu" active="Cut" :menuItems="[
-        {name: 'Cut', component: 'Cut', disabled: isCutDisabled()},
-        {name: 'Paste Before', component: 'Paste Before', disabled: isPasteDisabled()},
-        {name: 'Paste After', component: 'Paste After', disabled: isPasteDisabled()}
-      ]"/>
-    </dropdown-menu>
+    <dropdown-menu v-on:menu-item-clicked="menuSelection($event)" buttonLabel="Selection Options" :menu-items="[
+      {name: 'All', component: 'All'},
+      {name: 'None', component: 'None'},
+      {name: 'Alternate', component: 'Alternate', disabled: true},
+      {name: 'Inverse', component: 'Inverse'}
+    ]"/>
+    <dropdown-menu v-on:menu-item-clicked="menuSelection($event)" buttonLabel="With Selected..." :menu-items="[
+      {name: 'Cut', component: 'Cut', disabled: isCutDisabled()},
+      {name: 'Paste Before', component: 'Paste Before', disabled: isPasteDisabled()},
+      {name: 'Paste After', component: 'Paste After', disabled: isPasteDisabled()}
+    ]"/>
     <spacer></spacer>
     <div class="zoom-slider">
       <svg-icon name="pul-icon-picture-solid" fill="rgb(0,0,0)" width="12px" height="12px"></svg-icon>

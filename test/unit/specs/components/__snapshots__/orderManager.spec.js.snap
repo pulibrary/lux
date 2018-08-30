@@ -12,6 +12,7 @@ exports[`OrderManager.vue has the expected html structure 1`] = `
    
   <wrapper-stub
     class="galleryPanel"
+    fullwidth="true"
     type="div"
   >
     <toolbar-stub />

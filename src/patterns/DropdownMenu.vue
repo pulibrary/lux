@@ -1,6 +1,7 @@
 <template>
   <component :is="type" :class="['lux-dropdown-menu']">
-    <slot></slot>
+    <input-button v-on:button-clicked="buttonClicked($event)" class="dropdown-button" variation="dropdown">{{ buttonLabel }}</input-button>
+    <menu-bar v-bind:class="{ show: isVisible }" v-on:menu-item-clicked="menuItemClicked($event)" type="menu" active="All" :menu-items="menuItems"/>
   </component>
 </template>
 
@@ -13,12 +14,31 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Pattern",
+  data: function() {
+    return {
+      isVisible: false,
+    }
+  },
   props: {
     /**
      * The html element name used for the container
      */
     type: {
       type: String,
+      default: "div",
+    },
+    /**
+     * The menu items in the dropdown
+     */
+    buttonLabel: {
+      type: String,
+      default: "Dropdown",
+    },
+    /**
+     * The html element name used for the container
+     */
+    menuItems: {
+      type: Array,
       default: "div",
     },
     /**
@@ -31,6 +51,16 @@ export default {
       validator: value => {
         return value.match(/(left|right)/)
       },
+    },
+  },
+  methods: {
+    buttonClicked(value) {
+      this.isVisible = !this.isVisible
+      this.$emit("button-clicked", value)
+    },
+    menuItemClicked(value) {
+      this.isVisible = false
+      this.$emit("menu-item-clicked", value)
     },
   },
 }
@@ -64,21 +94,12 @@ export default {
   .menu,
   .nav {
     opacity: 0;
-    transition: all 0s ease-in-out 1s;
     visibility: hidden;
   }
 
-  &:hover > .menu,
-  &:focus > .menu,
-  &:focus-within > .menu,
-  &:hover > .nav,
-  &:focus > .nav,
-  &:focus-within > .nav,
-  .menu:hover,
-  .nav:hover {
+  .show {
     opacity: 1;
-    z-index: 9999;
-    transition-delay: 0s;
+    z-index: 100000;
     visibility: visible;
   }
 
@@ -89,7 +110,7 @@ export default {
     position: absolute;
     min-width: calc(100% - 1px);
     margin: 1px 0 0;
-    z-index: 9999;
+    z-index: 100000;
 
     ul {
       list-style-type: none;
@@ -141,14 +162,11 @@ export default {
 
 <docs>
   ```jsx
-  <dropdown-menu>
-    <input-button variation="dropdown">Selection Options</input-button>
-    <menu-bar type="menu" active="All" :menu-items="[
-      {name: 'All', component: 'All'},
-      {name: 'None', component: 'None'},
-      {name: 'Alternate', component: 'Alternate', disabled: true},
-      {name: 'Inverse', component: 'Inverse'}
-    ]"/>
-  </dropdown-menu>
+  <dropdown-menu buttonLabel="Select Options" :menu-items="[
+    {name: 'All', component: 'All'},
+    {name: 'None', component: 'None'},
+    {name: 'Alternate', component: 'Alternate', disabled: true},
+    {name: 'Inverse', component: 'Inverse'}
+  ]"/>
   ```
 </docs>

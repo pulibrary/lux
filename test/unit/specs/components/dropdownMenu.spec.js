@@ -1,5 +1,7 @@
 import { createLocalVue, mount } from "@vue/test-utils"
 import DropdownMenu from "@/patterns/DropdownMenu.vue"
+import InputButton from "@/elements/InputButton.vue"
+import MenuBar from "@/patterns/MenuBar.vue"
 
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
@@ -10,6 +12,10 @@ describe("DropdownMenu.vue", () => {
   beforeEach(() => {
     wrapper = mount(DropdownMenu, {
       localVue,
+      props: {
+        buttonLabel: "Dropdown",
+      },
+      stubs: ["input-button", "menu-bar"],
     })
   })
 
@@ -21,10 +27,25 @@ describe("DropdownMenu.vue", () => {
       localVue,
       propsData: {
         type: "form",
+        buttonLabel: "Dropdown",
       },
+      stubs: ["input-button", "menu-bar"],
     })
     expect(wrapper2.find("div").exists()).toBe(false)
     expect(wrapper2.find("form").exists()).toBe(true)
+  })
+
+  it("should hide menu on button click", () => {
+    expect(wrapper.vm.isVisible).toBe(false)
+    wrapper.vm.buttonClicked()
+    expect(wrapper.vm.isVisible).toBe(true)
+  })
+
+  it("should hide menu on menu item click", () => {
+    wrapper.vm.buttonClicked()
+    expect(wrapper.vm.isVisible).toBe(true)
+    wrapper.vm.menuItemClicked()
+    expect(wrapper.vm.isVisible).toBe(false)
   })
 
   it("has the expected html structure", () => {
