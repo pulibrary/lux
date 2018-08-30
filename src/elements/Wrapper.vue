@@ -39,9 +39,12 @@ export default {
   @include reset;
   margin: auto;
 
-  @media #{$media-query-large} {
-    max-width: 1170px;
-  }
+  // this overrides the full-width class rules making the OrderManager gallery
+  // have a gap on larger screens
+  // @media #{$media-query-large} {
+  //   max-width: 1170px;
+  // }
+
   .full-width {
     width: 100%;
   }
