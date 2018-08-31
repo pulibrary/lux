@@ -34,7 +34,7 @@
         <tr v-for="(component, index) in components" :key="index" class="component">
           <td v-if="component.name">
             <code class="name">
-              <a :href="'/#!/' + component.type + 's?id=' + component.name.toLowerCase()">{{component.name}}</a>
+              <a :href="envPath() + component.type + 's?id=' + component.name.toLowerCase()">{{component.name}}</a>
             </code>
           </td>
           <td v-else>N/A</td>
@@ -99,6 +99,13 @@ export default {
     },
     orderData: function(data) {
       return orderBy(data, "name", "asc")
+    },
+    envPath: function() {
+      let path = "/#!/"
+      if (window.location.hostname.indexOf("pulibrary.github.io") > -1) {
+        path = "/lux/docs/#!/"
+      }
+      return path
     },
   },
   data() {
