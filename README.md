@@ -71,7 +71,7 @@ To generate static asset files to use in a stand-alone HTML doc, run this comman
 yarn build:static
 ```
 
-Then use `<script/>` and `<link/>` tags to include to the js and css files in the `static/assets` directory in your HTML. (Ignore the `style.css` file for now.)
+Then use `<script/>` and `<link/>` tags to include to the js and css files in the `static/assets` directory in your HTML. Then include any LUX components in a wrapper with `id="lux"`. (Ignore the `style.css` file for now.)
 
 To publish a new version to npm:
 
