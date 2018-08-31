@@ -14,6 +14,10 @@ exports.assetsSystemPath = function(_path) {
   return path.posix.join(config.system.assetsSubDirectory, _path)
 }
 
+exports.staticSystemPath = function(_path) {
+  return path.posix.join(config.static.assetsSubDirectory, _path)
+}
+
 exports.cssLoaders = function(options) {
   options = options || {}
 

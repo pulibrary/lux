@@ -9,12 +9,12 @@ const path = require("path")
 const chalk = require("chalk")
 const webpack = require("webpack")
 const config = require("../config")
-const webpackConfig = require("./webpack.system.conf")
+const webpackConfig = require("./webpack.static.conf")
 
 const spinner = ora("Building LUX Design System Library...")
 spinner.start()
 
-rm(path.join(config.system.assetsRoot, config.system.assetsSubDirectory), err => {
+rm(path.join(config.static.assetsRoot, config.static.assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
@@ -30,15 +30,16 @@ rm(path.join(config.system.assetsRoot, config.system.assetsSubDirectory), err =>
     )
 
     if (stats.hasErrors()) {
-      console.log(chalk.red("  LUX Design System Library build failed with errors.\n"))
+      console.log(chalk.red("  LUX static asset build failed with errors.\n"))
       process.exit(1)
     }
 
-    console.log(chalk.cyan("  LUX Design System Library build complete.\n"))
+    console.log(chalk.cyan("  LUX static asset build complete.\n"))
     console.log(
       chalk.yellow(
-        "  Tip: You can now publish LUX as a private NPM module.\n" +
-          "  Users can import it as an ES6 module: import DesignSystem from 'system'\n"
+        "  Tip: You can now use LUX in any HTML page.\n" +
+          "  Locate the js and css files in the 'static/assets' directory. Add these to your HTML doc \n" +
+          "  and wrap any LUX components in a element with id='lux'. \n"
       )
     )
   })
