@@ -10,7 +10,8 @@
       :disabled="option.disabled"
       @change="change($event)"
       @blur="inputblur($event.target)">
-      <label :for="option.id">{{ option.value }}</label>
+      <label v-if="option.label" :for="option.id">{{ option.label }}</label>
+      <label v-else :for="option.id">{{ option.value }}</label>
     </div>
     <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
   </component>
