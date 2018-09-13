@@ -11,9 +11,7 @@
       :placeholder="placeholder"
       :errormessage="errormessage"
       :class="['input', { 'input-error': hasError }, {'input-expand': width === 'expand'}]"
-      v-bind:value="value"
       v-on:input="$emit('input', $event.target.value)"
-      @input="input($event.target.value)"
       @blur="inputblur($event.target)"
       />
       <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
@@ -132,9 +130,6 @@ export default {
     },
   },
   methods: {
-    input(value) {
-      this.$emit("change", value)
-    },
     inputblur(value) {
       this.$emit("inputblur", value)
     },

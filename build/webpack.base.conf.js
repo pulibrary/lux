@@ -4,6 +4,7 @@ const utils = require("./utils")
 const config = require("../config")
 const vueLoaderConfig = require("./vue-loader.conf")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 
 function resolve(dir) {
   return path.join(__dirname, "..", dir)
@@ -64,7 +65,19 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ExtractTextPlugin("style.css")],
+  plugins: [
+    new ExtractTextPlugin("style.css"),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          warnings: false,
+        },
+        ecma: 5,
+      },
+      sourceMap: config.build.productionSourceMap,
+      parallel: true,
+    }),
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

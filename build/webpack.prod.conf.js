@@ -37,6 +37,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         compress: {
           warnings: false,
         },
+        ecma: 5,
       },
       sourceMap: config.build.productionSourceMap,
       parallel: true,

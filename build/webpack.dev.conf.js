@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin")
 const portfinder = require("portfinder")
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -43,6 +44,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": require("../config/dev.env"),
+    }),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          warnings: false,
+        },
+        ecma: 5,
+      },
+      sourceMap: config.build.productionSourceMap,
+      parallel: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
