@@ -32,7 +32,7 @@
 </template>
 
 <script>
-// import Lablr from "../utils/lablr"
+import Lablr from "../utils/lablr"
 import { mapState, mapGetters } from "vuex"
 /**
  * This is the Filesets Form for the Order Manager in Figgy
@@ -103,27 +103,26 @@ export default {
       return /^\+?(0|[1-9]\d*)$/.test(str)
     },
     updateMultiLabels() {
-      console.log(this.labelerOpts)
-      // let changeList = this.gallery.changeList
-      // let items = this.gallery.items
-      // this.labelerOpts.start = this.isNormalInteger(this.labelerOpts.start)
-      //   ? this.labelerOpts.start - 0
-      //   : this.labelerOpts.start
-      // let generator = Lablr.pageLabelGenerator(this.labelerOpts)
-      // for (let i = 0; i < this.selectedTotal; i++) {
-      //   let index = this.gallery.items
-      //     .map(function(item) {
-      //       return item.id
-      //     })
-      //     .indexOf(this.gallery.selected[i].id)
-      //   items[index].caption = generator.next().value
-      //
-      //   if (changeList.indexOf(this.gallery.selected[i].id) === -1) {
-      //     changeList.push(this.gallery.selected[i].id)
-      //   }
-      // }
-      // this.$store.commit("UPDATE_CHANGES", changeList)
-      // this.$store.commit("UPDATE_ITEMS", items)
+      let changeList = this.gallery.changeList
+      let items = this.gallery.items
+      this.labelerOpts.start = this.isNormalInteger(this.labelerOpts.start)
+        ? this.labelerOpts.start - 0
+        : this.labelerOpts.start
+      let generator = Lablr.pageLabelGenerator(this.labelerOpts)
+      for (let i = 0; i < this.selectedTotal; i++) {
+        let index = this.gallery.items
+          .map(function(item) {
+            return item.id
+          })
+          .indexOf(this.gallery.selected[i].id)
+        items[index].caption = generator.next().value
+
+        if (changeList.indexOf(this.gallery.selected[i].id) === -1) {
+          changeList.push(this.gallery.selected[i].id)
+        }
+      }
+      this.$store.commit("UPDATE_CHANGES", changeList)
+      this.$store.commit("UPDATE_ITEMS", items)
     },
   },
 }
