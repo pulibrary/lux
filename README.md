@@ -65,6 +65,14 @@ To use an older version, add pin the npm version you want to your package.json d
 ...
 ```
 
+To generate static asset files to use in a stand-alone HTML doc, run this command:
+
+```
+yarn build:static
+```
+
+Then use `<script/>` and `<link/>` tags to include to the js and css files in the `static/assets` directory in your HTML. Then include any LUX components in a wrapper with `id="lux"`. (Ignore the `style.css` file for now.)
+
 To publish a new version to npm:
 
 1.  Pull latest master with merged changes.

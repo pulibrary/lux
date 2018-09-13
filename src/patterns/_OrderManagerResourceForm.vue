@@ -74,24 +74,28 @@ export default {
           name: "viewDir",
           value: "LEFTTORIGHT",
           id: "left-to-right",
+          label: "left-to-right",
           checked: this.resource.viewingDirection === "LEFTTORIGHT",
         },
         {
           name: "viewDir",
           value: "RIGHTTOLEFT",
           id: "right-to-left",
+          label: "right-to-left",
           checked: this.resource.viewingDirection === "RIGHTTOLEFT",
         },
         {
           name: "viewDir",
           value: "TOPTOBOTTOM",
           id: "top-to-bottom",
+          label: "top-to-bottom",
           checked: this.resource.viewingDirection === "TOPTOBOTTOM",
         },
         {
           name: "viewDir",
           value: "BOTTOMTOTOP",
           id: "bottom-to-top",
+          label: "bottom-to-top",
           checked: this.resource.viewingDirection === "BOTTOMTOTOP",
         },
       ]

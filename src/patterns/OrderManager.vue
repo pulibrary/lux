@@ -49,8 +49,11 @@ export default {
     galleryItems() {
       return this.resource.members.map(member => ({
         id: member.id,
-        // title: member.label,
-        caption: member.label, // member.__typename + " : " + member.id,
+        caption: member.label,
+        service:
+          typeof member.thumbnail.iiifServiceUrl != "undefined"
+            ? member.thumbnail.iiifServiceUrl
+            : "https://picsum.photos/600/300/?random",
         mediaUrl:
           typeof member.thumbnail.iiifServiceUrl != "undefined"
             ? member.thumbnail.iiifServiceUrl + "/full/300,/0/default.jpg"
@@ -108,6 +111,9 @@ export default {
     if (this.resourceObject) {
       // if props are passed in set the resource on mount
       this.$store.commit("SET_RESOURCE", this.resourceObject)
+      console.log("foo")
+      console.log(this.resourceObject.members[0].thumbnail.iiifServiceUrl)
+      console.log(typeof this.resourceObject.members[0].thumbnail.iiifServiceUrl)
     } else {
       let resource = { id: this.resourceId }
       this.$store.commit("CHANGE_RESOURCE_LOAD_STATE", "LOADING")
