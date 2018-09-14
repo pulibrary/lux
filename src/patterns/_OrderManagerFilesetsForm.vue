@@ -103,7 +103,6 @@ export default {
       return /^\+?(0|[1-9]\d*)$/.test(str)
     },
     updateMultiLabels() {
-      console.log(this.labelerOpts)
       let changeList = this.gallery.changeList
       let items = this.gallery.items
       this.labelerOpts.start = this.isNormalInteger(this.labelerOpts.start)

@@ -2,6 +2,7 @@
  * System.js creates the Design System Library.
  * Used both in dev environment and when exporting the system.
  */
+import "es6-promise/auto"
 import instance from "@/utils/vueInstance"
 import vuexModules from "@/store/modules"
 import WebFontLoader from "@/utils/webFontLoader"

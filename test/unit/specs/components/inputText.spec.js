@@ -17,12 +17,12 @@ describe("InputText.vue", () => {
     })
   })
 
-  it("should emit a change event with the correct value when text is input", () => {
+  it("should emit an input event with the correct value when text is input", () => {
     const input = wrapper.find("input")
     input.trigger("input")
     const emitted = wrapper.emitted()
-    expect(Object.prototype.hasOwnProperty.call(emitted, "change")).toBe(true)
-    expect(emitted.change[0]).toEqual(["bar"])
+    expect(Object.prototype.hasOwnProperty.call(emitted, "input")).toBe(true)
+    expect(emitted.input[0]).toEqual(["bar"])
   })
 
   it("should emit an inputblur event with the correct value when focus is blurred", () => {
