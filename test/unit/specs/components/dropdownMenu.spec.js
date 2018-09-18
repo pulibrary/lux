@@ -14,6 +14,12 @@ describe("DropdownMenu.vue", () => {
       localVue,
       props: {
         buttonLabel: "Dropdown",
+        menuItems: [
+          { name: "All", component: "All" },
+          { name: "None", component: "None" },
+          { name: "Alternate", component: "Alternate", disabled: true },
+          { name: "Inverse", component: "Inverse" },
+        ],
       },
       stubs: ["input-button", "menu-bar"],
     })
@@ -28,6 +34,12 @@ describe("DropdownMenu.vue", () => {
       propsData: {
         type: "form",
         buttonLabel: "Dropdown",
+        menuItems: [
+          { name: "All", component: "All" },
+          { name: "None", component: "None" },
+          { name: "Alternate", component: "Alternate", disabled: true },
+          { name: "Inverse", component: "Inverse" },
+        ],
       },
       stubs: ["input-button", "menu-bar"],
     })
