@@ -1,6 +1,8 @@
 <template>
   <component :is="type" class="library-logo">
-    <a href="https://library.princeton.edu"><svg-icon name="logo-library" ariaLabel="Princeton University Library" width="155px" height="34px"></svg-icon></a>
+    <a href="https://library.princeton.edu">
+      <logo-library width="155px" height="34px" />
+    </a>
   </component>
 </template>
 
