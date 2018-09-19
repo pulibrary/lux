@@ -46,10 +46,10 @@
         </nav>
       </div>
       <div class="library-links">
-        <library-contact-info></library-contact-info>
-        <university-logo></university-logo>
-        <university-copyright type="div"></university-copyright>
-        <university-accessibility></university-accessibility>
+        <library-contact-info />
+        <logo-university width="142" height="40" />
+        <university-copyright type="div" />
+        <university-accessibility />
       </div>
     </wrapper>
   </component>

@@ -14,7 +14,6 @@ exports[`DropdownMenu.vue has the expected html structure 1`] = `
   <menu-bar-stub
     active="All"
     class=""
-    menu-items="div"
     type="menu"
   />
 </div>

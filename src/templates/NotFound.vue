@@ -6,7 +6,7 @@
     ]"/>
     <wrapper>
       <heading level="h1">404 Error</heading>
-      <text-style>Couldn’t find a component that would match the URL you entered. Double check configuration in router/index.js.</text-style>
+      <text-style>Couldn’t find a component or page that matches the URL you entered. Double check configuration in router/index.js.</text-style>
     </wrapper>
   </component>
 </template>

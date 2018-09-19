@@ -111,9 +111,6 @@ export default {
     if (this.resourceObject) {
       // if props are passed in set the resource on mount
       this.$store.commit("SET_RESOURCE", this.resourceObject)
-      console.log("foo")
-      console.log(this.resourceObject.members[0].thumbnail.iiifServiceUrl)
-      console.log(typeof this.resourceObject.members[0].thumbnail.iiifServiceUrl)
     } else {
       let resource = { id: this.resourceId }
       this.$store.commit("CHANGE_RESOURCE_LOAD_STATE", "LOADING")
