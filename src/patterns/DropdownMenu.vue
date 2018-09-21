@@ -172,7 +172,7 @@ export default {
 
 <docs>
   ```jsx
-  <dropdown-menu buttonLabel="Select Options" :menu-items="[
+  <dropdown-menu button-label="Select Options" :menu-items="[
     {name: 'All', component: 'All'},
     {name: 'None', component: 'None'},
     {name: 'Alternate', component: 'Alternate', disabled: true},
