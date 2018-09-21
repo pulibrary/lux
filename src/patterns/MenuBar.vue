@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="type === 'nav'" class="nav">
+  <nav v-if="type === 'links'" class="nav">
     <ul>
       <li v-for="(item, index) in menuItems">
         <a
@@ -15,7 +15,7 @@
     </ul>
   </nav>
 
-  <div v-else-if="type === 'menu'" class="menu">
+  <div v-else-if="type === 'buttons'" class="menu">
     <ul>
       <li v-for="(item, index) in menuItems">
         <button
@@ -52,9 +52,9 @@ export default {
      */
     type: {
       type: String,
-      default: "nav",
+      default: "links",
       validator: value => {
-        return value.match(/(nav|menu)/)
+        return value.match(/(links|buttons)/)
       },
     },
     /**
