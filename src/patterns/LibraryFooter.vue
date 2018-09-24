@@ -98,6 +98,7 @@ export default {
 
   @media #{$media-query-large} {
     flex-direction: row;
+    max-width: 1170px;
   }
 }
 

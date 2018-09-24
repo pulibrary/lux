@@ -25,14 +25,14 @@ describe("DropdownMenu.vue", () => {
     })
   })
 
-  it("should be of the element type that is passed in as a prop", () => {
+  it("should be of the element that is passed in as a prop", () => {
     expect(wrapper.find("div").exists()).toBe(true)
     expect(wrapper.find("form").exists()).toBe(false)
     // can't setProps here because the component must be regenerated to change its wrapper
     const wrapper2 = mount(DropdownMenu, {
       localVue,
       propsData: {
-        type: "form",
+        element: "form",
         buttonLabel: "Dropdown",
         menuItems: [
           { name: "All", component: "All" },

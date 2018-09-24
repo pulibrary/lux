@@ -65,6 +65,10 @@ export default {
     width: auto;
     padding: 8px;
 
+    @media #{$media-query-large} {
+      max-width: 1170px;
+    }
+
     .app-name:not(:empty) {
       border-left: 0;
       color: $color-white;

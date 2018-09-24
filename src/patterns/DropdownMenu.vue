@@ -1,7 +1,7 @@
 <template>
-  <component :is="type" :class="['lux-dropdown-menu']">
+  <component :is="element" :class="['lux-dropdown-menu']">
     <input-button v-on:button-clicked="buttonClicked($event)" class="dropdown-button" variation="dropdown">{{ buttonLabel }}</input-button>
-    <menu-bar v-bind:class="{ show: isVisible }" v-on:menu-item-clicked="menuItemClicked($event)" type="menu" active="All" :menu-items="menuItems"/>
+    <menu-bar v-bind:class="{ show: isVisible }" v-on:menu-item-clicked="menuItemClicked($event)" :type="type" active="All" :menu-items="menuItems"/>
   </component>
 </template>
 
@@ -23,7 +23,7 @@ export default {
     /**
      * The html element name used for the container
      */
-    type: {
+    element: {
       type: String,
       default: "div",
     },
@@ -33,6 +33,16 @@ export default {
     buttonLabel: {
       type: String,
       default: "Dropdown",
+    },
+    /**
+     * Whether the dropdown includes links or buttons as menu items
+     */
+    type: {
+      type: String,
+      default: "buttons",
+      validator: value => {
+        return value.match(/(links|buttons)/)
+      },
     },
     /**
      * The html element name used for the container
@@ -162,7 +172,7 @@ export default {
 
 <docs>
   ```jsx
-  <dropdown-menu buttonLabel="Select Options" :menu-items="[
+  <dropdown-menu button-label="Select Options" :menu-items="[
     {name: 'All', component: 'All'},
     {name: 'None', component: 'None'},
     {name: 'Alternate', component: 'Alternate', disabled: true},
