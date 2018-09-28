@@ -18,7 +18,7 @@ describe("MediaImage.vue", () => {
         cover: true,
         contain: false,
       },
-      stubs: ["svg-icon"],
+      stubs: ["pul-icon-base", "pul-icon-file"],
     })
   })
 
@@ -28,10 +28,8 @@ describe("MediaImage.vue", () => {
     wrapper.setProps({ height: "large" })
     expect(mediaimg.classes()).toContain("large")
     const svg = wrapper.find('[name="pul-icon-file"]')
-    expect(svg.classes()).toContain("cover")
-    expect(wrapper.find('[name="pul-icon-file"]').exists()).toBe(true)
+    expect(wrapper.find('[icon-name="file"]').exists()).toBe(true)
     expect(wrapper.find("img").exists()).toBe(false)
-    expect(svg.attributes().alt).toBe("alt text")
   })
 
   it("displays image when src exists", () => {
