@@ -1,7 +1,12 @@
 <template>
   <div class="media-image" :class="[height, {'default-thumbnail': !source}]">
     <img v-if="source" @error="source = null" :src="source" :alt="alt" :class="[{'cover': cover}, {'contain': contain}]">
-    <svg-icon v-else name="pul-icon-file" :alt="alt" :class="[{'cover': cover}, {'contain': contain}]" fill="rgb(225,225,225)" width="64px" height="64px"></svg-icon>
+    <pul-icon-base v-else
+      width="50"
+      height="50"
+      icon-name="file"
+      icon-color="rgb(225,225,225)"
+    ><pul-icon-file /></pul-icon-base>
   </div>
 </template>
 
