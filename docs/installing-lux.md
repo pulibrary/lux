@@ -4,6 +4,13 @@
 
 #### Step 1
 
+Make sure you have the webpacker gem in your Gemfile:
+
+```html
+# LUX dependency
+gem 'webpacker', '~> 3.5'
+```
+
 You will need to have Rails 5.1+, and make sure you have the `webpacker` gem in your Gemfile. Run:
 
 ```html
@@ -23,7 +30,19 @@ More info on how to set up a Rails app with Webpacker and Vue.js can be found on
 
 #### Step 3
 
-Verify that your `package.json` file also has `@rails/webpacker` listed as a dependency, as well as `vue`.
+Verify that your `package.json` has the following dependencies:
+
+```html
+{
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "lux-design-system": "^0.0.24"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}
+```
 
 ### Install LUX, and optionally Vuex
 
@@ -45,7 +64,6 @@ If you followed all the steps, verify that your `package.json` file has the foll
 "dependencies": {
   "@rails/webpacker": "^3.3.1",
   "lux-design-system": "^0.0.11",
-  "vue": "^2.5.3",
   "vuex": "^2.4.1"
 },
 ```
@@ -68,12 +86,15 @@ import store from '../store'
 
 Vue.use(system)
 
-// create the LUX app and mount it to a wrapper with data-behavior="vue"
+// create the LUX app and mount it to wrappers with class="lux"
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    el: '[data-behavior="vue"]',
-    store
-  })
+  var elements = document.getElementsByClassName('lux')
+  for(var i = 0; i < elements.length; i++){
+    new Vue({
+      el: elements[i],
+      store
+    })
+  }
 })
 ```
 
@@ -94,10 +115,14 @@ import TurbolinksAdapter from 'vue-turbolinks';
 Vue.use(system)
 Vue.use(TurbolinksAdapter)
 
+// create the LUX app and mount it to wrappers with class="lux"
 document.addEventListener('turbolinks:load', () => {
-  const app = new Vue({
-    el: '[data-behavior="vue"]'
-  })
+  var elements = document.getElementsByClassName('lux')
+  for(var i = 0; i < elements.length; i++){
+    new Vue({
+      el: elements[i]
+    })
+  }
 })
 ```
 
@@ -119,7 +144,7 @@ Next, go to your application.html.erb layout (or whatever you named your main la
 In the same file (application.html.erb), add the data-behavior attribute to the element you want to use LUX components in like this:
 
 ```html
-<div class="container" data-behavior="vue">
+<div class="lux">
 ```
 
 _Note: You cannot mount Vue apps on `<html>` or `<body>` elements._
