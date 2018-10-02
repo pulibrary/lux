@@ -1,7 +1,7 @@
 <template>
   <component :is="element" :class="['lux-dropdown-menu']">
-    <input-button v-on:button-clicked="buttonClicked($event)" class="dropdown-button" variation="dropdown">{{ buttonLabel }}</input-button>
-    <menu-bar v-bind:class="{ show: isVisible }" v-on:menu-item-clicked="menuItemClicked($event)" :type="type" active="All" :menu-items="menuItems"/>
+    <input-button v-on:button-clicked="buttonClicked($event)" class="lux-dropdown-button" variation="dropdown">{{ buttonLabel }}</input-button>
+    <menu-bar v-bind:class="{ 'lux-show': isVisible }" v-on:menu-item-clicked="menuItemClicked($event)" :type="type" active="All" :menu-items="menuItems"/>
   </component>
 </template>
 
@@ -89,7 +89,7 @@ export default {
   display: inline-block;
   top: 0;
 
-  .dropdown {
+  .lux-dropdown {
     position: relative;
     vertical-align: middle;
     line-height: 1;
@@ -101,19 +101,19 @@ export default {
     }
   }
 
-  .menu,
-  .nav {
+  .lux-menu,
+  .lux-nav {
     opacity: 0;
     visibility: hidden;
   }
 
-  .show {
+  .lux-show {
     opacity: 1;
     z-index: 100000;
     visibility: visible;
   }
 
-  /deep/ .nav {
+  /deep/ .lux-nav {
     background: $color-white;
     box-shadow: $box-shadow-small;
 
@@ -132,7 +132,7 @@ export default {
       display: block;
     }
 
-    .nav-item {
+    .lux-nav-item {
       background: $color-white;
       border: 0;
       color: $color-rich-black;
@@ -156,7 +156,7 @@ export default {
       }
     }
 
-    .disabled {
+    .lux-disabled {
       color: $color-grayscale-dark;
 
       &:hover,

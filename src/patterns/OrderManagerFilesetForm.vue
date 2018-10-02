@@ -163,7 +163,7 @@ small {
   font-size: 1rem;
   font-weight: 400;
 }
-.vertical {
+.lux-vertical {
   display: block;
 }
 </style>

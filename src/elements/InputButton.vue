@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button.lux-button {
+.lux-button {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-text;
@@ -117,44 +117,56 @@ button.lux-button {
   &:active {
     transform: scale(0.99);
   }
-}
 
-.lux-solid {
-  background: $color-bleu-de-france;
-  color: $color-white;
-  &:hover,
-  &:focus {
-    background: $color-bleu-de-france-darker;
+  &.solid {
+    background: $color-bleu-de-france;
+    color: $color-white;
+    &:hover,
+    &:focus {
+      background: $color-bleu-de-france-darker;
+    }
+  }
+
+  &.text {
+    background-color: transparent;
+  }
+
+  &.dropdown {
+    background: $color-white;
+    box-shadow: $box-shadow-small;
+    color: $color-rich-black;
+
+    .lux-dropdown-indicator {
+      line-height: 1;
+      font-size: $font-size-x-small;
+      color: $color-grayscale-darker;
+      margin-left: $space-xx-small;
+    }
   }
 }
 
-.lux-text {
-  background-color: transparent;
-}
-
-.lux-dropdown {
-  background: $color-white;
-  box-shadow: $box-shadow-small;
-  color: $color-rich-black;
-
-  .lux-dropdown-indicator {
-    line-height: 1;
-    font-size: $font-size-x-small;
-    color: $color-grayscale-darker;
-    margin-left: $space-xx-small;
-  }
-}
-
-.lux-small {
+.small {
   font-size: $font-size-small;
+
+  & .lux-dropdown-indicator {
+    font-size: calc(#{$font-size-small} - 2px);
+  }
 }
 
-.lux-medium {
+.medium {
   font-size: $font-size-base;
+
+  & .lux-dropdown-indicator {
+    font-size: calc(#{$font-size-base} - 3px);
+  }
 }
 
-.lux-large {
+.large {
   font-size: $font-size-large;
+
+  & .lux-dropdown-indicator {
+    font-size: calc(#{$font-size-large} - 4px);
+  }
 }
 
 .lux-expanded {

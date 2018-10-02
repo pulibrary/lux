@@ -1,9 +1,9 @@
 <template>
-  <draggable class="gallery" v-model="items" tag="div" @click.native="deselect($event)">
+  <draggable class="lux-gallery" v-model="items" tag="div" @click.native="deselect($event)">
     <card v-for="(item, index) in items"
       :id="item.id"
       :key="item.id"
-      class="galleryCard"
+      class="lux-galleryCard"
       :cardPixelWidth="cardPixelWidth"
       size="medium"
       :selected="isSelected(item)"
@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     deselect: function(event) {
-      if (event.target.className === "gallery" || event.target.className === "gallery galleryWrapper") {
+      if (event.target.className === "lux-gallery" || event.target.className === "lux-gallery lux-galleryWrapper") {
         this.selectNone()
       }
     },
@@ -131,7 +131,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.gallery {
+.lux-gallery {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -144,13 +144,13 @@ export default {
   margin-bottom: 40px;
   clear: both;
 
-  .card {
+  .lux-card {
     margin: 1rem;
     height: auto;
     overflow: hidden;
     white-space: wrap;
 
-    .media-image img {
+    .lux-media-image img {
       height: auto;
     }
   }

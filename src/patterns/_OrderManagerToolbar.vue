@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['toolbar']">
+  <component :is="type" :class="['lux-toolbar']">
     <dropdown-menu v-on:menu-item-clicked="menuSelection($event)" buttonLabel="Selection Options" :menu-items="[
       {name: 'All', component: 'All'},
       {name: 'None', component: 'None'},
@@ -12,11 +12,11 @@
       {name: 'Paste After', component: 'Paste After', disabled: isPasteDisabled()}
     ]"/>
     <spacer></spacer>
-    <div class="zoom-slider">
-      <pul-icon-base class="svg-icon" icon-name="shrink" icon-color="rgb(0,0,0)" width="12" height="12"><pul-icon-picture/></pul-icon-base>
+    <div class="lux-zoom-slider">
+      <pul-icon-base class="lux-svg-icon" icon-name="shrink" icon-color="rgb(0,0,0)" width="12" height="12"><pul-icon-picture/></pul-icon-base>
       <label for="img_zoom">Image zoom</label>
       <input @input="resizeCards($event)" type="range" id="img_zoom" min="40" max="500" value="300">
-      <pul-icon-base class="svg-icon" icon-name="grow" icon-color="rgb(0,0,0)" width="24" height="24"><pul-icon-picture/></pul-icon-base>
+      <pul-icon-base class="lux-svg-icon" icon-name="grow" icon-color="rgb(0,0,0)" width="24" height="24"><pul-icon-picture/></pul-icon-base>
     </div>
   </component>
 </template>
@@ -140,7 +140,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.toolbar {
+.lux-toolbar {
   @include reset;
   @include stack-space($space-small);
   font-family: $font-family-text;
@@ -155,8 +155,8 @@ export default {
   padding: 0 24px;
 }
 
-.zoom-slider {
-  .svg-icon,
+.lux-zoom-slider {
+  .lux-svg-icon,
   input {
     vertical-align: middle;
     line-height: 1;

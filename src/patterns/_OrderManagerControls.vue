@@ -1,6 +1,6 @@
 <template>
-  <wrapper class="bg">
-    <div class="controls">
+  <wrapper class="lux-bg">
+    <div class="lux-controls">
       <alert v-if="orderChanged" status="info">Page order has changed.</alert>
       <input-button @button-clicked="saveHandler($event)" id="save_btn" variation="solid" size="medium" :disabled="isDisabled">
         Apply Changes
@@ -8,9 +8,9 @@
       <a v-if="!hidden" :href="editLink" id="replace-file-button">Manage Page Files</a>
     </div>
     <heading v-if="selectedTotal === 1" level="h2">Zoom <small>on the selected item</small></heading>
-    <div v-if="selectedTotal === 1" class="osd-wrapper">
-      <div class="osd">
-        <div class="viewport" :id="viewerId"></div>
+    <div v-if="selectedTotal === 1" class="lux-osd-wrapper">
+      <div class="lux-osd">
+        <div class="lux-viewport" :id="viewerId"></div>
       </div>
     </div>
   </wrapper>
@@ -190,10 +190,10 @@ small {
   padding: 1.5rem;
   display: inline-block;
 }
-.is-hidden {
+.lux-is-hidden {
   display: none;
 }
-.bg {
+.lux-bg {
   background: #f9f9f9;
   margin-left: -30px;
   margin-right: -30px;
@@ -203,13 +203,13 @@ small {
   height: 100%;
 }
 
-.osd {
+.lux-osd {
   background: #fff;
   height: 100%;
   width: 100%;
 }
 
-.osd-wrapper {
+.lux-osd-wrapper {
   background: #fff;
   flex-basis: 40%;
   border-radius: 4px;
@@ -218,11 +218,11 @@ small {
   padding: 10px;
 }
 
-h3.osd-title {
+h3.lux-osd-title {
   font-size: 18px;
 }
 
-.viewport {
+.lux-viewport {
   height: 100%;
   width: 100%;
 }
