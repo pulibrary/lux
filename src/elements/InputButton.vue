@@ -1,12 +1,12 @@
 <template>
   <button :type="!!type ? type : false"
-    :class="[variation, size, {'expanded' : (block==true) }]"
+    :class="['lux-button', variation, size, {'lux-expanded' : (block==true) }]"
     :disabled="disabled"
     @click="buttonClicked($event)">
     <slot>
     {{ label }}
     </slot>
-    <span v-if="variation === 'dropdown'" class="dropdown-indicator"> &#9660;</span>
+    <span v-if="variation === 'dropdown'" class="lux-dropdown-indicator"> &#9660;</span>
   </button>
 </template>
 
@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button {
+button.lux-button {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-text;
@@ -119,7 +119,7 @@ button {
   }
 }
 
-.solid {
+.lux-solid {
   background: $color-bleu-de-france;
   color: $color-white;
   &:hover,
@@ -128,16 +128,16 @@ button {
   }
 }
 
-.text {
+.lux-text {
   background-color: transparent;
 }
 
-.dropdown {
+.lux-dropdown {
   background: $color-white;
   box-shadow: $box-shadow-small;
   color: $color-rich-black;
 
-  .dropdown-indicator {
+  .lux-dropdown-indicator {
     line-height: 1;
     font-size: $font-size-x-small;
     color: $color-grayscale-darker;
@@ -145,19 +145,19 @@ button {
   }
 }
 
-.small {
+.lux-small {
   font-size: $font-size-small;
 }
 
-.medium {
+.lux-medium {
   font-size: $font-size-base;
 }
 
-.large {
+.lux-large {
   font-size: $font-size-large;
 }
 
-.expanded {
+.lux-expanded {
   display: block;
   width: 100%;
   max-width: 100%;

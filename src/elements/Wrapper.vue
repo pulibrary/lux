@@ -1,6 +1,6 @@
 <template>
   <component :is="type"
-    :class="['lux-wrapper', { 'full-width': fullWidth }]">
+    :class="['lux-wrapper', { 'lux-full-width': fullWidth }]">
     <slot/>
   </component>
 </template>
@@ -45,7 +45,7 @@ export default {
   //   max-width: 1170px;
   // }
 
-  .full-width {
+  .lux-full-width {
     width: 100%;
   }
 }

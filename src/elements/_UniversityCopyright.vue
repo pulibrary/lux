@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="copyright">
+  <component :is="type" class="lux-copyright">
     &copy; {{ new Date().getFullYear() }} The Trustees of Princeton University
   </component>
 </template>
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.copyright {
+.lux-copyright {
   @include reset;
   @include stack-space($space-xx-small);
   font-family: $font-family-heading;

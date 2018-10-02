@@ -1,5 +1,5 @@
 <template>
-  <component :is="level" class="heading" :class="{'hidden': hidden}">
+  <component :is="level" class="lux-heading" :class="{'lux-hidden': hidden}">
     <slot/>
   </component>
 </template>
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.heading {
+.lux-heading {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-heading;
@@ -48,7 +48,7 @@ export default {
   color: $color-rich-black;
 }
 
-.hidden {
+.lux-hidden {
   @include visually-hidden;
 }
 

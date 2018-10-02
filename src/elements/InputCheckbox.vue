@@ -1,7 +1,7 @@
 <template>
-  <component :is="wrapper" class="input">
+  <component :is="wrapper" class="lux-input">
     <legend v-if="groupLabel">{{ groupLabel }}</legend>
-    <div v-for="(option, index) in options" :class="['checkbox', { inline: !vertical }]">
+    <div v-for="(option, index) in options" :class="['lux-checkbox', { 'lux-inline': !vertical }]">
       <input type="checkbox"
       :id="option.id"
       :name="label"
@@ -13,7 +13,7 @@
       <label v-if="option.label" :for="option.id">{{ option.label }}</label>
       <label v-else :for="option.id">{{ option.value }}</label>
     </div>
-    <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
+    <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
   </component>
 </template>
 
@@ -116,7 +116,7 @@ fieldset {
   padding: 0;
 }
 
-.input {
+.lux-input {
   @include stack-space($space-small);
   font-weight: $font-weight-regular;
   font-family: $font-family-text;
@@ -131,21 +131,21 @@ fieldset {
   }
 }
 
-.checkbox {
+.lux-checkbox {
   @include reset;
   @include stack-space($space-x-small);
   font-family: $font-family-text;
   line-height: $line-height-base;
 }
 
-.checkbox input[type="checkbox"] {
+.lux-checkbox input[type="checkbox"] {
   @include visually-hidden;
   &:focus {
     box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
   }
 }
 
-.checkbox label {
+.lux-checkbox label {
   position: relative;
   display: inline-block;
   margin-bottom: $space-xx-small;
@@ -153,8 +153,8 @@ fieldset {
   padding-left: $space-base;
 }
 
-.checkbox label::before,
-.checkbox label::after {
+.lux-checkbox label::before,
+.lux-checkbox label::after {
   position: absolute;
   content: "";
 
@@ -163,7 +163,7 @@ fieldset {
 }
 
 /*Outer box of the fake checkbox*/
-.checkbox label::before {
+.lux-checkbox label::before {
   height: 16px;
   width: 16px;
   background-color: $color-white;
@@ -175,11 +175,11 @@ fieldset {
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox label:hover::before {
+.lux-checkbox label:hover::before {
   box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
 }
 
-.checkbox input:checked + label::before {
+.lux-checkbox input:checked + label::before {
   transition: box-shadow 0.2s ease;
   background-color: $color-bleu-de-france;
   box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
@@ -187,7 +187,7 @@ fieldset {
 }
 
 /*Checkmark of the fake checkbox*/
-.checkbox label::after {
+.lux-checkbox label::after {
   height: 5px;
   width: 10px;
   border-left: 2px solid $color-white;
@@ -200,27 +200,27 @@ fieldset {
 }
 
 /*Hide the checkmark by default*/
-.checkbox input[type="checkbox"] + label::after {
+.lux-checkbox input[type="checkbox"] + label::after {
   content: none;
 }
 
 /*Unhide on the checked state*/
-.checkbox input[type="checkbox"]:checked + label::after {
+.lux-checkbox input[type="checkbox"]:checked + label::after {
   content: "";
 }
 
 /*Adding focus styles on the outer-box of the fake checkbox*/
-.checkbox input[type="checkbox"]:focus + label::before {
+.lux-checkbox input[type="checkbox"]:focus + label::before {
   transition: box-shadow $duration-quickly ease;
   box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
 }
 
-.checkbox input[type="checkbox"]:focus + label {
+.lux-checkbox input[type="checkbox"]:focus + label {
   transition: text-decoration $duration-quickly ease;
   text-decoration: underline;
 }
 
-.inline {
+.lux-inline {
   display: inline-block;
 }
 

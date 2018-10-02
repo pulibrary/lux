@@ -1,10 +1,10 @@
 <template>
-  <article :id="id" @click.capture="select($event)" class="card"
+  <article :id="id" @click.capture="select($event)" class="lux-card"
     :class="[
       /* size, */
-      { 'card-selected': selected },
-      { 'card-edited': edited },
-      { 'card-disabled': disabled }
+      { 'lux-card-selected': selected },
+      { 'lux-card-edited': edited },
+      { 'lux-card-disabled': disabled }
     ]"
     v-bind:style="{'max-width': cardPixelWidth + 'px' }" >
     <slot/>
@@ -89,7 +89,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
+.lux-card {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-text;
@@ -128,18 +128,18 @@ export default {
     width: 400px;
   }
 
-  .heading,
-  .text-style {
+  .lux-heading,
+  .lux-text-style {
     padding: 0 1rem;
   }
 
-  .heading,
-  .text-style,
-  .media-image {
+  .lux-heading,
+  .lux-text-style,
+  .lux-media-image {
     pointer-events: none;
   }
 
-  .text-style {
+  .lux-text-style {
     padding-bottom: 1rem;
   }
 }
