@@ -62,13 +62,13 @@ describe("Gallery.vue", () => {
 
   it("sizes the card correctly", () => {
     wrapper.setProps({ cardPixelWidth: 200 })
-    const card = wrapper.find(".galleryCard")
+    const card = wrapper.find(".lux-galleryCard")
     expect(card.attributes().cardpixelwidth).toBe("200")
   })
 
   it("clicking on the gallery background should call our deslect method", () => {
     wrapper.setMethods({ deselect: deselectStub })
-    wrapper.find(".gallery").trigger("click")
+    wrapper.find(".lux-gallery").trigger("click")
     expect(deselectStub).toHaveBeenCalled()
   })
 
@@ -111,7 +111,7 @@ describe("Gallery.vue", () => {
     expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(true)
     wrapper.vm.deselect({ shiftKey: false, metaKey: false, target: { className: "foo" } })
     expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(true)
-    wrapper.vm.deselect({ shiftKey: false, metaKey: false, target: { className: "gallery" } })
+    wrapper.vm.deselect({ shiftKey: false, metaKey: false, target: { className: "lux-gallery" } })
     expect(wrapper.vm.isSelected(wrapper.vm.items[0])).toBe(false)
   })
 

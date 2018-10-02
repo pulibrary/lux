@@ -2,12 +2,12 @@
 
 exports[`InputRadio.vue has the expected html structure 1`] = `
 <div
-  class="input"
+  class="lux-input"
 >
   <!---->
    
   <div
-    class="radio inline"
+    class="lux-radio lux-inline"
   >
     <input
       id="radio-opt1"
@@ -23,7 +23,7 @@ exports[`InputRadio.vue has the expected html structure 1`] = `
     </label>
   </div>
   <div
-    class="radio inline"
+    class="lux-radio lux-inline"
   >
     <input
       id="radio-opt2"

@@ -2,12 +2,12 @@
 
 exports[`InputText.vue has the expected html structure 1`] = `
 <div
-  class="input"
+  class="lux-input"
 >
   <!---->
    
   <input
-    class="input input-expand"
+    class="lux-input lux-input-expand"
     errormessage=""
     id="foo"
     placeholder=""

@@ -2,7 +2,7 @@
 
 exports[`Alert.vue has the expected html structure 1`] = `
 <div
-  class="alert alert-info"
+  class="lux-alert lux-alert-info"
   name="fade"
   role="alert"
 >

@@ -2,12 +2,12 @@
 
 exports[`InputCheckbox.vue has the expected html structure 1`] = `
 <div
-  class="input"
+  class="lux-input"
 >
   <!---->
    
   <div
-    class="checkbox inline"
+    class="lux-checkbox lux-inline"
   >
     <input
       id="checkbox-opt1"
@@ -23,7 +23,7 @@ exports[`InputCheckbox.vue has the expected html structure 1`] = `
     </label>
   </div>
   <div
-    class="checkbox inline"
+    class="lux-checkbox lux-inline"
   >
     <input
       id="checkbox-opt2"

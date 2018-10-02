@@ -2,7 +2,7 @@
 
 exports[`TextStyle.vue has the expected html structure 1`] = `
 <p
-  class="text-style  default"
+  class="lux-text-style  default"
 >
   foo
 </p>

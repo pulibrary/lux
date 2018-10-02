@@ -55,17 +55,17 @@ describe("InputCheckbox.vue", () => {
   })
 
   it("should stack if vertical is true", () => {
-    const checkbox = wrapper.findAll(".checkbox").at(0)
-    expect(checkbox.classes()).toContain("inline")
+    const checkbox = wrapper.findAll(".lux-checkbox").at(0)
+    expect(checkbox.classes()).toContain("lux-inline")
     wrapper.setProps({ vertical: true })
-    expect(checkbox.classes()).not.toContain("inline")
+    expect(checkbox.classes()).not.toContain("lux-inline")
   })
 
   it("should display an errormessage with the proper role when passed in as a prop", () => {
-    expect(wrapper.find(".error").exists()).toBe(false)
+    expect(wrapper.find(".lux-error").exists()).toBe(false)
     wrapper.setProps({ errormessage: "Something went wrong." })
-    expect(wrapper.find(".error").exists()).toBe(true)
-    expect(wrapper.find(".error").attributes().role).toBe("alert")
+    expect(wrapper.find(".lux-error").exists()).toBe(true)
+    expect(wrapper.find(".lux-error").attributes().role).toBe("alert")
   })
 
   it("should display a legend if groupLabel is passed in as a prop", () => {
@@ -80,7 +80,7 @@ describe("InputCheckbox.vue", () => {
   })
 
   it("should have a fieldset wrapper if groupLabel is passed in as a prop", () => {
-    expect(wrapper.find(".input").is("fieldset")).toBe(false)
+    expect(wrapper.find(".lux-input").is("fieldset")).toBe(false)
     // can't setProps here because the component must be regenerated to change its wrapper
     const wrapper2 = mount(InputCheckbox, {
       localVue,
@@ -99,7 +99,7 @@ describe("InputCheckbox.vue", () => {
         ],
       },
     })
-    expect(wrapper2.find(".input").is("fieldset")).toBe(true)
+    expect(wrapper2.find(".lux-input").is("fieldset")).toBe(true)
   })
 
   // checked and disabled are not showing up in snapshots

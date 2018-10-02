@@ -2,7 +2,7 @@
 
 exports[`MediaImage.vue has the expected html structure 1`] = `
 <div
-  class="media-image medium default-thumbnail"
+  class="lux-media-image medium lux-default-thumbnail"
 >
   <pul-icon-base-stub
     height="50"

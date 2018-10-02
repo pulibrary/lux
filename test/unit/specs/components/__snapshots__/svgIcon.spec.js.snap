@@ -3,6 +3,6 @@
 exports[`SvgIcon.vue has the expected html structure 1`] = `
 <span
   aria-label="foo"
-  class="svg-icon"
+  class="lux-svg-icon"
 />
 `;

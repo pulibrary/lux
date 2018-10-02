@@ -56,17 +56,17 @@ describe("InputRadio.vue", () => {
   })
 
   it("should stack if vertical is true", () => {
-    const radio = wrapper.findAll(".radio").at(0)
-    expect(radio.classes()).toContain("inline")
+    const radio = wrapper.findAll(".lux-radio").at(0)
+    expect(radio.classes()).toContain("lux-inline")
     wrapper.setProps({ vertical: true })
-    expect(radio.classes()).not.toContain("inline")
+    expect(radio.classes()).not.toContain("lux-inline")
   })
 
   it("should display an errormessage with the proper role when passed in as a prop", () => {
-    expect(wrapper.find(".error").exists()).toBe(false)
+    expect(wrapper.find(".lux-error").exists()).toBe(false)
     wrapper.setProps({ errormessage: "Something went wrong." })
-    expect(wrapper.find(".error").exists()).toBe(true)
-    expect(wrapper.find(".error").attributes().role).toBe("alert")
+    expect(wrapper.find(".lux-error").exists()).toBe(true)
+    expect(wrapper.find(".lux-error").attributes().role).toBe("alert")
   })
 
   it("should display a legend if groupLabel is passed in as a prop", () => {
@@ -81,7 +81,7 @@ describe("InputRadio.vue", () => {
   })
 
   it("should have a fieldset wrapper if groupLabel is passed in as a prop", () => {
-    expect(wrapper.find(".input").is("fieldset")).toBe(false)
+    expect(wrapper.find(".lux-input").is("fieldset")).toBe(false)
     // can't setProps here because the component must be regenerated to change its wrapper
     const wrapper2 = mount(InputRadio, {
       localVue,
@@ -101,7 +101,7 @@ describe("InputRadio.vue", () => {
         ],
       },
     })
-    expect(wrapper2.find(".input").is("fieldset")).toBe(true)
+    expect(wrapper2.find(".lux-input").is("fieldset")).toBe(true)
   })
 
   // checked and disabled are not showing up in snapshots

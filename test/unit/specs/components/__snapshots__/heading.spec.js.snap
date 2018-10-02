@@ -2,7 +2,7 @@
 
 exports[`Heading.vue has the expected html structure 1`] = `
 <h1
-  class="heading"
+  class="lux-heading"
 >
   Here's a heading.
 </h1>

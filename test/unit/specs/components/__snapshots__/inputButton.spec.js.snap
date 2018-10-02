@@ -2,7 +2,7 @@
 
 exports[`InputButton.vue has the expected html structure 1`] = `
 <button
-  class="text medium"
+  class="lux-button text medium"
 >
   Apply Changes. 
   <!---->

@@ -29,7 +29,7 @@ describe("MenuBar.vue", () => {
   })
 
   it("should emit the correct event when nav-item is clicked", () => {
-    const navItem = wrapper.find(".nav-item")
+    const navItem = wrapper.find(".lux-nav-item")
     navItem.trigger("click")
     const emitted1 = wrapper.emitted()
     expect(Object.prototype.hasOwnProperty.call(emitted1, "menu-item-clicked")).toBe(true)
@@ -37,7 +37,7 @@ describe("MenuBar.vue", () => {
 
   it("should emit the correct event when menu-item is clicked", () => {
     wrapper.setProps({ type: "buttons" })
-    const menuItem = wrapper.find(".menu-item")
+    const menuItem = wrapper.find(".lux-menu-item")
     menuItem.trigger("click")
     const emitted2 = wrapper.emitted()
     expect(Object.prototype.hasOwnProperty.call(emitted2, "menu-item-clicked")).toBe(true)

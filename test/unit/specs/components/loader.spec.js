@@ -14,15 +14,15 @@ describe("Loader.vue", () => {
   })
 
   it("should be full screen when fullscreen prop is true", () => {
-    const overlay = wrapper.find(".overlay")
-    expect(overlay.classes()).not.toContain("fullscreen")
+    const overlay = wrapper.find(".lux-overlay")
+    expect(overlay.classes()).not.toContain("lux-fullscreen")
     wrapper.setProps({ fullscreen: true })
-    const fs_overlay = wrapper.find(".overlay")
-    expect(fs_overlay.classes()).toContain("fullscreen")
+    const fs_overlay = wrapper.find(".lux-overlay")
+    expect(fs_overlay.classes()).toContain("lux-fullscreen")
   })
 
   it("should default to medium size", () => {
-    const loader = wrapper.find(".loader")
+    const loader = wrapper.find(".lux-loader")
     expect(loader.attributes().size).toBe("medium")
   })
 

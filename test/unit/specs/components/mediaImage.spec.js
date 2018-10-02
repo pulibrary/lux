@@ -23,7 +23,7 @@ describe("MediaImage.vue", () => {
   })
 
   it("displays svg icon when src is bad or non-existent", () => {
-    const mediaimg = wrapper.find(".media-image")
+    const mediaimg = wrapper.find(".lux-media-image")
     expect(mediaimg.classes()).toContain("medium")
     wrapper.setProps({ height: "large" })
     expect(mediaimg.classes()).toContain("large")
@@ -47,7 +47,7 @@ describe("MediaImage.vue", () => {
     expect(wrapper2.find("img").exists()).toBe(true)
     const img = wrapper2.find("img")
     expect(img.attributes().alt).toBe("alt text")
-    expect(img.classes()).toContain("contain")
+    expect(img.classes()).toContain("lux-contain")
   })
 
   it("has the expected html structure", () => {

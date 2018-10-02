@@ -2,12 +2,12 @@
 
 exports[`InputSelect.vue has the expected html structure 1`] = `
 <div
-  class="select"
+  class="lux-select"
 >
   <!---->
    
   <select
-    class="select select-expand"
+    class="lux-select lux-select-expand"
     errormessage=""
     id="foo"
   >

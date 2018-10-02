@@ -2,12 +2,12 @@
 
 exports[`Gallery.vue has the expected html structure 1`] = `
 <div
-  class="gallery"
+  class="lux-gallery"
   tag="div"
 >
   <card-stub
     cardpixelwidth="300"
-    class="galleryCard"
+    class="lux-galleryCard"
     id="1"
     selected="true"
     size="medium"
@@ -30,7 +30,7 @@ exports[`Gallery.vue has the expected html structure 1`] = `
   </card-stub>
   <card-stub
     cardpixelwidth="300"
-    class="galleryCard"
+    class="lux-galleryCard"
     edited="true"
     id="2"
     size="medium"
@@ -53,7 +53,7 @@ exports[`Gallery.vue has the expected html structure 1`] = `
   </card-stub>
   <card-stub
     cardpixelwidth="300"
-    class="galleryCard"
+    class="lux-galleryCard"
     id="3"
     size="medium"
   >
