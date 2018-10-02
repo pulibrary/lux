@@ -4,7 +4,7 @@
     :height="height"
     viewBox="0 0 32 32"
     preserveAspectRatio="xMinYMid"
-    aria-labelledby="Government Docs Logo"
+    aria-labelledby="logo-gov-docs"
     role="presentation"
   >
     <title

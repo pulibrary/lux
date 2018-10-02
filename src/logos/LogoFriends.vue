@@ -4,7 +4,7 @@
     :height="height"
     viewBox="0 0 115.7 31.1"
     preserveAspectRatio="xMinYMid"
-    aria-labelledby="Friends of Princeton University Library"
+    aria-labelledby="logo-friends"
     role="presentation"
   >
     <title

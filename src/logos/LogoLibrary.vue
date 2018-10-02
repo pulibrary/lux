@@ -4,7 +4,7 @@
     :height="height"
     viewBox="0 0 440.06 97"
     preserveAspectRatio="xMinYMid"
-    aria-labelledby="Princeton University Library Logo"
+    aria-labelledby="logo-library"
     role="presentation"
   >
     <title

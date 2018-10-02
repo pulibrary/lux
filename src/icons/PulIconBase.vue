@@ -32,6 +32,7 @@ export default {
      * The name of the icon to display. Also used for accessibility purposes.
      */
     iconName: {
+      required: true,
       type: String,
       default: "pul-icon-data-file",
     },

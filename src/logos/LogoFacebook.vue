@@ -4,7 +4,7 @@
     :height="height"
     viewBox="0 0 24 24"
     preserveAspectRatio="xMinYMid"
-    aria-labelledby="Facebook Logo"
+    aria-labelledby="logo-facebook"
     role="presentation"
   >
     <title

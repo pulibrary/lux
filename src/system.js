@@ -12,6 +12,8 @@ export const modules = vuexModules
 const contexts = [
   require.context("@/elements/", true, /\.vue$/),
   require.context("@/patterns/", true, /\.vue$/),
+  require.context("@/icons/", true, /\.vue$/),
+  require.context("@/logos/", true, /\.vue$/),
   require.context("@/templates/", true, /\.vue$/),
 ]
 

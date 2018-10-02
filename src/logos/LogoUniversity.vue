@@ -3,7 +3,7 @@
     :width="width"
     :height="height"
     viewBox="0 0 263 71.84"
-    aria-labelledby="Princeton University Logo"
+    aria-labelledby="logo-university"
     role="presentation"
   >
     <title
