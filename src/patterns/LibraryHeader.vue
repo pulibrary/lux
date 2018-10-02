@@ -15,7 +15,7 @@
  */
 export default {
   name: "LibraryHeader",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   props: {
@@ -130,5 +130,26 @@ export default {
       {name: 'Your Account', component: 'Account', href: '/account/'}
     ]"/>
   </library-header>
+  ```
+
+  ```jsx noeditor
+  <div class="dos-n-donts">
+    <div class="do">
+      <div class="do-dont-example">
+        <library-header/>
+        <noscript>Place fallback header here.</noscript>
+      </div>
+      <p>Make sure users with JavaScript disabled can see important parts of the page by using &lt;noscript&gt; tags.</p>
+    </div>
+
+    <div class="dont">
+      <div class="do-dont-example">
+        <spacer/>
+        <p>? ? ? </p>
+        <spacer/>
+      </div>
+      <p>JavaScript-disabled browsers won't see any branding and may be missing important functionality.</p>
+    </div>
+  </div>
   ```
 </docs>

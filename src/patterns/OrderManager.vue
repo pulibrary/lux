@@ -36,7 +36,7 @@ import { mapState, mapGetters } from "vuex"
  */
 export default {
   name: "OrderManager",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   data: function() {

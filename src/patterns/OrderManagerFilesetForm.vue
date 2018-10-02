@@ -28,7 +28,7 @@ import { mapState, mapGetters } from "vuex"
  */
 export default {
   name: "FilesetForm",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {

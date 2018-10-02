@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="not-found">
+  <component :is="type" class="lux-not-found">
     <menu-bar active="NotFound" :menuItems="[
       {name: 'Template', component: 'Index', href: '/#/'},
       {name: 'Living Docs', href: 'http://localhost:6060/'}
@@ -17,6 +17,8 @@
  */
 export default {
   name: "NotFound",
+  status: "prototype",
+  release: "1.0.0",
   type: "Template",
   metaInfo: {
     title: "Page Not Found | LUX Design System",
@@ -44,7 +46,7 @@ $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
 $color-template-link: $color-bleu-de-france;
 
-.not-found {
+.lux-not-found {
   @include reset;
   @include inset-space($space-base);
   min-height: $space-xx-large * 4;
@@ -55,16 +57,16 @@ $color-template-link: $color-bleu-de-france;
   float: left;
   height: 100%;
   width: 100%;
-  .heading {
+  .lux-heading {
     color: $color-template-text;
   }
-  .text-style {
+  .lux-text-style {
     color: $color-template-text;
   }
-  .text-link {
+  .lux-text-link {
     color: $color-template-link;
   }
-  .wrapper {
+  .lux-wrapper {
     max-width: $space-xx-large * 4.5;
     transform: translateX(-50%) translateY(-50%);
     position: absolute;

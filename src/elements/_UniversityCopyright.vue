@@ -11,7 +11,7 @@
  */
 export default {
   name: "UniversityCopyright",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {

@@ -48,7 +48,7 @@ export default {
   },
   props: {
     /**
-     * The html element name used for the nav bar.
+     * The html element types used for the nav bar.
      */
     type: {
       type: String,

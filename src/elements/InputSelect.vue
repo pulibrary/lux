@@ -29,7 +29,7 @@
  */
 export default {
   name: "InputSelect",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   model: {

@@ -24,7 +24,7 @@
  */
 export default {
   name: "InputRadio",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   data: function() {

@@ -61,7 +61,7 @@
  */
 export default {
   name: "LibraryFooter",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   props: {

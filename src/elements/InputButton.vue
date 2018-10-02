@@ -17,7 +17,7 @@
  */
 export default {
   name: "InputButton",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   data: function() {

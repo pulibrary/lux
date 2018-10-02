@@ -16,7 +16,7 @@
  */
 export default {
   name: "MediaImage",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   data: function() {

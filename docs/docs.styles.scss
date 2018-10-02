@@ -603,7 +603,7 @@ ul a[href*="/#!/Private Components"] {
 .dont {
   flex: 50%;
 
-  div {
+  .do-dont-example {
     border: 1px solid $color-grayscale;
     padding: $space-small;
     position: relative;
@@ -631,7 +631,7 @@ ul a[href*="/#!/Private Components"] {
 .do {
   padding-right: $space-x-small;
 
-  div {
+  .do-dont-example {
     border-bottom: solid $space-x-small green;
 
     &::before {
@@ -643,7 +643,7 @@ ul a[href*="/#!/Private Components"] {
 .dont {
   padding-left: $space-x-small;
 
-  div {
+  .do-dont-example {
     border-bottom: solid $space-x-small red;
 
     &::before {

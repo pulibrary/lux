@@ -26,7 +26,7 @@ import { mapState, mapGetters } from "vuex"
  */
 export default {
   name: "Controls",
-  status: "Prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {

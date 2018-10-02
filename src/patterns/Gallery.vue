@@ -25,7 +25,7 @@ import draggable from "vuedraggable"
  */
 export default {
   name: "Gallery",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   components: {

@@ -17,7 +17,7 @@
  */
 export default {
   name: "Card",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {

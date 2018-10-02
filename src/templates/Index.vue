@@ -1,6 +1,6 @@
 <template>
-  <component :is="type" class="index">
-    <menu-bar active="Index" :menuItems="[
+  <component :is="type" class="lux-index">
+    <menu-bar type="links" active="Index" :menuItems="[
       {name: 'Template', component: 'Index', href: '/#/'},
       {name: 'Living Docs', href: 'http://localhost:6060/'}
     ]"/>
@@ -46,7 +46,7 @@ $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
 $color-template-link: $color-bleu-de-france;
 
-.index {
+.lux-index {
   @include reset;
   @include inset-space($space-base);
   min-height: $space-xx-large * 4;
@@ -60,16 +60,16 @@ $color-template-link: $color-bleu-de-france;
   @media #{$media-query-large} {
     // This is how you’d use design tokens with media queries
   }
-  .heading {
+  .lux-heading {
     color: $color-template-text;
   }
-  .text-style {
+  .lux-text-style {
     color: $color-template-text;
   }
-  .text-link {
+  .lux-text-link {
     color: $color-template-link;
   }
-  .wrapper {
+  .lux-wrapper {
     max-width: $space-xx-large * 4.5;
     transform: translateX(-50%) translateY(-50%);
     position: absolute;
