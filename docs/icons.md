@@ -4,7 +4,7 @@
 
 ### Accessibility and Icons
 
-Icons are labeled according to the required `icon-name` attribute placed on the `<pul-icon-base>` wrapper. For example, the following icon has an aria label of "file icon":
+Icons are labeled according to the `icon-name` attribute placed on the `<pul-icon-base>` wrapper. For example, the following icon has an aria-label of "file icon":
 
 ```html
 <pul-icon-base
@@ -12,6 +12,8 @@ Icons are labeled according to the required `icon-name` attribute placed on the 
   height="30"
   icon-name="file"><pul-icon-file /></pul-icon-base>
 ```
+
+There are times when you can leave icon-name blank. For example, buttons can have icons alongside text. In this case, the screen reader would read the text in the button instead, so the icon is then decorative and should not have a separate aria-label itself.
 
 ### Adding New Icons
 

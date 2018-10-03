@@ -4,7 +4,7 @@
     :height="height"
     viewBox="0 0 16 16"
     :aria-labelledby="iconName"
-    role="presentation"
+    role="img"
   >
     <title
       :id="iconName"
@@ -32,7 +32,7 @@ export default {
      * The name of the icon to display. Also used for accessibility purposes.
      */
     iconName: {
-      required: true,
+      required: false,
       type: String,
       default: "pul-icon-data-file",
     },
