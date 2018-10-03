@@ -76,9 +76,5 @@ Then use `<script/>` and `<link/>` tags to include to the js and css files in th
 To publish a new version to npm:
 
 1.  Pull latest master with merged changes.
-2.  Run `yarn build:system`
-3.  Commit generated files
-4.  Bump the npm version with `npm version {semantic version number}`
-5.  Run `npm publish`
-6.  Push fresh commits to master
-7.  Create a Github Release tag with change log
+2.  Run `yarn release`
+3.  :tada:
