@@ -1,6 +1,6 @@
 <template>
-  <img v-if="isIE" :src="currPath" :aria-label="ariaLabel" class="logo-svg" :width="width" :height="height" :style="{ fill: fill }"/>
-  <component v-else :is="type" :aria-label="ariaLabel" class="svg-icon">
+  <img v-if="isIE" :src="currPath" :aria-label="ariaLabel" class="lux-logo-svg" :width="width" :height="height" :style="{ fill: fill }"/>
+  <component v-else :is="type" :aria-label="ariaLabel" class="lux-svg-icon">
   </component>
 </template>
 
@@ -152,7 +152,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.svg-icon {
+.lux-svg-icon {
   display: inline-flex;
   align-self: center;
 
@@ -161,7 +161,7 @@ export default {
     position: relative;
   }
 }
-.logo-svg {
+.lux-logo-svg {
   position: relative;
   top: 50%;
   transform: translateY(-50%);

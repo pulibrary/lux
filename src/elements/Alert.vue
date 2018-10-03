@@ -1,19 +1,19 @@
 <template>
   <transition name="fade">
     <div v-if="show"
-      :class="['alert',
-              {'alert-dismissible': dismissible},
-              { 'alert-success': isSuccess },
-              { 'alert-warning': isWarning },
-              { 'alert-error': isError },
-              { 'alert-info': isInfo },
-              { 'alert-fullscreen': isFullScreen },]"
+      :class="['lux-alert',
+              {'lux-alert-dismissible': dismissible},
+              { 'lux-alert-success': isSuccess },
+              { 'lux-alert-warning': isWarning },
+              { 'lux-alert-error': isError },
+              { 'lux-alert-info': isInfo },
+              { 'lux-alert-fullscreen': isFullScreen },]"
               @click="hideAlert()"
               role="alert">
       <slot>
       {{ alertMessage }}
       </slot>
-      <button v-if="dismissible" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <button v-if="dismissible" type="button" class="lux-close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
     </div>
@@ -26,7 +26,7 @@
  */
 export default {
   name: "Alert",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   metaInfo: {
@@ -110,7 +110,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.alert-fullscreen {
+.lux-alert-fullscreen {
   position: fixed;
   top: 5vh;
   left: 50%; /* move the left edge to the center … */
@@ -119,7 +119,7 @@ export default {
   width: 50vw;
 }
 
-.alert {
+.lux-alert {
   @include reset;
   font-family: $font-family-text;
   padding: 0.75rem 1.25rem;
@@ -127,28 +127,28 @@ export default {
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
-.alert-success {
+.lux-alert-success {
   background-color: #dff0d8;
   border-color: #d0e9c6;
   color: #3c763d;
 }
-.alert-error {
+.lux-alert-error {
   background-color: #f2dede;
   border-color: #ebcccc;
   color: #a94442;
 }
-.alert-warning {
+.lux-alert-warning {
   background-color: #fcf8e3;
   border-color: #faf2cc;
   color: #8a6d3b;
 }
-.alert-info {
+.lux-alert-info {
   background-color: #d9edf7;
   border-color: #bcdff1;
   color: #31708f;
 }
 
-.alert-dismissible .close {
+.lux-alert-dismissible .lux-close {
   position: relative;
   top: -0.95rem;
   right: -1.25rem;
@@ -156,7 +156,7 @@ export default {
   color: inherit;
 }
 
-button.close {
+button.lux-close {
   padding: 0;
   cursor: pointer;
   background: 0 0;
@@ -164,7 +164,7 @@ button.close {
   -webkit-appearance: none;
 }
 
-.close {
+.lux-close {
   float: right;
   font-size: 1.5rem;
   font-weight: 700;

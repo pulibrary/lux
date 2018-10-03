@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="library-logo">
+  <component :is="type" class="lux-library-contact">
     <a href="https://library.princeton.edu">
       <logo-library width="155px" height="34px" />
     </a>
@@ -13,7 +13,7 @@
  */
 export default {
   name: "LibraryLogo",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.library-logo {
+.lux-library-contact {
   @include reset;
   font-family: $font-family-heading;
   font-size: $font-size-x-small;

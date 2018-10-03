@@ -2,7 +2,7 @@
 
 exports[`Card.vue has the expected html structure 1`] = `
 <article
-  class="card"
+  class="lux-card"
   style="max-width: 300px;"
 />
 `;

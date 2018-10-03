@@ -21,7 +21,7 @@ describe("Alert.vue", () => {
   })
 
   it("should have an alert message", () => {
-    const el = wrapper.find(".alert")
+    const el = wrapper.find(".lux-alert")
     expect(el.text()).toBe("Here's some info for you.")
   })
 
@@ -40,7 +40,7 @@ describe("Alert.vue", () => {
   })
 
   it("should be accessible", () => {
-    const el = wrapper.find(".alert")
+    const el = wrapper.find(".lux-alert")
     expect(el.attributes().role).toBe("alert")
   })
 
@@ -56,7 +56,7 @@ describe("Alert.vue", () => {
 
   it("should hide after 2 seconds when autoclear is true", () => {
     wrapper.setProps({ autoclear: true })
-    const el = wrapper.find(".alert")
+    const el = wrapper.find(".lux-alert")
     expect(wrapper.vm.show).toBe(true)
     // wait 3 seconds and see if it's hidden
     setTimeout(() => {

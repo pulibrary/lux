@@ -1,17 +1,17 @@
 <template>
-<div class="orderManager">
+<div class="lux-orderManager">
   <transition name="fade">
-    <div v-if="loading" class="overlay">
+    <div v-if="loading" class="lux-overlay">
       <loader size="medium"></loader>
     </div>
   </transition>
   <alert v-if="saved" status="success" type="alert" autoclear dismissible>Your work has been saved!</alert>
   <alert v-if="saveError" status="error" type="alert" autoclear dismissible>Sorry, there was a problem saving your work!</alert>
-  <wrapper fullWidth="true" class="galleryPanel" type="div">
+  <wrapper fullWidth="true" class="lux-galleryPanel" type="div">
     <toolbar v-on:cards-resized="resizeCards($event)"></toolbar>
-    <gallery class="galleryWrapper" :cardPixelWidth="cardPixelWidth" :galleryItems="galleryItems"></gallery>
+    <gallery class="lux-galleryWrapper" :cardPixelWidth="cardPixelWidth" :galleryItems="galleryItems"></gallery>
   </wrapper>
-  <wrapper class="sidePanel" type="div" :fullWidth="false">
+  <wrapper class="lux-sidePanel" type="div" :fullWidth="false">
     <!-- Resource Form-->
     <resource-form v-if="selectedTotal === 0"></resource-form>
     <!-- Multiple Selected Form-->
@@ -36,7 +36,7 @@ import { mapState, mapGetters } from "vuex"
  */
 export default {
   name: "OrderManager",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   data: function() {
@@ -120,23 +120,23 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.title {
+.lux-title {
   font-weight: bold;
 }
-.orderManager {
+.lux-orderManager {
   position: relative;
   height: 80vh;
 }
-.orderManager /deep/ .heading {
+.lux-orderManager /deep/ .lux-heading {
   margin: 12px 0 12px 0;
   line-height: 0.75;
   color: #001123;
 }
-.orderManager /deep/ h2 {
+.lux-orderManager /deep/ h2 {
   letter-spacing: 0;
   font-size: 24px;
 }
-.sidePanel {
+.lux-sidePanel {
   position: absolute;
   top: 20px;
   right: 10px;
@@ -149,7 +149,7 @@ export default {
   // height: 100%;
   overflow-y: scroll;
 }
-.galleryPanel {
+.lux-galleryPanel {
   position: absolute;
   top: 20px;
   left: 0;
@@ -158,7 +158,7 @@ export default {
   border-radius: 4px;
   border: 1px solid #ddd;
 }
-.galleryWrapper {
+.lux-galleryWrapper {
   overflow: auto;
   height: calc(100% - 80px);
   border-radius: 4px;

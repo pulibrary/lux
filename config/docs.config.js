@@ -78,6 +78,16 @@ module.exports = {
       components: "../src/patterns/**/[A-Z]*.vue",
     },
     {
+      name: "Icons",
+      content: "../docs/icons.md",
+      components: "../src/icons/**/[A-Z]*.vue",
+    },
+    {
+      name: "Logos",
+      content: "../docs/logos.md",
+      components: "../src/logos/**/[A-Z]*.vue",
+    },
+    {
       name: "Templates",
       content: "../docs/templates.md",
       components: "../src/templates/**/[A-Z]*.vue",

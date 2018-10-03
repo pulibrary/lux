@@ -5,7 +5,7 @@ exports[`DropdownMenu.vue has the expected html structure 1`] = `
   class="lux-dropdown-menu"
 >
   <input-button-stub
-    class="dropdown-button"
+    class="lux-dropdown-button"
     variation="dropdown"
   >
     

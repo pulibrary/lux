@@ -2,10 +2,10 @@
 
 exports[`Loader.vue has the expected html structure 1`] = `
 <div
-  class="overlay"
+  class="lux-overlay"
 >
   <div
-    class="loader"
+    class="lux-loader"
     size="medium"
   />
 </div>

@@ -546,6 +546,8 @@ footer[class^="rsg--footer"] {
 #spacing + div[class^="rsg--toolbar"],
 #elements + div[class^="rsg--toolbar"],
 #patterns + div[class^="rsg--toolbar"],
+#icons + div[class^="rsg--toolbar"],
+#logos + div[class^="rsg--toolbar"],
 #templates + div[class^="rsg--toolbar"],
 #Components-container div[class^="rsg--tabs"],
 #Components-container .react-codemirror2,
@@ -603,7 +605,7 @@ ul a[href*="/#!/Private Components"] {
 .dont {
   flex: 50%;
 
-  div {
+  .do-dont-example {
     border: 1px solid $color-grayscale;
     padding: $space-small;
     position: relative;
@@ -631,7 +633,7 @@ ul a[href*="/#!/Private Components"] {
 .do {
   padding-right: $space-x-small;
 
-  div {
+  .do-dont-example {
     border-bottom: solid $space-x-small green;
 
     &::before {
@@ -643,7 +645,7 @@ ul a[href*="/#!/Private Components"] {
 .dont {
   padding-left: $space-x-small;
 
-  div {
+  .do-dont-example {
     border-bottom: solid $space-x-small red;
 
     &::before {

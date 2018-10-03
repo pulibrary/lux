@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['text-style ', variation]">
+  <component :is="type" :class="['lux-text-style ', variation]">
     <slot/>
   </component>
 </template>
@@ -42,7 +42,7 @@ export default {
 // Design Tokens with local scope
 $positive-text: #7cb518;
 
-.text-style {
+.lux-text-style {
   @include reset;
   @include stack-space($space-small);
   color: $color-rich-black;

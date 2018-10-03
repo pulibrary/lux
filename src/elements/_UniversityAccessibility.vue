@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="accessibility">
+  <component :is="type" class="lux-accessibility">
     <a href="https://accessibility.princeton.edu/">Accessibility</a>
   </component>
 </template>
@@ -10,7 +10,7 @@
  */
 export default {
   name: "UniversityAccessibility",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.accessibility {
+.lux-accessibility {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-heading;

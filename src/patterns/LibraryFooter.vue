@@ -1,7 +1,7 @@
 <template>
-  <component :is="type" :class="['library-footer']">
-    <wrapper class="footer-content">
-      <div class="library-links">
+  <component :is="type" :class="['lux-library-footer']">
+    <wrapper class="lux-footer-content">
+      <div class="lux-library-links">
         <nav role="navigation" aria-label="Research Tools">
           <h2><a href="https://library.princeton.edu/research">Research Tools</a></h2>
           <ul>
@@ -14,7 +14,7 @@
           </ul>
         </nav>
       </div>
-      <div class="library-links">
+      <div class="lux-library-links">
         <nav role="navigation" aria-label="Library Services">
           <h2><a href="https://library.princeton.edu/services">Library Services</a></h2>
           <ul>
@@ -30,7 +30,7 @@
           </ul>
         </nav>
       </div>
-      <div class="library-links">
+      <div class="lux-library-links">
         <nav role="navigation" aria-label="About the Library">
           <h2><a href="https://library.princeton.edu/about">About the Library</a></h2>
           <ul>
@@ -45,7 +45,7 @@
           </ul>
         </nav>
       </div>
-      <div class="library-links">
+      <div class="lux-library-links">
         <library-contact-info />
         <logo-university width="142" height="40" />
         <university-copyright type="div" />
@@ -61,7 +61,7 @@
  */
 export default {
   name: "LibraryFooter",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   props: {
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.library-footer {
+.lux-library-footer {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-heading;
@@ -87,7 +87,7 @@ export default {
   padding-bottom: 1em;
 }
 
-.footer-content {
+.lux-footer-content {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -102,7 +102,7 @@ export default {
   }
 }
 
-.library-links {
+.lux-library-links {
   order: 0;
   align-self: auto;
   flex: 1;

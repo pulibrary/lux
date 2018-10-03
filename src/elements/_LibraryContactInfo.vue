@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="library-contact">
+  <component :is="type" class="lux-library-contact">
     <div itemscope itemtype="http://schema.org/Organization">
       <h2 itemprop="name">Princeton University Library</h2>
       <div itemscope itemtype="http://schema.org/PostalAddress">
@@ -24,7 +24,7 @@
  */
 export default {
   name: "LibraryContactInfo",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.library-contact {
+.lux-library-contact {
   @include reset;
   @include stack-space($space-x-small);
   font-family: $font-family-heading;

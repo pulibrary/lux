@@ -1,9 +1,9 @@
 <template>
-  <component :is="wrapper" class="select">
+  <component :is="wrapper" class="lux-select">
     <label v-if="label" :for="id">{{ label }}</label>
     <select
       :id="id"
-      :class="['select', { 'select-error': hasError }, {'select-expand': width === 'expand'}]"
+      :class="['lux-select', { 'lux-select-error': hasError }, {'lux-select-expand': width === 'expand'}]"
       :disabled="disabled"
       :focus="focus"
       :multiple="multiple"
@@ -19,7 +19,7 @@
           {{ option.label }}
         </option>
     </select>
-    <div role="alert" class="error" v-if="errormessage">{{ errormessage }}</div>
+    <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
   </component>
 </template>
 
@@ -29,7 +29,7 @@
  */
 export default {
   name: "InputSelect",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   model: {
@@ -157,14 +157,14 @@ export default {
 // Design Tokens with local scope
 $color-placeholder: tint($color-grayscale, 50%);
 
-.select {
+.lux-select {
   @include stack-space($space-small);
   font-weight: $font-weight-regular;
   font-family: $font-family-text;
   font-size: $font-size-base;
   line-height: $line-height-heading;
   width: auto;
-  &.select-expand {
+  &.lux-select-expand {
     width: 100%;
   }
   label {
@@ -173,11 +173,11 @@ $color-placeholder: tint($color-grayscale, 50%);
     color: tint($color-rich-black, 20%);
     @include stack-space($space-x-small);
   }
-  .error {
+  .lux-error {
     margin-top: $space-x-small;
     color: $color-red;
   }
-  .select-error {
+  .lux-select-error {
     border: 1px solid $color-red;
   }
   select {

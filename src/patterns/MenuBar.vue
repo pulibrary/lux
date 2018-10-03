@@ -1,13 +1,13 @@
 <template>
-  <nav v-if="type === 'links'" class="nav">
+  <nav v-if="type === 'links'" class="lux-nav">
     <ul>
       <li v-for="(item, index) in menuItems">
         <a
           :key="index"
           :href="item.href"
           :class="[
-            'nav-item',
-            {active: localActive === item.component}]"
+            'lux-nav-item',
+            {'lux-active': localActive === item.component}]"
           v-html="item.name"
           @click="menuItemClicked($event)">
         </a>
@@ -15,16 +15,16 @@
     </ul>
   </nav>
 
-  <div v-else-if="type === 'buttons'" class="menu">
+  <div v-else-if="type === 'buttons'" class="lux-menu">
     <ul>
       <li v-for="(item, index) in menuItems">
         <button
           :key="index"
           :href="item.href"
           :class="[
-            'menu-item',
-            {active: localActive === item.component},
-            {disabled: item.disabled}]"
+            'lux-menu-item',
+            {'lux-active': localActive === item.component},
+            {'lux-disabled': item.disabled}]"
           v-html="item.name"
           :disabled="item.disabled"
           @click="menuItemClicked($event, item)">
@@ -48,7 +48,7 @@ export default {
   },
   props: {
     /**
-     * The html element name used for the nav bar.
+     * The html element types used for the nav bar.
      */
     type: {
       type: String,
@@ -95,7 +95,7 @@ export default {
 $color-nav-link: $color-bleu-de-france;
 $color-nav-link-active: $color-bleu-de-france;
 
-.nav {
+.lux-nav {
   @include stack-space($space-base);
   font-family: $font-family-text;
   font-size: $font-size-small;
@@ -126,7 +126,7 @@ $color-nav-link-active: $color-bleu-de-france;
     &:hover {
       color: $color-nav-link-active;
     }
-    &.active {
+    &.lux-active {
       border-bottom: 2px solid $color-nav-link;
       font-weight: $font-weight-bold;
       color: $color-nav-link;
@@ -134,7 +134,7 @@ $color-nav-link-active: $color-bleu-de-france;
   }
 }
 
-.menu {
+.lux-menu {
   background: $color-white;
   box-shadow: $box-shadow-small;
 
@@ -154,7 +154,7 @@ $color-nav-link-active: $color-bleu-de-france;
     display: block;
   }
 
-  .menu-item {
+  .lux-menu-item {
     background: $color-white;
     border: 0;
     cursor: pointer;
@@ -175,7 +175,7 @@ $color-nav-link-active: $color-bleu-de-france;
     }
   }
 
-  .disabled {
+  .lux-disabled {
     color: $color-grayscale-dark;
 
     &:hover,

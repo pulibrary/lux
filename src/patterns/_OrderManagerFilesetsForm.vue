@@ -17,7 +17,7 @@
         @change="updateMultiLabels()"
         :options="methodOpts" />
 
-      <div v-if="labelerOpts.method === 'foliate'" class="row">
+      <div v-if="labelerOpts.method === 'foliate'" class="lux-row">
         <input-text @input="updateMultiLabels()" v-model="labelerOpts.frontLabel" label="Front Label" id="frontLabel" placeholder="(recto)" />
         <input-text @input="updateMultiLabels()" v-model="labelerOpts.backLabel" label="Back Label" id="backLabel" placeholder="(verso)" />
         <input-select id="startWith"
@@ -39,7 +39,7 @@ import { mapState, mapGetters } from "vuex"
  */
 export default {
   name: "FilesetsForm",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {

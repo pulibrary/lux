@@ -2,12 +2,12 @@
 
 exports[`MenuBar.vue has the expected html structure 1`] = `
 <nav
-  class="nav"
+  class="lux-nav"
 >
   <ul>
     <li>
       <a
-        class="nav-item active"
+        class="lux-nav-item lux-active"
         href="/example/"
       >
         Foo
@@ -15,7 +15,7 @@ exports[`MenuBar.vue has the expected html structure 1`] = `
     </li>
     <li>
       <a
-        class="nav-item"
+        class="lux-nav-item"
         href="/example/"
       >
         Bar

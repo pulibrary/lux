@@ -1,5 +1,5 @@
 <template>
-  <component :is="level" class="heading" :class="{'hidden': hidden}">
+  <component :is="level" class="lux-heading" :class="{'lux-hidden': hidden}">
     <slot/>
   </component>
 </template>
@@ -12,7 +12,7 @@
  */
 export default {
   name: "Heading",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.heading {
+.lux-heading {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-heading;
@@ -48,7 +48,7 @@ export default {
   color: $color-rich-black;
 }
 
-.hidden {
+.lux-hidden {
   @include visually-hidden;
 }
 
@@ -98,7 +98,7 @@ h6 {
   ```jsx noeditor
   <div class="dos-n-donts">
     <div class="do">
-      <div>
+      <div class="do-dont-example">
         <heading level="h1">Do this.</heading>
         <heading level="h2">Do this.</heading>
       </div>
@@ -106,7 +106,7 @@ h6 {
     </div>
 
     <div class="dont">
-      <div>
+      <div class="do-dont-example">
         <heading level="h2">Don't do this.</heading>
         <heading level="h1">Don't do this.</heading>
       </div>

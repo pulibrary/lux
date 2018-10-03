@@ -1,12 +1,12 @@
 <template>
   <button :type="!!type ? type : false"
-    :class="[variation, size, {'expanded' : (block==true) }]"
+    :class="['lux-button', variation, size, {'lux-expanded' : (block==true) }]"
     :disabled="disabled"
     @click="buttonClicked($event)">
     <slot>
     {{ label }}
     </slot>
-    <span v-if="variation === 'dropdown'" class="dropdown-indicator"> &#9660;</span>
+    <span v-if="variation === 'dropdown'" class="lux-dropdown-indicator"> &#9660;</span>
   </button>
 </template>
 
@@ -17,7 +17,7 @@
  */
 export default {
   name: "InputButton",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   data: function() {
@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button {
+.lux-button {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-text;
@@ -117,47 +117,59 @@ button {
   &:active {
     transform: scale(0.99);
   }
-}
 
-.solid {
-  background: $color-bleu-de-france;
-  color: $color-white;
-  &:hover,
-  &:focus {
-    background: $color-bleu-de-france-darker;
+  &.solid {
+    background: $color-bleu-de-france;
+    color: $color-white;
+    &:hover,
+    &:focus {
+      background: $color-bleu-de-france-darker;
+    }
   }
-}
 
-.text {
-  background-color: transparent;
-}
+  &.text {
+    background-color: transparent;
+  }
 
-.dropdown {
-  background: $color-white;
-  box-shadow: $box-shadow-small;
-  color: $color-rich-black;
+  &.dropdown {
+    background: $color-white;
+    box-shadow: $box-shadow-small;
+    color: $color-rich-black;
 
-  .dropdown-indicator {
-    line-height: 1;
-    font-size: $font-size-x-small;
-    color: $color-grayscale-darker;
-    margin-left: $space-xx-small;
+    .lux-dropdown-indicator {
+      line-height: 1;
+      font-size: $font-size-x-small;
+      color: $color-grayscale-darker;
+      margin-left: $space-xx-small;
+    }
   }
 }
 
 .small {
   font-size: $font-size-small;
+
+  & .lux-dropdown-indicator {
+    font-size: calc(#{$font-size-small} - 2px);
+  }
 }
 
 .medium {
   font-size: $font-size-base;
+
+  & .lux-dropdown-indicator {
+    font-size: calc(#{$font-size-base} - 3px);
+  }
 }
 
 .large {
   font-size: $font-size-large;
+
+  & .lux-dropdown-indicator {
+    font-size: calc(#{$font-size-large} - 4px);
+  }
 }
 
-.expanded {
+.lux-expanded {
   display: block;
   width: 100%;
   max-width: 100%;

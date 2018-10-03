@@ -1,8 +1,8 @@
 <template>
   <div>
     <heading level="h2">Set Properties <small>for this <span v-if="isMultiVolume">multi-volume</span> resource</small></heading>
-    <span class="file_count"><text-style variation="emphasis">Total files: {{ memberCount }}</text-style></span>
-    <span v-if="resource.bibId" class="bibid"> | BibId: {{resource.bibId}}</span>
+    <span class="lux-file_count"><text-style variation="emphasis">Total files: {{ memberCount }}</text-style></span>
+    <span v-if="resource.bibId" class="lux-bibid"> | BibId: {{resource.bibId}}</span>
     <form id="app" novalidate="true">
       <input-radio @change="updateViewDir($event)" vertical id="viewDir" groupLabel="Viewing Direction"
         :options="viewDirs" :value="viewDirs.value"></input-radio>
@@ -19,7 +19,7 @@
 import { mapState, mapGetters } from "vuex"
 export default {
   name: "ResourceForm",
-  status: "Prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Pattern",
   metaInfo: {

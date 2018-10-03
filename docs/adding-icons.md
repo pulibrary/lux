@@ -4,7 +4,7 @@ Iconsets are currently located in a [Google Drive folder](https://drive.google.c
 
 ## What is the PUL iconset?
 
-The PUL iconset is a subset of icons that we use across our sites, making it easy to be consistent and build components that work.
+The PUL iconset (`pul-icons.zip`) is a subset of icons that we use across our sites, making it easy to be consistent and build components that work.
 
 ## How do I add icons to our PUL iconset?
 

@@ -18,20 +18,20 @@ describe("Card.vue", () => {
 
   it("should have the appropriate class when selected", () => {
     wrapper.setProps({ selected: true })
-    const card = wrapper.find(".card")
-    expect(card.is(".card-selected")).toBe(true)
+    const card = wrapper.find(".lux-card")
+    expect(card.is(".lux-card-selected")).toBe(true)
   })
 
   it("should have the appropriate class when editied", () => {
     wrapper.setProps({ edited: true })
-    const card = wrapper.find(".card")
-    expect(card.is(".card-edited")).toBe(true)
+    const card = wrapper.find(".lux-card")
+    expect(card.is(".lux-card-edited")).toBe(true)
   })
 
   it("should have the appropriate class when disabled", () => {
     wrapper.setProps({ disabled: true })
-    const card = wrapper.find(".card")
-    expect(card.is(".card-disabled")).toBe(true)
+    const card = wrapper.find(".lux-card")
+    expect(card.is(".lux-card-disabled")).toBe(true)
   })
 
   it("should emit a card-click event when select() is called", () => {

@@ -1,6 +1,6 @@
 <template>
-  <component :is="wrapper" class="overlay" :class="{'fullscreen': fullscreen}">
-    <div class="loader" :size="size"></div>
+  <component :is="wrapper" class="lux-overlay" :class="{'lux-fullscreen': fullscreen}">
+    <div class="lux-loader" :size="size"></div>
   </component>
 </template>
 
@@ -11,7 +11,7 @@
  */
 export default {
   name: "Loader",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {
@@ -55,7 +55,7 @@ export default {
 
 $border-color: $color-white;
 
-.loader {
+.lux-loader {
   @include reset;
   @include stack-space($space-base);
   color: $color-rich-black;
@@ -64,8 +64,8 @@ $border-color: $color-white;
   }
 }
 
-.loader,
-.loader:after {
+.lux-loader,
+.lux-loader:after {
   border-radius: 50%;
 }
 
@@ -78,7 +78,7 @@ $border-color: $color-white;
 //   }
 // }
 
-.loader {
+.lux-loader {
   transform: translate(-50%, -50%);
   text-indent: -9999em;
   border-top: 1.1em solid rgba($border-color, 0.2);
@@ -138,7 +138,7 @@ $border-color: $color-white;
   }
 }
 
-.overlay.fullscreen {
+.lux-overlay.lux-fullscreen {
   display: flex;
   justify-content: center;
   align-items: center;

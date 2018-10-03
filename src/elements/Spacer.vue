@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="spacer">
+  <component :is="type" class="lux-spacer">
     <slot/>
   </component>
 </template>
@@ -10,7 +10,7 @@
  */
 export default {
   name: "Spacer",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.spacer {
+.lux-spacer {
   @include reset;
   flex-grow: 1 !important;
 }

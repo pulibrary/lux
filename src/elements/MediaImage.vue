@@ -1,6 +1,6 @@
 <template>
-  <div class="media-image" :class="[height, {'default-thumbnail': !source}]">
-    <img v-if="source" @error="source = null" :src="source" :alt="alt" :class="[{'cover': cover}, {'contain': contain}]">
+  <div class="lux-media-image" :class="[height, {'lux-default-thumbnail': !source}]">
+    <img v-if="source" @error="source = null" :src="source" :alt="alt" :class="[{'lux-cover': cover}, {'lux-contain': contain}]">
     <pul-icon-base v-else
       width="50"
       height="50"
@@ -16,7 +16,7 @@
  */
 export default {
   name: "MediaImage",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   data: function() {
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.media-image {
+.lux-media-image {
   @include reset;
   @include stack-space($space-base);
   font-family: $font-family-text;
@@ -82,22 +82,22 @@ export default {
     vertical-align: middle;
   }
 
-  .cover {
+  .lux-cover {
     object-fit: cover;
   }
 
-  .contain {
+  .lux-contain {
     object-fit: contain;
   }
 
-  &.default-thumbnail {
+  &.lux-default-thumbnail {
     background: $color-grayscale;
     display: flex;
     align-items: center;
     height: 300px;
     width: 300px;
 
-    .svg-icon,
+    .lux-svg-icon,
     svg {
       display: block;
       margin: auto;
@@ -105,7 +105,7 @@ export default {
   }
 }
 
-.small {
+.lux-small {
   height: 100px;
   width: 100%;
 
@@ -115,7 +115,7 @@ export default {
   }
 }
 
-.medium {
+.lux-medium {
   height: 200px;
   width: 100%;
 
@@ -125,7 +125,7 @@ export default {
   }
 }
 
-.large {
+.lux-large {
   height: 300px;
   width: 100%;
 

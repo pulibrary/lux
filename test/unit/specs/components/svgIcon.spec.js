@@ -26,7 +26,7 @@ describe("SvgIcon.vue", () => {
   })
 
   it("should be able to use an aria label", () => {
-    const icon = wrapper.find(".svg-icon")
+    const icon = wrapper.find(".lux-svg-icon")
     expect(icon.attributes()["aria-label"]).toBe("foo")
   })
 

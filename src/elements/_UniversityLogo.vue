@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="university-logo">
+  <component :is="type" class="lux-university-logo">
     <a href="https://princeton.edu"><svg-icon name="logo-university" ariaLabel="Princeton University" width="142px" height="40px"></svg-icon></a>
   </component>
 </template>
@@ -11,7 +11,7 @@
  */
 export default {
   name: "UniversityLogo",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
   type: "Element",
   props: {
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.university-logo {
+.lux-university-logo {
   @include reset;
   @include stack-space($space-x-small);
   font-family: $font-family-heading;
