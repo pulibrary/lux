@@ -6,13 +6,14 @@ LUX Design System is a UI Design System based on [VueDS](https://viljamis.com/20
 
 The development environment supports the following browsers. If we want to edit the browsers supported in production we can edit the [browsers list in package.json](https://github.com/pulibrary/lux/blob/master/package.json#L172-L180). To see what browsers are selected by the browser list, run `npx browserslist --config="package.json"` in the root directory of this project.
 
-| BROWSER         | VERSION |
-| --------------- | ------- |
-| Google Chrome   | Latest  |
-| Microsoft Edge  | Latest  |
-| Mozilla Firefox | Latest  |
-| Opera           | Latest  |
-| Safari          | Latest  |
+| BROWSER           | VERSION         |
+| ----------------- | --------------- |
+| Google Chrome     | Last 2 versions |
+| Microsoft Edge    | Last 2 versions |
+| Mozilla Firefox   | Last 2 versions |
+| Opera             | Last 2 versions |
+| Safari            | Last 2 versions |
+| Internet Explorer | 11              |
 
 ## How do I integrate this with Rails?
 

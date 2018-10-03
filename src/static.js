@@ -19,6 +19,6 @@ Vue.config.devtools = true
 
 /* eslint-disable no-new */
 module.exports = new Vue({
-  el: "#lux",
+  el: ".lux",
   store,
 })
