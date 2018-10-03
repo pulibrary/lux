@@ -39,7 +39,7 @@
     "test": "npm-run-all theo unit",
     "precommit": "pretty-quick --staged",
     "deploy": "npm run build:app; npm run build:docs; push-dir --dir=dist --branch=gh-pages --cleanup",
-    "release": "npm-run-all np deploy",
+    "release": "npm run test && np && npm run deploy",
     "version": "npm-run-all build:system build:static"
   },
   "repository": {
