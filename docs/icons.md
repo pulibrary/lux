@@ -1,5 +1,5 @@
 <div class="introduction">
-	<p>Icons are used to visually communicate core parts of the product and available actions. LUX uses SVG for its icon needs for [a number of reasons](https://css-tricks.com/icon-fonts-vs-svg/).</p>
+	<p>Icons are used to visually communicate core parts of the product and available actions. LUX uses SVG for its icon needs for [a number of reasons](https://css-tricks.com/icon-fonts-vs-svg/). </p>
 </div>
 
 ### Accessibility and Icons
