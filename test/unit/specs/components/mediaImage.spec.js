@@ -18,7 +18,7 @@ describe("MediaImage.vue", () => {
         cover: true,
         contain: false,
       },
-      stubs: ["pul-icon-base", "pul-icon-file"],
+      stubs: ["lux-icon-base", "lux-icon-file"],
     })
   })
 

@@ -13,10 +13,10 @@
     ]"/>
     <spacer></spacer>
     <div class="lux-zoom-slider">
-      <pul-icon-base class="lux-svg-icon" icon-name="shrink" icon-color="rgb(0,0,0)" width="12" height="12"><pul-icon-picture/></pul-icon-base>
+      <lux-icon-base class="lux-svg-icon" icon-name="shrink" icon-color="rgb(0,0,0)" width="12" height="12"><lux-icon-picture/></lux-icon-base>
       <label for="img_zoom">Image zoom</label>
       <input @input="resizeCards($event)" type="range" id="img_zoom" min="40" max="500" value="300">
-      <pul-icon-base class="lux-svg-icon" icon-name="grow" icon-color="rgb(0,0,0)" width="24" height="24"><pul-icon-picture/></pul-icon-base>
+      <lux-icon-base class="lux-svg-icon" icon-name="grow" icon-color="rgb(0,0,0)" width="24" height="24"><lux-icon-picture/></lux-icon-base>
     </div>
   </component>
 </template>
