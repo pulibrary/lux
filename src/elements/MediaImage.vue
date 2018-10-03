@@ -1,12 +1,12 @@
 <template>
   <div class="lux-media-image" :class="[height, {'lux-default-thumbnail': !source}]">
     <img v-if="source" @error="source = null" :src="source" :alt="alt" :class="[{'lux-cover': cover}, {'lux-contain': contain}]">
-    <pul-icon-base v-else
+    <lux-icon-base v-else
       width="50"
       height="50"
       icon-name="file"
       icon-color="rgb(225,225,225)"
-    ><pul-icon-file /></pul-icon-base>
+    ><lux-icon-file /></lux-icon-base>
   </div>
 </template>
 

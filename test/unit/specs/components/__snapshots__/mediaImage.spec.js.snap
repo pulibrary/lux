@@ -4,13 +4,13 @@ exports[`MediaImage.vue has the expected html structure 1`] = `
 <div
   class="lux-media-image medium lux-default-thumbnail"
 >
-  <pul-icon-base-stub
+  <lux-icon-base-stub
     height="50"
     icon-color="rgb(225,225,225)"
     icon-name="file"
     width="50"
   >
-    <pul-icon-file-stub />
-  </pul-icon-base-stub>
+    <lux-icon-file-stub />
+  </lux-icon-base-stub>
 </div>
 `;

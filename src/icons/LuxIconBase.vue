@@ -2,7 +2,7 @@
   <svg xmlns="http://www.w3.org/2000/svg"
     :width="width"
     :height="height"
-    viewBox="0 0 16 16"
+    viewBox="0 0 24 24"
     :aria-labelledby="iconName"
     role="img"
   >
@@ -23,7 +23,7 @@
  * To add additional icons, please consult [the instructions](/#!/Adding%20Icons).
  */
 export default {
-  name: "PulIconBase",
+  name: "LuxIconBase",
   status: "ready",
   release: "1.0.0",
   type: "Element",
@@ -34,7 +34,7 @@ export default {
     iconName: {
       required: false,
       type: String,
-      default: "pul-icon-data-file",
+      default: "",
     },
     /**
      * The width of the icon. For square icons use values of `11px, 13px,
@@ -43,7 +43,7 @@ export default {
      */
     width: {
       type: [Number, String],
-      default: 16,
+      default: 24,
     },
     /**
      * The height of the icon. For square icons use values of `11px, 13px,
@@ -52,7 +52,7 @@ export default {
      */
     height: {
       type: [Number, String],
-      default: 16,
+      default: 24,
     },
     /**
      * The fill color of the SVG icon.
@@ -80,10 +80,10 @@ export default {
 <docs>
   ```jsx
   <div>
-  <pul-icon-base
+  <lux-icon-base
     width="30"
     height="30"
-    icon-name="file"><pul-icon-file /></pul-icon-base>
+    icon-name="file"><lux-icon-file /></lux-icon-base>
   </div>
   ```
 </docs>
