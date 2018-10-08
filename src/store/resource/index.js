@@ -41,7 +41,7 @@ export const resourceMutations = {
     state.resource.startCanvas = resource.startPage
     state.resource.viewingHint = resource.viewingHint
     state.resource.viewingDirection = resource.viewingDirection
-    state.resource.thumbnail = resource.thumbnail.id
+    state.resource.thumbnail = resource.thumbnail != null ? resource.thumbnail.id : null
     state.resource.members = resource.members
     const items = resource.members.map(member => ({
       id: member.id,
@@ -61,7 +61,7 @@ export const resourceMutations = {
     state.resource.loadState = "LOADED"
     state.resource.ogState = {
       startCanvas: resource.startPage,
-      thumbnail: resource.thumbnail.id,
+      thumbnail: resource.thumbnail != null ? resource.thumbnail.id : null,
       viewingHint: resource.viewingHint,
       viewingDirection: resource.viewingDirection,
     }
