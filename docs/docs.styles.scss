@@ -586,9 +586,12 @@ a[href="#private-components"] + ul {
 }
 
 // Hide Private components and placeholder sections
-ul a[href*="?id=section"],
-ul a[href*="?id=components"],
-ul a[href*="/#!/Private Components"] {
+ul a[href*="/#/Getting Started/Components"],
+ul a[href*="/#/Design Tokens/Color"],
+ul a[href*="/#/Design Tokens/Spacing"],
+ul a[href*="/#/Design Tokens/FontSize"],
+ul a[href*="/#/Design Tokens/All"],
+ul a[href*="/#/Private Components"] {
   display: none !important;
 }
 

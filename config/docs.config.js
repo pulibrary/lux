@@ -6,11 +6,7 @@ module.exports = {
   /**
    * Name of your design system. Changes both page title and sidebar logo.
    */
-  title: "LUX Design System",
-  /**
-   * Enabling the following option splits sections into separate views.
-   */
-  navigation: true,
+  title: "Vue Design System",
   /**
    * Most of the styles are defined in /docs/docs.styles.scss
    */
@@ -32,8 +28,6 @@ module.exports = {
    * Path to static assets directory
    */
   assetsDir: path.join(__dirname, "../src/assets"),
-  showCode: true,
-  showUsage: true,
   /**
    * Enabling the below option will break things in Vue Desing System!
    */
@@ -42,24 +36,35 @@ module.exports = {
    * We’re defining below JS and SCSS requires for the documentation.
    */
   require: [path.join(__dirname, "../docs/docs.helper.js"), path.join(__dirname, "../docs/docs.styles.scss")],
+  /**
+   * Enabling the following option splits sections into separate views.
+   */
+  pagePerSection: true,
   sections: [
     {
       name: "Getting Started",
       content: "../docs/getting-started.md",
+      // Needs to be loaded in somewhere as this is also shown in
+      // element, Pattern & Template overviews.
       components: "../docs/components/status/**/[A-Z]*.vue",
+      sectionDepth: 1,
+      exampleMode: "hide",
+      usageMode: "hide",
     },
     {
       name: "Design Principles",
       content: "../docs/principles.md",
-      /**
-       * section.vue component is an util that needs to be loaded into
-       * all sections, even when not showing any real components.
-       */
-      components: "../docs/utils/section.vue",
+    },
+    {
+      name: "Voice & Tone",
+      content: "../docs/voice-and-tone.md",
     },
     {
       name: "Design Tokens",
       content: "../docs/tokens.md",
+      sectionDepth: 1,
+      exampleMode: "hide",
+      usageMode: "hide",
       components: () => [
         "../docs/components/tokens/Color.vue",
         "../docs/components/tokens/FontSize.vue",
@@ -71,36 +76,53 @@ module.exports = {
       name: "Elements",
       content: "../docs/elements.md",
       components: "../src/elements/**/[A-Z]*.vue",
+      exampleMode: "expand",
+      usageMode: "expand",
+      sectionDepth: 2,
     },
     {
       name: "Patterns",
       content: "../docs/patterns.md",
       components: "../src/patterns/**/[A-Z]*.vue",
+      exampleMode: "expand",
+      usageMode: "expand",
+      sectionDepth: 2,
     },
     {
       name: "Icons",
       content: "../docs/icons.md",
       components: "../src/icons/**/[A-Z]*.vue",
+      exampleMode: "expand",
+      usageMode: "expand",
+      sectionDepth: 2,
     },
     {
       name: "Logos",
       content: "../docs/logos.md",
       components: "../src/logos/**/[A-Z]*.vue",
+      exampleMode: "expand",
+      usageMode: "expand",
+      sectionDepth: 2,
     },
     {
       name: "Templates",
       content: "../docs/templates.md",
       components: "../src/templates/**/[A-Z]*.vue",
+      exampleMode: "expand",
+      usageMode: "expand",
+      sectionDepth: 2,
     },
     {
       name: "Installing LUX",
       content: "../docs/installing-lux.md",
       components: "../docs/utils/section.vue",
+      sectionDepth: 1,
     },
     {
       name: "State Management",
       content: "../docs/state-management.md",
       components: "../docs/utils/section.vue",
+      sectionDepth: 1,
     },
     {
       name: "Adding Icons",
@@ -111,17 +133,19 @@ module.exports = {
       name: "FAQ",
       content: "../docs/faq.md",
       components: "../docs/utils/section.vue",
+      sectionDepth: 1,
     },
     {
       name: "Glossary",
       content: "../docs/glossary.md",
       components: "../docs/utils/section.vue",
+      sectionDepth: 1,
     },
     {
       /**
        * Private components have to be loaded into the documentation as well,
        * otherwise anything using them will be broken. We’re loading them in
-       * their own section, which then gets hidden in util/docs/hidePrivate.js
+       * their own section, which then gets hidden in docs/docs.styles.scss
        */
       name: "Private Components",
       components: "../src/**/[_]*.vue",
@@ -130,7 +154,23 @@ module.exports = {
   /**
    * Custom wrapper template for the documentation.
    */
-  template: "../docs/docs.template.html",
+  template: {
+    title: "Example — Vue Design System",
+    lang: "en",
+    trimWhitespace: true,
+    head: {
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width,initial-scale=1.0",
+        },
+        {
+          name: "format-detection",
+          content: "telephone=no",
+        },
+      ],
+    },
+  },
   /**
    * Ignore app.vue, tests, and example component.
    */
@@ -148,7 +188,21 @@ module.exports = {
       rules: [
         {
           test: /\.(css?|scss)(\?.*)?$/,
-          loader: "style-loader!css-loader!sass-loader",
+          use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader",
+            {
+              loader: "sass-resources-loader",
+              options: {
+                resources: [
+                  path.join(__dirname, "../src/assets/tokens/tokens.scss"),
+                  path.join(__dirname, "../src/assets/tokens/tokens.map.scss"),
+                  path.join(__dirname, "../src/styles/styles.scss"),
+                ],
+              },
+            },
+          ],
         },
       ],
     },
