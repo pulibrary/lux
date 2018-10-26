@@ -105,7 +105,10 @@ export default {
 .lux-library-links {
   order: 0;
   align-self: auto;
-  flex: 1;
+
+  @media #{$media-query-large} {
+    flex: 1;
+  }
 
   h2 {
     font-family: $font-family-heading;
