@@ -11,9 +11,7 @@
       <tbody>
         <tr v-for="(token, index) in tokens" :key="index" class="token">
           <td v-if="token.name">
-            <code class="name">
-              ${{token.name.replace(/_/g, "-")}}
-            </code>
+            <code class="name">${{token.name.replace(/_/g, "-")}}</code>
           </td>
           <td v-else>N/A</td>
           <td v-if="token.value">
@@ -61,16 +59,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../docs.tokens.scss";
+
 /* STYLES
 --------------------------------------------- */
 
 .all-tokens {
   @include reset;
-  font-family: $font-family-heading;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-heading;
+  margin-top: $space-l;
+  font-family: $font-heading;
+  font-weight: $weight-normal;
+  line-height: $line-height-xs;
   color: $color-rich-black;
-  margin-bottom: $space-small;
+  margin-bottom: $space-s;
   font-style: normal;
   @media (max-width: 1000px) {
     overflow-x: auto;
@@ -81,27 +82,28 @@ export default {
     width: 100%;
   }
   thead th {
-    padding: $space-small $space-large $space-small $space-small;
-    background: $color-grayscale-lighter;
-    font-size: $font-size-small;
-    font-weight: $font-weight-bold;
-    color: $color-bleu-de-france;
+    padding: $space-s $space-l $space-s $space-s;
+    background: $color-cloud;
+    font-size: $size-s;
+    font-weight: $weight-bold;
+    color: $color-oxford-blue;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: $font-weight-semi-bold;
+    font-weight: $weight-semi-bold;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: left;
     // Chrome has a bug related to thead, this only works on th:
+    position: -webkit-sticky;
     position: sticky;
     top: -1px;
     &:first-child {
-      border-top-left-radius: $border-radius-default;
-      border-bottom-left-radius: $border-radius-default;
+      border-top-left-radius: $radius-default;
+      border-bottom-left-radius: $radius-default;
     }
     &:last-child {
-      border-top-right-radius: $border-radius-default;
-      border-bottom-right-radius: $border-radius-default;
+      border-top-right-radius: $radius-default;
+      border-bottom-right-radius: $radius-default;
     }
   }
   tr {
@@ -111,25 +113,27 @@ export default {
     }
   }
   td {
-    font-size: $font-size-small;
-    padding: $space-small $space-large $space-small $space-small;
+    font-size: $size-s;
+    padding: $space-s $space-l $space-s $space-s;
     &:first-child {
-      font-weight: $font-weight-bold;
+      font-weight: $weight-bold;
       white-space: nowrap;
     }
   }
   .type {
-    line-height: $line-height-base;
+    line-height: $line-height-s;
+    max-width: calc(100% - #{$space-m});
+    float: left;
   }
   .example {
-    @include inline-space($space-x-small);
-    border-radius: $border-radius-default;
+    @include inline-space($space-xs);
+    border-radius: $radius-default;
     background: $color-white;
-    box-shadow: $box-shadow-small-inset, $box-shadow-small-inset, $box-shadow-small-inset;
-    vertical-align: middle;
-    width: $space-small;
-    height: $space-small;
-    display: inline-block;
+    box-shadow: $shadow-s-inset, $shadow-s-inset, $shadow-s-inset;
+    margin-top: $space-xx-small;
+    width: $space-s;
+    height: $space-s;
+    float: left;
   }
 }
 </style>

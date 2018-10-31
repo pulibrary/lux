@@ -105,7 +105,6 @@ export default {
 .lux-library-links {
   order: 0;
   align-self: auto;
-
   @media #{$media-query-large} {
     flex: 1;
   }

@@ -1,22 +1,21 @@
 <template>
-  <component :is="type" :class="['example-component ', variation]">
-    <div id="example-container">
-      <slot/>
+  <component :is="type" :class="['example', variation]">
+    <div id="Example-container">
+      <slot />
     </div>
   </component>
 </template>
 
 <script>
 /**
- * “Example Component” is used to visually communicate core parts of the product and available actions.
+ * Example component is used to visually communicate core parts of the product
+ * and available actions.
  */
 export default {
   /**
-   * Component names should always be multi-word, except for root App components.
-   * This prevents conflicts with existing and future HTML elements, since all
-   * HTML elements are a single word. See example below:
+   * Component names should be short, pronounceable and Capitalized.
    */
-  name: "example",
+  name: "Example",
   /**
    * Components in the system are labelled with status labels that reflect their
    * state of completion. See example below. All available statuses are:
@@ -29,6 +28,10 @@ export default {
    * ready          Green      Ready to be used
    */
   status: "prototype",
+  /**
+   * Release indicates when this component was added into the system.
+   * (in which design system version)
+   */
   release: "1.0.0",
   /**
    * Prop definitions should be as detailed as possible, specifying at least
@@ -36,7 +39,7 @@ export default {
    */
   props: {
     /**
-     * The html element name used for the container
+     * The html element name used for the container of Example component.
      */
     type: {
       type: String,
@@ -44,13 +47,13 @@ export default {
     },
     /**
      * Style variation to give additional meaning.
-     * `default, disabled, strong, positive, negative, tiny`
+     * `default, strong, positive, negative`
      */
     variation: {
       type: String,
       default: "default",
       validator: value => {
-        return value.match(/(default|disabled|strong|positive|negative|tiny)/)
+        return value.match(/(default|strong|positive|negative)/)
       },
     },
   },
@@ -63,20 +66,20 @@ export default {
  * but all other components should always be scoped (using either scoped
  * attribute or class based scoping).
  */
-.example-component {
+.example {
   @include reset;
-  @include stack-space($space-small);
+  @include stack-space($space-m);
   color: set-text-color($color-rich-black, $color-white);
-  @media #{$media-query-medium} {
-    @include stack-space($space-base);
+  @media #{$media-query-m} {
+    @include stack-space($space-xl);
   }
 }
 </style>
 
 <docs>
   ```jsx
-  <example-component>
+  <Example>
     Docs section should have an example that is shown in the documentation.
-  </example-component>
+  </Example>
   ```
 </docs>

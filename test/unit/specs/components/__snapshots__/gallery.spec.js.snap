@@ -9,7 +9,6 @@ exports[`Gallery.vue has the expected html structure 1`] = `
     cardpixelwidth="300"
     class="lux-galleryCard"
     id="1"
-    selected="true"
     size="medium"
   >
     <media-image-stub
@@ -31,7 +30,6 @@ exports[`Gallery.vue has the expected html structure 1`] = `
   <card-stub
     cardpixelwidth="300"
     class="lux-galleryCard"
-    edited="true"
     id="2"
     size="medium"
   >

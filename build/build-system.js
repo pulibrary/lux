@@ -37,8 +37,11 @@ rm(path.join(config.system.assetsRoot, config.system.assetsSubDirectory), err =>
     console.log(chalk.cyan("  LUX Design System Library build complete.\n"))
     console.log(
       chalk.yellow(
-        "  Tip: You can now publish LUX as a private NPM module.\n" +
-          "  Users can import it as an ES6 module: import DesignSystem from 'system'\n"
+        "  Tip: You can now publish the design system as a private NPM module.\n" +
+          "  Users can import the provided UMD module using:\n\n" +
+          "  import DesignSystem from 'lux-design-system'\n" +
+          "  import 'lux-design-system/dist/system/system.css'\n\n" +
+          "  Vue.use(DesignSystem)\n"
       )
     )
   })
