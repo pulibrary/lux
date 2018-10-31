@@ -1,0 +1,252 @@
+$tokens-map: (
+  "color-grayscale-light": (
+    rgb(186, 190, 197),
+  ),
+  "color-tan": (
+    rgb(188, 139, 82),
+  ),
+  "color-bleu-de-france-dark": (
+    rgb(45, 112, 180),
+  ),
+  "color-bleu-de-france-light": (
+    rgb(108, 163, 218),
+  ),
+  "color-green": (
+    rgb(124, 181, 24),
+  ),
+  "color-princeton-orange-on-white": (
+    rgb(231, 117, 0),
+  ),
+  "color-tan-lighter": (
+    rgb(219, 193, 163),
+  ),
+  "color-grayscale-dark": (
+    rgb(130, 138, 151),
+  ),
+  "color-grayscale": (
+    rgb(149, 156, 167),
+  ),
+  "color-white": (
+    rgb(255, 255, 255),
+  ),
+  "color-grayscale-lighter": (
+    rgb(245, 245, 245),
+  ),
+  "color-yellow": (
+    rgb(255, 186, 10),
+  ),
+  "color-bleu-de-france": (
+    rgb(44, 110, 175),
+  ),
+  "color-tan-dark": (
+    rgb(158, 113, 61),
+  ),
+  "color-bleu-de-france-darker": (
+    rgb(35, 87, 139),
+  ),
+  "color-bleu-de-france-lighter": (
+    rgb(149, 189, 228),
+  ),
+  "color-red": (
+    rgb(201, 40, 19),
+  ),
+  "color-grayscale-darker": (
+    rgb(65, 70, 78),
+  ),
+  "color-rich-black": (
+    rgb(0, 17, 35),
+  ),
+  "color-tan-light": (
+    rgb(202, 163, 119),
+  ),
+  "color-tan-darker": (
+    rgb(121, 87, 47),
+  ),
+  "color-princeton-orange-on-black": (
+    rgb(245, 128, 37),
+  ),
+  "font-size-large-min": (
+    1.125em,
+  ),
+  "font-size-base-max": (
+    1.125em,
+  ),
+  "font-size-x-large": (
+    36px,
+  ),
+  "font-size-xxx-large": (
+    64px,
+  ),
+  "font-size-xx-large": (
+    48px,
+  ),
+  "font-size-x-large-max": (
+    1.777em,
+  ),
+  "font-size-xxx-large-max": (
+    3.157em,
+  ),
+  "font-size-large": (
+    24px,
+  ),
+  "font-size-xx-large-max": (
+    2.369em,
+  ),
+  "font-size-large-max": (
+    1.333em,
+  ),
+  "font-size-x-small": (
+    11px,
+  ),
+  "font-size-base-min": (
+    1em,
+  ),
+  "font-size-small": (
+    13px,
+  ),
+  "font-size-x-large-min": (
+    1.266em,
+  ),
+  "font-size-xxx-large-min": (
+    1.602em,
+  ),
+  "font-size-xx-large-min": (
+    1.424em,
+  ),
+  "font-size-base": (
+    16px,
+  ),
+  "font-family-heading": (
+    "franklin-gothic-urw",
+    Helvetica,
+    Arial,
+    sans-serif,
+  ),
+  "font-family-text": (
+    "franklin-gothic-urw",
+    Helvetica,
+    Arial,
+    sans-serif,
+  ),
+  "font-weight-bold": (
+    700,
+  ),
+  "font-weight-semi-bold": (
+    600,
+  ),
+  "font-weight-regular": (
+    400,
+  ),
+  "font-weight-light": (
+    300,
+  ),
+  "opacity-disabled": (
+    0.5,
+  ),
+  "height-header": (
+    55px,
+  ),
+  "height-footer": (
+    64px,
+  ),
+  "tappable-square": (
+    44px,
+  ),
+  "duration-quickly": (
+    0.08s,
+  ),
+  "duration-slowly": (
+    0.5s,
+  ),
+  "z-index-modal": (
+    9999,
+  ),
+  "z-index-sticky": (
+    100,
+  ),
+  "media-query-medium": (
+    (
+      min-width: 600px,
+    ),
+  ),
+  "media-query-large": (
+    (
+      min-width: 900px,
+    ),
+  ),
+  "media-query-x-large": (
+    (
+      min-width: 1200px,
+    ),
+  ),
+  "media-query-xx-large": (
+    (
+      min-width: 1800px,
+    ),
+  ),
+  "media-query-xxx-large": (
+    (
+      min-width: 2300px,
+    ),
+  ),
+  "box-shadow-small": (
+    0 0 0 1px rgba(92, 106, 196, 0.1),
+  ),
+  "box-shadow-small-inset": (
+    inset 0 0 0 1px rgba(0, 0, 0, 0.05),
+  ),
+  "box-shadow-selected": (
+    0 0 0 1px #e77500,
+  ),
+  "letter-spacing-x-large": (
+    2px,
+  ),
+  "letter-spacing-large": (
+    1px,
+  ),
+  "letter-spacing-base": (
+    0,
+  ),
+  "letter-spacing-small": (
+    -0.5px,
+  ),
+  "letter-spacing-x-small": (
+    -1px,
+  ),
+  "border-radius-default": (
+    3px,
+  ),
+  "border-radius-circle": (
+    50%,
+  ),
+  "space-xx-large": (
+    128px,
+  ),
+  "space-x-large": (
+    64px,
+  ),
+  "space-large": (
+    48px,
+  ),
+  "space-base": (
+    24px,
+  ),
+  "space-small": (
+    16px,
+  ),
+  "space-x-small": (
+    8px,
+  ),
+  "space-xx-small": (
+    4px,
+  ),
+  "line-height-base": (
+    1.6,
+  ),
+  "line-height-small": (
+    1.3,
+  ),
+  "line-height-heading": (
+    1,
+  ),
+);
