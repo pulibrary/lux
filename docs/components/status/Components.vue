@@ -2,19 +2,19 @@
   <div class="component-status">
     <ul class="status-list">
       <li>
-        <svg-icon name="ready" fill="#7cb518" size="16px" />
+        <Icon name="ready" fill="#7cb518" size="small" />
         <p>Ready</p>
       </li>
       <li>
-        <svg-icon name="review" :fill="tokens.color_yellow.value" size="16px" />
+        <Icon name="review" :fill="tokens.color_ucla_gold.value" size="small" />
         <p>Under review</p>
       </li>
       <li>
-        <svg-icon name="deprecated" :fill="tokens.color_red.value" size="16px" />
+        <Icon name="deprecated" :fill="tokens.color_vermilion.value" size="small" />
       <p>Deprecated</p>
       </li>
       <li>
-        <svg-icon name="prototype" :fill="tokens.color_bleu_de_france.value" size="16px" />
+        <Icon name="prototype" :fill="tokens.color_bleu_de_france.value" size="small" />
         <p>Prototype</p>
       </li>
       <li>
@@ -25,7 +25,10 @@
     <table>
       <thead>
         <tr>
-          <th>Component Name</th>
+          <th v-if="show === 'all'">Component Name</th>
+          <th v-if="show === 'elements'">Element Name</th>
+          <th v-if="show === 'patterns'">Pattern Name</th>
+          <th v-if="show === 'templates'">Template Name</th>
           <th>Released in</th>
           <th>Status</th>
         </tr>
@@ -34,39 +37,38 @@
         <tr v-for="(component, index) in components" :key="index" class="component">
           <td v-if="component.name">
             <code class="name">
-              <a :href="envPath() + component.type + 's?id=' + component.name.toLowerCase()">{{component.name}}</a>
+              {{component.name}}
             </code>
           </td>
           <td v-else>N/A</td>
           <td v-if="component.release">
-
             {{component.release}}
           </td>
           <td v-else>N/A</td>
           <td v-if="component.status">
-            <svg-icon
+            <Icon
               v-if="component.status === 'ready'"
               name="ready"
               fill="#7cb518"
-              size="16px"
+              size="small"
             />
-            <svg-icon
+            <Icon
               v-if="component.status === 'under-review' || component.status === 'review'"
               name="review"
-              :fill="tokens.color_yellow.value"
-              size="16px"
+              :fill="tokens.color_ucla_gold.value"
+              size="small"
             />
-            <svg-icon
+            <Icon
               v-if="component.status === 'prototype'"
               name="prototype"
               :fill="tokens.color_bleu_de_france.value"
-              size="16px"
+              size="small"
             />
-            <svg-icon
+            <Icon
               v-if="component.status === 'deprecated'"
               name="deprecated"
-              :fill="tokens.color_red.value"
-              size="16px"
+              :fill="tokens.color_vermilion.value"
+              size="small"
             />
           </td>
           <td v-else>—</td>
@@ -77,20 +79,39 @@
 </template>
 
 <script>
-import designTokens from "@/assets/tokens/tokens.raw.json"
+// If you want to use your own tokens here, change the following line to:
+// import designTokens from "@/assets/tokens/tokens.raw.json"
+import designTokens from "../../docs.tokens.json"
 import orderBy from "lodash/orderBy"
 
 export default {
   name: "Components",
+  props: {
+    show: {
+      type: String,
+      default: "all",
+      validator: value => {
+        return value.match(/(all|patterns|templates|elements)/)
+      },
+    },
+  },
   methods: {
     getComponents: function() {
-      const contexts = [
-        require.context("@/elements/", true, /\.vue$/),
-        require.context("@/patterns/", true, /\.vue$/),
-        require.context("@/icons/", true, /\.vue$/),
-        require.context("@/logos/", true, /\.vue$/),
-        require.context("@/templates/", true, /\.vue$/),
-      ]
+      let contexts
+
+      if (this.show === "all") {
+        contexts = [
+          require.context("@/elements/", true, /\.vue$/),
+          require.context("@/patterns/", true, /\.vue$/),
+          require.context("@/templates/", true, /\.vue$/),
+        ]
+      } else if (this.show === "elements") {
+        contexts = [require.context("@/elements/", true, /\.vue$/)]
+      } else if (this.show === "patterns") {
+        contexts = [require.context("@/patterns/", true, /\.vue$/)]
+      } else if (this.show === "templates") {
+        contexts = [require.context("@/templates/", true, /\.vue$/)]
+      }
 
       const components = []
       contexts.forEach(context => {
@@ -101,13 +122,6 @@ export default {
     },
     orderData: function(data) {
       return orderBy(data, "name", "asc")
-    },
-    envPath: function() {
-      let path = "/#!/"
-      if (window.location.hostname.indexOf("pulibrary.github.io") > -1) {
-        path = "/lux/docs/#!/"
-      }
-      return path
     },
   },
   data() {
@@ -120,16 +134,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../docs.tokens.scss";
+
 /* STYLES
 --------------------------------------------- */
 
 .component-status {
   @include reset;
-  font-family: $font-family-heading;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-heading;
+  font-family: $font-heading;
+  font-weight: $weight-normal;
+  line-height: $line-height-xs;
   color: $color-rich-black;
-  margin-bottom: $space-small;
+  margin-bottom: $space-s;
   font-style: normal;
   @media (max-width: 1000px) {
     overflow-x: auto;
@@ -140,27 +156,28 @@ export default {
     width: 100%;
   }
   thead th {
-    padding: $space-small;
-    background: $color-grayscale-lighter;
-    font-size: $font-size-small;
-    font-weight: $font-weight-bold;
-    color: $color-bleu-de-france;
+    padding: $space-s;
+    background: $color-cloud;
+    font-size: $size-s;
+    font-weight: $weight-bold;
+    color: $color-oxford-blue;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: $font-weight-semi-bold;
+    font-weight: $weight-semi-bold;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: left;
     // Chrome has a bug related to thead, this only works on th:
+    position: -webkit-sticky;
     position: sticky;
     top: -1px;
     &:first-child {
-      border-top-left-radius: $border-radius-default;
-      border-bottom-left-radius: $border-radius-default;
+      border-top-left-radius: $radius-default;
+      border-bottom-left-radius: $radius-default;
     }
     &:last-child {
-      border-top-right-radius: $border-radius-default;
-      border-bottom-right-radius: $border-radius-default;
+      border-top-right-radius: $radius-default;
+      border-bottom-right-radius: $radius-default;
     }
   }
   tr {
@@ -170,15 +187,15 @@ export default {
     }
   }
   td {
-    font-size: $font-size-small;
-    padding: $space-small;
+    font-size: $size-s;
+    padding: $space-s;
     &:first-child {
-      font-weight: $font-weight-bold;
+      font-weight: $weight-bold;
       white-space: nowrap;
     }
   }
   .status-list {
-    margin: 0 0 $space-small;
+    margin: 0 0 $space-m;
     overflow: hidden;
     padding: 0;
     list-style: none;
@@ -189,9 +206,9 @@ export default {
       display: block;
     }
     li {
-      margin: 0 $space-base 0 0;
-      color: $color-grayscale;
-      font-size: $font-size-small;
+      margin: 0 $space-m 0 0;
+      color: $color-silver;
+      font-size: $size-s;
       align-items: center;
       display: flex;
       @media (max-width: 1000px) {
@@ -201,11 +218,11 @@ export default {
       }
       svg,
       span {
-        margin: -2px calc(#{$space-small} / 2) 0 0;
+        margin: -2px calc(#{$space-s} / 2) 0 0;
       }
       p {
         @media (max-width: 1000px) {
-          margin: $space-x-small;
+          margin: $space-xs;
         }
       }
     }

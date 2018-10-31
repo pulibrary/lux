@@ -4,7 +4,7 @@
 
 ## 1. We start with user needs.
 
-Do research, analyse data, talk to users. Don't make assumptions. Be human. Define the problem first.
+Do research, analyze data, talk to users. Don't make assumptions. Be human. Define the problem first.
 
 ## 2. We add more value by presenting fewer choices.
 

@@ -14,6 +14,7 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: "development",
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true }),
   },
@@ -45,8 +46,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       "process.env": require("../config/dev.env"),
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-    new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: "index.html",
@@ -62,6 +61,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       },
     ]),
   ],
+  optimization: {
+    namedModules: true,
+    noEmitOnErrors: true,
+  },
 })
 
 module.exports = new Promise((resolve, reject) => {
@@ -79,7 +82,10 @@ module.exports = new Promise((resolve, reject) => {
       devWebpackConfig.plugins.push(
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: [`Vue Design System: http://${devWebpackConfig.devServer.host}:${port} \n`],
+            messages: [
+              `Design System Docs: http://${devWebpackConfig.devServer.host}:6060 \n`,
+              `Vue.js App: http://${devWebpackConfig.devServer.host}:${port} \n`,
+            ],
           },
           onErrors: config.dev.notifyOnErrors ? utils.createNotifierCallback() : undefined,
           // should the console be cleared between each compilation?

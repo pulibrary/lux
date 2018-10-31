@@ -31,14 +31,14 @@ export default {
      */
     src: {
       required: false,
-      default: "pul-icon-data-file",
+      default: "ready",
     },
     /**
      * The name of the icon to display.
      */
     name: {
       required: true,
-      default: "pul-icon-data-file",
+      default: "ready",
     },
     /**
      * Descriptive text to be read to screenreaders. Do not include if use of
@@ -173,8 +173,8 @@ export default {
 <docs>
   ```jsx
   <div>
-    <svg-icon name="pul-icon-file" fill="rgb(44, 110, 175)" ariaLabel="add item" width="48px" height="48px"></svg-icon>
-    <svg-icon name="pul-icon-picture-solid" width="48px" height="48px"></svg-icon>
+    <svg-icon name="deprecated" fill="rgb(44, 110, 175)" ariaLabel="add item" width="48px" height="48px"></svg-icon>
+    <svg-icon name="ready" width="48px" height="48px"></svg-icon>
   </div>
   ```
 </docs>

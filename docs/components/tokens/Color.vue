@@ -8,8 +8,8 @@
       v-if="prop.type === 'color'">
         <div class="swatch" :style="{ backgroundColor: prop.value }" />
         <h3>{{prop.name.replace(/_/g, " ").replace(/color/g, "")}}</h3>
-        <span>RGB: {{prop.value}}</span>
-        <span>SCSS: ${{prop.name.replace(/_/g, "-")}}</span>
+        <span><em>RGB: </em>{{prop.value}}</span>
+        <span><em>SCSS: </em>${{prop.name.replace(/_/g, "-")}}</span>
     </div>
   </div>
 </template>
@@ -19,12 +19,10 @@ import designTokens from "@/assets/tokens/tokens.raw.json"
 import orderBy from "lodash/orderBy"
 
 /**
- * This is the sample color palette and demonstrates how to create different weights for each hue. These hues
+ * The color palette comes with 5 different weights for each hue. These hues
  * should be used purposefully to communicate how things function in the
  * interface. Keep in mind that `vermilion` is only used in special cases
- * like destructive actions and error messages.
- *
- * For Princeton Orange on the Web, #e77500 is used on white and #f58025 on black. Note that Princeton orange on white is not an accessible color when used for small type. Please reserve its use for headers or other elements displayed at greater than 24px regular or 19px bold. To edit the colors, see
+ * like destructive actions and error messages. To edit the colors, see
  * [/src/tokens/color.yml](https://github.com/viljamis/vue-design-system/blob/master/src/tokens/color.yml).
  */
 export default {
@@ -46,43 +44,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../docs.tokens.scss";
+
 /* STYLES
 --------------------------------------------- */
 
 .colors {
-  display: grid;
-  align-content: stretch;
-  justify-content: left;
-  grid-template-columns:
-    calc(20% - #{$space-base}) calc(20% - #{$space-base}) calc(20% - #{$space-base}) calc(20% - #{$space-base})
-    calc(20% - #{$space-base});
-  grid-column-gap: $space-base;
-  max-width: 1200px;
+  margin-top: $space-l;
+  display: block;
   width: 100%;
-  @media (max-width: 1300px) {
-    grid-template-columns: calc(25% - #{$space-base}) calc(25% - #{$space-base}) calc(25% - #{$space-base}) calc(
-        25% - #{$space-base}
-      );
-  }
-  @media (max-width: 1100px) {
-    grid-template-columns: calc(33.333% - #{$space-base}) calc(33.333% - #{$space-base}) calc(33.333% - #{$space-base});
-  }
-  @media (max-width: 900px) {
-    grid-template-columns: calc(50% - #{$space-base}) calc(50% - #{$space-base});
-  }
-  @media (max-width: 400px) {
-    grid-template-columns: 100%;
+  @supports (display: grid) {
+    display: grid;
+    max-width: 1200px;
+    align-content: stretch;
+    justify-content: left;
+    grid-template-columns:
+      calc(20% - #{$space-m}) calc(20% - #{$space-m}) calc(20% - #{$space-m}) calc(20% - #{$space-m})
+      calc(20% - #{$space-m});
+    grid-column-gap: $space-m;
+    @media (max-width: 1300px) {
+      grid-template-columns: calc(25% - #{$space-m}) calc(25% - #{$space-m}) calc(25% - #{$space-m}) calc(
+          25% - #{$space-m}
+        );
+    }
+    @media (max-width: 1100px) {
+      grid-template-columns: calc(33.333% - #{$space-m}) calc(33.333% - #{$space-m}) calc(33.333% - #{$space-m});
+    }
+    @media (max-width: 900px) {
+      grid-template-columns: calc(50% - #{$space-m}) calc(50% - #{$space-m});
+    }
+    @media (max-width: 400px) {
+      grid-template-columns: 100%;
+    }
   }
 }
 .swatch {
+  @include stack-space($space-s);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  height: $space-xx-large;
-  margin: -#{$space-small} -#{$space-small} 0;
-  width: calc(100% + #{$space-large});
+  height: $space-xxl;
+  margin-left: -#{$space-s};
+  margin-top: -#{$space-s};
+  width: calc(100% + #{$space-l});
   float: left;
 }
 h3 {
-  @include stack-space($space-x-small);
+  @include reset;
+  @include stack-space($space-xs);
   text-transform: capitalize;
   line-height: 1.2;
   width: 100%;
@@ -90,34 +97,43 @@ h3 {
 }
 .color {
   @include reset;
-  @include inset-space($space-small);
+  @include inset-space($space-s);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-bottom: $space-large;
+  margin-bottom: $space-m;
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
-  font-size: $font-size-small;
-  font-family: $font-family-text;
+  font-size: $size-s;
+  font-family: $font-text;
   color: $color-rich-black;
-  border-radius: $border-radius-default;
+  border-radius: $radius-default;
   overflow: hidden;
   text-align: left;
-  float: left;
-  width: 100%;
+  @supports (display: grid) {
+    width: 100%;
+    float: left;
+  }
   @media (max-width: 400px) {
-    margin-bottom: $space-base;
+    margin-bottom: $space-m;
   }
   &:hover {
     span {
-      color: shade($color-grayscale, 40%);
+      color: $color-rich-black;
+      em {
+        color: $color-silver;
+      }
     }
   }
   span {
-    margin-bottom: $space-x-small;
+    margin-bottom: $space-xs;
     line-height: 1.3;
-    color: $color-grayscale;
-    font-size: $font-size-small;
+    color: $color-silver;
+    font-size: $size-s;
     width: 100%;
     float: left;
+    em {
+      user-select: none;
+      font-style: normal;
+    }
   }
 }
 </style>

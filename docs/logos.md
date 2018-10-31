@@ -4,22 +4,7 @@
 
 ### Accessibility and Logos
 
-LUX logos are made accessible by using the `title`, `title#id` and `aria-labeledBy` appropriately:
-
-```html
-<svg xmlns="http://www.w3.org/2000/svg"
-  :width="width"
-  :height="height"
-  viewBox="0 0 263 71.84"
-  aria-labelledby="logo-university"
-  role="presentation"
->
-  <title
-    id="logo-university"
-    lang="en"
-  >Princeton University Logo</title>
- ... SVG path info goes here
-```
+More information on accessibility and logos can be found on our [wiki page](https://github.com/pulibrary/lux/wiki/Accessibility-and-Logos).
 
 ### Adding New Logos
 

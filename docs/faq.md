@@ -15,13 +15,21 @@ The development environment supports the following browsers. If we want to edit 
 | Safari            | Last 2 versions |
 | Internet Explorer | 11              |
 
-## How do I integrate this with Rails?
+## How do I install LUX?
 
-See the [Sample Rails App](https://github.com/pulibrary/UI-Vue-Test) to learn more about Rails integration. This setup allows one to simply copy and paste components from these docs into your Rails Views.
+Please see the [documentation on Installing LUX in our wiki](https://github.com/pulibrary/lux/wiki/How-to-install-LUX).
+
+## How do I manage state in my components?
+
+Please see the [documentation on State Management in our wiki](https://github.com/pulibrary/lux/wiki/State-Management).
 
 ## Why Vue and not React, Jekyll, or some other tool?
 
 We need something that is cross-platform and simple to implement. We have worked with other front-end component frameworks, and Vue.js is the simplest to learn, implement, and understand. If you know HTML, CSS, and a bit of JavaScript you’re ready to start using this tool and getting involved.
+
+## Is this tool only for Vue.js based applications?
+
+No, LUX can be used anywhere, though the installation may vary for different contexts. Tokens which store visual design attributes are universal and can be used on any platform. Vue Design System also renders all components in both Vue.js & HTML which allows you to use the components on any web based platform. Additionally, it’s possible to configure the build process to output Web Components instead of Vue.js Components.
 
 ## Where are molecules and pages from Atomic Design?
 

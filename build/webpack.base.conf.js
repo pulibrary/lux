@@ -2,15 +2,15 @@
 const path = require("path")
 const utils = require("./utils")
 const config = require("../config")
-const vueLoaderConfig = require("./vue-loader.conf")
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
-// const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const { VueLoaderPlugin } = require("vue-loader")
 
 function resolve(dir) {
   return path.join(__dirname, "..", dir)
 }
 
 module.exports = {
+  mode: process.env.NODE_ENV === "production" ? config.build.mode : config.dev.mode,
   context: path.resolve(__dirname, "../"),
   entry: {
     app: "./src/main.js",
@@ -32,20 +32,32 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: "vue-loader",
-        options: vueLoaderConfig,
+        options: {
+          cacheBusting: config.dev.cacheBusting,
+          transformAssetUrls: {
+            video: ["src", "poster"],
+            source: "src",
+            img: "src",
+            image: "xlink:href",
+          },
+        },
       },
       {
         test: /\.js$/,
         loader: "babel-loader",
-        include: [resolve("src"), resolve("test"), resolve("node_modules/webpack-dev-server/client")],
+        include: [resolve("docs"), resolve("src"), resolve("test"), resolve("node_modules/webpack-dev-server/client")],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: "url-loader",
         options: {
-          limit: 35840,
+          limit: 10000,
           name: utils.assetsPath("img/[name].[hash:7].[ext]"),
         },
+      },
+      {
+        test: /\.svg$/,
+        loader: "html-loader",
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -65,7 +77,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ExtractTextPlugin("style.css")],
+  plugins: [new VueLoaderPlugin(), new MiniCssExtractPlugin("style.css")],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

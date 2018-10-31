@@ -1,13 +1,15 @@
 "use strict"
 const utils = require("./utils")
 const webpack = require("webpack")
+const path = require("path")
 const config = require("../config")
 const merge = require("webpack-merge")
 const baseWebpackConfig = require("./webpack.base.conf")
 const MergeWebpackPlugin = require("webpack-merge-and-include-globally")
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin")
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const SafeParser = require("postcss-safe-parser")
 
 const env = require("../config/prod.env")
 
@@ -23,42 +25,53 @@ const webpackConfig = merge(baseWebpackConfig, {
       usePostCSS: true,
     }),
   },
-  entry: "./src/static.js",
   devtool: config.build.productionSourceMap ? config.static.devtool : false,
   output: {
     path: config.static.assetsRoot,
-    filename: utils.staticSystemPath("lux.min.js"),
-    library: "lux",
-    libraryTarget: "var",
+    filename: utils.assetsSystemPath("[name].js"),
+    library: "[name]",
+    libraryTarget: config.static.libraryTarget,
+  },
+  performance: {
+    hints: config.static.performanceHints,
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       "process.env": env,
     }),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false,
-        },
-      },
-      sourceMap: config.static.productionSourceMap,
-      parallel: true,
-    }),
     // extract css into its own file
-    new ExtractTextPlugin({
-      filename: utils.staticSystemPath("lux.min.css"),
-      allChunks: false,
+    new MiniCssExtractPlugin({
+      filename: utils.assetsSystemPath("[name].css"),
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
-      cssProcessorOptions: { safe: true },
+      cssProcessorOptions: { parser: SafeParser },
     }),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
+    // Copy and merge Sass tokens and system utilities as well
+    new MergeWebpackPlugin({
+      files: {
+        [utils.assetsSystemPath("system.utils.scss")]: [
+          "./src/assets/tokens/tokens.scss",
+          "./src/styles/_spacing.scss",
+          "./src/styles/_mixins.scss",
+          "./src/styles/_functions.scss",
+        ],
+      },
+    }),
+    // copy custom static assets
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "../src/assets"),
+        to: config.static.assetsSubDirectory,
+        ignore: [".*"],
+      },
+    ]),
   ],
 })
 
@@ -69,7 +82,7 @@ if (config.static.productionGzip) {
     new CompressionWebpackPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
-      test: new RegExp("\\.(" + config.system.productionGzipExtensions.join("|") + ")$"),
+      test: new RegExp("\\.(" + config.static.productionGzipExtensions.join("|") + ")$"),
       threshold: 10240,
       minRatio: 0.8,
     })

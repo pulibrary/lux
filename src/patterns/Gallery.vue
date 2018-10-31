@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import store from "../store"
 import { mapState, mapGetters } from "vuex"
 import draggable from "vuedraggable"
 /*
@@ -37,11 +38,11 @@ export default {
         return this.gallery.items
       },
       set(value) {
-        this.$store.commit("SORT_ITEMS", value)
+        store.commit("SORT_ITEMS", value)
       },
     },
     ...mapState({
-      gallery: state => state.gallery,
+      gallery: state => store.state.gallery,
     }),
   },
   props: {
@@ -67,7 +68,7 @@ export default {
       }
     },
     selectNone: function() {
-      this.$store.commit("SELECT", [])
+      store.commit("SELECT", [])
     },
     getItemById: function(id) {
       var elementPos = this.getItemIndexById(id)
@@ -81,12 +82,14 @@ export default {
         .indexOf(id)
     },
     hasChanged: function(id) {
+      //console.log(this.gallery.changeList.indexOf(id) > -1)
       return this.gallery.changeList.indexOf(id) > -1
     },
     isDisabled: function(item) {
       return this.gallery.cut.indexOf(item) > -1
     },
     isSelected: function(item) {
+      //console.log(this.gallery.selected.indexOf(item) > -1)
       return this.gallery.selected.indexOf(item) > -1
     },
     select: function(id, event) {
@@ -96,7 +99,7 @@ export default {
         if (event.metaKey) {
           selected = this.gallery.selected
           selected.push(this.getItemById(event.target.id))
-          this.$store.commit("SELECT", selected)
+          store.commit("SELECT", selected)
         } else {
           if (this.gallery.selected.length === 1 && event.shiftKey) {
             var first = this.getItemIndexById(this.gallery.selected[0].id)
@@ -106,9 +109,9 @@ export default {
             for (var i = min; i <= max; i++) {
               selected.push(this.items[i])
             }
-            this.$store.commit("SELECT", selected)
+            store.commit("SELECT", selected)
           } else {
-            this.$store.commit("SELECT", [this.getItemById(event.target.id)])
+            store.commit("SELECT", [this.getItemById(event.target.id)])
           }
         }
       }
@@ -117,7 +120,8 @@ export default {
   beforeMount: function() {
     if (this.galleryItems) {
       // if props are passed in set the cards on mount
-      this.$store.commit("SET_GALLERY", this.galleryItems)
+      // window.app = this
+      store.commit("SET_GALLERY", this.galleryItems)
     } else {
       // retrieve the data via an asyn action
     }

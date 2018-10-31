@@ -6,7 +6,7 @@
 
 Icons are labeled according to the `icon-name` attribute placed on the `<lux-icon-base>` wrapper. For example, the following icon has an aria-label of "file icon":
 
-```html
+```
 <lux-icon-base
   width="30"
   height="30"
