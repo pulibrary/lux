@@ -38,7 +38,7 @@ rm(path.join(config.static.assetsRoot, config.static.assetsSubDirectory), err =>
     console.log(
       chalk.yellow(
         "  Tip: You can now use LUX in any HTML page.\n" +
-          "  Locate the js and css files in the 'static/assets' directory. Add these to your HTML doc \n" +
+          "  Locate the js and css files in the 'static/system' directory. Add these to your HTML doc \n" +
           "  and wrap any LUX components in a element with class='lux'. \n"
       )
     )
