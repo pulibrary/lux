@@ -14,11 +14,8 @@
 
 <script>
 /**
- * This example is a grouping of the _counter_ and the _svg-icon_ elements. It
- * demonstrates how to do simple state management in a template. When the counter total
- * reaches 5, the icon is replaced by a warning.
- *
- * More complex state management should be handled with Vuex.
+ * The LoginForm is an example of how one might add validation to a form component.
+ * This is for demo purposes only and should not be used in a production app.
  */
 export default {
   name: "LoginForm",
