@@ -1045,7 +1045,7 @@ fieldset[data-v-998f42d6] {
 .lux-gallery .lux-card .lux-media-image img[data-v-22285ecc] {
   height: auto;
 }
-.lux-library-footer[data-v-c8e0f804] {
+.lux-library-footer[data-v-7bdef9db] {
   box-sizing: border-box;
   margin: 0 0 24px;
   font-family: franklin-gothic-urw, Helvetica, Arial, sans-serif;
@@ -1054,10 +1054,10 @@ fieldset[data-v-998f42d6] {
   background: #f5f5f5;
   padding: 0 0 1em;
 }
-.lux-library-footer[data-v-c8e0f804]:last-child {
+.lux-library-footer[data-v-7bdef9db]:last-child {
   margin-bottom: 0;
 }
-.lux-footer-content[data-v-c8e0f804] {
+.lux-footer-content[data-v-7bdef9db] {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -1067,43 +1067,43 @@ fieldset[data-v-998f42d6] {
   padding: 1em;
 }
 @media (min-width: 900px) {
-  .lux-footer-content[data-v-c8e0f804] {
+  .lux-footer-content[data-v-7bdef9db] {
     flex-direction: row;
     max-width: 1170px;
   }
 }
-.lux-library-links[data-v-c8e0f804] {
+.lux-library-links[data-v-7bdef9db] {
   order: 0;
   align-self: auto;
 }
 @media (min-width: 900px) {
-  .lux-library-links[data-v-c8e0f804] {
+  .lux-library-links[data-v-7bdef9db] {
     flex: 1;
   }
 }
-.lux-library-links h2[data-v-c8e0f804] {
+.lux-library-links h2[data-v-7bdef9db] {
   font-family: franklin-gothic-urw, Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
 }
-.lux-library-links a[data-v-c8e0f804] {
+.lux-library-links a[data-v-7bdef9db] {
   text-decoration: none;
   color: #001123;
 }
-.lux-library-links a[data-v-c8e0f804]:focus,
-.lux-library-links a[data-v-c8e0f804]:hover {
+.lux-library-links a[data-v-7bdef9db]:focus,
+.lux-library-links a[data-v-7bdef9db]:hover {
   text-decoration: underline;
 }
-.lux-library-links ul[data-v-c8e0f804] {
+.lux-library-links ul[data-v-7bdef9db] {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-.lux-library-links ul li[data-v-c8e0f804] {
+.lux-library-links ul li[data-v-7bdef9db] {
   line-height: 1.6;
   font-size: 13px;
 }
-.lux-library-header[data-v-52395530] {
+.lux-library-header[data-v-102d12b5] {
   box-sizing: border-box;
   margin: 0;
   font-family: franklin-gothic-urw, Helvetica, Arial, sans-serif;
@@ -1112,7 +1112,7 @@ fieldset[data-v-998f42d6] {
   padding: 0 24px;
   border-top: 3px solid #f58025;
 }
-.lux-library-header .lux-header-content[data-v-52395530] {
+.lux-library-header .lux-header-content[data-v-102d12b5] {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -1120,11 +1120,11 @@ fieldset[data-v-998f42d6] {
   padding: 8px;
 }
 @media (min-width: 900px) {
-  .lux-library-header .lux-header-content[data-v-52395530] {
+  .lux-library-header .lux-header-content[data-v-102d12b5] {
     max-width: 1170px;
   }
 }
-.lux-library-header .lux-header-content .lux-app-name[data-v-52395530]:not(:empty) {
+.lux-library-header .lux-header-content .lux-app-name[data-v-102d12b5]:not(:empty) {
   border-left: 0;
   color: #fff;
   font-size: 24px;
@@ -1136,34 +1136,34 @@ fieldset[data-v-998f42d6] {
   text-decoration: none;
 }
 @media (min-width: 600px) {
-  .lux-library-header .lux-header-content[data-v-52395530] {
+  .lux-library-header .lux-header-content[data-v-102d12b5] {
     flex-direction: row;
   }
-  .lux-library-header .lux-header-content[data-v-52395530] .lux-app-name:not(:empty) {
+  .lux-library-header .lux-header-content[data-v-102d12b5] .lux-app-name:not(:empty) {
     border-left: 1px solid #babec5;
     padding: 0 0 0 1rem;
     margin: 0 0 0 1rem;
   }
 }
-.lux-library-header[data-v-52395530] .lux-dropdown-menu .lux-dropdown {
+.lux-library-header[data-v-102d12b5] .lux-dropdown-menu .lux-dropdown {
   background: transparent;
   color: #fff;
 }
-.lux-library-header[data-v-52395530] .lux-dropdown-menu .lux-dropdown .lux-dropdown-indicator {
+.lux-library-header[data-v-102d12b5] .lux-dropdown-menu .lux-dropdown .lux-dropdown-indicator {
   color: #fff;
 }
-.lux-library-header[data-v-52395530] .lux-nav {
+.lux-library-header[data-v-102d12b5] .lux-nav {
   min-width: 100px;
   top: 37px;
   right: 0;
   width: auto;
 }
-.lux-library-header[data-v-52395530] .lux-nav a {
+.lux-library-header[data-v-102d12b5] .lux-nav a {
   color: #fff;
   white-space: nowrap;
 }
-.lux-library-header[data-v-52395530] .lux-nav a:focus,
-.lux-library-header[data-v-52395530] .lux-nav a:hover {
+.lux-library-header[data-v-102d12b5] .lux-nav a:focus,
+.lux-library-header[data-v-102d12b5] .lux-nav a:hover {
   color: #fff;
   text-decoration: underline;
 }
