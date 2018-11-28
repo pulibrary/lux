@@ -17,11 +17,11 @@ The development environment supports the following browsers. If we want to edit 
 
 ## How do I install LUX?
 
-Please see the [documentation on Installing LUX in our wiki](https://github.com/pulibrary/lux/wiki/How-to-install-LUX).
+Please see the [documentation on Installing LUX in our wiki](https://pulibrary.github.io/lux/docs/#!/Installing%20LUX).
 
 ## How do I manage state in my components?
 
-Please see the [documentation on State Management in our wiki](https://github.com/pulibrary/lux/wiki/State-Management).
+Please see the [documentation on State Management in our wiki](https://pulibrary.github.io/lux/docs/#!/State%20Management).
 
 ## Why Vue and not React, Jekyll, or some other tool?
 

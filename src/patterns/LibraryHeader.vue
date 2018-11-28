@@ -11,7 +11,9 @@
 
 <script>
 /**
- * “Example Component” is used to visually communicate core parts of the product and available actions.
+ * LibraryHeader is the preferred Header styling/behavior for PUL websites.
+ * Don't forget to create a fallback for this component by also providing the HTML
+ * rendering in _<noscript></noscript>_ tags.
  */
 export default {
   name: "LibraryHeader",

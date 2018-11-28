@@ -57,7 +57,9 @@
 
 <script>
 /**
- * Toolbars allows a user to select a value from a series of options.
+ * LibraryFooter is the preferred Footer styling/behavior for PUL websites.
+ * Don't forget to create a fallback for this component by providing the HTML
+ * rendering in _<noscript></noscript>_ tags.
  */
 export default {
   name: "LibraryFooter",

@@ -123,6 +123,20 @@ module.exports = {
       sectionDepth: 1,
     },
     {
+      name: "Installing LUX",
+      content: "../docs/installing-lux.md",
+      exampleMode: "collapse",
+      usageMode: "collapse",
+      sectionDepth: 1,
+    },
+    {
+      name: "State Management",
+      content: "../docs/state-management.md",
+      exampleMode: "collapse",
+      usageMode: "collapse",
+      sectionDepth: 1,
+    },
+    {
       name: "FAQ",
       content: "../docs/faq.md",
       exampleMode: "collapse",

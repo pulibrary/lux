@@ -1,5 +1,4 @@
 import { galleryState, galleryMutations } from "./gallery/index"
-import { resourceState, resourceMutations, resourceGetters } from "./resource/index"
 
 export const counterModule = {
   state: { count: 10 },
@@ -24,16 +23,5 @@ export const galleryModule = {
   mutations: galleryMutations,
 }
 
-export const resourceModule = {
-  // namespaced: true,
-  // actions: any async actions are should be handled by the host app
-  state: resourceState,
-  mutations: resourceMutations,
-  getters: resourceGetters,
-  modules: {
-    gallery: galleryModule,
-  },
-}
-
 let modules
-export default (modules = { counterModule, galleryModule, resourceModule })
+export default (modules = { counterModule, galleryModule })
