@@ -76,7 +76,7 @@ If Webpacker installed correctly, you should be able to find this file: `app/jav
 
 #### Step 8
 
-You can use the tokens in your own custom component styles by importing the `tokens.scss` file separately. You can also use the `system.css` throughout your app's HTML without issue. If you _*are not using TurboLinks*_, replace what is in that file with the following code:
+You can use the tokens in your own custom component styles by importing the `tokens.scss` file separately. If you _*are not using TurboLinks*_, replace what is in that file with the following code:
 
 ```javascript
 import Vue from "vue/dist/vue.esm"
@@ -100,6 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
 ```
 
 (This assumes a Vuex store to be defined one directory up. You can omit the "store" import and param if not using a Vuex store. If you need to use Vuex, you will need to touch a few other files. Please refer to the [State Management documentation](https://pulibrary.github.io/lux/docs/#!/State%20Management) for details.)
+
+You can also easily add the LUX Design Token variables to your asset pipeline. To do this, you'll need to @import the `system.utils.scss` file from the npm package at the top of your `app/assets/stylesheets/application.scss` file, along with the other variable imports, like so:
+
+```scss
+@import "../../../node_modules/lux-design-system/dist/system/system.utils.scss";
+```
 
 If you _*are using TurboLinks*_, replace what is in `app/javascript/packs/application.js` with the following code:
 
