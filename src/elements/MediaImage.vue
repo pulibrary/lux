@@ -94,8 +94,6 @@ export default {
     background: $color-grayscale;
     display: flex;
     align-items: center;
-    height: 300px;
-    width: 300px;
 
     .lux-svg-icon,
     svg {
