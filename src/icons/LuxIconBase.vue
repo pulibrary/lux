@@ -1,15 +1,13 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg"
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
     :width="width"
     :height="height"
     viewBox="0 0 24 24"
     :aria-labelledby="iconName"
     role="img"
   >
-    <title
-      :id="iconName"
-      lang="en"
-    >{{ iconName }} icon</title>
+    <title :id="iconName" lang="en">{{ iconName }} icon</title>
     <g :fill="iconColor">
       <slot />
     </g>
@@ -20,7 +18,7 @@
 /**
  * Icons are used to visually communicate core parts of the product and
  * available actions. Please be aware that all elements must have closing tags (not "self-closing").
- * To add additional icons, please consult [the instructions](/#!/Adding%20Icons).
+ * To add additional icons, please consult [the instructions](/#/Adding%20Icons).
  */
 export default {
   name: "LuxIconBase",

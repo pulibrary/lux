@@ -1,7 +1,14 @@
 <template>
-  <img v-if="isIE" :src="currPath" :aria-label="ariaLabel" class="lux-logo-svg" :width="width" :height="height" :style="{ fill: fill }"/>
-  <component v-else :is="type" :aria-label="ariaLabel" class="lux-svg-icon">
-  </component>
+  <img
+    v-if="isIE"
+    :src="currPath"
+    :aria-label="ariaLabel"
+    class="lux-logo-svg"
+    :width="width"
+    :height="height"
+    :style="{ fill: fill }"
+  />
+  <component v-else :is="type" :aria-label="ariaLabel" class="lux-svg-icon"> </component>
 </template>
 
 <script>
@@ -12,7 +19,7 @@ let cache = new Map()
  * These icons will not work well in IE. Please use IconBase with one of the icons from the library.
  * Icons are used to visually communicate core parts of the product and
  * available actions. Please be aware that all elements must have closing tags (not "self-closing").
- * To add additional icons, please consult [the instructions](/#!/Adding%20Icons).
+ * To add additional icons, please consult [the instructions](/#/Adding%20Icons).
  */
 export default {
   name: "SvgIcon",

@@ -17,7 +17,7 @@ There are times when you can leave icon-name blank. For example, buttons can hav
 
 ### Adding New Icons
 
-There are a few steps to this, so we provide a separate page with [instructions for adding new icons](/#!/Adding%20Icons).
+There are a few steps to this, so we provide a separate page with [instructions for adding new icons](/#/Adding%20Icons).
 
 ### Why do I have to wrap my Icons with the Icon Base component?
 
