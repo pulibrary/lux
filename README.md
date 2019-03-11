@@ -2,7 +2,7 @@
 
 # LUX Design System
 
-[View the docs](https://pulibrary.github.io/lux/docs/#!/Getting%20Started)
+[View the docs](https://pulibrary.github.io/lux/docs/#/Getting%20Started)
 
 To contribute to lux:
 
@@ -28,7 +28,7 @@ To run a single test:
 yarn unit mytest.spec.js
 ```
 
-To deploy [docs](https://pulibrary.github.io/lux/docs/#!/Getting%20Started):
+To deploy [docs](https://pulibrary.github.io/lux/docs/#/Getting%20Started):
 
 ```
 # make sure git status is clean with no uncommitted modified files
@@ -43,7 +43,7 @@ npm i --save lux-design-system
 ```
 
 If you are looking to integrate LUX into an existing Rails, Drupal, or even JSFiddle, check out
-our documentation for [How to Install LUX](https://pulibrary.github.io/lux/docs/#!/Installing%20LUX).
+our documentation for [How to Install LUX](https://pulibrary.github.io/lux/docs/#/Installing%20LUX).
 
 To ride the bleeding edge, pull directly from the GitHub in package.json dependencies:
 

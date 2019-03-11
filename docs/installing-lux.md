@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 ```
 
-(This assumes a Vuex store to be defined one directory up. You can omit the "store" import and param if not using a Vuex store. If you need to use Vuex, you will need to touch a few other files. Please refer to the [State Management documentation](https://pulibrary.github.io/lux/docs/#!/State%20Management) for details.)
+(This assumes a Vuex store to be defined one directory up. You can omit the "store" import and param if not using a Vuex store. If you need to use Vuex, you will need to touch a few other files. Please refer to the [State Management documentation](https://pulibrary.github.io/lux/docs/#/State%20Management) for details.)
 
 You can also easily add the LUX Design Token variables to your asset pipeline. To do this, you'll need to @import the `system.utils.scss` file from the npm package at the top of your `app/assets/stylesheets/application.scss` file, along with the other variable imports, like so:
 
@@ -139,10 +139,7 @@ Next, go to your application.html.erb layout (or whatever you named your main la
 
 ```html
 <head>
-  ...
-<%= javascript_pack_tag 'application' %>
-<%= stylesheet_pack_tag 'application' %>
-  ...
+  ... <%= javascript_pack_tag 'application' %> <%= stylesheet_pack_tag 'application' %> ...
 </head>
 ```
 
@@ -151,7 +148,7 @@ Next, go to your application.html.erb layout (or whatever you named your main la
 In the same file (application.html.erb), add the data-behavior attribute to the element you want to use LUX components in like this:
 
 ```html
-<div class="lux">
+<div class="lux"></div>
 ```
 
 _Note: You cannot mount Vue apps on `<html>` or `<body>` elements._
@@ -186,7 +183,7 @@ Test to make sure it's working. Add a LUX component to the container div (or a p
 you should see the icon of a mountain scene:
 
 ```html
-<svg-icon name="pul-icon-picture-solid" width="48px" height="48px"></svg-icon>
+<lux-icon-base icon-name="picture"><lux-icon-picture /></lux-icon-base>
 ```
 
 ## How to install LUX in a Drupal app

@@ -17,11 +17,11 @@ The development environment supports the following browsers. If we want to edit 
 
 ## How do I install LUX?
 
-Please see the [documentation on Installing LUX in our wiki](https://pulibrary.github.io/lux/docs/#!/Installing%20LUX).
+Please see the [documentation on Installing LUX in our wiki](https://pulibrary.github.io/lux/docs/#/Installing%20LUX).
 
 ## How do I manage state in my components?
 
-Please see the [documentation on State Management in our wiki](https://pulibrary.github.io/lux/docs/#!/State%20Management).
+Please see the [documentation on State Management in our wiki](https://pulibrary.github.io/lux/docs/#/State%20Management).
 
 ## Why Vue and not React, Jekyll, or some other tool?
 
@@ -45,7 +45,7 @@ Definitely. See [Theo’s docs](https://github.com/salesforce-ux/theo). It allow
 
 ## I can’t figure out what icons are available?
 
-Icons are inside `src/assets/icons` directory, so you can just add any icons that you need. We intend to display all available icons in the example, as well as [document the process of adding more](http://localhost:6060/#!/Adding%20Icons) from the Streamline Icon set.
+Icons are inside `src/assets/icons` directory, so you can just add any icons that you need. We intend to display all available icons in the example, as well as [document the process of adding more](http://localhost:6060/#/Adding%20Icons) from the Streamline Icon set.
 
 ## How to use design tokens in JavaScript?
 
@@ -53,7 +53,7 @@ First, import tokens inside the component you want to use them in:
 
 ```html
 <script>
-  import designTokens from "@/assets/tokens/tokens.raw.json";
+  import designTokens from "@/assets/tokens/tokens.raw.json"
 </script>
 ```
 
@@ -61,13 +61,13 @@ Then, pass the data:
 
 ```html
 <script>
-export default {
-  data() {
-    return {
-      tokens: designTokens.props
-    };
+  export default {
+    data() {
+      return {
+        tokens: designTokens.props,
+      }
+    },
   }
-};
 </script>
 ```
 

@@ -1,15 +1,29 @@
 <template>
   <g>
     <g id="Outline_Icons">
-    	<g>
-    		<polygon fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="20.5,23.5
-    			3.5,23.5 3.5,0.5 14.5,0.5 20.5,6.5 		"/>
-    		<polyline fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="14.5,0.5
-    			14.5,6.5 20.5,6.5 		"/>
-    	</g>
+      <g>
+        <polygon
+          fill="none"
+          stroke="#000000"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="20.5,23.5
+    			3.5,23.5 3.5,0.5 14.5,0.5 20.5,6.5 		"
+        />
+        <polyline
+          fill="none"
+          stroke="#000000"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="14.5,0.5
+    			14.5,6.5 20.5,6.5 		"
+        />
+      </g>
     </g>
     <g id="Invisible_Shape">
-    	<rect fill="none" width="24" height="24"/>
+      <rect fill="none" width="24" height="24" />
     </g>
   </g>
 </template>
@@ -18,7 +32,7 @@
 /**
  * Icons are used to visually communicate core parts of the product and
  * available actions. Please be aware that all elements must have closing tags (not "self-closing").
- * To add additional icons, please consult [the instructions](/#!/Adding%20Icons).
+ * To add additional icons, please consult [the instructions](/#/Adding%20Icons).
  */
 export default {
   name: "LuxIconFile",
