@@ -183,7 +183,7 @@ Test to make sure it's working. Add a LUX component to the container div (or a p
 you should see the icon of a mountain scene:
 
 ```html
-<svg-icon name="pul-icon-picture-solid" width="48px" height="48px"></svg-icon>
+<lux-icon-base icon-name="picture"><lux-icon-picture /></lux-icon-base>
 ```
 
 ## How to install LUX in a Drupal app
