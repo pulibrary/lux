@@ -11,7 +11,7 @@
       </li>
       <li>
         <Icon name="deprecated" :fill="tokens.color_vermilion.value" size="small" />
-      <p>Deprecated</p>
+        <p>Deprecated</p>
       </li>
       <li>
         <Icon name="prototype" :fill="tokens.color_bleu_de_france.value" size="small" />
@@ -36,22 +36,13 @@
       <tbody>
         <tr v-for="(component, index) in components" :key="index" class="component">
           <td v-if="component.name">
-            <code class="name">
-              {{component.name}}
-            </code>
+            <code class="name">{{ component.name }}</code>
           </td>
           <td v-else>N/A</td>
-          <td v-if="component.release">
-            {{component.release}}
-          </td>
+          <td v-if="component.release">{{ component.release }}</td>
           <td v-else>N/A</td>
           <td v-if="component.status">
-            <Icon
-              v-if="component.status === 'ready'"
-              name="ready"
-              fill="#7cb518"
-              size="small"
-            />
+            <Icon v-if="component.status === 'ready'" name="ready" fill="#7cb518" size="small" />
             <Icon
               v-if="component.status === 'under-review' || component.status === 'review'"
               name="review"

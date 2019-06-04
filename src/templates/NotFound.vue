@@ -1,12 +1,18 @@
 <template>
   <component :is="type" class="lux-not-found">
-    <menu-bar active="NotFound" :menuItems="[
-      {name: 'Template', component: 'Index', href: '/#/'},
-      {name: 'Living Docs', href: 'http://localhost:6060/'}
-    ]"/>
+    <menu-bar
+      active="NotFound"
+      :menuItems="[
+        { name: 'Template', component: 'Index', href: '/#/' },
+        { name: 'Living Docs', href: 'http://localhost:6060/' },
+      ]"
+    />
     <wrapper>
       <heading level="h1">404 Error</heading>
-      <text-style>Couldn’t find a component or page that matches the URL you entered. Double check configuration in router/index.js.</text-style>
+      <text-style
+        >Couldn’t find a component or page that matches the URL you entered. Double check
+        configuration in router/index.js.</text-style
+      >
     </wrapper>
   </component>
 </template>
@@ -51,7 +57,11 @@ $color-template-link: $color-bleu-de-france;
   @include inset-space($space-base);
   min-height: $space-xx-large * 4;
   background: $color-template-background;
-  background: linear-gradient(0deg, $color-template-background-bottom, $color-template-background-top 100%);
+  background: linear-gradient(
+    0deg,
+    $color-template-background-bottom,
+    $color-template-background-top 100%
+  );
   text-align: center;
   position: relative;
   float: left;
