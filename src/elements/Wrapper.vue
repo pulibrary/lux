@@ -1,6 +1,8 @@
 <template>
-  <component :is="type"
-    :class="['lux-wrapper', { 'lux-full-width': fullWidth }]">
+  <component
+    :is="type"
+    :class="['lux-wrapper', { 'lux-full-width': fullWidth }, { 'lux-flex-container': flexContainer }]"
+  >
     <slot/>
   </component>
 </template>
@@ -30,13 +32,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * Determines whether the wrapper is a flexbox container.
+     */
+    flexContainer: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .lux-wrapper {
-  @include reset;
   margin: auto;
 
   // this overrides the full-width class rules making the OrderManager gallery
@@ -49,11 +57,16 @@ export default {
     width: 100%;
   }
 }
+
+.lux-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
 
 
 <docs>
   ```jsx
-  <wrapper type="div">Wrapper can be used to wrap any components together.</wrapper>
+  <wrapper>Wrapper can be used to wrap any components together.</wrapper>
   ```
 </docs>
