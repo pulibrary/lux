@@ -1,7 +1,7 @@
 <template>
   <article :id="id" @click.capture="select($event)" class="lux-card"
     :class="[
-      /* size, */
+      size,
       { 'lux-card-selected': selected },
       { 'lux-card-edited': edited },
       { 'lux-card-disabled': disabled }
@@ -39,16 +39,16 @@ export default {
      * Sets arbitrary card width. It's recommended to use size over this setting.
      */
     cardPixelWidth: {
-      default: 300,
+      default: "",
     },
     /**
-     * Sets the size of the card `small, medium, large`
+     * Sets the size of the card `small, medium, large, full-width`
      */
     size: {
       type: String,
       default: "medium",
       validator: value => {
-        return value.match(/(small|medium|large)/)
+        return value.match(/(small|medium|large|full-width)/)
       },
     },
     /**
@@ -142,12 +142,24 @@ export default {
   .lux-text-style {
     padding-bottom: 1rem;
   }
+
+  .lux-heading {
+    padding-top: $space-base;
+  }
+
+  .lux-media-image ~ .lux-heading {
+    padding-top: 0;
+  }
+}
+
+.full-width {
+  width: 100%;
 }
 </style>
 
 <docs>
   ```jsx
-  <card id="myCard">
+  <card id="a" size="full-width">
     <media-image src="https://picsum.photos/600/300/?random" height="medium" cover></media-image>
     <heading level="h2">Title</heading>
     <text-style variation="default">Design isn’t just about the look and feel. Design is how it works.</text-style>
