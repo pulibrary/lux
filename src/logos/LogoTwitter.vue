@@ -8,7 +8,7 @@
     role="presentation"
   >
     <title
-      :id="logo-twitter"
+      id="logo-twitter"
       lang="en"
     >Twitter Logo</title>
     <g>

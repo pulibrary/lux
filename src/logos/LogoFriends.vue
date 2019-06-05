@@ -8,7 +8,7 @@
     role="presentation"
   >
     <title
-      :id="logo-friends"
+      id="logo-friends"
       lang="en"
     >Friends of Princeton University Library</title>
     <g>
