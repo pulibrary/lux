@@ -33,13 +33,16 @@ module.exports = {
    */
   assetsDir: path.join(__dirname, "../src/assets"),
   /**
-   * Enabling the below option will break things in Vue Desing System!
+   * Enabling the below option will break things in Vue Design System!
    */
   skipComponentsWithoutExample: false,
   /**
    * We’re defining below JS and SCSS requires for the documentation.
    */
-  require: [path.join(__dirname, "../docs/docs.helper.js"), path.join(__dirname, "../docs/docs.styles.scss")],
+  require: [
+    path.join(__dirname, "../docs/docs.helper.js"),
+    path.join(__dirname, "../docs/docs.styles.scss"),
+  ],
   /**
    * Enabling the following option splits sections into separate views.
    */
@@ -202,6 +205,7 @@ module.exports = {
           use: [
             "style-loader",
             "css-loader",
+            "postcss-loader",
             "sass-loader",
             {
               loader: "sass-resources-loader",

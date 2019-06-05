@@ -1,19 +1,29 @@
 <template>
   <transition name="fade">
-    <div v-if="show"
-      :class="['lux-alert',
-              {'lux-alert-dismissible': dismissible},
-              { 'lux-alert-success': isSuccess },
-              { 'lux-alert-warning': isWarning },
-              { 'lux-alert-error': isError },
-              { 'lux-alert-info': isInfo },
-              { 'lux-alert-fullscreen': isFullScreen },]"
-              @click="hideAlert()"
-              role="alert">
+    <div
+      v-if="show"
+      :class="[
+        'lux-alert',
+        { 'lux-alert-dismissible': dismissible },
+        { 'lux-alert-success': isSuccess },
+        { 'lux-alert-warning': isWarning },
+        { 'lux-alert-error': isError },
+        { 'lux-alert-info': isInfo },
+        { 'lux-alert-fullscreen': isFullScreen },
+      ]"
+      @click="hideAlert()"
+      role="alert"
+    >
       <slot>
-      {{ alertMessage }}
+        {{ alertMessage }}
       </slot>
-      <button v-if="dismissible" type="button" class="lux-close" data-dismiss="alert" aria-label="Close">
+      <button
+        v-if="dismissible"
+        type="button"
+        class="lux-close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
         <span aria-hidden="true">×</span>
       </button>
     </div>
@@ -109,7 +119,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .lux-alert-fullscreen {
   position: fixed;
   top: 5vh;

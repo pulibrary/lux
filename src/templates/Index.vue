@@ -1,12 +1,21 @@
 <template>
   <component :is="type" class="lux-index">
-    <menu-bar type="links" active="Index" :menuItems="[
-      {name: 'Template', component: 'Index', href: '/#/'},
-      {name: 'Living Docs', href: 'http://localhost:6060/'}
-    ]"/>
+    <menu-bar
+      type="links"
+      active="Index"
+      :menuItems="[
+        { name: 'Template', component: 'Index', href: '/#/' },
+        { name: 'Living Docs', href: 'http://localhost:6060/' },
+      ]"
+    />
     <wrapper>
       <heading level="h1">LUX</heading>
-      <text-style>LUX (Library User Experience) is a set of organized tools, patterns, and practices that work as the foundation for PUL web and application development. It aims to increase consistency, improve accessibility, reduce design debt, and accelerate the design and development process. Overall, it aims to illuminate the Library for our users.</text-style>
+      <text-style
+        >LUX (Library User Experience) is a set of organized tools, patterns, and practices that
+        work as the foundation for PUL web and application development. It aims to increase
+        consistency, improve accessibility, reduce design debt, and accelerate the design and
+        development process. Overall, it aims to illuminate the Library for our users.</text-style
+      >
     </wrapper>
   </component>
 </template>
@@ -51,7 +60,11 @@ $color-template-link: $color-bleu-de-france;
   @include inset-space($space-base);
   min-height: $space-xx-large * 4;
   background: $color-template-background;
-  background: linear-gradient(0deg, $color-template-background-bottom, $color-template-background-top 100%);
+  background: linear-gradient(
+    0deg,
+    $color-template-background-bottom,
+    $color-template-background-top 100%
+  );
   text-align: center;
   position: relative;
   float: left;

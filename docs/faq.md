@@ -51,24 +51,20 @@ Icons are inside `src/assets/icons` directory, so you can just add any icons tha
 
 First, import tokens inside the component you want to use them in:
 
-```html
-<script>
-  import designTokens from "@/assets/tokens/tokens.raw.json"
-</script>
+```javascript
+import designTokens from "@/assets/tokens/tokens.raw.json"
 ```
 
 Then, pass the data:
 
-```html
-<script>
-  export default {
-    data() {
-      return {
-        tokens: designTokens.props,
-      }
-    },
-  }
-</script>
+```javascript
+export default {
+  data() {
+    return {
+      tokens: designTokens.props,
+    }
+  },
+}
 ```
 
 Once done, you can utilize tokens inside `<template>` like this:
