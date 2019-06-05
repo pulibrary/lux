@@ -7,7 +7,7 @@
     role="presentation"
   >
     <title
-      :id="logo-university"
+      id="logo-university"
       lang="en"
     >Princeton University Logo</title>
     <g>

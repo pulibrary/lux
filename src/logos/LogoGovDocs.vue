@@ -8,7 +8,7 @@
     role="presentation"
   >
     <title
-      :id="logo-gov-docs"
+      id="logo-gov-docs"
       lang="en"
     >Government Docs Logo</title>
     <g>

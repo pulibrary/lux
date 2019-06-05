@@ -76,7 +76,7 @@ export default {
       type: String,
       default: "info",
       validator: value => {
-        return value.match(/(info|warning|success|errror)/)
+        return value.match(/(info|warning|success|error)/)
       },
     },
     /**

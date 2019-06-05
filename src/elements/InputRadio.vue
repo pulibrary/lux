@@ -217,6 +217,6 @@ fieldset {
 
 <docs>
   ```jsx
-  <input-radio vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
+  <input-radio id="foo" vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
   ```
 </docs>

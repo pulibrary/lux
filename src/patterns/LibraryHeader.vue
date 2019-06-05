@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['lux-library-header ', variation]">
+  <component :is="type" :class="['lux-library-header']">
     <wrapper class="lux-header-content">
       <library-logo></library-logo>
       <a class="lux-app-name" :href="appUrl">{{appName}}</a>

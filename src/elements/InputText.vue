@@ -213,10 +213,10 @@ $color-placeholder: tint($color-grayscale, 50%);
 <docs>
   ```jsx
   <div>
-    <input-text label="Input" placeholder="Write your text" />
-    <input-text label=":hover" hover placeholder="Write your text" />
-    <input-text label=":focus" focus placeholder="Write your text" />
-    <input-text label="[disabled]" disabled placeholder="Disabled input" />
+    <input-text id="foo" label="Input" placeholder="Write your text" />
+    <input-text id="bar" label=":hover" hover placeholder="Write your text" />
+    <input-text id="fee" label=":focus" focus placeholder="Write your text" />
+    <input-text id="foe" label="[disabled]" disabled placeholder="Disabled input" />
   </div>
   ```
 </docs>
