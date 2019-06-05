@@ -11,11 +11,26 @@ Make sure you have the webpacker gem in your Gemfile:
 gem "webpacker", ">= 4.0.x"
 ```
 
+Then run:
+
+```cmd
+# Rails 5.1+
+bundle install
+```
+
 You will need to have Rails 5.1+, and make sure you have the `webpacker` gem in your Gemfile. Run:
 
 ```cmd
 # Rails 5.1+
 bundle exec rails webpacker:install
+```
+
+Note: you may need to install node/nvm and yarn
+
+```
+brew install nvm
+nvm install { latest node }
+brew install yarn
 ```
 
 #### Step 2
@@ -36,7 +51,8 @@ Verify that your `package.json` has the following dependencies (for minimal setu
 {
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "lux-design-system": "^0.0.24"
+    "lux-design-system": "^2.0.4",
+
   },
   "devDependencies": {
     "webpack-dev-server": "^3.1.10"
@@ -49,7 +65,7 @@ Verify that your `package.json` has the following dependencies (for minimal setu
 #### Step 4
 
 Install Vue and LUX:
-`yarn add lux-design-system`
+`yarn install`
 
 #### Step 5 (optional)
 
@@ -63,8 +79,11 @@ If you followed all the steps, verify that your `package.json` file has the foll
 ```javascript
 "dependencies": {
   "@rails/webpacker": "^3.3.1",
-  "lux-design-system": "^0.0.11",
-  "vuex": "^2.4.1"
+  "lux-design-system": "^2.0.4",
+  "vuex": "^2.4.1",
+  "vue": "^2.6.10",
+  "vue-loader": "^15.7.0",
+  "vue-template-compiler": "^2.6.10"
 },
 ```
 
@@ -83,7 +102,7 @@ import Vue from "vue/dist/vue.esm"
 import system from "lux-design-system"
 import "lux-design-system/dist/system/system.css"
 import "lux-design-system/dist/system/tokens/tokens.scss"
-import store from "../store"
+import store from "../store" // this is only if you are using vuex
 
 Vue.use(system)
 
@@ -93,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
   for (var i = 0; i < elements.length; i++) {
     new Vue({
       el: elements[i],
-      store,
+      store, // this is only if you're using vuex
     })
   }
 })
@@ -145,17 +164,19 @@ Next, go to your application.html.erb layout (or whatever you named your main la
 
 #### Step 10
 
-In the same file (application.html.erb), add the data-behavior attribute to the element you want to use LUX components in like this:
+In the same file (application.html.erb), add the class attribute to the element you want to use LUX components in. To look for lux components on any views wrap the yield statement in a div:
 
 ```html
-<div class="lux"></div>
+<div class="lux">
+
+</div>
 ```
 
 _Note: You cannot mount Vue apps on `<html>` or `<body>` elements._
 
 #### Step 11
 
-To run both Webpack and Rails servers with a single command, install the Foreman gem:
+To run both Webpack and Rails servers with a single command, install the Foreman gem (you can also add this to your Gemfile instead):
 
 ```cmd
  gem install foreman
@@ -176,6 +197,8 @@ frontend: bin/webpack-dev-server
 #### Step 13
 
 Run `foreman start`
+
+Note: you can also add foreman to your Gemfile, but you will need to run `bundle exec foreman start`.
 
 #### Step 14
 
