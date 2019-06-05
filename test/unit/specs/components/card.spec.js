@@ -34,6 +34,12 @@ describe("Card.vue", () => {
     expect(card.is(".lux-card-disabled")).toBe(true)
   })
 
+  it("should have the appropriate class when sized", () => {
+    wrapper.setProps({ size: "full-width" })
+    const card = wrapper.find(".lux-card")
+    expect(card.is(".full-width")).toBe(true)
+  })
+
   it("should emit a card-click event when select() is called", () => {
     wrapper.vm.select()
     const emitted = wrapper.emitted()
