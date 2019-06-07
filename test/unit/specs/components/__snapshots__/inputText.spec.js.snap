@@ -13,7 +13,7 @@ exports[`InputText.vue has the expected html structure 1`] = `
     placeholder=""
     type="text"
   />
-   
+    
   <!---->
 </div>
 `;

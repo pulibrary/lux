@@ -1,16 +1,12 @@
 <template>
   <v-date-picker mode="single" v-model="date">
-    <!-- :input-props="{ class: 'input', placeholder: 'Please enter your birthday' }" -->
     <input-text
       id="startDate"
       label="Start Date"
       width="auto"
-      slot-scope="{ inputValue, updateValue }"
-      :value="inputValue"
-      @change="updateValue(inputValue, { formatInput: true, hidePopover: false })"
-      @keyup="updateValue(inputValue, { formatInput: false, hidePopover: false })"
+      :value="!date ? '' : date.toLocaleDateString('en-US')"
+      @input="updateDateInput($event)"
     >
-      <button><logo-twitter /></button>
     </input-text>
   </v-date-picker>
 </template>
@@ -39,6 +35,18 @@ export default {
       date: null,
     }
   },
+  methods: {
+    updateDateInput(value) {
+      let d = value.split("/")
+      let newDate = new Date(d[2] + "-" + d[0] + "-" + d[1])
+      if (this.isValidDate(newDate)) {
+        this.date = newDate
+      }
+    },
+    isValidDate(d) {
+      return d instanceof Date && !isNaN(d)
+    },
+  },
 }
 </script>
 
@@ -51,11 +59,6 @@ export default {
 .lux-input label {
   display: inline-block;
   width: 100%;
-}
-
-.lux-input button {
-  border: 0;
-  background: transparent;
 }
 </style>
 
