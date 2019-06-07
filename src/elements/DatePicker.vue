@@ -1,12 +1,14 @@
 <template>
-  <v-date-picker v-model="date" :popover="popover">
+  <v-date-picker mode="single" v-model="date">
+    <!-- :input-props="{ class: 'input', placeholder: 'Please enter your birthday' }" -->
     <input-text
       id="startDate"
       label="Start Date"
       width="auto"
-      slot-scope="{ inputProps, inputEvents }"
-      v-bind="inputProps"
-      v-on="inputEvents"
+      slot-scope="{ inputValue, updateValue }"
+      :value="inputValue"
+      @change="updateValue(inputValue, { formatInput: true, hidePopover: false })"
+      @keyup="updateValue(inputValue, { formatInput: false, hidePopover: false })"
     >
       <button><logo-twitter /></button>
     </input-text>
@@ -22,7 +24,7 @@
 import Vue from "vue"
 import VCalendar from "v-calendar"
 import "v-calendar/lib/v-calendar.min.css"
-Vue.use(VCalendar)
+Vue.use(VCalendar, { popoverVisibility: "focus" })
 
 export default {
   name: "DatePicker",
@@ -34,17 +36,28 @@ export default {
   },
   data() {
     return {
-      date: new Date(),
-      popover: {
-        placement: "bottom",
-        visibility: "click",
-      },
+      date: null,
     }
   },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.lux-input {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lux-input label {
+  display: inline-block;
+  width: 100%;
+}
+
+.lux-input button {
+  border: 0;
+  background: transparent;
+}
+</style>
 
 <docs>
   ```jsx
