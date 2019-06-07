@@ -1,13 +1,25 @@
 <template>
   <component :is="element" :class="['lux-dropdown-menu']">
-    <input-button v-on:button-clicked="buttonClicked($event)" class="lux-dropdown-button" variation="dropdown">{{ buttonLabel }}</input-button>
-    <menu-bar v-bind:class="{ 'lux-show': isVisible }" v-on:menu-item-clicked="menuItemClicked($event)" :type="type" active="All" :menu-items="menuItems"/>
+    <input-button
+      v-on:button-clicked="buttonClicked($event)"
+      class="lux-dropdown-button"
+      variation="dropdown"
+      >{{ buttonLabel }}</input-button
+    >
+    <menu-bar
+      v-bind:class="{ 'lux-show': isVisible }"
+      v-on:menu-item-clicked="menuItemClicked($event)"
+      :type="type"
+      active="All"
+      :menu-items="menuItems"
+    />
   </component>
 </template>
 
 <script>
 /**
- * Dropdowns allows a user to select a value from a series of options.
+ * Dropdowns allows a user to select a value from a series of options. To make the menu-items
+ * Please note that full closing tags are required.
  */
 export default {
   name: "DropdownMenu",
@@ -36,6 +48,7 @@ export default {
     },
     /**
      * Whether the dropdown includes links or buttons as menu items
+     * `links, buttons`
      */
     type: {
       type: String,
@@ -52,8 +65,8 @@ export default {
       default: "div",
     },
     /**
-     * Style variation to give additional meaning.
-     * `default, disabled, active`
+     * Alignment of menu items (not currently working)
+     * `left, right`
      */
     align: {
       type: String,
@@ -177,6 +190,6 @@ export default {
     {name: 'None', component: 'None'},
     {name: 'Alternate', component: 'Alternate', disabled: true},
     {name: 'Inverse', component: 'Inverse'}
-  ]"/>
+  ]"></dropdown-menu>
   ```
 </docs>

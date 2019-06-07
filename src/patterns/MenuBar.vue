@@ -5,11 +5,10 @@
         <a
           :key="index"
           :href="item.href"
-          :class="[
-            'lux-nav-item',
-            {'lux-active': localActive === item.component}]"
+          :class="['lux-nav-item', { 'lux-active': localActive === item.component }]"
           v-html="item.name"
-          @click="menuItemClicked($event)">
+          @click="menuItemClicked($event)"
+        >
         </a>
       </li>
     </ul>
@@ -23,12 +22,13 @@
           :href="item.href"
           :class="[
             'lux-menu-item',
-            {'lux-active': localActive === item.component},
-            {'lux-disabled': item.disabled}]"
+            { 'lux-active': localActive === item.component },
+            { 'lux-disabled': item.disabled },
+          ]"
           v-html="item.name"
           :disabled="item.disabled"
-          @click="menuItemClicked($event, item)">
-        </button>
+          @click="menuItemClicked($event, item)"
+        ></button>
       </li>
     </ul>
   </div>
@@ -48,7 +48,9 @@ export default {
   },
   props: {
     /**
-     * The html element types used for the nav bar.
+     * The html element types used for the nav bar. Passing 'href' in menuItems
+     * will only work if type = "links".
+     * `links, buttons`
      */
     type: {
       type: String,
