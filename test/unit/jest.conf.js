@@ -6,6 +6,7 @@ module.exports = {
   moduleFileExtensions: ["js", "json", "vue"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
+    "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
   },
   transform: {
     "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
