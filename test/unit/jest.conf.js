@@ -6,10 +6,12 @@ module.exports = {
   moduleFileExtensions: ["js", "json", "vue"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
+    "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
   },
   transform: {
     "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
     ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+    ".+\\.(css|styl|less|sass|scss|png|jpg|svg|ttf|woff|woff2)$": "jest-transform-stub",
   },
   snapshotSerializers: ["<rootDir>/node_modules/jest-serializer-vue"],
   setupFiles: ["<rootDir>/test/unit/setup"],

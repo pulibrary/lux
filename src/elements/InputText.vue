@@ -10,11 +10,16 @@
       :value="value"
       :placeholder="placeholder"
       :errormessage="errormessage"
-      :class="['lux-input', { 'lux-input-error': hasError }, {'lux-input-expand': width === 'expand'}]"
+      :class="[
+        'lux-input',
+        { 'lux-input-error': hasError },
+        { 'lux-input-expand': width === 'expand' },
+      ]"
       v-on:input="$emit('input', $event.target.value)"
       @blur="inputblur($event.target)"
-      />
-      <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
+    />
+    <slot />
+    <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
   </component>
 </template>
 
@@ -176,7 +181,8 @@ $color-placeholder: tint($color-grayscale, 50%);
     color: set-text-color($color-rich-black, $color-white);
     margin: 0;
     border: 0;
-    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+      0 0 0 1px tint($color-rich-black, 80%);
     &::-webkit-input-placeholder {
       -webkit-font-smoothing: antialiased;
       color: $color-placeholder;
@@ -200,7 +206,8 @@ $color-placeholder: tint($color-grayscale, 50%);
       outline: 0;
     }
     &[disabled] {
-      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+        0 0 0 1px tint($color-rich-black, 80%);
       background: lighten($color-placeholder, 42%);
       cursor: not-allowed;
       opacity: 0.5;
@@ -208,7 +215,6 @@ $color-placeholder: tint($color-grayscale, 50%);
   }
 }
 </style>
-
 
 <docs>
   ```jsx

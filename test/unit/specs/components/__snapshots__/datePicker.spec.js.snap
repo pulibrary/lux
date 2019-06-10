@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker.vue has the expected html structure 1`] = `
+<div
+  class="popover-container"
+  data-v-1ad2436f=""
+  tabindex="-1"
+>
+  <!---->
+   
+  <input-text-stub
+    data-v-1ad2436f=""
+    id="startDate"
+    label="Start Date"
+    value=""
+    width="auto"
+  />
+</div>
+`;
