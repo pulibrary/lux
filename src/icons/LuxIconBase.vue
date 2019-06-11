@@ -1,17 +1,19 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    :width="width"
-    :height="height"
-    viewBox="0 0 24 24"
-    :aria-labelledby="iconName"
-    role="img"
-  >
-    <title :id="iconName" lang="en">{{ iconName }} icon</title>
-    <g :fill="iconColor">
-      <slot />
-    </g>
-  </svg>
+  <div class="lux-icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      :width="width"
+      :height="height"
+      viewBox="0 0 24 24"
+      :aria-labelledby="iconName"
+      role="img"
+    >
+      <title v-if="iconName" :id="iconName" lang="en">{{ iconName }}</title>
+      <g :fill="iconColor">
+        <slot></slot>
+      </g>
+    </svg>
+  </div>
 </template>
 
 <script>
@@ -64,9 +66,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.svg-icon {
+.lux-icon {
   display: inline-flex;
   align-self: center;
+  margin: 0 $space-xx-small;
 
   svg {
     top: 0.125em;
