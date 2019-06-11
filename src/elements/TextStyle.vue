@@ -1,6 +1,6 @@
 <template>
   <component :is="type" :class="['lux-text-style ', variation]">
-    <slot/>
+    <slot />
   </component>
 </template>
 
@@ -31,7 +31,7 @@ export default {
       type: String,
       default: "default",
       validator: value => {
-        return value.match(/(default|disabled|strong|emphasis|positive|negative)/)
+        return value.match(/(default|disabled|strong|emphasis|positive|negative|small|uppercase)/)
       },
     },
   },
@@ -69,9 +69,14 @@ $positive-text: #7cb518;
   &.negative {
     color: $color-red;
   }
+  &.small {
+    font-size: $font-size-small;
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
 }
 </style>
-
 
 <docs>
   ```jsx
