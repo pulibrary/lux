@@ -2,8 +2,8 @@
   <wrapper>
     <v-date-picker v-if="mode === 'single'" mode="single" v-model="date">
       <input-text
-        id="startDate"
-        label="Start Date"
+        :id="id"
+        :label="label"
         width="auto"
         :value="!date ? '' : date.toLocaleDateString('en-US')"
         @input="updateDateInput($event)"
@@ -12,8 +12,8 @@
     </v-date-picker>
     <v-date-picker v-if="mode === 'range'" mode="range" v-model="range">
       <input-text
-        id="dateRange"
-        label="Date Range"
+        :id="id"
+        :label="label"
         width="auto"
         :value="!range ? '' : this.formatStart() + ' - ' + this.formatEnd()"
         @input="updateRangeInput($event)"
@@ -59,6 +59,21 @@ export default {
         return value.match(/(single|range)/)
       },
     },
+    /**
+     * The label of the form input field.
+     */
+    label: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Unique identifier of the form input field.
+     */
+    id: {
+      type: String,
+      default: "",
+      required: true,
+    },
   },
   methods: {
     formatEnd() {
@@ -72,8 +87,11 @@ export default {
       }
     },
     parseDate(value) {
-      let d = value.split("/")
-      return new Date(d[2] + "-" + d[0] + "-" + d[1])
+      // expects value string in MM/DD/YYYY format
+      if (value.includes("/")) {
+        let d = value.split("/")
+        return new Date(d[2] + "-" + d[0] + "-" + d[1])
+      }
     },
     updateDateInput(value) {
       let d = this.parseDate(value)
@@ -82,16 +100,19 @@ export default {
       }
     },
     updateRangeInput(value) {
-      let r = value.split(" - ")
-      let s = this.parseDate(r[0])
-      let e = this.parseDate(r[1])
-      if (this.isValidDate(s) && this.isValidDate(e)) {
-        this.range.start = s
-        this.range.end = e
+      if (value.includes(" - ")) {
+        let r = value.split(" - ")
+        let s = this.parseDate(r[0])
+        let e = this.parseDate(r[1])
+        if (this.isValidDate(s) && this.isValidDate(e)) {
+          this.range.start = s
+          this.range.end = e
+          console.log(this.range.start + " - " + this.range.end)
+        }
       }
     },
     isValidDate(d) {
-      // expects date in MM/DD/YYYY format
+      // expects valid JS date object
       return d instanceof Date && !isNaN(d)
     },
   },
@@ -113,7 +134,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker />
+    <date-picker id="startDate" label="Start Date" mode="range" />
   </div>
   ```
 </docs>
