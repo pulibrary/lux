@@ -2,6 +2,7 @@
   <component :is="wrapper" class="lux-input">
     <label v-if="label">{{ label }}</label>
     <input
+      v-if="type !== 'textarea'"
       :id="id"
       :disabled="disabled"
       :type="type"
@@ -18,8 +19,29 @@
       v-on:input="$emit('input', $event.target.value)"
       @blur="inputblur($event.target)"
     />
-    <slot />
+
+    <textarea
+      v-else
+      :id="id"
+      :disabled="disabled"
+      :rows="rows"
+      :maxlength="maxlength"
+      :hover="hover"
+      :focus="focus"
+      :value="value"
+      :placeholder="placeholder"
+      :errormessage="errormessage"
+      :class="[
+        'lux-input',
+        { 'lux-input-error': hasError },
+        { 'lux-input-expand': width === 'expand' },
+      ]"
+      v-on:input="$emit('input', $event.target.value)"
+      @blur="inputblur($event.target)"
+    />
+
     <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
+    <div class="lux-helper" v-if="helper">{{ helper }}</div>
   </component>
 </template>
 
@@ -48,7 +70,7 @@ export default {
       type: String,
       default: "text",
       validator: value => {
-        return value.match(/(text|number|email)/)
+        return value.match(/(text|number|email|textarea)/)
       },
     },
     /**
@@ -76,6 +98,13 @@ export default {
      * The validation message a user should get.
      */
     errormessage: {
+      type: String,
+      default: "",
+    },
+    /**
+     * The helper text a user should get.
+     */
+    helper: {
       type: String,
       default: "",
     },
@@ -108,6 +137,20 @@ export default {
       validator: value => {
         return value.match(/(auto|expand)/)
       },
+    },
+    /**
+     * The number of visible text lines for textarea.
+     */
+    rows: {
+      type: String,
+      default: "5",
+    },
+    /**
+     * The maximum number of characters that the user can enter in textarea.
+     */
+    maxlength: {
+      type: String,
+      default: "",
     },
     /**
      * Whether the form input field is disabled or not.
@@ -158,18 +201,25 @@ $color-placeholder: tint($color-grayscale, 50%);
   }
   label {
     display: block;
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     color: tint($color-rich-black, 20%);
     @include stack-space($space-x-small);
   }
   .lux-error {
     margin-top: $space-x-small;
+    font-size: $font-size-small;
     color: $color-red;
   }
   .lux-input-error {
     border: 1px solid $color-red;
   }
-  input {
+  .lux-helper {
+    margin-top: $space-x-small;
+    font-size: $font-size-small;
+    color: $color-grayscale-dark;
+  }
+  input,
+  textarea {
     @include reset;
     @include inset-squish-space($space-small);
     transition: all 0.2s ease;
@@ -219,10 +269,11 @@ $color-placeholder: tint($color-grayscale, 50%);
 <docs>
   ```jsx
   <div>
-    <input-text id="foo" label="Input" placeholder="Write your text"></input-text>
+    <input-text id="foo" label="Input" placeholder="Write your text" helper="This is helper text to help the user fill out this field"></input-text>
     <input-text id="bar" label=":hover" hover placeholder="Write your text"></input-text>
     <input-text id="fee" label=":focus" focus placeholder="Write your text"></input-text>
     <input-text id="foe" label="[disabled]" disabled placeholder="Disabled input"></input-text>
+    <input-text id="foe" label="Textarea" type="textarea" maxlength="144" rows="3"></input-text>
   </div>
   ```
 </docs>
