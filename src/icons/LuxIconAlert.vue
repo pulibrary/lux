@@ -50,7 +50,7 @@
  * To add additional icons, please consult [the instructions](/#/Adding%20Icons).
  */
 export default {
-  name: "LuxIconExclaimation",
+  name: "LuxIconAlert",
   status: "ready",
   release: "1.0.0",
   type: "Element",
@@ -64,17 +64,17 @@ export default {
   <lux-icon-base
     width="12"
     height="12"
-    icon-name="exclaimation"
-  ><lux-icon-exclaimation /></lux-icon-base>
+    icon-name="alert"
+  ><lux-icon-alert /></lux-icon-base>
   <!-- or you can use the default, which is 18 -->
-  <lux-icon-base icon-name="exclaimation"><lux-icon-exclaimation /></lux-icon-base>
+  <lux-icon-base icon-name="alert"><lux-icon-alert /></lux-icon-base>
   <!-- or make it a little bigger too, with colors :) -->
   <lux-icon-base
     width="30"
     height="30"
-    icon-name="exclaimation"
+    icon-name="alert"
     icon-color="rgb(44, 110, 175)"
-  ><lux-icon-exclaimation /></lux-icon-base>
+  ><lux-icon-alert /></lux-icon-base>
   </div>
   ```
 </docs>
