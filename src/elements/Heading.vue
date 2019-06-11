@@ -1,6 +1,6 @@
 <template>
-  <component :is="level" class="lux-heading" :class="{'lux-hidden': hidden}">
-    <slot/>
+  <component :is="level" class="lux-heading" :class="[{ 'lux-hidden': hidden }, size]">
+    <slot />
   </component>
 </template>
 
@@ -28,6 +28,17 @@ export default {
       },
     },
     /**
+     * The heading level used for the heading.
+     * `h1, h2, h3, h4, h5, h6`
+     */
+    size: {
+      type: String,
+      default: "h1",
+      validator: value => {
+        return value.match(/(h1|h2|h3|h4|h5|h6)/)
+      },
+    },
+    /**
      * Whether the heading is visually hidden or not.
      * `true, false`
      */
@@ -39,7 +50,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .lux-heading {
   @include reset;
   @include stack-space($space-base);
@@ -52,34 +63,44 @@ export default {
   @include visually-hidden;
 }
 
-h1 {
-  @include responsive-font(3vw, $font-size-xxx-large-min, $font-size-xxx-large-max, $font-size-xxx-large);
+.h1 {
+  @include responsive-font(
+    3vw,
+    $font-size-xxx-large-min,
+    $font-size-xxx-large-max,
+    $font-size-xxx-large
+  );
   letter-spacing: $letter-spacing-x-small;
   font-weight: $font-weight-bold;
 }
 
-h2 {
-  @include responsive-font(2.5vw, $font-size-xx-large-min, $font-size-xx-large-max, $font-size-xx-large);
+.h2 {
+  @include responsive-font(
+    2.5vw,
+    $font-size-xx-large-min,
+    $font-size-xx-large-max,
+    $font-size-xx-large
+  );
   letter-spacing: $letter-spacing-small;
   font-weight: $font-weight-bold;
 }
 
-h3 {
+.h3 {
   @include responsive-font(2vw, $font-size-x-large-min, $font-size-x-large-max, $font-size-x-large);
   font-weight: $font-weight-bold;
 }
 
-h4 {
+.h4 {
   @include responsive-font(1.5vw, $font-size-large-min, $font-size-large-max, $font-size-large);
   font-weight: $font-weight-semi-bold;
 }
 
-h5 {
+.h5 {
   @include responsive-font(1vw, $font-size-base-min, $font-size-base-max, $font-size-base);
   font-weight: $font-weight-regular;
 }
 
-h6 {
+.h6 {
   font-size: $font-size-small;
   font-weight: $font-weight-regular;
 }
