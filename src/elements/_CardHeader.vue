@@ -46,7 +46,7 @@ export default {
 <docs>
   ```jsx
   <card-header>
-    <heading level="h2">Title</heading>
+    <heading level="h2" size="h3">Title</heading>
     <text-style>Secondary title</text-style>
   </card-header>
   ```

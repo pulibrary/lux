@@ -25,6 +25,13 @@ describe("Heading.vue", () => {
     expect(heading3.text()).toBe("Here's a heading.")
   })
 
+  it("should render the appropriate class name", () => {
+    wrapper.setProps({ level: "h3", size: "h2" })
+    const heading3 = wrapper.find("h3")
+    expect(heading3.is("h3")).toBe(true)
+    expect(heading3.is(".h2"))
+  })
+
   it("should display the slotted text", () => {
     wrapper.setProps({ level: "h2" })
     const heading2 = wrapper.find("h2")

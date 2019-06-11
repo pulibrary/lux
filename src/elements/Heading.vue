@@ -28,7 +28,7 @@ export default {
       },
     },
     /**
-     * The heading level used for the heading.
+     * The size of the heading.
      * `h1, h2, h3, h4, h5, h6`
      */
     size: {
@@ -110,9 +110,9 @@ export default {
   ```jsx
   <div>
     <heading level="h1" hidden>The quick brown fox</heading>
-    <heading level="h2">The quick brown fox</heading>
-    <heading level="h3">The quick brown fox</heading>
-    <heading level="h4">The quick brown fox</heading>
+    <heading level="h2" size="h1">The quick brown fox</heading>
+    <heading level="h3" size="h3">The quick brown fox</heading>
+    <heading level="h4" size="h5">The quick brown fox</heading>
   </div>
   ```
 
@@ -120,16 +120,16 @@ export default {
   <div class="dos-n-donts">
     <div class="do">
       <div class="do-dont-example">
-        <heading level="h1">Do this.</heading>
-        <heading level="h2">Do this.</heading>
+        <heading level="h1">This is an h1</heading>
+        <heading level="h2" size="h2">This is an h2</heading>
       </div>
-      <p>Nest headings appropriately by level.</p>
+      <p>Nest headings appropriately by level. You can pick the desired font size with the size prop.</p>
     </div>
 
     <div class="dont">
       <div class="do-dont-example">
-        <heading level="h2">Don't do this.</heading>
-        <heading level="h1">Don't do this.</heading>
+        <heading level="h2" size="h2">This is an h2</heading>
+        <heading level="h1">This is an h1</heading>
       </div>
       <p>If you nest headings out of order or skip levels, the lack of organization of content on the page will confuse users.</p>
     </div>

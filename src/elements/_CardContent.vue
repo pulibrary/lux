@@ -41,8 +41,6 @@ export default {
     <text-style type="span" variation="small"><lux-icon-base
       width="18"
       height="18"
-      icon-name="thumbs-up"
-      icon-color="rgb(44, 110, 175)"
     ><lux-icon-thumbs-up /></lux-icon-base>Approved</text-style>
   </card-content>
   ```
