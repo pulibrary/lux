@@ -88,6 +88,6 @@ $color-template-link: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <not-found />
+  <not-found></not-found>
   ```
 </docs>

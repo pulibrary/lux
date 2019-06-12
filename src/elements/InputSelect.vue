@@ -3,21 +3,27 @@
     <label v-if="label" :for="id">{{ label }}</label>
     <select
       :id="id"
-      :class="['lux-select', { 'lux-select-error': hasError }, {'lux-select-expand': width === 'expand'}]"
+      :class="[
+        'lux-select',
+        { 'lux-select-error': hasError },
+        { 'lux-select-expand': width === 'expand' },
+      ]"
       :disabled="disabled"
       :focus="focus"
       :multiple="multiple"
       :errormessage="errormessage"
       :value="value"
       @change="change($event)"
-      @blur="inputblur($event.target)">
-        <option
-          v-for="(option, index) in options"
-          :key="index"
-          :value="option.value"
-          :disabled="option.disabled">
-          {{ option.label }}
-        </option>
+      @blur="inputblur($event.target)"
+    >
+      <option
+        v-for="(option, index) in options"
+        :key="index"
+        :value="option.value"
+        :disabled="option.disabled"
+      >
+        {{ option.label }}
+      </option>
     </select>
     <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
   </component>
@@ -193,7 +199,8 @@ $color-placeholder: tint($color-grayscale, 50%);
     margin: 0;
     border: 0;
     cursor: pointer;
-    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+      0 0 0 1px tint($color-rich-black, 80%);
 
     &:hover,
     &[hover] {
@@ -205,7 +212,8 @@ $color-placeholder: tint($color-grayscale, 50%);
       box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
     }
     &[disabled] {
-      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+        0 0 0 1px tint($color-rich-black, 80%);
       background: lighten($color-placeholder, 42%);
       cursor: not-allowed;
       opacity: 0.5;
@@ -214,9 +222,10 @@ $color-placeholder: tint($color-grayscale, 50%);
 }
 </style>
 
-
 <docs>
   ```jsx
-  <input-select label="Select..." id="myChoice" value="bar" :options="[{label: 'opt 1', value: 'foo'}, {label: 'opt 2', value: 'bar'}]"></input-select>
+  <div>
+    <input-select label="Select..." id="myChoice" value="bar" :options="[{label: 'opt 1', value: 'foo'}, {label: 'opt 2', value: 'bar'}]"></input-select>
+  </div>
   ```
 </docs>

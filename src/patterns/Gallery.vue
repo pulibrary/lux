@@ -1,6 +1,7 @@
 <template>
   <draggable class="lux-gallery" v-model="items" tag="div" @click.native="deselect($event)">
-    <card v-for="(item, index) in items"
+    <card
+      v-for="(item, index) in items"
       :id="item.id"
       :key="item.id"
       class="lux-galleryCard"
@@ -9,7 +10,8 @@
       :selected="isSelected(item)"
       :disabled="isDisabled(item)"
       :edited="hasChanged(item.id)"
-      @card-click="select(item.id, $event)">
+      @card-click="select(item.id, $event)"
+    >
       <media-image :src="item.mediaUrl"></media-image>
       <heading level="h2">{{ item.title }}</heading>
       <text-style variation="default">{{ item.caption }}</text-style>
@@ -63,7 +65,10 @@ export default {
   },
   methods: {
     deselect: function(event) {
-      if (event.target.className === "lux-gallery" || event.target.className === "lux-gallery lux-galleryWrapper") {
+      if (
+        event.target.className === "lux-gallery" ||
+        event.target.className === "lux-gallery lux-galleryWrapper"
+      ) {
         this.selectNone()
       }
     },
@@ -161,11 +166,13 @@ export default {
 }
 </style>
 <docs>
-```js
+  ```jsx
+  <div>
     <gallery :gallery-items='[
       {"id":"8ffd7a03-ec0e-46c1-a347-e4b19cb7839f","title":"example.tif","caption":"FileSet : 8ffd7a03-ec0e-46c1-a347-e4b19cb7839f","mediaUrl":"https://picsum.photos/600/300/?random"},
       {"id":"8f0a0908-317f-414e-a78a-c38a4a3b28e3","title":"example.tif","caption":"FileSet : 8f0a0908-317f-414e-a78a-c38a4a3b28e3","mediaUrl":"https://picsum.photos/600/300/?random"},
       {"id":"ea01019e-f644-4416-b99c-1b44bf49d060","title":"example.tif","caption":"FileSet : ea01019e-f644-4416-b99c-1b44bf49d060","mediaUrl":"https://picsum.photos/600/300/?random"}
-      ]'></gallery>
-```
+    ]'></gallery>
+  </div>
+  ```
 </docs>

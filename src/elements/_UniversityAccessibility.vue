@@ -46,9 +46,10 @@ export default {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <university-accessibility type="span"></university-accessibility>
+  <div>
+    <university-accessibility type="span"></university-accessibility>
+  </div>
   ```
 </docs>

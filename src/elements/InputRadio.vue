@@ -2,14 +2,16 @@
   <component :is="wrapper" class="lux-input">
     <legend v-if="groupLabel">{{ groupLabel }}</legend>
     <div v-for="(option, index) in options" class="lux-radio" :class="{ 'lux-inline': !vertical }">
-      <input type="radio"
-      :id="option.id"
-      :name="option.name"
-      :value="option.value"
-      :checked="option.checked"
-      :disabled="option.disabled"
-      @change="change($event.target.value)"
-      @blur="inputblur($event.target)">
+      <input
+        type="radio"
+        :id="option.id"
+        :name="option.name"
+        :value="option.value"
+        :checked="option.checked"
+        :disabled="option.disabled"
+        @change="change($event.target.value)"
+        @blur="inputblur($event.target)"
+      />
       <label v-if="option.label" :for="option.id">{{ option.label }}</label>
       <label v-else :for="option.id">{{ option.value }}</label>
     </div>
@@ -214,9 +216,10 @@ fieldset {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <input-radio id="foo" vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
+  <div>
+    <input-radio id="foo" vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
+  </div>
   ```
 </docs>

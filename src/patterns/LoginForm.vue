@@ -1,13 +1,32 @@
 <template>
   <form id="app" novalidate="true">
-    <alert v-if="alert" type="alert" :status="alertStatus" :autoclear=true>{{ alertMessage }}</alert>
-    <input-text id="email" :errormessage="errormessageEmail" :value="emailValue" label="Email" @inputblur="validate($event)" placeholder="Write your text" />
-    <input-text id="pwd" :errormessage="errormessagePwd" :value="pwdValue" label="Password" @inputblur="validate($event)" placeholder="Write your text" />
-    <input-button v-on:system-alert="showAlert($event)"
-      :customAlertEvent="{ 'alertStatus': 'success', 'alertMessage': 'Successfully logged in!'}"
+    <alert v-if="alert" type="alert" :status="alertStatus" :autoclear="true">{{
+      alertMessage
+    }}</alert>
+    <input-text
+      id="email"
+      :errormessage="errormessageEmail"
+      :value="emailValue"
+      label="Email"
+      @inputblur="validate($event)"
+      placeholder="Write your text"
+    />
+    <input-text
+      id="pwd"
+      :errormessage="errormessagePwd"
+      :value="pwdValue"
+      label="Password"
+      @inputblur="validate($event)"
+      placeholder="Write your text"
+    />
+    <input-button
+      v-on:system-alert="showAlert($event)"
+      :customAlertEvent="{ alertStatus: 'success', alertMessage: 'Successfully logged in!' }"
       type="button"
-      variation="solid" block>
-        Login
+      variation="solid"
+      block
+    >
+      Login
     </input-button>
   </form>
 </template>
@@ -67,11 +86,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
 
 <docs>
   ```jsx
-  <login-form></login-form>
+  <div>
+    <login-form></login-form>
+  </div>
   ```
 </docs>

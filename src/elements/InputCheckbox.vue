@@ -2,14 +2,16 @@
   <component :is="wrapper" class="lux-input">
     <legend v-if="groupLabel">{{ groupLabel }}</legend>
     <div v-for="(option, index) in options" :class="['lux-checkbox', { 'lux-inline': !vertical }]">
-      <input type="checkbox"
-      :id="option.id"
-      :name="label"
-      :value="option.value"
-      :checked="option.checked"
-      :disabled="option.disabled"
-      @change="change($event)"
-      @blur="inputblur($event.target)">
+      <input
+        type="checkbox"
+        :id="option.id"
+        :name="label"
+        :value="option.value"
+        :checked="option.checked"
+        :disabled="option.disabled"
+        @change="change($event)"
+        @blur="inputblur($event.target)"
+      />
       <label v-if="option.label" :for="option.id">{{ option.label }}</label>
       <label v-else :for="option.id">{{ option.value }}</label>
     </div>
@@ -141,7 +143,8 @@ fieldset {
 .lux-checkbox input[type="checkbox"] {
   @include visually-hidden;
   &:focus {
-    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+      0 0 0 1px tint($color-rich-black, 80%);
   }
 }
 
@@ -229,9 +232,10 @@ fieldset {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <input-checkbox groupLabel="Where is my mind?" :options="[{name: 'opt 1', value: 'In the clouds', id: 'checkbox-opt1', checked: true}, {name: 'opt 2', value: 'I don\'t know', id: 'checkbox-opt2'}]"></input-checkbox>
+  <div>
+    <input-checkbox groupLabel="Where is my mind?" :options="[{name: 'opt 1', value: 'In the clouds', id: 'checkbox-opt1', checked: true}, {name: 'opt 2', value: 'I don\'t know', id: 'checkbox-opt2'}]"></input-checkbox>
+  </div>
   ```
 </docs>

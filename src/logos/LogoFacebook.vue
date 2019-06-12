@@ -20,9 +20,7 @@
 
 <script>
 /**
- * Icons are used to visually communicate core parts of the product and
- * available actions. Please be aware that all elements must have closing tags (not "self-closing").
- * To add additional icons, please consult [the instructions](/#/Adding%20Icons).
+ * Facebook logo for social media sharing purposes.
  */
 export default {
   name: "LogoFacebook",
@@ -48,13 +46,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
 
 <docs>
   ```jsx
   <div>
-    <logo-facebook />
+    <logo-facebook></logo-facebook>
   </div>
   ```
 </docs>

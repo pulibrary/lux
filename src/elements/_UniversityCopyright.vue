@@ -37,9 +37,10 @@ export default {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <university-copyright type="span"></university-copyright>
+  <div>
+    <university-copyright type="span"></university-copyright>
+  </div>
   ```
 </docs>

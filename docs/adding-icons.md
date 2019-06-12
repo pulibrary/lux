@@ -22,9 +22,8 @@ _Note: We recommend importing this directory (and any other sets) into [IconJar]
 
 ### Example usage:
 
-```
-<lux-icon-base
-  width="30"
-  height="30"
-  icon-name="file"><lux-icon-file /></lux-icon-base>
+```jsx
+<lux-icon-base width="30" height="30" icon-name="file">
+  <lux-icon-file />
+</lux-icon-base>
 ```

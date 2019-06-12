@@ -185,11 +185,13 @@ export default {
 
 <docs>
   ```jsx
-  <dropdown-menu button-label="Select Options" :menu-items="[
-    {name: 'All', component: 'All'},
-    {name: 'None', component: 'None'},
-    {name: 'Alternate', component: 'Alternate', disabled: true},
-    {name: 'Inverse', component: 'Inverse'}
-  ]"></dropdown-menu>
+  <div>
+    <dropdown-menu button-label="Select Options" :menu-items="[
+      {name: 'All', component: 'All'},
+      {name: 'None', component: 'None'},
+      {name: 'Alternate', component: 'Alternate', disabled: true},
+      {name: 'Inverse', component: 'Inverse'}
+    ]"></dropdown-menu>
+  </div>
   ```
 </docs>

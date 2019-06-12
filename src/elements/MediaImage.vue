@@ -1,12 +1,15 @@
 <template>
-  <div class="lux-media-image" :class="[height, {'lux-default-thumbnail': !source}]">
-    <img v-if="source" @error="source = null" :src="source" :alt="alt" :class="[{'lux-cover': cover}, {'lux-contain': contain}]">
-    <lux-icon-base v-else
-      width="50"
-      height="50"
-      icon-name="file"
-      icon-color="rgb(225,225,225)"
-    ><lux-icon-file /></lux-icon-base>
+  <div class="lux-media-image" :class="[height, { 'lux-default-thumbnail': !source }]">
+    <img
+      v-if="source"
+      @error="source = null"
+      :src="source"
+      :alt="alt"
+      :class="[{ 'lux-cover': cover }, { 'lux-contain': contain }]"
+    />
+    <lux-icon-base v-else width="50" height="50" icon-name="file" icon-color="rgb(225,225,225)"
+      ><lux-icon-file
+    /></lux-icon-base>
   </div>
 </template>
 
@@ -136,6 +139,8 @@ export default {
 
 <docs>
   ```jsx
-  <media-image src="https://picsum.photos/400/300/?random" height="medium"></media-image>
+  <div>
+    <media-image src="https://picsum.photos/400/300/?random" height="medium"></media-image>
+  </div>
   ```
 </docs>

@@ -38,9 +38,10 @@ export default {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <library-logo></library-logo>
+  <div>
+    <library-logo></library-logo>
+  </div>
   ```
 </docs>

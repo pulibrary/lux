@@ -134,7 +134,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="startDate" label="Start Date" mode="range" />
+    <date-picker id="startDate" label="Start Date" mode="range"></date-picker>
   </div>
   ```
 </docs>

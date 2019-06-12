@@ -176,6 +176,8 @@ export default {
 
 <docs>
   ```jsx
-  <library-footer></library-footer>
+  <div>
+    <library-footer></library-footer>
+  </div>
   ```
 </docs>

@@ -1,6 +1,6 @@
 <template>
   <component :is="type" class="lux-spacer">
-    <slot/>
+    <slot />
   </component>
 </template>
 
@@ -32,9 +32,10 @@ export default {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <spacer></spacer>
+  <div>
+    <spacer></spacer>
+  </div>
   ```
 </docs>
