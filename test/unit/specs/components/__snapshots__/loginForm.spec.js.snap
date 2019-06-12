@@ -30,7 +30,7 @@ exports[`LoginForm.vue has the expected html structure 1`] = `
     variation="solid"
   >
     
-      Login
+    Login
   
   </input-button-stub>
 </form>

@@ -5,7 +5,7 @@ jest.mock("@/utils/icon-loader", () => {
   )
 })
 import { createLocalVue, mount } from "@vue/test-utils"
-import SvgIcon from "@/elements/SvgIcon.vue"
+import SvgIcon from "@/elements/_SvgIcon.vue"
 
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
