@@ -99,6 +99,6 @@ $color-template-link: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <index />
+  <index></index>
   ```
 </docs>

@@ -81,10 +81,9 @@ export default {
 <docs>
   ```jsx
   <div>
-  <lux-icon-base
-    width="30"
-    height="30"
-    icon-name="file"><lux-icon-file /></lux-icon-base>
+    <lux-icon-base width="30" height="30" icon-name="file">
+      <lux-icon-file></lux-icon-file>
+    </lux-icon-base>
   </div>
   ```
 </docs>

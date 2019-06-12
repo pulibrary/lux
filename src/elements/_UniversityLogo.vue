@@ -1,6 +1,13 @@
 <template>
   <component :is="type" class="lux-university-logo">
-    <a href="https://princeton.edu"><svg-icon name="logo-university" ariaLabel="Princeton University" width="142px" height="40px"></svg-icon></a>
+    <a href="https://princeton.edu"
+      ><svg-icon
+        name="logo-university"
+        ariaLabel="Princeton University"
+        width="142px"
+        height="40px"
+      ></svg-icon
+    ></a>
   </component>
 </template>
 
@@ -37,9 +44,10 @@ export default {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <university-logo type="div"></university-logo>
+  <div>
+    <university-logo type="div"></university-logo>
+  </div>
   ```
 </docs>

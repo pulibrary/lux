@@ -37,11 +37,14 @@ export default {
 
 <docs>
   ```jsx
-  <card-content>
-    <text-style type="span" variation="small"><lux-icon-base
-      width="18"
-      height="18"
-    ><lux-icon-thumbs-up /></lux-icon-base>Approved</text-style>
-  </card-content>
+  <div>
+    <card-content>
+      <text-style type="span" variation="small">
+        <lux-icon-base width="18" height="18">
+          <lux-icon-approved></lux-icon-approved>
+        </lux-icon-base>
+      Approved</text-style>
+    </card-content>
+  </div>
   ```
 </docs>

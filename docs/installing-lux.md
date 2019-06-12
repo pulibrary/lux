@@ -27,7 +27,7 @@ bundle exec rails webpacker:install
 
 Note: you may need to install node/nvm and yarn
 
-```
+```cmd
 brew install nvm
 nvm install { latest node }
 brew install yarn
@@ -167,9 +167,7 @@ Next, go to your application.html.erb layout (or whatever you named your main la
 In the same file (application.html.erb), add the class attribute to the element you want to use LUX components in. To look for lux components on any views wrap the yield statement in a div:
 
 ```html
-<div class="lux">
-
-</div>
+<div class="lux"></div>
 ```
 
 _Note: You cannot mount Vue apps on `<html>` or `<body>` elements._
@@ -206,7 +204,9 @@ Test to make sure it's working. Add a LUX component to the container div (or a p
 you should see the icon of a mountain scene:
 
 ```html
-<lux-icon-base icon-name="picture"><lux-icon-picture /></lux-icon-base>
+<lux-icon-base icon-name="picture">
+  <lux-icon-picture></lux-icon-picture>
+</lux-icon-base>
 ```
 
 ## How to install LUX in a Drupal app

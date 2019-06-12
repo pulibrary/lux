@@ -2,9 +2,9 @@
   <component :is="type" :class="['lux-library-header']">
     <wrapper class="lux-header-content">
       <library-logo></library-logo>
-      <a class="lux-app-name" :href="appUrl">{{appName}}</a>
+      <a class="lux-app-name" :href="appUrl">{{ appName }}</a>
       <spacer></spacer>
-      <slot/>
+      <slot />
     </wrapper>
   </component>
 </template>
@@ -125,20 +125,23 @@ export default {
 
 <docs>
   ```jsx
-  <library-header app-name="Catalog" app-url="https://catalog.princeton.edu">
-  <menu-bar type="links" :menu-items="[
-      {name: 'Help', component: 'Help', href: '/help/'},
-      {name: 'Feedback', component: 'Feedback', href: '/feedback/'},
-      {name: 'Your Account', component: 'Account', href: '/account/'}
-    ]"/>
-  </library-header>
+  <div>
+    <library-header app-name="Catalog" app-url="https://catalog.princeton.edu">
+      <menu-bar type="links" :menu-items="[
+          {name: 'Help', component: 'Help', href: '/help/'},
+          {name: 'Feedback', component: 'Feedback', href: '/feedback/'},
+          {name: 'Your Account', component: 'Account', href: '/account/'}
+        ]"
+      ></menu-bar>
+    </library-header>
+  </div>
   ```
 
   ```jsx noeditor
   <div class="dos-n-donts">
     <div class="do">
       <div class="do-dont-example">
-        <library-header/>
+        <library-header></library-header>
         <noscript>Place fallback header here.</noscript>
       </div>
       <p>Make sure users with JavaScript disabled can see important parts of the page by using &lt;noscript&gt; tags.</p>
@@ -146,9 +149,9 @@ export default {
 
     <div class="dont">
       <div class="do-dont-example">
-        <spacer/>
+        <spacer></spacer>
         <p>? ? ? </p>
-        <spacer/>
+        <spacer></spacer>
       </div>
       <p>JavaScript-disabled browsers won't see any branding and may be missing important functionality.</p>
     </div>

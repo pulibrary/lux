@@ -167,36 +167,32 @@ export default {
 </style>
 
 <docs>
-## Card without sections
-
   ```jsx
-<card id="a">
-  <media-image src="https://picsum.photos/600/300/?random" height="medium" cover></media-image>
-  <heading level="h2">Title</heading>
-  <text-style variation="default">Design isn’t just about the look and feel. Design is how it works.</text-style>
-</card>
-  ```
+  <div>
+    <!-- Card without sections -->
+    <card id="a">
+      <media-image src="https://picsum.photos/600/300/?random" height="medium" cover></media-image>
+      <heading level="h2">Title</heading>
+      <text-style variation="default">Design isn’t just about the look and feel. Design is how it works.</text-style>
+    </card>
 
-## Card with sections
-  ```jsx
-  <card id="a" size="full-width">
-    <card-media>
-      <lux-icon-base
-        width="50"
-        height="50"
-      ><lux-icon-globe /></lux-icon-base>
-    </card-media>
-    <card-header>
-      <heading level="h2" size="h3">Code4Lib - Trip ID 1234</heading>
-      <text-style>Jan 9, 2019 to Jan 16, 2019</text-style>
-    </card-header>
-    <card-content>
-      <text-style type="span" variation="small"><lux-icon-base
-        width="14"
-        height="14"
-        icon-color="rgb(124, 181, 24)"
-      ><lux-icon-approved /></lux-icon-base>Approved on Dec 15, 2018</text-style>
-    </card-content>
-  </card>
+    <!-- Card with sections -->
+    <card id="a" size="full-width">
+      <card-media>
+        <lux-icon-base width="50" height="50">
+          <lux-icon-globe></lux-icon-globe>
+        </lux-icon-base>
+      </card-media>
+      <card-header>
+        <heading level="h2" size="h3">Code4Lib - Trip ID 1234</heading>
+        <text-style>Jan 9, 2019 to Jan 16, 2019</text-style>
+      </card-header>
+      <card-content>
+        <text-style type="span" variation="small">
+          <lux-icon-base width="14" height="14"><lux-icon-approved></lux-icon-approved></lux-icon-base>
+        Approved on Dec 15, 2018</text-style>
+      </card-content>
+    </card>
+  </div>
   ```
 </docs>

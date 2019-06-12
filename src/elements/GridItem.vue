@@ -1,7 +1,6 @@
 <template>
-  <component :is="type"
-    :class="['lux-col', columns]">
-    <slot/>
+  <component :is="type" :class="['lux-col', columns]">
+    <slot />
   </component>
 </template>
 
@@ -70,15 +69,16 @@ $grid-columns: 12;
 }
 </style>
 
-
 <docs>
   ```jsx
-  <wrapper flexContainer>
-    <grid-item columns="lg-9 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-    <grid-item columns="lg-3 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-    <grid-item columns="lg-3">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-    <grid-item columns="lg-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-    <grid-item columns="lg-3">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-  </wrapper>
+  <div>
+    <wrapper flexContainer>
+      <grid-item columns="lg-9 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+    </wrapper>
+  </div>
   ```
 </docs>

@@ -1,9 +1,13 @@
 <template>
   <component
     :is="type"
-    :class="['lux-wrapper', { 'lux-full-width': fullWidth }, { 'lux-flex-container': flexContainer }]"
+    :class="[
+      'lux-wrapper',
+      { 'lux-full-width': fullWidth },
+      { 'lux-flex-container': flexContainer },
+    ]"
   >
-    <slot/>
+    <slot />
   </component>
 </template>
 
@@ -64,9 +68,10 @@ export default {
 }
 </style>
 
-
 <docs>
   ```jsx
-  <wrapper>Wrapper can be used to wrap any components together.</wrapper>
+  <div>
+    <wrapper>Wrapper can be used to wrap any components together.</wrapper>
+  </div>
   ```
 </docs>

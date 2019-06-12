@@ -192,11 +192,14 @@ $color-nav-link-active: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <menu-bar type="links" active="Dashboard" :menu-items="[
-    {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
-    {name: 'Posts', component: 'Posts', href: '/example/'},
-    {name: 'Users', component: 'Users', href: '/example/'},
-    {name: 'Settings', component: 'Settings', href: '/example/'}
-  ]"/>
+  <div>
+    <menu-bar type="links" active="Dashboard" :menu-items="[
+      {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
+      {name: 'Posts', component: 'Posts', href: '/example/'},
+      {name: 'Users', component: 'Users', href: '/example/'},
+      {name: 'Settings', component: 'Settings', href: '/example/'}
+      ]"
+    ></menu-bar>
+  </div>
   ```
 </docs>
