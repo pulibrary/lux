@@ -3,21 +3,27 @@
     <label v-if="label" :for="id">{{ label }}</label>
     <select
       :id="id"
-      :class="['lux-select', { 'lux-select-error': hasError }, {'lux-select-expand': width === 'expand'}]"
+      :class="[
+        'lux-select',
+        { 'lux-select-error': hasError },
+        { 'lux-select-expand': width === 'expand' },
+      ]"
       :disabled="disabled"
       :focus="focus"
       :multiple="multiple"
       :errormessage="errormessage"
       :value="value"
       @change="change($event)"
-      @blur="inputblur($event.target)">
-        <option
-          v-for="(option, index) in options"
-          :key="index"
-          :value="option.value"
-          :disabled="option.disabled">
-          {{ option.label }}
-        </option>
+      @blur="inputblur($event.target)"
+    >
+      <option
+        v-for="(option, index) in parsedOptions"
+        :key="index"
+        :value="option.value"
+        :disabled="option.disabled"
+      >
+        {{ option.label }}
+      </option>
     </select>
     <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
   </component>
@@ -25,7 +31,10 @@
 
 <script>
 /**
- * Input Selects are used to allow users to choose among a number of options.
+ * Input Selects are used to allow users to choose among a number of options. Note that a simple,
+ * two-level hierarchy is possible by adding a `parent` property and setting its value
+ * to the name of its parent. Note from the example that the order of the menuItem data
+ * does not matter.
  */
 export default {
   name: "InputSelect",
@@ -38,6 +47,22 @@ export default {
   computed: {
     hasError() {
       return this.errormessage.length
+    },
+    parsedOptions() {
+      // We need to look for any hierarchy in the options and structure accordingly
+      let parents = this.options.filter(option => !option.hasOwnProperty("parent"))
+      let newOptions = []
+      parents.forEach((element, index) => {
+        newOptions.push(element)
+        let children = this.options.filter(option => option.parent === element.label)
+        let reformattedChildren = children.map(option => {
+          option.label = " - " + option.label
+          return option
+        })
+        Array.prototype.push.apply(newOptions, reformattedChildren)
+      })
+
+      return newOptions
     },
   },
   props: {
@@ -138,18 +163,6 @@ export default {
       this.$emit("inputblur", value)
     },
   },
-  // filters: {
-  //   snakeToTitleCase: function(value) {
-  //     if (!value) return ""
-  //     //ref: https://gist.github.com/kkiernan/91298079d34f0f832054
-  //     return value
-  //       .split("_")
-  //       .map(function(item) {
-  //         return item.charAt(0).toUpperCase() + item.substring(1)
-  //       })
-  //       .join(" ")
-  //   },
-  // },
 }
 </script>
 
@@ -193,7 +206,8 @@ $color-placeholder: tint($color-grayscale, 50%);
     margin: 0;
     border: 0;
     cursor: pointer;
-    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+      0 0 0 1px tint($color-rich-black, 80%);
 
     &:hover,
     &[hover] {
@@ -205,7 +219,8 @@ $color-placeholder: tint($color-grayscale, 50%);
       box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
     }
     &[disabled] {
-      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+        0 0 0 1px tint($color-rich-black, 80%);
       background: lighten($color-placeholder, 42%);
       cursor: not-allowed;
       opacity: 0.5;
@@ -214,9 +229,8 @@ $color-placeholder: tint($color-grayscale, 50%);
 }
 </style>
 
-
 <docs>
   ```jsx
-  <input-select label="Select..." id="myChoice" value="bar" :options="[{label: 'opt 1', value: 'foo'}, {label: 'opt 2', value: 'bar'}]"></input-select>
+  <input-select label="Select..." id="myChoice" value="bar" :options="[{label: 'opt 1', value: 'foo'}, {label: 'sub-opt 1', value: 'fee', parent: 'opt 1'}, {label: 'sub-opt 2', value: 'fez', parent: 'opt 1'}, {label: 'opt 2', value: 'bar'}]"></input-select>
   ```
 </docs>
