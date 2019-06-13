@@ -29,10 +29,8 @@
  * The LUX DatePicker uses [vCalendar](https://vcalendar.io/) and can be modified to support
  * existing vCalendar functionality.
  */
-import Vue from "vue"
-import VCalendar from "v-calendar"
+import { setupCalendar, DatePicker } from "v-calendar"
 import "v-calendar/lib/v-calendar.min.css"
-Vue.use(VCalendar, { popoverVisibility: "focus" })
 
 export default {
   name: "DatePicker",
@@ -40,7 +38,7 @@ export default {
   release: "1.0.0",
   type: "Element",
   components: {
-    VCalendar,
+    "v-date-picker": DatePicker,
   },
   data() {
     return {
@@ -116,6 +114,11 @@ export default {
       return d instanceof Date && !isNaN(d)
     },
   },
+  beforeMount: function() {
+    setupCalendar({
+      popoverVisibility: "focus",
+    })
+  },
 }
 </script>
 
@@ -134,7 +137,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="startDate" label="Start Date" mode="range"></date-picker>
+    <date-picker id="startDate" label="Start Date" mode="single" />
   </div>
   ```
 </docs>
