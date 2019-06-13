@@ -15,15 +15,29 @@ exports[`InputSelect.vue has the expected html structure 1`] = `
       value="one"
     >
       
-        
+       - undefined
+    
+    </option>
+    <option
+      value="one"
+    >
       
+       - undefined
+    
     </option>
     <option
       value="two"
     >
       
-        
+       - undefined
+    
+    </option>
+    <option
+      value="two"
+    >
       
+       - undefined
+    
     </option>
   </select>
    

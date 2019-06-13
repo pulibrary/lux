@@ -61,7 +61,7 @@ describe("InputSelect.vue", () => {
 
   it("should have the value that is passed in as a prop", () => {
     const select = wrapper.findAll("option").at(1)
-    expect(select.attributes().value).toBe("two")
+    expect(select.attributes().value).toBe("one")
   })
 
   // it("snakeToTitleCase method should return all CAPS given a snake_case string", () => {
