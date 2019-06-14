@@ -15,6 +15,7 @@ describe("MenuBar.vue", () => {
         menuItems: [
           { name: "Foo", component: "Foo", href: "/example/" },
           { name: "Bar", component: "Bar", href: "/example/" },
+          { name: "Baz", component: "Baz", parent: "Foo", href: "/example/" },
         ],
       },
     })
@@ -47,6 +48,15 @@ describe("MenuBar.vue", () => {
     wrapper.vm.localActive = "Bar"
     const e = wrapper.emitted()
     expect(Object.prototype.hasOwnProperty.call(e, "input")).toBe(true)
+  })
+  /* eslint-disable quotes */
+  it("should properly parse menu items into a hierarchy", () => {
+    const parsedItems = [
+      { name: "Foo", component: "Foo", href: "/example/" },
+      { name: " - Baz", component: "Baz", parent: "Foo", href: "/example/" },
+      { name: "Bar", component: "Bar", href: "/example/" },
+    ]
+    expect(wrapper.vm.parsedMenuItems).toEqual(parsedItems)
   })
 
   it("has the expected html structure", () => {

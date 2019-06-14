@@ -4,6 +4,7 @@
       <input-text
         :id="id"
         :label="label"
+        :name="name"
         width="auto"
         :value="!date ? '' : date.toLocaleDateString('en-US')"
         @input="updateDateInput($event)"
@@ -14,6 +15,7 @@
       <input-text
         :id="id"
         :label="label"
+        :name="name"
         width="auto"
         :value="!range ? '' : this.formatStart() + ' - ' + this.formatEnd()"
         @input="updateRangeInput($event)"
@@ -68,6 +70,14 @@ export default {
      * Unique identifier of the form input field.
      */
     id: {
+      type: String,
+      default: "",
+      required: true,
+    },
+    /**
+     * The name attribute for the form input field.
+     */
+    name: {
       type: String,
       default: "",
       required: true,
@@ -137,7 +147,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="startDate" label="Start Date" mode="single" />
+    <date-picker id="startDate" name="start" label="Start Date" mode="single" />
   </div>
   ```
 </docs>

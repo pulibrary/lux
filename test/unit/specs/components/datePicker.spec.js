@@ -14,6 +14,7 @@ describe("DatePicker.vue", () => {
       propsData: {
         id: "startDate",
         label: "Start Date",
+        name: "start",
       },
     })
   })

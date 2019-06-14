@@ -12,6 +12,7 @@ describe("InputSelect.vue", () => {
       localVue,
       propsData: {
         id: "foo",
+        name: "foo",
         value: "two",
         options: [
           {

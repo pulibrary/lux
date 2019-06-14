@@ -1,7 +1,7 @@
 <template>
   <nav v-if="type === 'links'" class="lux-nav">
     <ul>
-      <li v-for="(item, index) in menuItems">
+      <li v-for="(item, index) in parsedMenuItems">
         <a
           :key="index"
           :href="item.href"
@@ -16,7 +16,7 @@
 
   <div v-else-if="type === 'buttons'" class="lux-menu">
     <ul>
-      <li v-for="(item, index) in menuItems">
+      <li v-for="(item, index) in parsedMenuItems">
         <button
           :key="index"
           :href="item.href"
@@ -82,6 +82,22 @@ export default {
       set(val) {
         this.$emit("input", val)
       },
+    },
+    parsedMenuItems() {
+      // We need to look for any hierarchy in the menuItems and structure accordingly
+      let parents = this.menuItems.filter(item => !item.hasOwnProperty("parent"))
+      let newOptions = []
+      parents.forEach((element, index) => {
+        newOptions.push(element)
+        let children = this.menuItems.filter(item => item.parent === element.name)
+        let reformattedChildren = children.map(item => {
+          item.name = " - " + item.name
+          return item
+        })
+        Array.prototype.push.apply(newOptions, reformattedChildren)
+      })
+
+      return newOptions
     },
   },
   methods: {
@@ -192,14 +208,11 @@ $color-nav-link-active: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <div>
-    <menu-bar type="links" active="Dashboard" :menu-items="[
-      {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
-      {name: 'Posts', component: 'Posts', href: '/example/'},
-      {name: 'Users', component: 'Users', href: '/example/'},
-      {name: 'Settings', component: 'Settings', href: '/example/'}
-      ]"
-    ></menu-bar>
-  </div>
+  <menu-bar type="links" active="Dashboard" :menu-items="[
+    {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
+    {name: 'Posts', component: 'Posts', href: '/example/'},
+    {name: 'Users', component: 'Users', href: '/example/'},
+    {name: 'Settings', component: 'Settings', href: '/example/'}
+  ]"/>
   ```
 </docs>

@@ -13,6 +13,7 @@ exports[`DatePicker.vue has the expected html structure 1`] = `
       data-v-1ad2436f=""
       id="startDate"
       label="Start Date"
+      name="start"
       value=""
       width="auto"
     />
