@@ -72,7 +72,7 @@ $grid-columns: 12;
 <docs>
   ```jsx
   <div>
-    <wrapper flexContainer>
+    <wrapper :flex-container="true">
       <grid-item columns="lg-9 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
       <grid-item columns="lg-3 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
       <grid-item columns="lg-3">Grid items can be used to layout a page using a 12 column grid.</grid-item>

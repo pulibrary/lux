@@ -75,8 +75,8 @@ export default {
   ```jsx
   <div>
     <search-box>
-      <input-text id="foo" name="value" label="Search" hideLabel placeholder="Find all the things" size="large"></input-text>
-      <input-button type="button" variation="icon" size="medium" icon="search" hideLabel></input-button>
+      <input-text id="foo" name="value" label="Search" :hide-label="true" placeholder="Find all the things" size="large"></input-text>
+      <input-button type="button" variation="icon" size="medium" icon="search"></input-button>
     </search-box>
   </div>
   ```
