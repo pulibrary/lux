@@ -75,8 +75,8 @@
     "color_grayscale_dark": {
       "type": "color",
       "category": "color_group_4",
-      "value": "rgb(130, 138, 151)",
-      "originalValue": "hsla({!grayscale}, 55%, 1)",
+      "value": "rgb(107, 115, 128)",
+      "originalValue": "hsla({!grayscale}, 46%, 1)",
       "name": "color_grayscale_dark"
     },
     "color_grayscale": {

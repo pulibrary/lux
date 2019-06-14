@@ -5,7 +5,7 @@ $color-bleu-de-france-light: rgb(108, 163, 218);
 $color-green: rgb(124, 181, 24);
 $color-princeton-orange-on-white: rgb(231, 117, 0);
 $color-tan-lighter: rgb(219, 193, 163);
-$color-grayscale-dark: rgb(130, 138, 151);
+$color-grayscale-dark: rgb(107, 115, 128);
 $color-grayscale: rgb(149, 156, 167);
 $color-white: rgb(255, 255, 255);
 $color-grayscale-lighter: rgb(245, 245, 245);
@@ -103,7 +103,7 @@ $spacing-ratio: 1.7;
 //
 // @param  {Number} inset-space to set
 @mixin inset-space($value) {
-  padding: $value;
+  padding: round($value / $spacing-ratio) $value;
 }
 
 // Create inset-squish-space
