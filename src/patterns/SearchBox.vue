@@ -6,9 +6,8 @@
 
 <script>
 /**
- * LibraryFooter is the preferred Footer styling/behavior for PUL websites.
- * Don't forget to create a fallback for this component by providing the HTML
- * rendering in _<noscript></noscript>_ tags.
+ * The SearchBox is a wrapper for an input group consisting of an
+ * InputText and InputButton.
  */
 export default {
   name: "SearchBox",

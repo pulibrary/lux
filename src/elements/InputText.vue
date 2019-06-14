@@ -146,7 +146,7 @@ export default {
       required: true,
     },
     /**
-     * Value passed when submitting a form.
+     * The name attribute for the form input field.
      */
     name: {
       type: String,
