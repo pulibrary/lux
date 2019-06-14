@@ -13,6 +13,7 @@ describe("InputText.vue", () => {
       propsData: {
         id: "foo",
         value: "bar",
+        name: "pass this",
       },
     })
   })
@@ -50,6 +51,11 @@ describe("InputText.vue", () => {
   it("should have the value that is passed in as a prop", () => {
     const input = wrapper.find("input")
     expect(input.element.value).toBe("bar")
+  })
+
+  it("should have the name value that is passed in as a prop", () => {
+    const input = wrapper.find("input")
+    expect(input.element.name).toBe("pass this")
   })
 
   // it("snakeToTitleCase method should return all CAPS given a snake_case string", () => {

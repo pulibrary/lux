@@ -6,14 +6,23 @@ exports[`InputText.vue has the expected html structure 1`] = `
 >
   <!---->
    
-  <input
-    class="lux-input lux-input-expand"
-    errormessage=""
-    id="foo"
-    placeholder=""
-    type="text"
-  />
-    
+  <div
+    class="lux-input-field lux-input-expand medium"
+  >
+    <input
+      class="lux-input"
+      errormessage=""
+      id="foo"
+      name="pass this"
+      placeholder=""
+      type="text"
+    />
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
   <!---->
 </div>
 `;
