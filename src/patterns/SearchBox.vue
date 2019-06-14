@@ -1,7 +1,7 @@
 <template>
-  <div class="lux-search-box">
+  <component :is="type" class="lux-search-box">
     <slot />
-  </div>
+  </component>
 </template>
 
 <script>
