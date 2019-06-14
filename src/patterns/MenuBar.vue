@@ -5,7 +5,11 @@
         <a
           :key="index"
           :href="item.href"
-          :class="['lux-nav-item', { 'lux-active': localActive === item.component }]"
+          :class="[
+            'lux-nav-item',
+            { 'lux-active': localActive === item.component },
+            { 'lux-is-child': item.hasOwnProperty('parent') === true },
+          ]"
           v-html="item.name"
           @click="menuItemClicked($event)"
         >
@@ -24,6 +28,7 @@
             'lux-menu-item',
             { 'lux-active': localActive === item.component },
             { 'lux-disabled': item.disabled },
+            { 'lux-is-child': item.hasOwnProperty('parent') === true },
           ]"
           v-html="item.name"
           :disabled="item.disabled"
@@ -91,7 +96,7 @@ export default {
         newOptions.push(element)
         let children = this.menuItems.filter(item => item.parent === element.name)
         let reformattedChildren = children.map(item => {
-          item.name = " - " + item.name
+          item.name = "&nbsp;&nbsp;- " + item.name
           return item
         })
         Array.prototype.push.apply(newOptions, reformattedChildren)
@@ -148,6 +153,12 @@ $color-nav-link-active: $color-bleu-de-france;
       border-bottom: 2px solid $color-nav-link;
       font-weight: $font-weight-bold;
       color: $color-nav-link;
+    }
+  }
+
+  .lux-nav-item {
+    .lux-is-child {
+      padding-left: 1.5rem;
     }
   }
 }
