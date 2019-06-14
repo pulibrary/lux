@@ -389,9 +389,10 @@ $color-placeholder: tint($color-grayscale, 50%);
 <docs>
   ```jsx
   <div>
-    <input-text id="foo" name="value" label="Input" hideLabel placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="large"></input-text>
-    <input-text id="foo" name="value" label="Input" hideLabel placeholder="Write your text" helper="This is helper text to help the user fill out this field"></input-text>
-    <input-text id="foo" name="value" label="Input" hideLabel placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="small"></input-text>
+    <input-text id="foo" name="value" label="Input" :hide-label="true" placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="large"></input-text>
+    <input-text id="foo" name="value" label="Input" :hide-label="true" placeholder="Write your text" helper="This is helper text to help the user fill out this field"></input-text>
+    <input-text id="foo" name="value" label="Input" :hide-label="true" placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="small"></input-text>
+
     <input-text id="bar" name="value" label=":hover" hover placeholder="Write your text"></input-text>
     <input-text id="fee" name="value" label=":focus" focus placeholder="Write your text"></input-text>
     <input-text id="foe" name="value" label="[disabled]" disabled placeholder="Disabled input"></input-text>
