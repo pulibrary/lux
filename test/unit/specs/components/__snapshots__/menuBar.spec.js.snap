@@ -15,7 +15,7 @@ exports[`MenuBar.vue has the expected html structure 1`] = `
     </li>
     <li>
       <a
-        class="lux-nav-item"
+        class="lux-nav-item lux-is-child"
         href="/example/"
       >
          - Baz

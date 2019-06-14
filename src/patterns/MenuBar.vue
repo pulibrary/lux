@@ -96,7 +96,7 @@ export default {
         newOptions.push(element)
         let children = this.menuItems.filter(item => item.parent === element.name)
         let reformattedChildren = children.map(item => {
-          item.name = "&nbsp;&nbsp;- " + item.name
+          item.name = " - " + item.name
           return item
         })
         Array.prototype.push.apply(newOptions, reformattedChildren)
@@ -156,10 +156,8 @@ $color-nav-link-active: $color-bleu-de-france;
     }
   }
 
-  .lux-nav-item {
-    .lux-is-child {
-      padding-left: 1.5rem;
-    }
+  .lux-nav-item.lux-is-child {
+    padding-left: 1.75rem;
   }
 }
 
