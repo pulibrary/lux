@@ -1,11 +1,16 @@
 <template>
-  <button :type="!!type ? type : false"
-    :class="['lux-button', variation, size, {'lux-expanded' : (block==true) }]"
+  <button
+    :type="!!type ? type : false"
+    :class="['lux-button', variation, size, { 'lux-expanded': block == true }]"
     :disabled="disabled"
-    @click="buttonClicked($event)">
-    <slot>
-    {{ label }}
-    </slot>
+    @click="buttonClicked($event)"
+  >
+    <slot />
+    <div v-if="variation === 'icon'" class="append-icon">
+      <lux-icon-base width="24" height="24" icon-name="search">
+        <lux-icon-search v-if="icon === 'search'"></lux-icon-search>
+      </lux-icon-base>
+    </div>
     <span v-if="variation === 'dropdown'" class="lux-dropdown-indicator"> &#9660;</span>
   </button>
 </template>
@@ -33,7 +38,7 @@ export default {
       type: String,
       default: "button",
       validator: value => {
-        return value.match(/(solid|outline|text|dropdown)/)
+        return value.match(/(solid|outline|text|dropdown|icon)/)
       },
     },
     /**
@@ -79,6 +84,20 @@ export default {
     customAlertEvent: {
       type: Object,
       default: null,
+    },
+    /**
+     * Visually hides the button text.
+     */
+    hideLabel: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Indicates what icon to use.
+     */
+    icon: {
+      type: String,
+      default: "",
     },
   },
   methods: {
@@ -188,6 +207,8 @@ export default {
 <docs>
   ```jsx
   <div>
+    <input-button type="button" variation="icon" size="small" icon="search" hideLabel></input-button>
+
     <input-button variation="solid" size="small">Apply Changes</input-button>
     <input-button type="button" variation="solid">Apply Changes</input-button>
     <input-button type="button" variation="solid" size="large" disabled>Apply Changes</input-button>

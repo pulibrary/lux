@@ -6,5 +6,7 @@ exports[`InputButton.vue has the expected html structure 1`] = `
 >
   Apply Changes. 
   <!---->
+   
+  <!---->
 </button>
 `;

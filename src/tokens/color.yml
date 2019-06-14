@@ -36,7 +36,7 @@ props:
     value: "hsla({!grayscale}, 28%, 1)"
     category: color_group_4
   color_grayscale_dark:
-    value: "hsla({!grayscale}, 55%, 1)"
+    value: "hsla({!grayscale}, 46%, 1)"
     category: color_group_4
   color_grayscale:
     value: "hsla({!grayscale}, 62%, 1)"

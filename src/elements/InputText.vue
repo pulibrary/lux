@@ -1,25 +1,58 @@
 <template>
-  <component :is="wrapper" class="lux-input">
-    <label v-if="label">{{ label }}</label>
-    <input
-      :id="id"
-      :disabled="disabled"
-      :type="type"
-      :hover="hover"
-      :focus="focus"
-      :value="value"
-      :placeholder="placeholder"
-      :errormessage="errormessage"
-      :class="[
-        'lux-input',
-        { 'lux-input-error': hasError },
-        { 'lux-input-expand': width === 'expand' },
-      ]"
-      v-on:input="$emit('input', $event.target.value)"
-      @blur="inputblur($event.target)"
-    />
-    <slot />
+  <component :is="wrapper" class="lux-input" :class="{ 'lux-has-icon': icon }">
+    <label v-if="label" :class="{ 'lux-hidden': hideLabel }">{{ label }}</label>
+    <div
+      class="lux-input-field"
+      :class="[{ 'lux-input-expand': width === 'expand' }, { disabled: disabled }, size]"
+    >
+      <input
+        v-if="type !== 'textarea'"
+        :name="name"
+        :value="value"
+        :id="id"
+        :disabled="disabled"
+        :type="type"
+        :hover="hover"
+        :focus="focus"
+        :placeholder="placeholder"
+        :errormessage="errormessage"
+        :class="['lux-input', { 'lux-input-error': hasError }]"
+        v-on:input="$emit('input', $event.target.value)"
+        @blur="inputblur($event.target)"
+      />
+
+      <textarea
+        v-else
+        :name="name"
+        :id="id"
+        :disabled="disabled"
+        :rows="rows"
+        :maxlength="maxlength"
+        :hover="hover"
+        :focus="focus"
+        :value="value"
+        :placeholder="placeholder"
+        :errormessage="errormessage"
+        :class="[
+          'lux-input',
+          { 'lux-input-error': hasError },
+          { 'lux-input-expand': width === 'expand' },
+        ]"
+        v-on:input="$emit('input', $event.target.value)"
+        @blur="inputblur($event.target)"
+      />
+
+      <div v-if="icon" class="append-icon">
+        <lux-icon-base width="24" height="24">
+          <lux-icon-alert v-if="icon === 'alert'"></lux-icon-alert>
+          <lux-icon-approved v-if="icon === 'approved'"></lux-icon-approved>
+          <lux-icon-denied v-if="icon === 'denied'"></lux-icon-denied>
+        </lux-icon-base>
+      </div>
+    </div>
+
     <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
+    <div class="lux-helper" v-if="helper">{{ helper }}</div>
   </component>
 </template>
 
@@ -48,7 +81,7 @@ export default {
       type: String,
       default: "text",
       validator: value => {
-        return value.match(/(text|number|email)/)
+        return value.match(/(text|number|email|textarea)/)
       },
     },
     /**
@@ -73,9 +106,23 @@ export default {
       default: "",
     },
     /**
+     * Visually hides the label of the form input field.
+     */
+    hideLabel: {
+      type: Boolean,
+      default: false,
+    },
+    /**
      * The validation message a user should get.
      */
     errormessage: {
+      type: String,
+      default: "",
+    },
+    /**
+     * The helper text a user should get.
+     */
+    helper: {
       type: String,
       default: "",
     },
@@ -99,6 +146,14 @@ export default {
       required: true,
     },
     /**
+     * The name attribute for the form input field.
+     */
+    name: {
+      type: String,
+      default: "",
+      required: true,
+    },
+    /**
      * The width of the form input field.
      * `auto, expand`
      */
@@ -108,6 +163,30 @@ export default {
       validator: value => {
         return value.match(/(auto|expand)/)
       },
+    },
+    /**
+     * Sets the size of the input area `small, medium, large`
+     */
+    size: {
+      type: String,
+      default: "medium",
+      validator: value => {
+        return value.match(/(small|medium|large)/)
+      },
+    },
+    /**
+     * The number of visible text lines for textarea.
+     */
+    rows: {
+      type: String,
+      default: "5",
+    },
+    /**
+     * The maximum number of characters that the user can enter in textarea.
+     */
+    maxlength: {
+      type: String,
+      default: "",
     },
     /**
      * Whether the form input field is disabled or not.
@@ -133,6 +212,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * Appends icon inside container. Option:
+     * `alert`, `approved`, `denied`
+     */
+    icon: {
+      type: String,
+      default: "",
+    },
   },
   methods: {
     inputblur(value) {
@@ -153,48 +240,82 @@ $color-placeholder: tint($color-grayscale, 50%);
   font-size: $font-size-base;
   line-height: $line-height-heading;
   width: auto;
-  &.lux-input-expand {
-    width: 100%;
-  }
+
   label {
     display: block;
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     color: tint($color-rich-black, 20%);
     @include stack-space($space-x-small);
+
+    &.lux-hidden {
+      @include visually-hidden;
+    }
   }
+
   .lux-error {
     margin-top: $space-x-small;
+    font-size: $font-size-small;
     color: $color-red;
   }
   .lux-input-error {
     border: 1px solid $color-red;
   }
-  input {
+
+  .lux-helper {
+    margin-top: $space-x-small;
+    font-size: $font-size-small;
+    color: $color-grayscale-dark;
+  }
+
+  .lux-input-field {
     @include reset;
-    @include inset-squish-space($space-small);
-    transition: all 0.2s ease;
-    -webkit-appearance: none;
-    appearance: none;
-    font-family: $font-family-text;
     background: $color-white;
     border-radius: $border-radius-default;
-    color: set-text-color($color-rich-black, $color-white);
-    margin: 0;
-    border: 0;
     box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
       0 0 0 1px tint($color-rich-black, 80%);
-    &::-webkit-input-placeholder {
-      -webkit-font-smoothing: antialiased;
-      color: $color-placeholder;
+    display: flex;
+    width: auto;
+    &.lux-input-expand {
+      width: 100%;
     }
-    &:-ms-input-placeholder {
-      color: $color-placeholder;
+
+    input,
+    textarea {
+      @include reset;
+      @include inset-squish-space($space-small);
+      transition: all 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      font-family: $font-family-text;
+      background: $color-white;
+      border-radius: $border-radius-default;
+      color: set-text-color($color-rich-black, $color-white);
+      margin: 0;
+      border: 0;
+      width: 100%;
+
+      &::-webkit-input-placeholder {
+        -webkit-font-smoothing: antialiased;
+        color: $color-placeholder;
+      }
+      &:-ms-input-placeholder {
+        color: $color-placeholder;
+      }
+      &::-moz-placeholder {
+        color: $color-placeholder;
+        -moz-osx-font-smoothing: grayscale;
+        opacity: 1;
+      }
+      &:focus,
+      &[focus] {
+        outline: 0;
+      }
     }
-    &::-moz-placeholder {
-      color: $color-placeholder;
-      -moz-osx-font-smoothing: grayscale;
-      opacity: 1;
+
+    textarea {
+      resize: none;
     }
+
     &:hover,
     &[hover] {
       box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
@@ -205,13 +326,62 @@ $color-placeholder: tint($color-grayscale, 50%);
       box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
       outline: 0;
     }
-    &[disabled] {
+    &[disabled],
+    &.disabled {
       box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
         0 0 0 1px tint($color-rich-black, 80%);
       background: lighten($color-placeholder, 42%);
       cursor: not-allowed;
       opacity: 0.5;
+
+      input,
+      textarea {
+        cursor: not-allowed;
+      }
     }
+  }
+
+  .small input,
+  .small textarea {
+    @include inset-space(12px);
+    font-size: $font-size-small;
+  }
+
+  .medium input,
+  .medium textarea {
+    @include inset-space($space-small);
+    font-size: $font-size-base;
+  }
+
+  .large input,
+  .large textarea {
+    @include inset-space(18px);
+    font-size: $font-size-large;
+  }
+
+  .lux-error {
+    margin-top: $space-x-small;
+    font-size: $font-size-small;
+    color: $color-red;
+  }
+  .lux-input-error {
+    border: 1px solid $color-red;
+  }
+  .lux-helper {
+    margin-top: $space-x-small;
+    font-size: $font-size-small;
+    color: $color-grayscale-dark;
+    width: 100%;
+  }
+}
+
+.lux-has-icon {
+  input {
+    flex: 1;
+  }
+
+  .append-icon {
+    padding: $space-xx-small;
   }
 }
 </style>
@@ -219,10 +389,16 @@ $color-placeholder: tint($color-grayscale, 50%);
 <docs>
   ```jsx
   <div>
-    <input-text id="foo" label="Input" placeholder="Write your text"></input-text>
-    <input-text id="bar" label=":hover" hover placeholder="Write your text"></input-text>
-    <input-text id="fee" label=":focus" focus placeholder="Write your text"></input-text>
-    <input-text id="foe" label="[disabled]" disabled placeholder="Disabled input"></input-text>
+    <input-text id="foo" name="value" label="Input" hideLabel placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="large"></input-text>
+    <input-text id="foo" name="value" label="Input" hideLabel placeholder="Write your text" helper="This is helper text to help the user fill out this field"></input-text>
+    <input-text id="foo" name="value" label="Input" hideLabel placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="small"></input-text>
+    <input-text id="bar" name="value" label=":hover" hover placeholder="Write your text"></input-text>
+    <input-text id="fee" name="value" label=":focus" focus placeholder="Write your text"></input-text>
+    <input-text id="foe" name="value" label="[disabled]" disabled placeholder="Disabled input"></input-text>
+    <input-text id="foe" name="value" label="Textarea" type="textarea"></input-text>
+
+    <!-- with icons -->
+    <input-text id="foo" name="value" label="Icon" placeholder="Write your text" icon="alert"></input-text>
   </div>
   ```
 </docs>
