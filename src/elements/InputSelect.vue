@@ -13,6 +13,7 @@
       :multiple="multiple"
       :errormessage="errormessage"
       :value="value"
+      :name="name"
       @change="change($event)"
       @blur="inputblur($event.target)"
     >
@@ -96,6 +97,14 @@ export default {
      * Unique identifier of the input select field.
      */
     id: {
+      type: String,
+      default: "",
+      required: true,
+    },
+    /**
+     * The name attribute for the form input field.
+     */
+    name: {
       type: String,
       default: "",
       required: true,
@@ -225,7 +234,7 @@ $color-placeholder: tint($color-grayscale, 50%);
 <docs>
   ```jsx
   <div>
-    <input-select label="Select..." id="myChoice" value="bar" :options="[{label: 'opt 1', value: 'foo'}, {label: 'opt 2', value: 'bar'}]"></input-select>
+    <input-select label="Select..." id="myChoice" name="myChoice" value="bar" :options="[{label: 'opt 1', value: 'foo'}, {label: 'opt 2', value: 'bar'}]"></input-select>
   </div>
   ```
 </docs>

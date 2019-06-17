@@ -10,6 +10,7 @@ exports[`InputSelect.vue has the expected html structure 1`] = `
     class="lux-select lux-select-expand"
     errormessage=""
     id="foo"
+    name="foo"
   >
     <option
       value="one"

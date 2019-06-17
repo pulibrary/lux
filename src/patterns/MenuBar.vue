@@ -1,11 +1,15 @@
 <template>
   <nav v-if="type === 'links'" class="lux-nav">
     <ul>
-      <li v-for="(item, index) in menuItems">
+      <li v-for="(item, index) in parsedMenuItems">
         <a
           :key="index"
           :href="item.href"
-          :class="['lux-nav-item', { 'lux-active': localActive === item.component }]"
+          :class="[
+            'lux-nav-item',
+            { 'lux-active': localActive === item.component },
+            { 'lux-is-child': item.hasOwnProperty('parent') === true },
+          ]"
           v-html="item.name"
           @click="menuItemClicked($event)"
         >
@@ -16,7 +20,7 @@
 
   <div v-else-if="type === 'buttons'" class="lux-menu">
     <ul>
-      <li v-for="(item, index) in menuItems">
+      <li v-for="(item, index) in parsedMenuItems">
         <button
           :key="index"
           :href="item.href"
@@ -24,6 +28,7 @@
             'lux-menu-item',
             { 'lux-active': localActive === item.component },
             { 'lux-disabled': item.disabled },
+            { 'lux-is-child': item.hasOwnProperty('parent') === true },
           ]"
           v-html="item.name"
           :disabled="item.disabled"
@@ -83,6 +88,22 @@ export default {
         this.$emit("input", val)
       },
     },
+    parsedMenuItems() {
+      // We need to look for any hierarchy in the menuItems and structure accordingly
+      let parents = this.menuItems.filter(item => !item.hasOwnProperty("parent"))
+      let newOptions = []
+      parents.forEach((element, index) => {
+        newOptions.push(element)
+        let children = this.menuItems.filter(item => item.parent === element.name)
+        let reformattedChildren = children.map(item => {
+          item.name = " - " + item.name
+          return item
+        })
+        Array.prototype.push.apply(newOptions, reformattedChildren)
+      })
+
+      return newOptions
+    },
   },
   methods: {
     menuItemClicked(value, item) {
@@ -133,6 +154,10 @@ $color-nav-link-active: $color-bleu-de-france;
       font-weight: $font-weight-bold;
       color: $color-nav-link;
     }
+  }
+
+  .lux-nav-item.lux-is-child {
+    padding-left: 1.75rem;
   }
 }
 
@@ -192,14 +217,11 @@ $color-nav-link-active: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <div>
-    <menu-bar type="links" active="Dashboard" :menu-items="[
-      {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
-      {name: 'Posts', component: 'Posts', href: '/example/'},
-      {name: 'Users', component: 'Users', href: '/example/'},
-      {name: 'Settings', component: 'Settings', href: '/example/'}
-      ]"
-    ></menu-bar>
-  </div>
+  <menu-bar type="links" active="Dashboard" :menu-items="[
+    {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
+    {name: 'Posts', component: 'Posts', href: '/example/'},
+    {name: 'Users', component: 'Users', href: '/example/'},
+    {name: 'Settings', component: 'Settings', href: '/example/'}
+  ]"/>
   ```
 </docs>

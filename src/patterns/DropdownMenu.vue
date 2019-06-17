@@ -18,7 +18,10 @@
 
 <script>
 /**
- * Dropdowns allows a user to select a value from a series of options. To make the menu-items
+ * Dropdowns allows a user to select a value from a series of options. Note that a simple,
+ * two-level hierarchy is possible by adding a `parent` property and setting its value
+ * to the name of its parent. Note from the example that the order of the menuItem data
+ * does not matter.
  * Please note that full closing tags are required.
  */
 export default {
@@ -185,13 +188,13 @@ export default {
 
 <docs>
   ```jsx
-  <div>
-    <dropdown-menu button-label="Select Options" :menu-items="[
-      {name: 'All', component: 'All'},
-      {name: 'None', component: 'None'},
-      {name: 'Alternate', component: 'Alternate', disabled: true},
-      {name: 'Inverse', component: 'Inverse'}
-    ]"></dropdown-menu>
-  </div>
+  <dropdown-menu type="links" button-label="Select Options" :menu-items="[
+    {name: 'Vegetable', component: 'Vegetable', disabled: true},
+    {name: 'Fruit', component: 'Fruit'},
+    {name: 'Apple', component: 'Apple', parent: 'Fruit'},
+    {name: 'Lettuce', component: 'Lettuce', parent: 'Vegetable'},
+    {name: 'Carrot', component: 'Carrot', parent: 'Vegetable'},
+    {name: 'Pear', component: 'Pear', parent: 'Fruit'},
+  ]"></dropdown-menu>
   ```
 </docs>
