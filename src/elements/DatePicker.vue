@@ -1,17 +1,29 @@
 <template>
   <wrapper>
-    <v-date-picker v-if="mode === 'single'" mode="single" v-model="date">
+    <v-date-picker
+      v-if="mode === 'single'"
+      mode="single"
+      :disabled-dates="disabledDates"
+      :update-on-input="true"
+      v-model="date"
+    >
       <input-text
         :id="id"
         :label="label"
         :name="name"
         width="auto"
         :value="!date ? '' : date.toLocaleDateString('en-US')"
-        @input="updateDateInput($event)"
+        @input="updateInput($event)"
       >
       </input-text>
     </v-date-picker>
-    <v-date-picker v-if="mode === 'range'" mode="range" v-model="range">
+    <v-date-picker
+      v-if="mode === 'range'"
+      mode="range"
+      :disabled-dates="disabledDates"
+      :update-on-input="true"
+      v-model="range"
+    >
       <input-text
         :id="id"
         :label="label"
@@ -82,6 +94,16 @@ export default {
       default: "",
       required: true,
     },
+    /**
+     * Disable dates using the date object or date range format. This example makes the
+     * month of June 2019 selectable, but nothing else: `[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(2019, 05, 30), end: null }]`
+     * Note: In Javascript, months start at zero, which is why 05 = June.
+     */
+    disabledDates: {
+      type: Array,
+      default: null,
+      required: false,
+    },
   },
   methods: {
     formatEnd() {
@@ -101,32 +123,31 @@ export default {
         return new Date(d[2] + "-" + d[0] + "-" + d[1])
       }
     },
-    updateDateInput(value) {
-      let d = this.parseDate(value)
-      if (this.isValidDate(d)) {
-        this.date = d
+    updateInput(value) {
+      if (this.isValidFormat(value)) {
+        this.date = this.parseDate(value)
       }
     },
     updateRangeInput(value) {
       if (value.includes(" - ")) {
         let r = value.split(" - ")
-        let s = this.parseDate(r[0])
-        let e = this.parseDate(r[1])
-        if (this.isValidDate(s) && this.isValidDate(e)) {
-          this.range.start = s
-          this.range.end = e
-          console.log(this.range.start + " - " + this.range.end)
+        if (this.isValidFormat(r[0])) {
+          this.range.start = this.parseDate(r[0])
+        }
+        if (this.isValidFormat(r[1])) {
+          this.range.end = this.parseDate(r[1])
         }
       }
     },
-    isValidDate(d) {
-      // expects valid JS date object
-      return d instanceof Date && !isNaN(d)
+    isValidFormat(d) {
+      let date_regex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
+      return date_regex.test(d)
     },
   },
   beforeMount: function() {
     setupCalendar({
       popoverVisibility: "focus",
+      updateOnInput: true,
     })
   },
 }
@@ -147,7 +168,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="startDate" name="start" label="Start Date" mode="single" />
+    <date-picker id="startDate" name="start" label="Start Date" mode="single" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(2019, 05, 30), end: null }]" />
   </div>
   ```
 </docs>
