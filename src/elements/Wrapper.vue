@@ -15,7 +15,7 @@
 <script>
 /**
  * Used to build the outer wrapper of a page, including the page title and
- * associated actions. Wrapper doesn’t provide customizable options.
+ * associated actions. Wrapper can be span the full width of the viewport or limited to a max-width of 1170px.
  */
 export default {
   name: "Wrapper",
@@ -34,13 +34,6 @@ export default {
      * Determines whether the wrapper takes up 100% of the parent container.
      */
     fullWidth: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * Determines whether the wrapper is a flexbox container.
-     */
-    flexContainer: {
       type: Boolean,
       default: false,
     },
@@ -69,25 +62,6 @@ export default {
     padding: 0;
     max-width: 100%;
     width: 100%;
-  }
-
-  &.lux-flex-container {
-    padding: 0 1rem 1rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    &.start {
-      justify-content: flex-start;
-    }
-
-    &.center {
-      justify-content: center;
-    }
-
-    &.end {
-      justify-content: flex-end;
-    }
   }
 }
 </style>
