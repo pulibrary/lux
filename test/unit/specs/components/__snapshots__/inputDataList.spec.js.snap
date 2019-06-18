@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputText.vue has the expected html structure 1`] = `
+<div
+  class="lux-input"
+>
+  <!---->
+   
+  <div
+    class="lux-input-field lux-input-expand medium"
+  >
+    <input
+      class="lux-input"
+      errormessage=""
+      id="foo"
+      list="foo-list"
+      name="pass this"
+      placeholder=""
+    />
+     
+    <datalist
+      id="foo-list"
+    >
+      <option
+        value="Code4Lib"
+      >
+        
+        Code4Lib Annual Conference
+      
+      </option>
+      <option
+        value="ALA"
+      >
+        
+        American Library Association Annual
+      
+      </option>
+      <option
+        value="DLF"
+      >
+        
+        Digital Library Federation
+      
+      </option>
+      <option
+        value="SAA"
+      >
+        
+        Society of American Archivists Annual Conference
+      
+      </option>
+      <option
+        value="Access"
+      >
+        
+        Access Annual Conference
+      
+      </option>
+    </datalist>
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;

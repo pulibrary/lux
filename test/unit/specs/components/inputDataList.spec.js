@@ -14,6 +14,13 @@ describe("InputText.vue", () => {
         id: "foo",
         value: "bar",
         name: "pass this",
+        list: [
+          { value: "Code4Lib", label: "Code4Lib Annual Conference" },
+          { value: "ALA", label: "American Library Association Annual" },
+          { value: "DLF", label: "Digital Library Federation" },
+          { value: "SAA", label: "Society of American Archivists Annual Conference" },
+          { value: "Access", label: "Access Annual Conference" },
+        ],
       },
     })
   })
@@ -58,9 +65,12 @@ describe("InputText.vue", () => {
     expect(input.element.name).toBe("pass this")
   })
 
-  // it("snakeToTitleCase method should return all CAPS given a snake_case string", () => {
-  //   expect(wrapper.vm.snakeToTitleCase("snake_case_example")).toBe("SNAKECASEEXAMPLE")
-  // })
+  it("should have a data-list that works with the text input", () => {
+    const dl = wrapper.find("datalist")
+    expect(dl.element.id).toBe("foo-list")
+    const option = wrapper.find("option") // finds the first option element
+    expect(option.element.value).toBe("Code4Lib")
+  })
 
   it("has the expected html structure", () => {
     expect(wrapper.element).toMatchSnapshot()
