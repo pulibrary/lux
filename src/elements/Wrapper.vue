@@ -5,6 +5,7 @@
       'lux-wrapper',
       { 'lux-full-width': fullWidth },
       { 'lux-flex-container': flexContainer },
+      horizontal,
     ]"
   >
     <slot />
@@ -43,6 +44,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * Determines how the flexbox wrapper is horizontally aligned. This value defaults to
+     * having space between grid items. Options include `start`, `center`, and `end`.
+     */
+    horizontal: {
+      type: String,
+      default: "",
+    },
   },
 }
 </script>
@@ -66,6 +75,19 @@ export default {
     padding: 0 1rem 1rem 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+
+    &.start {
+      justify-content: flex-start;
+    }
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.end {
+      justify-content: flex-end;
+    }
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['lux-col', columns]">
+  <component :is="type" :class="['lux-col', columns, vertical]">
     <slot />
   </component>
 </template>
@@ -25,10 +25,18 @@ export default {
     },
     /**
      * Sets the size of the column. Prefix with `sm-` or `lg-`. Based on a 12 column grid.
+     * The inclusion of `auto` will set that grid item to have a width based on the width and height of the content.
      */
     columns: {
       type: String,
       default: "",
+    },
+    /**
+     * Sets the vertical alignment of the item. `start`, `center`, or `end`. For horizontal alignment, please look at the wrapper component.
+     */
+    vertical: {
+      type: String,
+      default: "start",
     },
   },
 }
@@ -44,7 +52,26 @@ $grid-columns: 12;
 .lux-col {
   padding: $space-small 0 0 $space-small;
   background-clip: content-box;
-  flex-basis: 100%;
+  flex-basis: 1;
+  flex-grow: 1;
+  max-width: 100%;
+
+  &.auto-offset {
+    flex-basis: auto;
+    flex-grow: 0;
+  }
+
+  &.v-start {
+    align-self: flex-start;
+  }
+
+  &.v-center {
+    align-self: center;
+  }
+
+  &.v-end {
+    align-self: flex-end;
+  }
 }
 
 @function round-width($i) {
@@ -55,15 +82,29 @@ $grid-columns: 12;
 @for $i from 1 through $grid-columns {
   .sm-#{$i} {
     flex-basis: round-width($i);
+    flex-grow: 0;
     max-width: round-width($i);
+
+    &.auto-offset {
+      flex-basis: auto;
+    }
   }
 }
 
 @media only screen and #{$media-query-large} {
+  .lux-col {
+    flex-basis: 0;
+  }
+
   @for $i from 1 through $grid-columns {
     .lg-#{$i} {
       flex-basis: round-width($i);
+      flex-grow: 0;
       max-width: round-width($i);
+
+      &.auto-offset {
+        flex-basis: auto;
+      }
     }
   }
 }
@@ -74,10 +115,24 @@ $grid-columns: 12;
   <div>
     <wrapper :flex-container="true">
       <grid-item columns="lg-9 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-      <grid-item columns="lg-3 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-      <grid-item columns="lg-3">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-      <grid-item columns="lg-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-      <grid-item columns="lg-3">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <!-- passing "auto" as a value in columns will size the grid item based on width and height of the item with space between each grid item -->
+      <grid-item columns="lg-3 sm-6 auto-offset">
+        <dropdown-menu type="links" button-label="Select Options" :menu-items="[
+          {name: 'Vegetable', component: 'Vegetable', disabled: true},
+          {name: 'Fruit', component: 'Fruit'},
+          {name: 'Apple', component: 'Apple', parent: 'Fruit'},
+          {name: 'Lettuce', component: 'Lettuce', parent: 'Vegetable'},
+          {name: 'Carrot', component: 'Carrot', parent: 'Vegetable'},
+          {name: 'Pear', component: 'Pear', parent: 'Fruit'},
+        ]"></dropdown-menu>
+      </grid-item>
+    </wrapper>
+
+    <!-- inline styling for demonstration purposes only -->
+    <wrapper :flex-container="true" horizontal="center" style="height:200px;">
+      <grid-item columns="lg-3" vertical="v-start" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3" vertical="v-center" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3" vertical="v-end" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
     </wrapper>
   </div>
   ```
