@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['lux-col', columns, vertical]">
+  <component :is="type" :class="['lux-col', columns, vertical, { push: offset }]">
     <slot />
   </component>
 </template>
@@ -32,6 +32,13 @@ export default {
       default: "",
     },
     /**
+     * Pushes grid items to the right side of the container.
+     */
+    offset: {
+      type: Boolean,
+      default: false,
+    },
+    /**
      * Sets the vertical alignment of the item. `start`, `center`, or `end`. For horizontal alignment, please look at the wrapper component.
      */
     vertical: {
@@ -56,7 +63,7 @@ $grid-columns: 12;
   flex-grow: 1;
   max-width: 100%;
 
-  &.auto-offset {
+  &.auto {
     flex-basis: auto;
     flex-grow: 0;
   }
@@ -72,6 +79,10 @@ $grid-columns: 12;
   &.end {
     align-self: flex-end;
   }
+
+  &.push {
+    margin-left: auto;
+  }
 }
 
 @function round-width($i) {
@@ -85,7 +96,7 @@ $grid-columns: 12;
     flex-grow: 0;
     max-width: round-width($i);
 
-    &.auto-offset {
+    &.auto {
       flex-basis: auto;
     }
   }
@@ -102,7 +113,7 @@ $grid-columns: 12;
       flex-grow: 0;
       max-width: round-width($i);
 
-      &.auto-offset {
+      &.auto {
         flex-basis: auto;
       }
     }
@@ -116,7 +127,7 @@ $grid-columns: 12;
     <wrapper :flex-container="true">
       <grid-item columns="lg-9 sm-6">Grid items can be used to layout a page using a 12 column grid.</grid-item>
       <!-- passing "auto" as a value in columns will size the grid item based on width and height of the item with space between each grid item -->
-      <grid-item columns="lg-3 sm-6 auto-offset">
+      <grid-item columns="lg-3 sm-6 auto" :offset="true">
         <dropdown-menu type="links" button-label="Select Options" :menu-items="[
           {name: 'Vegetable', component: 'Vegetable', disabled: true},
           {name: 'Fruit', component: 'Fruit'},
@@ -131,7 +142,7 @@ $grid-columns: 12;
     <!-- inline styling for demonstration purposes only -->
     <wrapper :flex-container="true" horizontal="center" style="height:200px;">
       <grid-item columns="lg-3" vertical="start" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-      <grid-item columns="lg-3" vertical="center" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3 auto" vertical="center" style="border: 1px solid black; padding-bottom: 1rem;" :offset="true">Grid items can be used to layout a page using a 12 column grid.</grid-item>
       <grid-item columns="lg-3" vertical="end" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
     </wrapper>
   </div>
