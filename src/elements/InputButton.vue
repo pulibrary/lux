@@ -146,6 +146,17 @@ export default {
     }
   }
 
+  &.outline {
+    background: transparent;
+    color: $color-bleu-de-france;
+    border: 2px solid $color-bleu-de-france;
+    &:hover,
+    &:focus {
+      color: $color-bleu-de-france-darker;
+      border-color: $color-bleu-de-france-darker;
+    }
+  }
+
   &.text {
     background-color: transparent;
   }
@@ -213,7 +224,9 @@ export default {
     <input-button type="button" variation="solid">Apply Changes</input-button>
     <input-button type="button" variation="solid" size="large" disabled>Apply Changes</input-button>
 
-    <input-button type="button" variation="solid" block></input-button>
+    <input-button type="submit" variation="solid" block>Submit</input-button>
+
+    <input-button type="button" variation="outline">Manage Files</input-button>
 
     <input-button type="button" variation="text">Manage Files</input-button>
   </div>
