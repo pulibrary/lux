@@ -22,6 +22,12 @@ describe("GridItem.vue", () => {
     expect(gridItem.is(".lg-9.sm-6")).toBe(true)
   })
 
+  it("should have the appropriate class to define the vertical alignment", () => {
+    wrapper.setProps({ vertical: "start" })
+    const gridItem = wrapper.find(".lux-col")
+    expect(gridItem.is(".start")).toBe(true)
+  })
+
   it("has the expected html structure", () => {
     expect(wrapper.element).toMatchSnapshot()
   })

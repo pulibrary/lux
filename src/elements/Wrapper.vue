@@ -5,6 +5,7 @@
       'lux-wrapper',
       { 'lux-full-width': fullWidth },
       { 'lux-flex-container': flexContainer },
+      horizontal,
     ]"
   >
     <slot />
@@ -14,7 +15,7 @@
 <script>
 /**
  * Used to build the outer wrapper of a page, including the page title and
- * associated actions. Wrapper doesn’t provide customizable options.
+ * associated actions. Wrapper can be span the full width of the viewport or limited to a max-width of 1170px.
  */
 export default {
   name: "Wrapper",
@@ -37,11 +38,12 @@ export default {
       default: false,
     },
     /**
-     * Determines whether the wrapper is a flexbox container.
+     * Determines how the flexbox wrapper is horizontally aligned. This value defaults to
+     * having space between grid items. Options include `start`, `center`, and `end`.
      */
-    flexContainer: {
-      type: Boolean,
-      default: false,
+    horizontal: {
+      type: String,
+      default: "",
     },
   },
 }
@@ -51,20 +53,16 @@ export default {
 .lux-wrapper {
   margin: auto;
 
-  // this overrides the full-width class rules making the OrderManager gallery
-  // have a gap on larger screens
-  // @media #{$media-query-large} {
-  //   max-width: 1170px;
-  // }
+  @media #{$media-query-large} {
+    max-width: 1170px;
+    padding: 1rem;
+  }
 
-  .lux-full-width {
+  &.lux-full-width {
+    padding: 0;
+    max-width: 100%;
     width: 100%;
   }
-}
-
-.lux-flex-container {
-  display: flex;
-  flex-wrap: wrap;
 }
 </style>
 
