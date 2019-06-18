@@ -51,20 +51,22 @@ export default {
 .lux-wrapper {
   margin: auto;
 
-  // this overrides the full-width class rules making the OrderManager gallery
-  // have a gap on larger screens
-  // @media #{$media-query-large} {
-  //   max-width: 1170px;
-  // }
+  @media #{$media-query-large} {
+    max-width: 1170px;
+    padding: 1rem;
+  }
 
-  .lux-full-width {
+  &.lux-full-width {
+    padding: 0;
+    max-width: 100%;
     width: 100%;
   }
-}
 
-.lux-flex-container {
-  display: flex;
-  flex-wrap: wrap;
+  &.lux-flex-container {
+    padding: 0 1rem 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 </style>
 
