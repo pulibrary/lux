@@ -20,20 +20,20 @@ describe("DatePicker.vue", () => {
   })
 
   it("should make sure the date is valid", () => {
-    expect(wrapper.vm.isValidDate(new Date())).toBe(true)
-    expect(wrapper.vm.isValidDate("foo")).toBe(false)
+    expect(wrapper.vm.isValidFormat("1/1/2019")).toBe(true)
+    expect(wrapper.vm.isValidFormat("foo")).toBe(false)
   })
 
   it("should update the date value when a new date is input", () => {
     expect(wrapper.vm.date).toBe(null)
-    wrapper.vm.updateDateInput("01/01/2019")
+    wrapper.vm.updateInput("01/01/2019")
     const nd = new Date("2019-01-01")
     expect(wrapper.vm.date).toEqual(nd)
   })
 
   it("should not update the date value when the input is an invalid date", () => {
     expect(wrapper.vm.date).toBe(null)
-    wrapper.vm.updateDateInput("foo")
+    wrapper.vm.updateInput("foo")
     expect(wrapper.vm.date).toBe(null)
   })
 
