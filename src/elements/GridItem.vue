@@ -61,15 +61,15 @@ $grid-columns: 12;
     flex-grow: 0;
   }
 
-  &.v-start {
+  &.start {
     align-self: flex-start;
   }
 
-  &.v-center {
+  &.center {
     align-self: center;
   }
 
-  &.v-end {
+  &.end {
     align-self: flex-end;
   }
 }
@@ -130,9 +130,9 @@ $grid-columns: 12;
 
     <!-- inline styling for demonstration purposes only -->
     <wrapper :flex-container="true" horizontal="center" style="height:200px;">
-      <grid-item columns="lg-3" vertical="v-start" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-      <grid-item columns="lg-3" vertical="v-center" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
-      <grid-item columns="lg-3" vertical="v-end" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3" vertical="start" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3" vertical="center" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3" vertical="end" style="border: 1px solid black; padding-bottom: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
     </wrapper>
   </div>
   ```
