@@ -41,7 +41,7 @@
  */
 export default {
   name: "InputDataList",
-  status: "ready",
+  status: "review",
   release: "1.0.0",
   type: "Element",
   computed: {

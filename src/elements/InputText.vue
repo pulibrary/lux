@@ -12,6 +12,7 @@
         :id="id"
         :disabled="disabled"
         :type="type"
+        :maxlength="maxlength"
         :hover="hover"
         :focus="focus"
         :placeholder="placeholder"
@@ -185,8 +186,8 @@ export default {
      * The maximum number of characters that the user can enter in textarea.
      */
     maxlength: {
-      type: String,
-      default: "",
+      type: Number,
+      default: 256,
     },
     /**
      * Whether the form input field is disabled or not.
