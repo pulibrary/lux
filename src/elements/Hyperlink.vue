@@ -6,7 +6,8 @@
 
 <script>
 /**
- * Used to fill available space or make space between two components.
+ * Used to create hyperlinks as text or buttons. Can also be used on Card component
+ * sub-elements to make the entire card click-able.
  */
 export default {
   name: "Hyperlink",
