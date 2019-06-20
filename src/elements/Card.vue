@@ -101,6 +101,7 @@ export default {
   background: $color-white;
   box-shadow: $box-shadow-small;
   color: $color-rich-black;
+  position: relative;
 
   &:active {
     cursor: move;
@@ -164,6 +165,37 @@ export default {
     }
   }
 }
+
+.lux-card /deep/ .lux-link {
+  color: $color-rich-black;
+  outline: 0;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+
+    &::after {
+      box-shadow: $box-shadow-selected;
+      transition: box-shadow 0.2s ease;
+    }
+  }
+
+  &:visited {
+    color: $color-rich-black;
+  }
+}
 </style>
 
 <docs>
@@ -177,14 +209,15 @@ export default {
     </card>
 
     <!-- Card with sections -->
-    <card id="a" size="full-width">
+    <card id="b" size="full-width">
       <card-media>
         <lux-icon-base width="50" height="50">
           <lux-icon-globe></lux-icon-globe>
         </lux-icon-base>
       </card-media>
       <card-header>
-        <heading level="h2" size="h3">Code4Lib - Trip ID 1234</heading>
+        <!-- Hyperlink is the text screen readers would read, we don't want to wrap the entire card -->
+        <heading level="h2" size="h3"><hyperlink href="#">Code4Lib - Trip ID 1234</hyperlink></heading>
         <text-style>Jan 9, 2019 to Jan 16, 2019</text-style>
       </card-header>
       <card-content>

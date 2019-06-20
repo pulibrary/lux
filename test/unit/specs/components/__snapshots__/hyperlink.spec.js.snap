@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hyperlink.vue has the expected html structure 1`] = `
+<a
+  class="lux-link link medium"
+>
+  I'll take you places
+</a>
+`;

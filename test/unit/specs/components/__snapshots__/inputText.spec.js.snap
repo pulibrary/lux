@@ -13,6 +13,7 @@ exports[`InputText.vue has the expected html structure 1`] = `
       class="lux-input"
       errormessage=""
       id="foo"
+      maxlength="256"
       name="pass this"
       placeholder=""
       type="text"
