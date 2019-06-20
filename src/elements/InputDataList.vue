@@ -1,5 +1,5 @@
 <template>
-  <component :is="wrapper" class="lux-input" :class="{ 'lux-has-icon': icon }">
+  <component :is="wrapper" class="lux-input">
     <label v-if="label" :for="id" :class="{ 'lux-hidden': hideLabel }">{{ label }}</label>
     <div
       class="lux-input-field"
@@ -53,6 +53,17 @@ export default {
     },
   },
   props: {
+    /**
+     * The type of the form input field.
+     * `text, number, email`
+     */
+    type: {
+      type: String,
+      default: "text",
+      validator: value => {
+        return value.match(/(text|number|email)/)
+      },
+    },
     /**
      * Text value of the form input field.
      */
@@ -150,13 +161,6 @@ export default {
       validator: value => {
         return value.match(/(small|medium|large)/)
       },
-    },
-    /**
-     * The maximum number of characters that the user can enter in textarea.
-     */
-    maxlength: {
-      type: String,
-      default: "",
     },
     /**
      * Whether the form input field is disabled or not.

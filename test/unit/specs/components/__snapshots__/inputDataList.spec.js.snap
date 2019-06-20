@@ -16,6 +16,7 @@ exports[`InputText.vue has the expected html structure 1`] = `
       list="foo-list"
       name="pass this"
       placeholder=""
+      type="text"
     />
      
     <datalist
