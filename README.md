@@ -6,6 +6,9 @@
 
 To contribute to lux:
 
+- You will need Node v10.16.0
+- If you use a NVM, run `nvm install` or `nvm use` if you already know you have Node v10.16.0
+
 ```
 yarn install
 ```
