@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/lux
     docker:
-      - image: circleci/node:9.11.1-browsers
+      - image: circleci/node:10.16.0-browsers
     steps:
       - checkout
       # Log the current branch
@@ -13,8 +13,8 @@ jobs:
       # Restore local dependencies from cache
       - restore_cache:
           keys:
-          - v1-deps-{{ checksum "package.json" }}
-          - v1-deps-
+            - v1-deps-{{ checksum "package.json" }}
+            - v1-deps-
       # Install project dependencies
       - run:
           name: Install local dependencies
@@ -23,7 +23,7 @@ jobs:
       - save_cache:
           key: v1-deps-{{ checksum "package.json" }}
           paths:
-              - node_modules
+            - node_modules
       # Test the source code
       - run:
           name: Testing
