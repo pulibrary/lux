@@ -3,7 +3,6 @@
 exports[`Gallery.vue has the expected html structure 1`] = `
 <div
   class="lux-gallery"
-  tag="div"
 >
   <card-stub
     cardpixelwidth="300"
