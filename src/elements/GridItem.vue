@@ -6,8 +6,8 @@
 
 <script>
 /**
- * Used to build the containers to layout a page. Grid items need to be nested inside a `Wrapper`
- * component with the prop of `flexContainer`. Do not nest grid items inside other grid items.
+ * Used to build the containers to layout a page. Grid items need to be nested inside a `GridContainer`
+ * component. Do not nest grid items inside other grid items.
  *
  */
 export default {
