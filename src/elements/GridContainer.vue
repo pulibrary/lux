@@ -36,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 .lux-flex-container {
   padding: 0 1rem 1rem 0;
+  margin: 0 -1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

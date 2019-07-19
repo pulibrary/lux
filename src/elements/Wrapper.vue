@@ -1,13 +1,5 @@
 <template>
-  <component
-    :is="type"
-    :class="[
-      'lux-wrapper',
-      { 'lux-full-width': fullWidth },
-      { 'lux-flex-container': flexContainer },
-      horizontal,
-    ]"
-  >
+  <component :is="type" :class="['lux-wrapper', { 'lux-full-width': fullWidth }, horizontal]">
     <slot />
   </component>
 </template>
