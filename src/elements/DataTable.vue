@@ -1,5 +1,5 @@
 <template>
-  <table :class="['lux-data-table']">
+  <table border="1px" :class="['lux-data-table']">
     <caption>
       {{
         caption
@@ -8,7 +8,7 @@
     <thead>
       <tr>
         <th v-for="(col, index) in parsedColumns" scope="col">
-          {{ col.name }}
+          {{ displayName(col) }}
         </th>
       </tr>
     </thead>
@@ -16,7 +16,7 @@
       <tr v-for="(lineItem, index) in jsonData">
         <td
           v-for="(col, index) in parsedColumns"
-          :class="[{ 'lux-data-table-number': isNum(lineItem[col.datatype]) }]"
+          :class="['foo', { 'lux-data-table-number': isNum(col.datatype) }]"
         >
           {{ lineItem[col.name] }}
         </td>
@@ -45,7 +45,7 @@ export default {
     },
     /**
      * columns defines the columns and order for which the data should be displayed.
-     * `e.g. [name, title, age]`
+     * `e.g. ['name', 'email', 'age']`
      */
     columns: {
       required: true,
@@ -66,8 +66,9 @@ export default {
       // names into objects with a name property
       let pCols = this.columns.map(item => {
         if (!this.isObject(item)) {
-          return { name: item }
+          return { name: item.toLowerCase() }
         } else {
+          item.name = item.name.toLowerCase()
           return item
         }
       })
@@ -75,12 +76,18 @@ export default {
     },
   },
   methods: {
+    displayName(col) {
+      if (col.hasOwnProperty("display_name")) {
+        return col.display_name
+      } else {
+        return col.name
+      }
+    },
     isObject(value) {
       return value && typeof value === "object" && value.constructor === Object
     },
     isNum(value) {
       // todo for some reason, this value is not coming through
-      console.log(value)
       return value === "number" ? true : false
     },
   },
@@ -102,7 +109,18 @@ export default {
 
   caption {
     display: table-caption;
-    text-align: center;
+    text-align: left;
+    @include responsive-font(
+      2vw,
+      $font-size-x-large-min,
+      $font-size-x-large-max,
+      $font-size-x-large
+    );
+    font-weight: $font-weight-bold;
+    font-family: $font-family-text;
+    font-size: $font-size-base;
+    line-height: $line-height-heading;
+    padding: 0.5vw;
   }
 
   thead {
@@ -142,10 +160,10 @@ export default {
     font-size: $font-size-base;
     line-height: $line-height-heading;
     text-align: left;
+  }
 
-    .lux-data-table-number {
-      text-align: right;
-    }
+  .lux-data-table-number {
+    text-align: right;
   }
 
   th {
@@ -163,7 +181,7 @@ export default {
 
 <docs>
   ```jsx
-  <data-table caption="Staff Emails" :columns="['name','email',{ 'name': 'age', 'datatype': 'number'}]" :json-data="[
+  <data-table caption="Staff Emails" :columns="['name',{ 'name': 'email', 'display_name': 'Email Address' },{ 'name': 'age', 'datatype': 'number'}]" :json-data="[
     {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
     {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
     {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
