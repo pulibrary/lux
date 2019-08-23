@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTable.vue has the expected html structure 1`] = `
+<table
+  border="1px"
+  class="lux-data-table"
+>
+  <caption>
+    
+    This is a caption.
+  
+  </caption>
+   
+  <thead>
+    <tr>
+      <th
+        scope="col"
+      >
+        
+        name
+      
+      </th>
+      <th
+        scope="col"
+      >
+        
+        Email Address
+      
+      </th>
+      <th
+        scope="col"
+      >
+        
+        age
+      
+      </th>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td
+        class="foo"
+      >
+        
+        foo
+      
+      </td>
+      <td
+        class="foo"
+      >
+        
+        foo@xxx.xxx
+      
+      </td>
+      <td
+        class="foo lux-data-table-number"
+      >
+        
+        42
+      
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="foo"
+      >
+        
+        bar
+      
+      </td>
+      <td
+        class="foo"
+      >
+        
+        bar@xxx.xxx
+      
+      </td>
+      <td
+        class="foo lux-data-table-number"
+      >
+        
+        23
+      
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="foo"
+      >
+        
+        fez
+      
+      </td>
+      <td
+        class="foo"
+      >
+        
+        fez@xxx.xxx
+      
+      </td>
+      <td
+        class="foo lux-data-table-number"
+      >
+        
+        34
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
