@@ -155,16 +155,15 @@ button.lux-close {
 .lux-card[data-v-418bdfc0] .lux-link:visited {
   color: #001123;
 }
-.lux-data-table[data-v-6fb6bc16] {
+.lux-data-table[data-v-47c213c8] {
   min-width: 85%;
   border-top: 1px solid #bfbfbf;
-  margin: 36px auto;
   overflow: hidden;
   border-collapse: collapse;
   border-spacing: 0;
   background-color: #fff;
 }
-.lux-data-table caption[data-v-6fb6bc16] {
+.lux-data-table caption[data-v-47c213c8] {
   display: table-caption;
   text-align: left;
   font-size: 36px;
@@ -176,39 +175,39 @@ button.lux-close {
   padding: 0.5vw;
 }
 @media (max-width: 63.3em) {
-  .lux-data-table caption[data-v-6fb6bc16] {
+  .lux-data-table caption[data-v-47c213c8] {
     font-size: 1.266em;
   }
 }
 @media (min-width: 88.85em) {
-  .lux-data-table caption[data-v-6fb6bc16] {
+  .lux-data-table caption[data-v-47c213c8] {
     font-size: 1.777em;
   }
 }
-.lux-data-table thead[data-v-6fb6bc16] {
+.lux-data-table thead[data-v-47c213c8] {
   display: table-header-group;
   vertical-align: middle;
   border-color: inherit;
 }
-.lux-data-table thead tr[data-v-6fb6bc16] {
+.lux-data-table thead tr[data-v-47c213c8] {
   background-color: #41464e;
   color: #fff;
 }
-.lux-data-table tbody tr[data-v-6fb6bc16] {
+.lux-data-table tbody tr[data-v-47c213c8] {
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
   background-color: #fff;
   color: #41464e;
 }
-.lux-data-table tbody tr[data-v-6fb6bc16]:nth-child(odd) {
+.lux-data-table tbody tr[data-v-47c213c8]:nth-child(odd) {
   background-color: #f5f5f5;
 }
-.lux-data-table tbody[data-v-6fb6bc16] {
+.lux-data-table tbody[data-v-47c213c8] {
   border-bottom: 1px solid #bfbfbf;
   background-color: #fff;
 }
-.lux-data-table td[data-v-6fb6bc16] {
+.lux-data-table td[data-v-47c213c8] {
   font-size: 1rem;
   line-height: 22px;
   padding: 12px 9px;
@@ -218,10 +217,10 @@ button.lux-close {
   line-height: 1;
   text-align: left;
 }
-.lux-data-table .lux-data-table-number[data-v-6fb6bc16] {
+.lux-data-table .lux-data-table-number[data-v-47c213c8] {
   text-align: right;
 }
-.lux-data-table th[data-v-6fb6bc16] {
+.lux-data-table th[data-v-47c213c8] {
   font-size: 1rem;
   line-height: 22px;
   padding: 12px 9px;
