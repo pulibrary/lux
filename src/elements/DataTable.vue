@@ -27,7 +27,7 @@
 
 <script>
 /**
- * Used as main page navigation in templates.
+ * Used to display data to end users.
  */
 export default {
   name: "DataTable",
@@ -97,11 +97,7 @@ export default {
 <style lang="scss" scoped>
 .lux-data-table {
   min-width: 85%;
-  margin-left: auto;
-  margin-right: auto;
   border-top: 1px solid #bfbfbf;
-  margin-top: 36px;
-  margin-bottom: 36px;
   overflow: hidden;
   border-collapse: collapse;
   border-spacing: 0;
