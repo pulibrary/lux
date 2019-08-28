@@ -26,6 +26,7 @@ export default {
     /**
      * Sets the size of the column. Prefix with `sm-` or `lg-`. Based on a 12 column grid.
      * The inclusion of `auto` will set that grid item to have a width based on the width and height of the content.
+     * The inclusion of `fill` will set the grid item to have a width based on the space available.
      */
     columns: {
       type: String,
@@ -58,10 +59,14 @@ $grid-columns: 12;
 
 .lux-col {
   padding: $space-small 0 0 $space-small;
-  background-clip: content-box;
-  flex-basis: 1;
+  flex-basis: 0%;
   flex-grow: 1;
+  flex-shrink: 1;
   max-width: 100%;
+
+  &.fill {
+    flex: 1;
+  }
 
   &.auto {
     flex-basis: auto;
@@ -69,7 +74,7 @@ $grid-columns: 12;
   }
 
   &.start {
-    align-self: flex-start;
+    align-self: start;
   }
 
   &.center {
@@ -96,6 +101,7 @@ $grid-columns: 12;
     flex-grow: 0;
     max-width: round-width($i);
 
+    &.fill,
     &.auto {
       flex-basis: auto;
     }

@@ -81,3 +81,12 @@ To publish a new version to npm:
 1.  Pull latest master with merged changes.
 2.  Run `yarn release`
 3.  :tada:
+
+To develop locally as dependency in project
+
+Use https://github.com/whitecolor/yalc
+
+yarn build:system
+yalc publish
+
+yalc update
