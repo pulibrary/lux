@@ -199,10 +199,6 @@
     "webpack-merge": "^4.1.4",
     "webpack-merge-and-include-globally": "^2.1.7"
   },
-  "engines": {
-    "node": "10.16.0",
-    "npm": ">= 3.0.0"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
