@@ -309,10 +309,6 @@ $color-placeholder: tint($color-grayscale, 50%);
         -moz-osx-font-smoothing: grayscale;
         opacity: 1;
       }
-      &:focus,
-      &[focus] {
-        outline: 0;
-      }
     }
 
     textarea {

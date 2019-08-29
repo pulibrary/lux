@@ -218,11 +218,6 @@ fieldset {
   box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
 }
 
-.lux-checkbox input[type="checkbox"]:focus + label {
-  transition: text-decoration $duration-quickly ease;
-  text-decoration: underline;
-}
-
 .lux-inline {
   display: inline-block;
 }
