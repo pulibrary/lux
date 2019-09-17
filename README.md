@@ -75,7 +75,7 @@ You might want to develop LUX while developing on a project that uses LUX as a d
 
 1. Install [yalc](https://github.com/whitecolor/yalc)
 1. In the LUX root directory, run `yarn build:system && yalc publish`
-1. In the Project (e.g., Approvals) root directory, run `yalc update`
+1. In the Project (e.g., Approvals) root directory, run `yalc add lux-design-system`
 1. Each time that you are ready to view the LUX work in progress, run the last 2 steps:
    1. In the LUX root directory, run `yarn build:system && yalc publish`
    1. In the Project (e.g., Approvals) root directory, run `yalc update`
