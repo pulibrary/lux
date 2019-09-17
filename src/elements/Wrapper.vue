@@ -1,5 +1,9 @@
 <template>
-  <component :is="type" :class="['lux-wrapper', { 'lux-full-width': fullWidth }, horizontal]">
+  <component
+    :is="type"
+    :class="['lux-wrapper', { 'lux-full-width': fullWidth }, horizontal]"
+    :style="{ maxWidth: maxWidth + 'px' }"
+  >
     <slot />
   </component>
 </template>
@@ -21,6 +25,13 @@ export default {
     type: {
       type: String,
       default: "div",
+    },
+    /**
+     * The maximum width of the wrapper. Default is set to 1170.
+     */
+    maxWidth: {
+      type: Number,
+      default: "",
     },
     /**
      * Determines whether the wrapper takes up 100% of the parent container.

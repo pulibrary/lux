@@ -1,6 +1,6 @@
 <template>
   <component :is="type" :class="['lux-library-footer']">
-    <wrapper class="lux-footer-content">
+    <wrapper class="lux-footer-content" :maxWidth="maxWidth">
       <div class="lux-library-links">
         <nav role="navigation" aria-label="Research Tools">
           <h2><a href="https://library.princeton.edu/research">Research Tools</a></h2>
@@ -107,6 +107,13 @@ export default {
     type: {
       type: String,
       default: "div",
+    },
+    /**
+     * The maximum width of the wrapper. Default is set to 1170.
+     */
+    maxWidth: {
+      type: Number,
+      default: "",
     },
   },
 }
