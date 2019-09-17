@@ -72,12 +72,12 @@ export default {
     letter-spacing: 0.32px;
     display: inline-flex;
     align-items: flex-start;
-    padding: 7px 12px;
+    padding: 7px 8px 7px 14px;
     margin: 0.25rem;
     border-radius: $border-radius-pill;
-    border: 1px solid;
+    border: 1px solid tint($color-rich-black, 80%);
     text-decoration: none;
-    color: $color-rich-black;
+    color: tint($color-rich-black, 20%);
     min-height: 32px;
     background: $color-white;
   }
@@ -100,10 +100,15 @@ export default {
 }
 
 .filter {
+  .append-icon {
+    padding-left: 2px;
+  }
+
   a:hover,
   a:focus {
     color: $color-white;
     background: $color-red;
+    border-color: $color-red;
   }
 }
 </style>
