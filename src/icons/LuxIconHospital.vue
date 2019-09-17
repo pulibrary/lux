@@ -1,300 +1,136 @@
 <template>
   <g>
-    <g id="Outline_Icons">
-      <g>
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="17.5"
-          y1="10.453"
-          x2="17.5"
-          y2="23.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="6.5"
-          y1="23.5"
-          x2="6.5"
-          y2="10.438"
-        />
-        <polyline
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          points="
-			17.5,23.5 17.5,12.5 23.5,12.5 23.5,23.5 		"
-        />
-        <polyline
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          points="0.5,23.5
-			0.5,12.5 6.5,12.5 6.5,23.5 		"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="0.5"
-          y1="23.5"
-          x2="23.5"
-          y2="23.5"
-        />
-
-        <circle
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          cx="12"
-          cy="7"
-          r="6.5"
-        />
-        <polygon
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          points="15.5,5.5
-			13.5,5.5 13.501,3.5 10.501,3.5 10.5,5.5 8.5,5.5 8.5,8.5 10.5,8.5 10.5,10.5 13.5,10.5 13.5,8.5 15.5,8.5 		"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="2.5"
-          y1="14.5"
-          x2="4.5"
-          y2="14.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="2.5"
-          y1="16.5"
-          x2="4.5"
-          y2="16.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="2.5"
-          y1="18.5"
-          x2="4.5"
-          y2="18.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="2.5"
-          y1="20.5"
-          x2="4.5"
-          y2="20.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="19.5"
-          y1="14.5"
-          x2="21.5"
-          y2="14.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="19.5"
-          y1="16.5"
-          x2="21.5"
-          y2="16.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="19.5"
-          y1="18.5"
-          x2="21.5"
-          y2="18.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="19.5"
-          y1="20.5"
-          x2="21.5"
-          y2="20.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="8.5"
-          y1="15.5"
-          x2="9.5"
-          y2="15.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="8.5"
-          y1="17.5"
-          x2="9.5"
-          y2="17.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="8.5"
-          y1="19.5"
-          x2="9.5"
-          y2="19.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="11.5"
-          y1="15.5"
-          x2="12.5"
-          y2="15.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="11.5"
-          y1="17.5"
-          x2="12.5"
-          y2="17.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="11.5"
-          y1="19.5"
-          x2="12.5"
-          y2="19.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="14.5"
-          y1="15.5"
-          x2="15.5"
-          y2="15.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="14.5"
-          y1="17.5"
-          x2="15.5"
-          y2="17.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="14.5"
-          y1="19.5"
-          x2="15.5"
-          y2="19.5"
-        />
-
-        <rect
-          x="10.5"
-          y="21.5"
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          width="3"
-          height="2"
-        />
-      </g>
+    <g>
+      <path
+        d="M17.5,24c-0.3,0-0.5-0.2-0.5-0.5v-13c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v13C18,23.8,17.8,24,17.5,24z"
+      />
     </g>
-    <g id="invisible_shape">
-      <rect fill="none" width="24" height="24" />
+    <g>
+      <path
+        d="M6.5,24C6.2,24,6,23.8,6,23.5V10.4c0-0.3,0.2-0.5,0.5-0.5S7,10.2,7,10.4v13.1C7,23.8,6.8,24,6.5,24z"
+      />
+    </g>
+    <g>
+      <path
+        d="M23.5,24c-0.3,0-0.5-0.2-0.5-0.5V13h-5v10.5c0,0.3-0.2,0.5-0.5,0.5S17,23.8,17,23.5v-11c0-0.3,0.2-0.5,0.5-0.5h6
+					c0.3,0,0.5,0.2,0.5,0.5v11C24,23.8,23.8,24,23.5,24z"
+      />
+    </g>
+    <g>
+      <path
+        d="M6.5,24C6.2,24,6,23.8,6,23.5V13H1v10.5C1,23.8,0.8,24,0.5,24S0,23.8,0,23.5v-11C0,12.2,0.2,12,0.5,12h6
+					C6.8,12,7,12.2,7,12.5v11C7,23.8,6.8,24,6.5,24z"
+      />
+    </g>
+    <g>
+      <path
+        d="M23.5,24h-23C0.2,24,0,23.8,0,23.5S0.2,23,0.5,23h23c0.3,0,0.5,0.2,0.5,0.5S23.8,24,23.5,24z"
+      />
+    </g>
+    <g>
+      <path
+        d="M12,14c-3.9,0-7-3.1-7-7s3.1-7,7-7c3.9,0,7,3.1,7,7S15.9,14,12,14z M12,1C8.7,1,6,3.7,6,7s2.7,6,6,6s6-2.7,6-6
+					S15.3,1,12,1z"
+      />
+    </g>
+    <g>
+      <path
+        d="M13.5,11h-3c-0.3,0-0.5-0.2-0.5-0.5V9H8.5C8.2,9,8,8.8,8,8.5v-3C8,5.2,8.2,5,8.5,5H10l0-1.5C10,3.2,10.2,3,10.5,3h3
+					c0.1,0,0.3,0.1,0.4,0.1S14,3.4,14,3.5L14,5h1.5C15.8,5,16,5.2,16,5.5v3C16,8.8,15.8,9,15.5,9H14v1.5C14,10.8,13.8,11,13.5,11z
+					 M11,10h2V8.5C13,8.2,13.2,8,13.5,8H15V6h-1.5c-0.1,0-0.3-0.1-0.4-0.1S13,5.6,13,5.5L13,4h-2l0,1.5C11,5.8,10.8,6,10.5,6H9v2
+					h1.5C10.8,8,11,8.2,11,8.5V10z"
+      />
+    </g>
+    <g>
+      <path
+        d="M4.5,15h-2C2.2,15,2,14.8,2,14.5S2.2,14,2.5,14h2C4.8,14,5,14.2,5,14.5S4.8,15,4.5,15z"
+      />
+    </g>
+    <g>
+      <path
+        d="M4.5,17h-2C2.2,17,2,16.8,2,16.5S2.2,16,2.5,16h2C4.8,16,5,16.2,5,16.5S4.8,17,4.5,17z"
+      />
+    </g>
+    <g>
+      <path
+        d="M4.5,19h-2C2.2,19,2,18.8,2,18.5S2.2,18,2.5,18h2C4.8,18,5,18.2,5,18.5S4.8,19,4.5,19z"
+      />
+    </g>
+    <g>
+      <path
+        d="M4.5,21h-2C2.2,21,2,20.8,2,20.5S2.2,20,2.5,20h2C4.8,20,5,20.2,5,20.5S4.8,21,4.5,21z"
+      />
+    </g>
+    <g>
+      <path
+        d="M21.5,15h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S21.8,15,21.5,15z"
+      />
+    </g>
+    <g>
+      <path
+        d="M21.5,17h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S21.8,17,21.5,17z"
+      />
+    </g>
+    <g>
+      <path
+        d="M21.5,19h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S21.8,19,21.5,19z"
+      />
+    </g>
+    <g>
+      <path
+        d="M21.5,21h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S21.8,21,21.5,21z"
+      />
+    </g>
+    <g>
+      <path
+        d="M9.5,16h-1C8.2,16,8,15.8,8,15.5S8.2,15,8.5,15h1c0.3,0,0.5,0.2,0.5,0.5S9.8,16,9.5,16z"
+      />
+    </g>
+    <g>
+      <path
+        d="M9.5,18h-1C8.2,18,8,17.8,8,17.5S8.2,17,8.5,17h1c0.3,0,0.5,0.2,0.5,0.5S9.8,18,9.5,18z"
+      />
+    </g>
+    <g>
+      <path
+        d="M9.5,20h-1C8.2,20,8,19.8,8,19.5S8.2,19,8.5,19h1c0.3,0,0.5,0.2,0.5,0.5S9.8,20,9.5,20z"
+      />
+    </g>
+    <g>
+      <path
+        d="M12.5,16h-1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h1c0.3,0,0.5,0.2,0.5,0.5S12.8,16,12.5,16z"
+      />
+    </g>
+    <g>
+      <path
+        d="M12.5,18h-1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h1c0.3,0,0.5,0.2,0.5,0.5S12.8,18,12.5,18z"
+      />
+    </g>
+    <g>
+      <path
+        d="M12.5,20h-1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h1c0.3,0,0.5,0.2,0.5,0.5S12.8,20,12.5,20z"
+      />
+    </g>
+    <g>
+      <path
+        d="M15.5,16h-1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h1c0.3,0,0.5,0.2,0.5,0.5S15.8,16,15.5,16z"
+      />
+    </g>
+    <g>
+      <path
+        d="M15.5,18h-1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h1c0.3,0,0.5,0.2,0.5,0.5S15.8,18,15.5,18z"
+      />
+    </g>
+    <g>
+      <path
+        d="M15.5,20h-1c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h1c0.3,0,0.5,0.2,0.5,0.5S15.8,20,15.5,20z"
+      />
+    </g>
+    <g>
+      <path
+        d="M13.5,24h-3c-0.3,0-0.5-0.2-0.5-0.5v-2c0-0.3,0.2-0.5,0.5-0.5h3c0.3,0,0.5,0.2,0.5,0.5v2C14,23.8,13.8,24,13.5,24z
+					 M11,23h2v-1h-2V23z"
+      />
     </g>
   </g>
 </template>
@@ -327,7 +163,7 @@ export default {
     </lux-icon-base>
 
     <!-- or make it a little bigger too, with colors :) -->
-    <lux-icon-base width="30" height="30" icon-name="hospital" icon-color="rgb(44, 110, 175)">
+    <lux-icon-base width="30" height="30" icon-name="hospital" icon-color="red">
       <lux-icon-hospital></lux-icon-hospital>
     </lux-icon-base>
   </div>

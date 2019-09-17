@@ -1,140 +1,81 @@
 <template>
   <g>
-    <g id="Outline_Icons">
-      <g>
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          d="M8.496,18.393
-          C6.454,17.57,3.574,17,0.5,17V0.5c5.851,0,11,1.566,11,3.5c0-1.934,5.148-3.5,11-3.5V17c-0.336,0-1,0.016-1,0.016"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="11.5"
-          y1="4"
-          x2="11.5"
-          y2="4.5"
-        />
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          d="M9,6.24
-          C7.39,5.623,5.113,5.177,2.5,5"
-        />
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          d="M7.021,8.646
-          C5.71,8.337,4.174,8.113,2.5,8"
-        />
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          d="M5.936,11.419
-          C4.888,11.227,3.731,11.083,2.5,11"
-        />
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          d="M6.088,14.447
-          C5,14.24,3.791,14.088,2.5,14"
-        />
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          d="M16.541,5.521
-          C17.722,5.277,19.06,5.098,20.5,5"
-        />
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          d="M19.422,8.09
-          C19.774,8.055,20.134,8.024,20.5,8"
-        />
-        <circle
-          fill="none"
-          stroke="#000000"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          cx="13.5"
-          cy="12.5"
-          r="6"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="17.766"
-          y1="16.766"
-          x2="23.5"
-          y2="22.5"
-        />
-        <polyline
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          points="
-          11.5,12.5 11.5,10.5 15.5,10.5 15.5,12.5 		"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="13.5"
-          y1="10.5"
-          x2="13.5"
-          y2="15.5"
-        />
-
-        <line
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          x1="12"
-          y1="15.5"
-          x2="15"
-          y2="15.5"
-        />
-      </g>
+    <g>
+      <path
+        d="M8.5,18.9c-0.1,0-0.1,0-0.2,0c-2.1-0.9-5-1.4-7.8-1.4C0.2,17.5,0,17.3,0,17V0.5C0,0.2,0.2,0,0.5,0c4.7,0,9.5,1,11,2.8
+        C13,1,17.8,0,22.5,0C22.8,0,23,0.2,23,0.5V17c0,0.3-0.2,0.5-0.5,0.5c-0.3,0-1,0-1,0l0-1c0,0,0.2,0,0.5,0V1c-5.7,0.1-10,1.6-10,3
+        c0,0.3-0.2,0.5-0.5,0.5S11,4.3,11,4c0-1.3-4.3-2.9-10-3v15.5c2.8,0.1,5.6,0.6,7.7,1.4C8.9,18,9.1,18.3,9,18.6
+        C8.9,18.8,8.7,18.9,8.5,18.9z"
+      />
     </g>
-    <g id="invisible_shape">
-      <rect fill="none" width="24" height="24" />
+    <g>
+      <path
+        d="M11.5,5C11.2,5,11,4.8,11,4.5V4c0-0.3,0.2-0.5,0.5-0.5S12,3.7,12,4v0.5C12,4.8,11.8,5,11.5,5z"
+      />
+    </g>
+    <g>
+      <path
+        d="M9,6.7c-0.1,0-0.1,0-0.2,0C7.2,6.1,5,5.7,2.5,5.5C2.2,5.5,2,5.2,2,5s0.3-0.5,0.5-0.5c2.6,0.2,5,0.6,6.6,1.3
+        c0.3,0.1,0.4,0.4,0.3,0.6C9.4,6.6,9.2,6.7,9,6.7z"
+      />
+    </g>
+    <g>
+      <path
+        d="M7,9.1c0,0-0.1,0-0.1,0C5.6,8.8,4.1,8.6,2.5,8.5C2.2,8.5,2,8.2,2,8s0.3-0.5,0.5-0.5c1.7,0.1,3.2,0.3,4.6,0.7
+        c0.3,0.1,0.4,0.3,0.4,0.6C7.5,9,7.2,9.1,7,9.1z"
+      />
+    </g>
+    <g>
+      <path
+        d="M5.9,11.9C5.9,11.9,5.9,11.9,5.9,11.9c-1.1-0.2-2.3-0.3-3.5-0.4C2.2,11.5,2,11.2,2,11s0.3-0.5,0.5-0.5
+        c1.2,0.1,2.4,0.2,3.5,0.4c0.3,0,0.5,0.3,0.4,0.6C6.4,11.8,6.2,11.9,5.9,11.9z"
+      />
+    </g>
+    <g>
+      <path
+        d="M6.1,14.9C6.1,14.9,6,14.9,6.1,14.9c-1.2-0.2-2.4-0.4-3.6-0.4C2.2,14.5,2,14.2,2,14s0.3-0.5,0.5-0.5
+        c1.3,0.1,2.5,0.2,3.6,0.5c0.3,0.1,0.4,0.3,0.4,0.6C6.5,14.8,6.3,14.9,6.1,14.9z"
+      />
+    </g>
+    <g>
+      <path
+        d="M16.5,6c-0.2,0-0.4-0.2-0.5-0.4C16,5.4,16.2,5.1,16.4,5c1.2-0.3,2.6-0.4,4-0.5C20.7,4.5,21,4.7,21,5
+        c0,0.3-0.2,0.5-0.5,0.5c-1.4,0.1-2.7,0.3-3.9,0.5C16.6,6,16.6,6,16.5,6z"
+      />
+    </g>
+    <g>
+      <path
+        d="M19.4,8.6c-0.3,0-0.5-0.2-0.5-0.5c0-0.3,0.2-0.5,0.4-0.5c0.4,0,0.7-0.1,1.1-0.1C20.7,7.5,21,7.7,21,8s-0.2,0.5-0.5,0.5
+        C20.2,8.5,19.8,8.6,19.4,8.6C19.5,8.6,19.4,8.6,19.4,8.6z"
+      />
+    </g>
+    <g>
+      <path
+        d="M13.5,19C9.9,19,7,16.1,7,12.5S9.9,6,13.5,6S20,8.9,20,12.5S17.1,19,13.5,19z M13.5,7C10.5,7,8,9.5,8,12.5
+        c0,3,2.5,5.5,5.5,5.5c3,0,5.5-2.5,5.5-5.5C19,9.5,16.5,7,13.5,7z"
+      />
+    </g>
+    <g>
+      <path
+        d="M23.5,23c-0.1,0-0.3,0-0.4-0.1l-5.7-5.7c-0.2-0.2-0.2-0.5,0-0.7s0.5-0.2,0.7,0l5.7,5.7c0.2,0.2,0.2,0.5,0,0.7
+        C23.8,23,23.6,23,23.5,23z"
+      />
+    </g>
+    <g>
+      <path
+        d="M15.5,13c-0.3,0-0.5-0.2-0.5-0.5V11h-3v1.5c0,0.3-0.2,0.5-0.5,0.5S11,12.8,11,12.5v-2c0-0.3,0.2-0.5,0.5-0.5h4
+        c0.3,0,0.5,0.2,0.5,0.5v2C16,12.8,15.8,13,15.5,13z"
+      />
+    </g>
+    <g>
+      <path
+        d="M13.5,16c-0.3,0-0.5-0.2-0.5-0.5v-5c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v5C14,15.8,13.8,16,13.5,16z"
+      />
+    </g>
+    <g>
+      <path
+        d="M15,16h-3c-0.3,0-0.5-0.2-0.5-0.5S11.7,15,12,15h3c0.3,0,0.5,0.2,0.5,0.5S15.3,16,15,16z"
+      />
     </g>
   </g>
 </template>
@@ -167,7 +108,7 @@ export default {
     </lux-icon-base>
 
     <!-- or make it a little bigger too, with colors :) -->
-    <lux-icon-base width="30"  height="30" icon-name="research" icon-color="rgb(44, 110, 175)">
+    <lux-icon-base width="30"  height="30" icon-name="research" icon-color="red">
       <lux-icon-research></lux-icon-research>
     </lux-icon-base>
   </div>

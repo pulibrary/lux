@@ -1,34 +1,16 @@
 <template>
   <g>
-    <g id="Outline_Icons_1_">
-      <g id="Outline_Icons">
-        <g>
-          <polyline
-            fill="none"
-            stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            points="17,8.5
-				9.5,15.5 7,13 			"
-          />
-
-          <circle
-            fill="none"
-            stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            cx="12"
-            cy="12"
-            r="11.5"
-          />
-        </g>
-      </g>
-      <g id="New_icons_1_"></g>
+    <g>
+      <path
+        d="M9.5,16c-0.1,0-0.3,0-0.4-0.1l-2.5-2.5c-0.2-0.2-0.2-0.5,0-0.7s0.5-0.2,0.7,0l2.2,2.2l7.1-6.7c0.2-0.2,0.5-0.2,0.7,0
+        s0.2,0.5,0,0.7l-7.5,7C9.7,16,9.6,16,9.5,16z"
+      />
     </g>
-    <g id="Invisible_Shape">
-      <rect fill="none" width="24" height="24" />
+    <g>
+      <path
+        d="M12,24C5.4,24,0,18.6,0,12C0,5.4,5.4,0,12,0c6.6,0,12,5.4,12,12C24,18.6,18.6,24,12,24z M12,1C5.9,1,1,5.9,1,12
+        s4.9,11,11,11s11-4.9,11-11S18.1,1,12,1z"
+      />
     </g>
   </g>
 </template>
@@ -61,7 +43,7 @@ export default {
     </lux-icon-base>
 
     <!-- or make it a little bigger too, with colors :) -->
-    <lux-icon-base width="30" height="30" icon-name="approved" icon-color="rgb(44, 110, 175)">
+    <lux-icon-base width="30" height="30" icon-name="approved" icon-color="red">
       <lux-icon-approved></lux-icon-approved>
     </lux-icon-base>
   </div>
