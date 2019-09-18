@@ -72,7 +72,7 @@ export default {
     letter-spacing: 0.32px;
     display: inline-flex;
     align-items: flex-start;
-    padding: 7px 8px 7px 14px;
+    padding: 7px 10px;
     margin: 0.25rem;
     border-radius: $border-radius-pill;
     border: 1px solid tint($color-rich-black, 80%);
