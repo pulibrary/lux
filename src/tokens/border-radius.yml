@@ -8,6 +8,8 @@ props:
     value: "3px"
   border_radius_circle:
     value: "50%"
+  border_radius_pill:
+    value: "16px"
 global:
   type: number
   category: border-radius
