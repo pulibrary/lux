@@ -7,9 +7,10 @@ exports[`InputText.vue has the expected html structure 1`] = `
   <!---->
    
   <div
-    class="lux-input-field lux-input-expand medium"
+    class="lux-input-field medium"
   >
     <input
+      autocomplete="off"
       class="lux-input"
       errormessage=""
       id="foo"

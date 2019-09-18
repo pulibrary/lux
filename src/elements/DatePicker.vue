@@ -1,5 +1,5 @@
 <template>
-  <wrapper>
+  <div class="lux-date-picker">
     <v-date-picker
       v-if="mode === 'single'"
       mode="single"
@@ -34,7 +34,7 @@
       >
       </input-text>
     </v-date-picker>
-  </wrapper>
+  </div>
 </template>
 
 <script>
@@ -154,6 +154,10 @@ export default {
 </script>
 
 <style lang="scss">
+.lux-date-picker {
+  @include stack-space($space-small);
+}
+
 .lux-input {
   display: flex;
   flex-wrap: wrap;
@@ -169,6 +173,8 @@ export default {
   ```jsx
   <div>
     <date-picker id="startDate" name="start" label="Start Date" mode="single" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(2019, 05, 30), end: null }]" />
+
+    <date-picker id="startDate" name="start" label="Start Date" mode="single" />
   </div>
   ```
 </docs>

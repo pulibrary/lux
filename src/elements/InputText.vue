@@ -7,6 +7,7 @@
     >
       <input
         v-if="type !== 'textarea'"
+        autocomplete="off"
         :name="name"
         :value="value"
         :id="id"
@@ -24,6 +25,7 @@
 
       <textarea
         v-else
+        autocomplete="off"
         :name="name"
         :id="id"
         :disabled="disabled"
@@ -160,7 +162,7 @@ export default {
      */
     width: {
       type: String,
-      default: "expand",
+      default: "auto",
       validator: value => {
         return value.match(/(auto|expand)/)
       },
@@ -306,10 +308,6 @@ $color-placeholder: tint($color-grayscale, 50%);
         color: $color-placeholder;
         -moz-osx-font-smoothing: grayscale;
         opacity: 1;
-      }
-      &:focus,
-      &[focus] {
-        outline: 0;
       }
     }
 
