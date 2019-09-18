@@ -1,32 +1,16 @@
 <template>
   <g>
-    <g id="Outline_Icons_1_">
-      <g id="Outline_Icons">
-        <g>
-          <polyline
-            fill="none"
-            stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            points="
-				1.5,8.994 4.5,13.494 8,9.494 			"
-          />
-          <path
-            fill="none"
-            stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            d="M14,21.5
-				c5.247,0,9.5-4.252,9.5-9.5c0-5.246-4.253-9.5-9.5-9.5S4.5,6.754,4.5,12v1.494"
-          />
-        </g>
-      </g>
-      <g id="New_icons_1_"></g>
+    <g>
+      <path
+        d="M4.5,14C4.5,14,4.5,14,4.5,14c-0.2,0-0.3-0.1-0.4-0.2l-3-4.5C0.9,9,1,8.7,1.2,8.6c0.2-0.2,0.5-0.1,0.7,0.1l2.6,4
+        l3.1-3.5c0.2-0.2,0.5-0.2,0.7,0c0.2,0.2,0.2,0.5,0,0.7l-3.5,4C4.8,13.9,4.6,14,4.5,14z"
+      />
     </g>
-    <g id="Invisible_Shape">
-      <rect fill="none" width="24" height="24" />
+    <g>
+      <path
+        d="M14,22c-0.3,0-0.5-0.2-0.5-0.5S13.7,21,14,21c5,0,9-4,9-9c0-5-4-9-9-9c-5,0-9,4-9,9v1.5C5,13.8,4.8,14,4.5,14
+        S4,13.8,4,13.5V12C4,6.5,8.5,2,14,2c5.5,0,10,4.5,10,10C24,17.5,19.5,22,14,22z"
+      />
     </g>
   </g>
 </template>
@@ -59,7 +43,7 @@ export default {
     </lux-icon-base>
 
     <!-- or make it a little bigger too, with colors :) -->
-    <lux-icon-base width="30" height="30" icon-name="refresh" icon-color="rgb(44, 110, 175)">
+    <lux-icon-base width="30" height="30" icon-name="refresh" icon-color="red">
       <lux-icon-refresh></lux-icon-refresh>
     </lux-icon-base>
   </div>

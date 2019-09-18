@@ -1,29 +1,15 @@
 <template>
   <g>
-    <g id="Outline_Icons">
-      <g>
-        <polygon
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          points="20.5,23.5
-    			3.5,23.5 3.5,0.5 14.5,0.5 20.5,6.5 		"
-        />
-        <polyline
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          points="14.5,0.5
-    			14.5,6.5 20.5,6.5 		"
-        />
-      </g>
+    <g>
+      <path
+        d="M20.5,24h-17C3.2,24,3,23.8,3,23.5v-23C3,0.2,3.2,0,3.5,0h11c0.1,0,0.3,0.1,0.4,0.1l6,6C20.9,6.2,21,6.4,21,6.5v17
+        C21,23.8,20.8,24,20.5,24z M4,23h16V6.7L14.3,1H4V23z"
+      />
     </g>
-    <g id="Invisible_Shape">
-      <rect fill="none" width="24" height="24" />
+    <g>
+      <path
+        d="M20.5,7h-6C14.2,7,14,6.8,14,6.5v-6C14,0.2,14.2,0,14.5,0S15,0.2,15,0.5V6h5.5C20.8,6,21,6.2,21,6.5S20.8,7,20.5,7z"
+      />
     </g>
   </g>
 </template>
@@ -56,7 +42,7 @@ export default {
     </lux-icon-base>
 
     <!-- or make it a little bigger too, with colors :) -->
-    <lux-icon-base width="30" height="30" icon-name="file" icon-color="rgb(44, 110, 175)">
+    <lux-icon-base width="30" height="30" icon-name="file" icon-color="red">
       <lux-icon-file></lux-icon-file>
     </lux-icon-base>
   </div>

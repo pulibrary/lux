@@ -1,35 +1,16 @@
 <template>
   <g>
-    <g id="Outline_Icons_1_">
-      <g id="Outline_Icons">
-        <g>
-          <circle
-            fill="none"
-            stroke="#000000"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            cx="8.5"
-            cy="8.5"
-            r="8"
-          />
-
-          <line
-            fill="none"
-            stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            x1="14.156"
-            y1="14.156"
-            x2="23.5"
-            y2="23.5"
-          />
-        </g>
-      </g>
-      <g id="New_icons_1_"> </g>
+    <g>
+      <path
+        d="M8.5,17C3.8,17,0,13.2,0,8.5C0,3.8,3.8,0,8.5,0C13.2,0,17,3.8,17,8.5C17,13.2,13.2,17,8.5,17z M8.5,1
+        C4.4,1,1,4.4,1,8.5S4.4,16,8.5,16S16,12.6,16,8.5S12.6,1,8.5,1z"
+      />
     </g>
-    <g id="Frames-24px">
-      <rect fill="none" width="24" height="24" />
+    <g>
+      <path
+        d="M23.5,24c-0.1,0-0.3,0-0.4-0.1l-9.3-9.3c-0.2-0.2-0.2-0.5,0-0.7s0.5-0.2,0.7,0l9.3,9.3c0.2,0.2,0.2,0.5,0,0.7
+        C23.8,24,23.6,24,23.5,24z"
+      />
     </g>
   </g>
 </template>
@@ -62,7 +43,7 @@ export default {
     </lux-icon-base>
 
     <!-- or make it a little bigger too, with colors :) -->
-    <lux-icon-base width="30" height="30" icon-name="search" icon-color="rgb(44, 110, 175)">
+    <lux-icon-base width="30" height="30" icon-name="search" icon-color="red">
       <lux-icon-search></lux-icon-search>
     </lux-icon-base>
   </div>
