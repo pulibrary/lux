@@ -250,8 +250,8 @@
     "font_size_x_small": {
       "type": "number",
       "category": "font-size",
-      "value": "11px",
-      "originalValue": "11px",
+      "value": "12px",
+      "originalValue": "12px",
       "name": "font_size_x_small"
     },
     "font_size_base_min": {
@@ -264,8 +264,8 @@
     "font_size_small": {
       "type": "number",
       "category": "font-size",
-      "value": "13px",
-      "originalValue": "13px",
+      "value": "14px",
+      "originalValue": "14px",
       "name": "font_size_small"
     },
     "font_size_x_large_min": {
@@ -498,6 +498,13 @@
       "value": "50%",
       "originalValue": "50%",
       "name": "border_radius_circle"
+    },
+    "border_radius_pill": {
+      "type": "number",
+      "category": "border-radius",
+      "value": "16px",
+      "originalValue": "16px",
+      "name": "border_radius_pill"
     },
     "space_xx_large": {
       "type": "number",

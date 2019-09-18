@@ -96,13 +96,13 @@ $tokens-map: (
     1.333em,
   ),
   "font-size-x-small": (
-    11px,
+    12px,
   ),
   "font-size-base-min": (
     1em,
   ),
   "font-size-small": (
-    13px,
+    14px,
   ),
   "font-size-x-large-min": (
     1.266em,
@@ -218,6 +218,9 @@ $tokens-map: (
   ),
   "border-radius-circle": (
     50%,
+  ),
+  "border-radius-pill": (
+    16px,
   ),
   "space-xx-large": (
     128px,
