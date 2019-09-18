@@ -1,6 +1,6 @@
 <template>
   <component :is="type" :class="['lux-library-header']">
-    <wrapper class="lux-header-content">
+    <wrapper class="lux-header-content" :maxWidth="maxWidth">
       <library-logo></library-logo>
       <a class="lux-app-name" :href="appUrl">{{ appName }}</a>
       <spacer></spacer>
@@ -40,6 +40,13 @@ export default {
      */
     appUrl: {
       type: String,
+      default: "",
+    },
+    /**
+     * The maximum width of the wrapper. Default is set to 1170.
+     */
+    maxWidth: {
+      type: Number,
       default: "",
     },
   },
