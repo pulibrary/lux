@@ -87,15 +87,17 @@ If you followed all the steps, verify that your `package.json` file has the foll
 },
 ```
 
-### Mount LUX on a container element in your Rails app
-
 #### Step 7
 
-If Webpacker installed correctly, you should be able to find this file: `app/javascript/packs/application.js`
+To avoid flashes of unstyled content (FOUC) in your app, make sure to extract css by setting `extract_css: true` in `config/webpacker.yml`.
+
+### Mount LUX on a container element in your Rails app
 
 #### Step 8
 
-You can use the tokens in your own custom component styles by importing the `tokens.scss` file separately. If you _*are not using TurboLinks*_, replace what is in that file with the following code:
+If Webpacker installed correctly, you should be able to find this file: `app/javascript/packs/application.js`
+
+You can use the tokens in your own custom component styles by importing the `tokens.scss` file separately. If you _*are not using TurboLinks*_, replace what is in the `application.js` file with the following code:
 
 ```javascript
 import Vue from "vue/dist/vue.esm"
@@ -126,7 +128,7 @@ You can also easily add the LUX Design Token variables to your asset pipeline. T
 @import "../../../node_modules/lux-design-system/dist/system/system.utils.scss";
 ```
 
-If you _*are using TurboLinks*_, replace what is in `app/javascript/packs/application.js` with the following code:
+If you _*are using TurboLinks*_ (Not Recommended), replace what is in `app/javascript/packs/application.js` with the following code:
 
 ```cmd
 yarn add vue-turbolinks
