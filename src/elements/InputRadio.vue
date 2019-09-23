@@ -9,6 +9,7 @@
         :value="option.value"
         :checked="option.checked"
         :disabled="option.disabled"
+        :required="option.required"
         @change="change($event.target.value)"
         @blur="inputblur($event.target)"
       />
@@ -43,7 +44,7 @@ export default {
       default: false,
     },
     /**
-     * The available options to check. Option properties are: id, value, disabled, checked
+     * The available options to check. Option properties are: id, value, disabled, required, checked
      */
     options: {
       required: true,
@@ -76,6 +77,14 @@ export default {
      * `true, false`
      */
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Whether the form input field is required or not.
+     * `true, false`
+     */
+    required: {
       type: Boolean,
       default: false,
     },
@@ -169,7 +178,7 @@ fieldset {
 }
 
 /* On mouse-over, add a grey background color */
-.lux-radio label:hover::before {
+.lux-radio :not([disabled]) + label:hover::before {
   box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
 }
 
@@ -211,15 +220,16 @@ fieldset {
   display: inline-block;
 }
 
-[disabled] {
+[disabled] + label {
   cursor: not-allowed;
+  color: $color-grayscale;
 }
 </style>
 
 <docs>
   ```jsx
   <div>
-    <input-radio id="foo" vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', checked: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2'}]"></input-radio>
+    <input-radio id="foo" vertical groupLabel="Where is my mind?" :options="[{name: 'radio-group-name', value: 'In the clouds', id: 'radio-opt1', required: true}, {name: 'radio-group-name', value: 'I don\'t know', id: 'radio-opt2', disabled: true}]"></input-radio>
   </div>
   ```
 </docs>

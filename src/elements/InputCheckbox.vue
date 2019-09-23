@@ -9,6 +9,7 @@
         :value="option.value"
         :checked="option.checked"
         :disabled="option.disabled"
+        :required="option.required"
         @change="change($event)"
         @blur="inputblur($event.target)"
       />
@@ -48,7 +49,7 @@ export default {
       default: false,
     },
     /**
-     * The available options to check.
+     * The available options to check. Option properties are: id, value, disabled, required, checked
      */
     options: {
       required: true,
@@ -81,6 +82,14 @@ export default {
      * `true, false`
      */
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Whether the form input field is required or not.
+     * `true, false`
+     */
+    required: {
       type: Boolean,
       default: false,
     },
@@ -178,7 +187,7 @@ fieldset {
 }
 
 /* On mouse-over, add a grey background color */
-.lux-checkbox label:hover::before {
+.lux-checkbox :not([disabled]) + label:hover::before {
   box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
 }
 
@@ -222,15 +231,16 @@ fieldset {
   display: inline-block;
 }
 
-[disabled] {
+[disabled] + label {
   cursor: not-allowed;
+  color: $color-grayscale;
 }
 </style>
 
 <docs>
   ```jsx
   <div>
-    <input-checkbox groupLabel="Where is my mind?" :options="[{name: 'opt 1', value: 'In the clouds', id: 'checkbox-opt1', checked: true}, {name: 'opt 2', value: 'I don\'t know', id: 'checkbox-opt2'}]"></input-checkbox>
+    <input-checkbox groupLabel="Where is my mind?" :options="[{name: 'opt 1', value: 'In the clouds', id: 'checkbox-opt1', required: true}, {name: 'opt 2', value: 'I don\'t know', id: 'checkbox-opt2', disabled: true}]"></input-checkbox>
   </div>
   ```
 </docs>
