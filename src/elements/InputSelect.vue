@@ -9,6 +9,7 @@
         { 'lux-select-expand': width === 'expand' },
       ]"
       :disabled="disabled"
+      :required="required"
       :focus="focus"
       :multiple="multiple"
       :errormessage="errormessage"
@@ -129,6 +130,14 @@ export default {
       default: false,
     },
     /**
+     * Whether the form input field is required or not.
+     * `true, false`
+     */
+    required: {
+      type: Boolean,
+      default: false,
+    },
+    /**
      * Manually trigger input field’s hover state.
      * `true, false`
      */
@@ -198,6 +207,7 @@ $color-placeholder: tint($color-grayscale, 50%);
   select {
     @include reset;
     @include inset-squish-space($space-small);
+    padding-right: $space-large;
     transition: all 0.2s ease;
     -webkit-appearance: none;
     appearance: none;
