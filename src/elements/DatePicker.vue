@@ -11,9 +11,11 @@
         :id="id"
         :label="label"
         :name="name"
-        width="auto"
+        :required="required"
+        :width="width"
         :value="!date ? '' : date.toLocaleDateString('en-US')"
         @input="updateInput($event)"
+        @inputblur="ib($event)"
       >
       </input-text>
     </v-date-picker>
@@ -28,9 +30,11 @@
         :id="id"
         :label="label"
         :name="name"
-        width="auto"
+        :width="width"
+        :required="required"
         :value="!range ? '' : this.formatStart() + ' - ' + this.formatEnd()"
         @input="updateRangeInput($event)"
+        @inputblur="ib($event)"
       >
       </input-text>
     </v-date-picker>
@@ -56,8 +60,8 @@ export default {
   },
   data() {
     return {
-      date: null,
-      range: null,
+      date: this.defaultDate,
+      range: this.defaultDates,
     }
   },
   props: {
@@ -95,6 +99,46 @@ export default {
       required: true,
     },
     /**
+     * The width of the form input field.
+     * `auto, expand`
+     */
+    width: {
+      type: String,
+      default: "auto",
+      validator: value => {
+        return value.match(/(auto|expand)/)
+      },
+    },
+    /**
+     * Whether the form input field is required or not.
+     * `true, false`
+     */
+    required: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * defaultDate offers a way to add data that may already exist for the field when `mode='single'`.
+     * It takes the form of a Javascript Date object.
+     * Example: `:defaultDate="new Date(2019, 05, 01)"`
+     */
+    defaultDate: {
+      type: Date,
+      default: null,
+      required: false,
+    },
+    /**
+     * defaultDates offer a way to add data that may already exist for the field when `mode='range'`.
+     * It takes the form of an Object containing two properties (start and,
+     * optionally, end date) with values that are Javascript date objects.
+     * Example: `:defaultDates="{ start: new Date(2019, 05, 01), end: new Date(2019, 05, 02)}"`
+     */
+    defaultDates: {
+      type: Object,
+      default: null,
+      required: false,
+    },
+    /**
      * Disable dates using the date object or date range format. This example makes the
      * month of June 2019 selectable, but nothing else: `[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(2019, 05, 30), end: null }]`
      * Note: In Javascript, months start at zero, which is why 05 = June.
@@ -106,6 +150,9 @@ export default {
     },
   },
   methods: {
+    ib(value) {
+      this.$emit("ibrelay", value)
+    },
     formatEnd() {
       if (this.range.hasOwnProperty("end")) {
         return this.range.end.toLocaleDateString("en-US")
@@ -143,6 +190,9 @@ export default {
       let date_regex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
       return date_regex.test(d)
     },
+    inputblur(value) {
+      this.$emit("inputblur", value)
+    },
   },
   beforeMount: function() {
     setupCalendar({
@@ -172,9 +222,9 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="startDate" name="start" label="Start Date" mode="single" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(2019, 05, 30), end: null }]" />
+    <date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]" />
 
-    <date-picker id="startDate" name="start" label="Start Date" mode="single" />
+    <date-picker id="today" name="today" label="Today's Date" mode="single" :defaultDate="new Date()" />
   </div>
   ```
 </docs>
