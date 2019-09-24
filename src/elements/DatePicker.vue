@@ -6,6 +6,7 @@
       :disabled-dates="disabledDates"
       :update-on-input="true"
       v-model="date"
+      @popover-did-disappear="calendarClosedSingle($event)"
     >
       <input-text
         :id="id"
@@ -15,7 +16,6 @@
         :width="width"
         :value="!date ? '' : date.toLocaleDateString('en-US')"
         @input="updateInput($event)"
-        @inputblur="ib($event)"
       >
       </input-text>
     </v-date-picker>
@@ -25,6 +25,7 @@
       :disabled-dates="disabledDates"
       :update-on-input="true"
       v-model="range"
+      @popover-did-disappear="calendarClosedRange($event)"
     >
       <input-text
         :id="id"
@@ -34,7 +35,6 @@
         :required="required"
         :value="!range ? '' : this.formatStart() + ' - ' + this.formatEnd()"
         @input="updateRangeInput($event)"
-        @inputblur="ib($event)"
       >
       </input-text>
     </v-date-picker>
@@ -150,8 +150,21 @@ export default {
     },
   },
   methods: {
-    ib(value) {
-      this.$emit("ibrelay", value)
+    calendarClosedSingle(value) {
+      if (this.date && this.isValidFormat(this.date.toLocaleDateString("en-US"))) {
+        var dateAsText = this.date.toLocaleDateString("en-US")
+        this.$emit("updateInput", dateAsText)
+      }
+    },
+    calendarClosedRange(value) {
+      if (
+        this.range &&
+        this.isValidFormat(this.range.start.toLocaleDateString("en-US")) &&
+        this.isValidFormat(this.range.end.toLocaleDateString("en-US"))
+      ) {
+        var rangeAsText = this.formatStart() + " - " + this.formatEnd()
+        this.$emit("updateInput", rangeAsText)
+      }
     },
     formatEnd() {
       if (this.range.hasOwnProperty("end")) {
@@ -173,16 +186,19 @@ export default {
     updateInput(value) {
       if (this.isValidFormat(value)) {
         this.date = this.parseDate(value)
+        this.$emit("updateInput", value)
       }
     },
     updateRangeInput(value) {
       if (value.includes(" - ")) {
         let r = value.split(" - ")
-        if (this.isValidFormat(r[0])) {
+        if (this.isValidFormat(r[0]) && this.isValidFormat(r[1])) {
+          if (!this.range) {
+            this.range = {}
+          }
           this.range.start = this.parseDate(r[0])
-        }
-        if (this.isValidFormat(r[1])) {
           this.range.end = this.parseDate(r[1])
+          this.$emit("updateInput", value)
         }
       }
     },
