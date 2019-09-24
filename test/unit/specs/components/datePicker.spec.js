@@ -38,18 +38,16 @@ describe("DatePicker.vue", () => {
   })
 
   // This function works in the app, but for some reason the range.start value is not getting updated in the test
-  // it("should update the date range value when a new date range is input", () => {
-  //   wrapper.setProps({ mode: "range" })
-  //   expect(wrapper.vm.range).toBe(null)
-  //   // const textInput = wrapper.find("input#startDate")
-  //   // textInput.setValue("01/01/2019 - 01/02/2019")
-  //   wrapper.vm.updateRangeInput("01/01/2019 - 01/02/2019")
-  //   const s = new Date("2019-01-01")
-  //   const e = new Date("2019-01-02")
-  //   console.log(wrapper.vm.range.start)
-  //   expect(wrapper.vm.range.start).toEqual(s)
-  //   expect(wrapper.vm.range.end).toEqual(e)
-  // })
+  it("should update the date range value when a new date range is input", () => {
+    wrapper.setProps({ mode: "range" })
+    expect(wrapper.vm.range).toBe(null)
+    wrapper.vm.updateRangeInput("01/01/2019 - 01/02/2019")
+    const s = new Date(Date.UTC(2019, 0, 1, 0, 0, 0))
+    const e = new Date(Date.UTC(2019, 0, 2, 0, 0, 0))
+    console.log(wrapper.vm.range.start)
+    expect(wrapper.vm.range.start).toEqual(s)
+    expect(wrapper.vm.range.end).toEqual(e)
+  })
 
   it("should not update the date range value when the input is an invalid date range", () => {
     wrapper.setProps({ mode: "range" })
