@@ -21,7 +21,7 @@
         :errormessage="errormessage"
         :class="['lux-input', { 'lux-input-error': hasError }]"
         v-on:input="$emit('input', $event.target.value)"
-        @blur="inputblur($event.target)"
+        @blur="inputblur($event)"
       />
 
       <textarea
@@ -44,7 +44,7 @@
           { 'lux-input-expand': width === 'expand' },
         ]"
         v-on:input="$emit('input', $event.target.value)"
-        @blur="inputblur($event.target)"
+        @blur="inputblur($event)"
       />
 
       <div v-if="icon" class="append-icon">
