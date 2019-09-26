@@ -47,7 +47,7 @@ export default {
      */
     maxWidth: {
       type: Number,
-      default: "",
+      default: 1170,
     },
   },
 }
