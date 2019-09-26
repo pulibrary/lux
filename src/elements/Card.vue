@@ -221,9 +221,12 @@ export default {
         <text-style>Jan 9, 2019 to Jan 16, 2019</text-style>
       </card-header>
       <card-content>
-        <text-style type="span" variation="small">
-          <lux-icon-base width="14" height="14"><lux-icon-approved></lux-icon-approved></lux-icon-base>
-        Approved on Dec 15, 2018</text-style>
+        <tag type="tag" :tag-items="[
+          {name: 'Pending', color: 'yellow'}
+          ]"
+          horizontal="end"
+          size="small"/>
+        <text-style type="span" variation="small">Last Updated on Dec 15, 2018</text-style>
       </card-content>
     </card>
   </div>
