@@ -238,9 +238,9 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]" />
+    <date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]" key="range" />
 
-    <date-picker id="today" name="today" label="Today's Date" mode="single" :defaultDate="new Date()" />
+    <date-picker id="today" name="today" label="Today's Date" mode="single" :defaultDate="new Date()" key="single"  />
   </div>
   ```
 </docs>

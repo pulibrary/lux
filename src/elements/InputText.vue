@@ -93,7 +93,7 @@ export default {
      * Text value of the form input field.
      */
     value: {
-      type: String,
+      type: [String, Number],
       default: "",
     },
     /**

@@ -30,7 +30,7 @@ export default {
      * The maximum width of the wrapper. Default is set to 1170.
      */
     maxWidth: {
-      type: Number,
+      type: [String, Number],
       default: "",
     },
     /**

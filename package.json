@@ -125,6 +125,7 @@
     "postcss-safe-parser": "^4.0.1",
     "postcss-url": "^8.0.0",
     "tinycolor2": "^1.4.1",
+    "v-autocomplete": "^1.8.2",
     "v-calendar": "^0.9.7",
     "vue": "^2.5.18",
     "vue-lodash": "^2.0.0",
