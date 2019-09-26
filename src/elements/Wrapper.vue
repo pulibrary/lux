@@ -2,7 +2,7 @@
   <component
     :is="type"
     :class="['lux-wrapper', { 'lux-full-width': fullWidth }, horizontal]"
-    :style="{ maxWidth: maxWidth + 'px' }"
+    :style="{ 'max-width': maxWidth + 'px' }"
   >
     <slot />
   </component>
@@ -31,7 +31,7 @@ export default {
      */
     maxWidth: {
       type: Number,
-      default: "",
+      default: 1170,
     },
     /**
      * Determines whether the wrapper takes up 100% of the parent container.
@@ -57,7 +57,6 @@ export default {
   margin: auto;
 
   @media #{$media-query-large} {
-    max-width: 1170px;
     padding: 1rem;
   }
 
@@ -73,6 +72,7 @@ export default {
   ```jsx
   <div>
     <wrapper>Wrapper can be used to wrap any components together.</wrapper>
+    <wrapper :max-width="1400">Wrapper can be used to wrap any components together.</wrapper>
   </div>
   ```
 </docs>
