@@ -116,12 +116,8 @@ var system = (function(t) {
     t.exports = n("HsJ5")
   },
   "03rr": function(t, e) {},
-  "0A/r": function(t, e, n) {
-    "use strict"
-    var r = n("dCfo")
-    n.n(r).a
-  },
   "0Rnf": function(t, e, n) {},
+  "0Z55": function(t, e, n) {},
   "0jul": function(t, e, n) {
     "use strict"
     var r = n("HzTV")
@@ -6592,7 +6588,6 @@ var system = (function(t) {
     }
   },
   "3qQk": function(t, e, n) {},
-  "4Exg": function(t, e, n) {},
   "4K1/": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -6736,6 +6731,11 @@ var system = (function(t) {
   "5mbo": function(t, e) {},
   "64/Z": function(t, e) {},
   "6ER8": function(t, e) {},
+  "6yh7": function(t, e, n) {
+    "use strict"
+    var r = n("0Z55")
+    n.n(r).a
+  },
   "7BlC": function(t, e, n) {
     "use strict"
     var r = n("IB4K")
@@ -6942,12 +6942,12 @@ var system = (function(t) {
         type: "Element",
         props: {
           type: { type: String, default: "div" },
-          maxWidth: { type: Number, default: "" },
+          maxWidth: { type: Number, default: 1170 },
           fullWidth: { type: Boolean, default: !1 },
           horizontal: { type: String, default: "" },
         },
       },
-      i = (n("0A/r"), n("KHd+")),
+      i = (n("6yh7"), n("KHd+")),
       a = n("HpXA"),
       o = n.n(a),
       s = Object(i.a)(
@@ -6959,7 +6959,7 @@ var system = (function(t) {
             {
               tag: "component",
               class: ["lux-wrapper", { "lux-full-width": this.fullWidth }, this.horizontal],
-              style: { maxWidth: this.maxWidth + "px" },
+              style: { "max-width": this.maxWidth + "px" },
             },
             [this._t("default")],
             2
@@ -6968,7 +6968,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "271b19b4",
+        "1b1f2f79",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -7286,11 +7286,6 @@ var system = (function(t) {
       )
     "function" == typeof o.a && o()(s)
     e.default = s.exports
-  },
-  "B+i5": function(t, e, n) {
-    "use strict"
-    var r = n("FAn3")
-    n.n(r).a
   },
   B7n5: function(t, e, n) {
     "use strict"
@@ -8147,7 +8142,6 @@ var system = (function(t) {
         return Array.from(t)
     }
   },
-  FAn3: function(t, e, n) {},
   FBgR: function(t, e, n) {},
   GxD9: function(t, e, n) {
     "use strict"
@@ -12765,10 +12759,10 @@ var system = (function(t) {
           type: { type: String, default: "div" },
           appName: { type: String, default: "" },
           appUrl: { type: String, default: "" },
-          maxWidth: { type: Number, default: "" },
+          maxWidth: { type: Number, default: 1170 },
         },
       },
-      i = (n("xTeP"), n("KHd+")),
+      i = (n("xO/+"), n("KHd+")),
       a = n("s5+B"),
       o = n.n(a),
       s = Object(i.a)(
@@ -12804,7 +12798,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "7d571c0b",
+        "22f7d1b2",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -14431,9 +14425,12 @@ var system = (function(t) {
         status: "ready",
         release: "1.0.0",
         type: "Pattern",
-        props: { type: { type: String, default: "div" }, maxWidth: { type: Number, default: "" } },
+        props: {
+          type: { type: String, default: "div" },
+          maxWidth: { type: Number, default: 1170 },
+        },
       },
-      i = (n("B+i5"), n("KHd+")),
+      i = (n("o1cF"), n("KHd+")),
       a = n("BA3N"),
       o = n.n(a),
       s = Object(i.a)(
@@ -14707,7 +14704,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "3edec9d6",
+        "0cdd9be4",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -15557,7 +15554,6 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
-  dCfo: function(t, e, n) {},
   daU6: function(t, e) {},
   e7Eb: function(t, e) {},
   eAtJ: function(t, e) {
@@ -15849,6 +15845,7 @@ var system = (function(t) {
   },
   gkHm: function(t, e) {},
   gvHy: function(t, e) {},
+  hTE0: function(t, e, n) {},
   hc6h: function(t, e) {},
   "i/xl": function(t, e, n) {
     "use strict"
@@ -16753,6 +16750,11 @@ var system = (function(t) {
   },
   o0o1: function(t, e, n) {
     t.exports = n("ls82")
+  },
+  o1cF: function(t, e, n) {
+    "use strict"
+    var r = n("tCVW")
+    n.n(r).a
   },
   oCYn: function(t, e, n) {
     "use strict"
@@ -22437,6 +22439,7 @@ var system = (function(t) {
     var r = n("J9Y1")
     n.n(r).a.load({ google: { families: ["Fira+Sans:300,400,400i,600,700"] } })
   },
+  tCVW: function(t, e, n) {},
   uJhq: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -22960,6 +22963,11 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  "xO/+": function(t, e, n) {
+    "use strict"
+    var r = n("hTE0")
+    n.n(r).a
+  },
   xSCS: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -22992,11 +23000,6 @@ var system = (function(t) {
       )
     "function" == typeof o.a && o()(s)
     e.default = s.exports
-  },
-  xTeP: function(t, e, n) {
-    "use strict"
-    var r = n("4Exg")
-    n.n(r).a
   },
   xatB: function(t, e, n) {},
   y2MN: function(t, e) {},
