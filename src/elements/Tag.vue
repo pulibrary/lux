@@ -1,8 +1,8 @@
 <template>
   <ul class="lux-tag" :class="[type, horizontal]">
     <li v-for="(item, index) in tagItems">
-      <a
-        v-if="item.href != null"
+      <component
+        :is="componentType(item)"
         :key="index"
         :href="item.href"
         :class="['lux-tag-item', size, item.color]"
@@ -23,25 +23,7 @@
             <lux-icon-denied></lux-icon-denied>
           </lux-icon-base>
         </span>
-      </a>
-      <span v-if="!item.href" :key="index" :class="['lux-tag-item', size, item.color]">
-        <span v-if="item.icon" class="prepend-icon">
-          <lux-icon-base width="14" height="14">
-            <lux-icon-alert v-if="item.icon === 'alert'"></lux-icon-alert>
-            <lux-icon-approved v-if="item.icon === 'approved'"></lux-icon-approved>
-            <lux-icon-denied v-if="item.icon === 'denied'"></lux-icon-denied>
-            <lux-icon-clock v-if="item.icon === 'clock'"></lux-icon-clock>
-            <lux-icon-refresh v-if="item.icon === 'refresh'"></lux-icon-refresh>
-            <lux-icon-reported v-if="item.icon === 'reported'"></lux-icon-reported>
-          </lux-icon-base>
-        </span>
-        <span v-html="item.name"></span>
-        <span v-if="type === 'filter'" class="append-icon">
-          <lux-icon-base width="14" height="14">
-            <lux-icon-denied></lux-icon-denied>
-          </lux-icon-base>
-        </span>
-      </span>
+      </component>
     </li>
   </ul>
 </template>
@@ -97,6 +79,15 @@ export default {
       },
     },
   },
+  methods: {
+    componentType(item) {
+      if (item.hasOwnProperty("href")) {
+        return "a"
+      } else {
+        return "span"
+      }
+    },
+  },
 }
 </script>
 
@@ -117,6 +108,10 @@ export default {
 
   &.end {
     justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
   }
 
   .lux-tag-item,
