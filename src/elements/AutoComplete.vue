@@ -1,14 +1,23 @@
 <template>
-  <v-autocomplete
-    :items="items"
-    v-model="item"
-    :get-label="getLabel"
-    :component-item="template"
-    @update-items="updateItems"
-    min-len="2"
-    wait="200"
-  >
-  </v-autocomplete>
+  <div>
+    <v-autocomplete
+      :items="items"
+      v-model="item"
+      :get-label="getLabel"
+      :component-item="template"
+      @update-items="updateItems"
+      @item-selected="itemSelected($event)"
+      min-len="2"
+      wait="200"
+    >
+    </v-autocomplete>
+    <input
+      type="text"
+      :name="hiddenInputAttrs.name"
+      :id="hiddenInputAttrs.id"
+      :value="hiddenInputAttrs.value"
+    />
+  </div>
 </template>
 
 <script>
@@ -31,74 +40,70 @@ export default {
   },
   data() {
     return {
-      item: {
-        id: 9,
-        name: "Lion",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      },
+      hiddenInputAttrs: { id: this.id, name: this.name, value: this.selected.id },
+      item: this.selected,
       items: [],
-      defaultItems: [
-        {
-          id: 9,
-          name: "Lion",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-        {
-          id: 10,
-          name: "Tiger",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-        {
-          id: 11,
-          name: "Toad",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-        {
-          id: 12,
-          name: "Penguin",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-        {
-          id: 13,
-          name: "Parrot",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-        {
-          id: 14,
-          name: "Bear",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-        {
-          id: 15,
-          name: "Beaver",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-        {
-          id: 16,
-          name: "Bullfrog",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        },
-      ],
+      unfilteredItems: this.options,
       template: AutoCompleteItemTemplate,
     }
+  },
+  props: {
+    /**
+     * Sets the id to reference this input with.
+     */
+    id: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Sets the name attribute for this input element
+     */
+    name: {
+      type: String,
+      default: "",
+    },
+    // /**
+    //  * Sets the name attribute for this input element
+    //  */
+    // minLen: {
+    //   type: [Number,String],
+    //   default: "",
+    // },
+    // /**
+    //  * Sets the name attribute for this input element
+    //  */
+    // wait: {
+    //   type: [Number,String],
+    //   default: "",
+    // },
+    /**
+     * Option list that a user selects from
+     */
+    options: {
+      type: Array,
+      default: [],
+    },
+    /**
+     * The item that has been selected.
+     */
+    selected: {
+      type: Object,
+      default: { id: "", name: "", description: "" },
+    },
   },
   methods: {
     getLabel(item) {
       return item.name
     },
-    /**
-     * Filter array items based on search criteria (query)
-     */
-    filterItems(arr, query) {
-      return arr.filter(function(el) {
-        return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
-      })
+    itemSelected(event) {
+      console.log(event)
+      this.hiddenInputValue.value = event.id
     },
     updateItems(text) {
       // This is where the asyncronous function goes
-      // async function apiGetAll () {
+      // async function apiGetAll (text) {
       //    try {
-      //      const resp = await fetch('https://jsonplaceholder.typicode.com/albums')
+      //      const resp = await fetch('https://example.com/?q=' + text)
       //      console.log(resp)
       //      return resp
       //    } catch (err) {
@@ -108,22 +113,47 @@ export default {
       // apiGetAll(text).then( (response) => {
       //   this.items = response
       // })
-
-      this.items = this.defaultItems.filter(item => item.name.includes(text))
+      this.hiddenInputAttrs.value = text
+      this.items = this.unfilteredItems.filter(item => item.name.includes(text))
     },
   },
 }
 </script>
 
 <style lang="scss">
+// Design Tokens with local scope
+$color-placeholder: tint($color-grayscale, 50%);
+
+input,
+textarea {
+  @include reset;
+  @include inset-squish-space($space-small);
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: $font-family-text;
+  background: $color-white;
+  border-radius: $border-radius-default;
+  color: set-text-color($color-rich-black, $color-white);
+  margin: 0;
+  border: 0;
+  width: 100%;
+
+  &::-webkit-input-placeholder {
+    -webkit-font-smoothing: antialiased;
+    color: $color-placeholder;
+  }
+  &:-ms-input-placeholder {
+    color: $color-placeholder;
+  }
+  &::-moz-placeholder {
+    color: $color-placeholder;
+    -moz-osx-font-smoothing: grayscale;
+    opacity: 1;
+  }
+}
+
 .v-autocomplete .v-autocomplete-input-group .v-autocomplete-input {
-  // font-size: 1.5em;
-  // padding: 10px 15px;
-  // box-shadow: none;
-  // border: 1px solid #157977;
-  // width: calc(100% - 32px);
-  // outline: none;
-  // background-color: #eee;
   @include stack-space($space-small);
   font-weight: $font-weight-regular;
   font-family: $font-family-text;
@@ -131,7 +161,6 @@ export default {
   line-height: $line-height-heading;
   width: auto;
 
-  @include reset;
   background: $color-white;
   border-radius: $border-radius-default;
   box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
@@ -141,12 +170,9 @@ export default {
     width: 100%;
   }
 }
-.v-autocomplete .v-autocomplete-input-group.v-autocomplete-selected .v-autocomplete-input {
-  color: #008000;
-  background-color: #f2fff2;
-}
+
 .v-autocomplete .v-autocomplete-list {
-  width: 100%;
+  width: auto;
   text-align: left;
   border: none;
   border-top: none;
@@ -155,32 +181,80 @@ export default {
   border-bottom: 1px solid #157977;
   z-index: 100000;
 }
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item {
-  cursor: pointer;
-  background-color: #fff;
-  padding: 10px;
-  border-bottom: 1px solid #157977;
-  border-left: 1px solid #157977;
-  border-right: 1px solid #157977;
-}
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:last-child {
-  border-bottom: none;
-}
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:hover {
-  background-color: #eee;
-}
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item abbr {
-  opacity: 0.8;
-  font-size: 0.8em;
-  display: block;
-  font-family: sans-serif;
-}
+
+// .v-autocomplete .v-autocomplete-list .v-autocomplete-list-item {
+//   cursor: pointer;
+//   background-color: #fff;
+//   padding: 10px;
+//   border-bottom: 1px solid #157977;
+//   border-left: 1px solid #157977;
+//   border-right: 1px solid #157977;
+// }
+// .v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:last-child {
+//   border-bottom: none;
+// }
+// .v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:hover {
+//   background-color: #eee;
+// }
+// .v-autocomplete .v-autocomplete-list .v-autocomplete-list-item abbr {
+//   opacity: 0.8;
+//   font-size: 0.8em;
+//   display: block;
+//   font-family: sans-serif;
+// }
 </style>
 
 <docs>
   ```jsx
   <div>
-    <auto-complete id="autoComplete" name="autoComplete" label="Auto-Complete" />
+    <auto-complete :id="autoComplete" :name="autoComplete" label="Auto-Complete"
+      :selected="{
+        id: 9,
+        name: 'Lion',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      }"
+      :options="[
+      {
+        id: 9,
+        name: 'Lion',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+      {
+        id: 10,
+        name: 'Tiger',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+      {
+        id: 11,
+        name: 'Toad',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+      {
+        id: 12,
+        name: 'Penguin',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+      {
+        id: 13,
+        name: 'Bearded Dragon',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+      {
+        id: 14,
+        name: 'Bear',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+      {
+        id: 15,
+        name: 'Beaver',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+      {
+        id: 16,
+        name: 'Bullfrog',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      },
+    ]" />
   </div>
   ```
 </docs>
