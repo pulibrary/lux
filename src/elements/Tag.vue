@@ -1,7 +1,12 @@
 <template>
   <ul class="lux-tag" :class="[type, horizontal]">
-    <li class="lux-tag-item" v-for="(item, index) in tagItems">
-      <a :key="index" :href="item.href" :class="['lux-tag-item', size, item.color]">
+    <li v-for="(item, index) in tagItems">
+      <a
+        v-if="item.href != null"
+        :key="index"
+        :href="item.href"
+        :class="['lux-tag-item', size, item.color]"
+      >
         <span v-if="item.icon" class="prepend-icon">
           <lux-icon-base width="14" height="14">
             <lux-icon-alert v-if="item.icon === 'alert'"></lux-icon-alert>
@@ -19,6 +24,24 @@
           </lux-icon-base>
         </span>
       </a>
+      <span v-if="!item.href" :key="index" :class="['lux-tag-item', size, item.color]">
+        <span v-if="item.icon" class="prepend-icon">
+          <lux-icon-base width="14" height="14">
+            <lux-icon-alert v-if="item.icon === 'alert'"></lux-icon-alert>
+            <lux-icon-approved v-if="item.icon === 'approved'"></lux-icon-approved>
+            <lux-icon-denied v-if="item.icon === 'denied'"></lux-icon-denied>
+            <lux-icon-clock v-if="item.icon === 'clock'"></lux-icon-clock>
+            <lux-icon-refresh v-if="item.icon === 'refresh'"></lux-icon-refresh>
+            <lux-icon-reported v-if="item.icon === 'reported'"></lux-icon-reported>
+          </lux-icon-base>
+        </span>
+        <span v-html="item.name"></span>
+        <span v-if="type === 'filter'" class="append-icon">
+          <lux-icon-base width="14" height="14">
+            <lux-icon-denied></lux-icon-denied>
+          </lux-icon-base>
+        </span>
+      </span>
     </li>
   </ul>
 </template>
@@ -96,7 +119,7 @@ export default {
     justify-content: flex-end;
   }
 
-  a,
+  .lux-tag-item,
   a:visited {
     font-size: $font-size-small;
     font-weight: 400;
@@ -114,58 +137,58 @@ export default {
     background: $color-white;
   }
 
-  a.small {
+  .lux-tag-item.small {
     font-size: $font-size-x-small;
     padding: 4px 9px;
     min-height: 24px;
   }
 
-  a.green {
+  .lux-tag-item.green {
     background: lighten($color-green, 30%);
     color: darken($color-green, 20%);
     border-color: transparent;
-
-    &:hover,
-    &:focus {
-      color: darken($color-green, 20%);
-      border-color: darken($color-green, 10%);
-    }
   }
 
-  a.red {
+  a:hover.green,
+  a:focus.green {
+    color: darken($color-green, 20%);
+    border-color: darken($color-green, 10%);
+  }
+
+  .lux-tag-item.red {
     background: lighten($color-red, 45%);
     color: darken($color-red, 25%);
     border-color: transparent;
-
-    &:hover,
-    &:focus {
-      color: darken($color-red, 25%);
-      border-color: darken($color-red, 10%);
-    }
   }
 
-  a.yellow {
+  a:hover.red,
+  a:focus.red {
+    color: darken($color-red, 25%);
+    border-color: darken($color-red, 10%);
+  }
+
+  .lux-tag-item.yellow {
     background: lighten($color-yellow, 35%);
     color: darken($color-yellow, 30%);
     border-color: transparent;
-
-    &:hover,
-    &:focus {
-      color: darken($color-yellow, 30%);
-      border-color: darken($color-yellow, 10%);
-    }
   }
 
-  a.blue {
+  a:hover.yellow,
+  a:focus.yellow {
+    color: darken($color-yellow, 30%);
+    border-color: darken($color-yellow, 10%);
+  }
+
+  .lux-tag-item.blue {
     background: lighten($color-bleu-de-france-dark, 30%);
     color: darken($color-bleu-de-france-dark, 25%);
     border-color: transparent;
+  }
 
-    &:hover,
-    &:focus {
-      color: darken($color-bleu-de-france-dark, 25%);
-      border-color: darken($color-bleu-de-france-dark, 10%);
-    }
+  a:hover.blue,
+  a:focus.blue {
+    color: darken($color-bleu-de-france-dark, 25%);
+    border-color: darken($color-bleu-de-france-dark, 10%);
   }
 
   span {
@@ -214,7 +237,8 @@ export default {
       {name: 'Cats', href: '/tags/cats', color: 'red', icon: 'denied'},
       {name: 'Cats', href: '/tags/cats', color: 'yellow', icon: 'alert'},
       {name: 'Cats', href: '/tags/cats', color: 'green', icon: 'approved'},
-      {name: 'Cats', href: '/tags/cats', color: 'blue'}
+      {name: 'Cats', href: '/tags/cats', color: 'blue'},
+      {name: 'Cats', color: 'blue'}
       ]"
       horizontal="end"/>
 
