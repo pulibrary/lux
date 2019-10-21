@@ -147,6 +147,11 @@ export default {
   .lux-text-style {
     padding-bottom: 1rem;
   }
+
+  /deep/ .lux-tag-item {
+    border-radius: $border-radius-pill;
+    font-weight: 400;
+  }
 }
 
 .full-width {
@@ -159,7 +164,15 @@ export default {
     padding-left: 0;
   }
 
-  @media #{$media-query-large} {
+  /deep/ .lux-card-content {
+    padding: 1rem;
+
+    @media #{$media-query-large} {
+      padding: $space-base;
+    }
+  }
+
+  @media #{$media-query-medium} {
     .lux-card-header {
       flex: 1;
     }

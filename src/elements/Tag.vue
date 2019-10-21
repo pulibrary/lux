@@ -147,7 +147,7 @@ export default {
   a:hover.green,
   a:focus.green {
     color: darken($color-green, 20%);
-    border-color: darken($color-green, 10%);
+    border-color: darken($color-green, 15%);
   }
 
   .lux-tag-item.red {
