@@ -11,7 +11,9 @@
         <lux-icon-search v-if="icon === 'search'"></lux-icon-search>
       </lux-icon-base>
     </div>
-    <span v-if="variation === 'dropdown'" class="lux-dropdown-indicator"> &#9660;</span>
+    <span v-if="variation === 'dropdown'" class="lux-dropdown-indicator" aria-hidden="true">
+      &#9660;</span
+    >
   </button>
 </template>
 
