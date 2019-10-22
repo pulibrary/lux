@@ -56,10 +56,6 @@ export default {
 .lux-wrapper {
   margin: auto;
 
-  @media #{$media-query-large} {
-    padding: 1rem;
-  }
-
   &.lux-full-width {
     padding: 0;
     max-width: 100%;

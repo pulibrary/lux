@@ -41,10 +41,6 @@ export default {
   justify-content: space-between;
   width: 100%;
 
-  @media only screen and #{$media-query-large} {
-    margin: 0 -1rem;
-  }
-
   &.start {
     justify-content: flex-start;
   }

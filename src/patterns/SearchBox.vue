@@ -37,6 +37,7 @@ export default {
   /deep/ .lux-input-field {
     border: 0;
     box-shadow: initial;
+    width: 100%;
 
     &:hover,
     &[hover] {

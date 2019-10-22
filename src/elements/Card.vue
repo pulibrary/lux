@@ -147,6 +147,11 @@ export default {
   .lux-text-style {
     padding-bottom: 1rem;
   }
+
+  /deep/ .lux-tag-item {
+    border-radius: $border-radius-pill;
+    font-weight: 400;
+  }
 }
 
 .full-width {
@@ -159,7 +164,15 @@ export default {
     padding-left: 0;
   }
 
-  @media #{$media-query-large} {
+  /deep/ .lux-card-content {
+    padding: 1rem;
+
+    @media #{$media-query-large} {
+      padding: $space-base;
+    }
+  }
+
+  @media #{$media-query-medium} {
     .lux-card-header {
       flex: 1;
     }
@@ -221,9 +234,12 @@ export default {
         <text-style>Jan 9, 2019 to Jan 16, 2019</text-style>
       </card-header>
       <card-content>
-        <text-style type="span" variation="small">
-          <lux-icon-base width="14" height="14"><lux-icon-approved></lux-icon-approved></lux-icon-base>
-        Approved on Dec 15, 2018</text-style>
+        <tag type="tag" :tag-items="[
+          {name: 'Pending', color: 'yellow'}
+          ]"
+          horizontal="end"
+          size="small"/>
+        <text-style type="span" variation="small">Last Updated on Dec 15, 2018</text-style>
       </card-content>
     </card>
   </div>

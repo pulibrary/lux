@@ -1,14 +1,29 @@
 <template>
-  <ul class="lux-tag" :class="[type]">
-    <li class="lux-tag-item" v-for="(item, index) in tagItems">
-      <a :key="index" :href="item.href" :class="['lux-tag-item']">
+  <ul class="lux-tag" :class="[type, horizontal]">
+    <li v-for="(item, index) in tagItems">
+      <component
+        :is="componentType(item)"
+        :key="index"
+        :href="item.href"
+        :class="['lux-tag-item', size, item.color]"
+      >
+        <span v-if="item.icon" class="prepend-icon">
+          <lux-icon-base width="14" height="14">
+            <lux-icon-alert v-if="item.icon === 'alert'"></lux-icon-alert>
+            <lux-icon-approved v-if="item.icon === 'approved'"></lux-icon-approved>
+            <lux-icon-denied v-if="item.icon === 'denied'"></lux-icon-denied>
+            <lux-icon-clock v-if="item.icon === 'clock'"></lux-icon-clock>
+            <lux-icon-refresh v-if="item.icon === 'refresh'"></lux-icon-refresh>
+            <lux-icon-reported v-if="item.icon === 'reported'"></lux-icon-reported>
+          </lux-icon-base>
+        </span>
         <span v-html="item.name"></span>
         <span v-if="type === 'filter'" class="append-icon">
           <lux-icon-base width="14" height="14">
             <lux-icon-denied></lux-icon-denied>
           </lux-icon-base>
         </span>
-      </a>
+      </component>
     </li>
   </ul>
 </template>
@@ -45,6 +60,33 @@ export default {
       required: true,
       type: Array,
     },
+    /**
+     * Sets the horizontal alignment of the item. `start`, `center`, or `end`.
+     */
+    horizontal: {
+      type: String,
+      validator: value => {
+        return value.match(/(start|center|end)/)
+      },
+    },
+    /**
+     * Sets the size of the item.
+     */
+    size: {
+      type: String,
+      validator: value => {
+        return value.match(/(small|medium|large)/)
+      },
+    },
+  },
+  methods: {
+    componentType(item) {
+      if (item.hasOwnProperty("href")) {
+        return "a"
+      } else {
+        return "span"
+      }
+    },
   },
 }
 </script>
@@ -64,7 +106,15 @@ export default {
   justify-content: flex-start;
   list-style: none;
 
-  a,
+  &.end {
+    justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  .lux-tag-item,
   a:visited {
     font-size: $font-size-small;
     font-weight: 400;
@@ -74,7 +124,7 @@ export default {
     align-items: flex-start;
     padding: 7px 10px;
     margin: 0.25rem;
-    border-radius: $border-radius-pill;
+    border-radius: $border-radius-default;
     border: 1px solid tint($color-rich-black, 80%);
     text-decoration: none;
     color: tint($color-rich-black, 20%);
@@ -82,16 +132,78 @@ export default {
     background: $color-white;
   }
 
+  .lux-tag-item.small {
+    font-size: $font-size-x-small;
+    padding: 4px 9px;
+    min-height: 24px;
+  }
+
+  .lux-tag-item.green {
+    background: lighten($color-green, 30%);
+    color: darken($color-green, 20%);
+    border-color: transparent;
+  }
+
+  a:hover.green,
+  a:focus.green {
+    color: darken($color-green, 20%);
+    border-color: darken($color-green, 15%);
+  }
+
+  .lux-tag-item.red {
+    background: lighten($color-red, 45%);
+    color: darken($color-red, 25%);
+    border-color: transparent;
+  }
+
+  a:hover.red,
+  a:focus.red {
+    color: darken($color-red, 25%);
+    border-color: darken($color-red, 10%);
+  }
+
+  .lux-tag-item.yellow {
+    background: lighten($color-yellow, 35%);
+    color: darken($color-yellow, 30%);
+    border-color: transparent;
+  }
+
+  a:hover.yellow,
+  a:focus.yellow {
+    color: darken($color-yellow, 30%);
+    border-color: darken($color-yellow, 10%);
+  }
+
+  .lux-tag-item.blue {
+    background: lighten($color-bleu-de-france-dark, 30%);
+    color: darken($color-bleu-de-france-dark, 25%);
+    border-color: transparent;
+  }
+
+  a:hover.blue,
+  a:focus.blue {
+    color: darken($color-bleu-de-france-dark, 25%);
+    border-color: darken($color-bleu-de-france-dark, 10%);
+  }
+
   span {
     vertical-align: middle;
   }
 
-  .lux-icon {
+  .append-icon .lux-icon {
     margin: 0 0 0 6px;
+  }
+
+  .prepend-icon .lux-icon {
+    margin: 0 4px 0 0;
   }
 }
 
 .tag {
+  .prepend-icon {
+    padding-right: 2px;
+  }
+
   a:hover,
   a:focus {
     border-color: $color-bleu-de-france-dark;
@@ -117,9 +229,13 @@ export default {
   ```jsx
   <div>
     <tag type="tag" :tag-items="[
-      {name: 'Cats', href: '/tags/cats'},
-      {name: 'Dogs', href: '/tags/dogs'}
-      ]"/>
+      {name: 'Cats', href: '/tags/cats', color: 'red', icon: 'denied'},
+      {name: 'Cats', href: '/tags/cats', color: 'yellow', icon: 'alert'},
+      {name: 'Cats', href: '/tags/cats', color: 'green', icon: 'approved'},
+      {name: 'Cats', href: '/tags/cats', color: 'blue'},
+      {name: 'Cats', color: 'blue'}
+      ]"
+      horizontal="end"/>
 
      <tag type="filter" :tag-items="[
       {name: 'Cats', href: '/tags/cats'},

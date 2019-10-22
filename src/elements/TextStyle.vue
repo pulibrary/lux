@@ -70,7 +70,7 @@ $positive-text: #7cb518;
     color: $color-red;
   }
   &.small {
-    font-size: $font-size-small;
+    font-size: $font-size-x-small;
   }
   &.uppercase {
     text-transform: uppercase;

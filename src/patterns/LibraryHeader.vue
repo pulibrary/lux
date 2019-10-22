@@ -64,7 +64,7 @@ export default {
   font-family: $font-family-heading;
   background: $color-grayscale-darker;
   color: set-text-color($color-rich-black, $color-white);
-  padding: 0 24px;
+  padding: 0;
   border-top: 3px solid $color-princeton-orange-on-black;
 
   .lux-header-content {
@@ -72,7 +72,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: auto;
-    padding: 8px;
+    padding: 0.5rem 1rem;
 
     @media #{$media-query-large} {
       max-width: 1170px;
