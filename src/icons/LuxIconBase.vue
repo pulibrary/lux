@@ -6,6 +6,7 @@
       :height="height"
       viewBox="0 0 24 24"
       :aria-labelledby="iconName"
+      :aria-hidden="iconHide"
       role="img"
     >
       <title v-if="iconName" :id="iconName" lang="en">{{ iconName }}</title>
@@ -60,6 +61,13 @@ export default {
     iconColor: {
       type: String,
       default: "currentColor",
+    },
+    /**
+     * Hides decorative icon from screen readers
+     */
+    iconHide: {
+      type: Boolean,
+      default: false,
     },
   },
 }
