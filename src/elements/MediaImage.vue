@@ -7,7 +7,13 @@
       :alt="alt"
       :class="[{ 'lux-cover': cover }, { 'lux-contain': contain }]"
     />
-    <lux-icon-base v-else width="50" height="50" icon-name="file" icon-color="rgb(225,225,225)"
+    <lux-icon-base
+      v-else
+      width="50"
+      height="50"
+      icon-name="file"
+      icon-color="rgb(225,225,225)"
+      icon-hide="true"
       ><lux-icon-file
     /></lux-icon-base>
   </div>
