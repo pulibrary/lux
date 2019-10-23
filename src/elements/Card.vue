@@ -224,7 +224,7 @@ export default {
     <!-- Card with sections -->
     <card id="b" size="full-width">
       <card-media>
-        <lux-icon-base width="50" height="50">
+        <lux-icon-base width="50" height="50" icon-hide="true">
           <lux-icon-globe></lux-icon-globe>
         </lux-icon-base>
       </card-media>

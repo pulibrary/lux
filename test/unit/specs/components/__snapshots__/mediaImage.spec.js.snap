@@ -7,6 +7,7 @@ exports[`MediaImage.vue has the expected html structure 1`] = `
   <lux-icon-base-stub
     height="50"
     icon-color="rgb(225,225,225)"
+    icon-hide="true"
     icon-name="file"
     width="50"
   >
