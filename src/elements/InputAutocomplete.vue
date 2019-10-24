@@ -5,6 +5,7 @@
     </label>
     <div class="lux-autocomplete-input">
       <input
+        id="displayInput"
         autocomplete="off"
         type="text"
         @input="onChange"
@@ -27,14 +28,18 @@
           {{ result }}
         </li>
       </ul>
-      <input :name="name" :id="id" type="hidden" :value="inputValue" />
+      <input :name="name" :id="id" type="hidden" :value="inputValue" data-input-value />
     </div>
   </div>
 </template>
 
 <script>
 /**
- * Used to establish a section of a card for supplementary content.
+ * InputAutocomplete is a cross between a text input and select input.
+ * This component is used to offer users suggested values that
+ * filter upon typing, while also allowing them to enter free-form text for the value.
+ * The id and name supplied to this component are applied to a hidden input field, which
+ * will contain the preferred value for submission based on the structure of the `items` prop.
  */
 export default {
   name: "InputAutocomplete",
