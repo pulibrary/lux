@@ -1,11 +1,11 @@
 <template>
   <div class="lux-autocomplete">
-    <label v-if="label" :class="{ 'lux-hidden': hideLabel }">{{ label }}</label>
+    <label v-if="label" :class="{ 'lux-hidden': hideLabel }">
+      <text-style>{{ label }}</text-style>
+    </label>
     <div class="lux-autocomplete-input">
       <input
         autocomplete="off"
-        :name="name"
-        :id="id"
         type="text"
         @input="onChange"
         v-model="search"
@@ -27,6 +27,7 @@
           {{ result }}
         </li>
       </ul>
+      <input :name="name" :id="id" type="hidden" :value="inputValue" />
     </div>
   </div>
 </template>
@@ -37,12 +38,13 @@
  */
 export default {
   name: "InputAutocomplete",
-  status: "ready",
+  status: "prototype",
   release: "1.0.0",
   type: "Element",
   props: {
     /**
-     * The available items in the autocomplete.
+     * The available items in the autocomplete. This can be a simple array of strings
+     * or an array of objects with an id and a label, if id is needed.
      */
     items: {
       type: Array,
@@ -57,9 +59,37 @@ export default {
       default: "",
     },
     /**
+     * The default value for the form input field.
+     */
+    defaultValue: {
+      type: String,
+      default: "",
+    },
+    /**
      * The label of the form input field.
      */
     label: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Visually hides the label of the form input field.
+     */
+    hideLabel: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * The id of the form input field.
+     */
+    id: {
+      type: String,
+      default: "",
+    },
+    /**
+     * The name of the form input field.
+     */
+    name: {
       type: String,
       default: "",
     },
@@ -77,6 +107,7 @@ export default {
       isOpen: false,
       results: [],
       search: "",
+      inputValue: "",
       isLoading: false,
       arrowCounter: -1,
     }
@@ -96,13 +127,32 @@ export default {
       }
     },
     filterResults() {
-      this.results = this.items.filter(
-        item => item.toLowerCase().indexOf(this.search.toLowerCase()) > -1
-      )
+      if (this.items.length && typeof this.items[0] === "object") {
+        let preResults = this.items.filter(
+          item => item.label.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+        )
+        this.results = preResults.map(x => x.label)
+      } else {
+        this.results = this.items.filter(
+          item => item.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+        )
+      }
     },
     setResult(result) {
       this.search = result
+      this.inputValue = result
       this.isOpen = false
+
+      if (this.items.length && typeof this.items[0] === "object") {
+        // we need to search the input list for a matching label and return
+        // an id if it's found
+        let item = this.items.find(obj => {
+          return obj.label === result
+        })
+        if (typeof item !== "undefined") {
+          this.inputValue = item.id
+        }
+      }
     },
     onArrowDown() {
       if (this.arrowCounter < this.results.length) {
@@ -115,15 +165,17 @@ export default {
       }
     },
     onEnter() {
-      this.search = this.results[this.arrowCounter]
+      this.setResult(this.results[this.arrowCounter])
       this.isOpen = false
       this.arrowCounter = -1
     },
     onEscape() {
+      this.setResult(this.search)
       this.isOpen = false
     },
     handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
+        this.setResult(this.search)
         this.isOpen = false
         this.arrowCounter = -1
       }
@@ -140,6 +192,9 @@ export default {
         this.isLoading = false
       }
     },
+  },
+  created() {
+    this.setResult(this.defaultValue)
   },
   mounted() {
     document.addEventListener("click", this.handleClickOutside)
@@ -253,7 +308,8 @@ input {
 <docs>
   ```jsx
   <div>
-    <input-autocomplete label="Fruits" :items="[ 'Apple', 'Banana', 'Orange', 'Mango', 'Pear', 'Peach', 'Grape', 'Tangerine', 'Pineapple']" />
+    <input-autocomplete label="Fruit" default-value="Banana" :items="[ 'Apple', 'Banana', 'Orange', 'Mango', 'Pear', 'Peach', 'Grape', 'Tangerine', 'Pineapple']" />
+    <input-autocomplete label="Fruit with IDs" default-value="Banana" :items="[ {id: 1, label: 'Apple'}, {id: 2, label: 'Banana'}, {id: 3, label: 'Mango'}, {id: 4, label: 'Pineapple'}]" />
   </div>
   ```
 </docs>
