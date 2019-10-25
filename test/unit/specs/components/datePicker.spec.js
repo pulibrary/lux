@@ -44,7 +44,6 @@ describe("DatePicker.vue", () => {
     wrapper.vm.updateRangeInput("01/01/2019 - 01/02/2019")
     const s = new Date(Date.UTC(2019, 0, 1, 0, 0, 0))
     const e = new Date(Date.UTC(2019, 0, 2, 0, 0, 0))
-    console.log(wrapper.vm.range.start)
     expect(wrapper.vm.range.start).toEqual(s)
     expect(wrapper.vm.range.end).toEqual(e)
   })

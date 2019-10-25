@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputAutocomplete.vue has the expected html structure 1`] = `
+<div
+  class="lux-autocomplete"
+>
+  <!---->
+   
+  <div
+    class="lux-autocomplete-input"
+  >
+    <input
+      autocomplete="off"
+      id="displayInput"
+      type="text"
+    />
+     
+    <ul
+      class="lux-autocomplete-results"
+      style="display: none;"
+    />
+     
+    <input
+      data-input-value=""
+      id="foo"
+      name="bar"
+      type="hidden"
+      value="2"
+    />
+  </div>
+</div>
+`;
