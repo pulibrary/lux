@@ -123,13 +123,11 @@ export default {
     letter-spacing: 0.32px;
     display: inline-flex;
     align-items: flex-start;
-    // padding: 8px 10px;
     margin: 0.25rem;
     border-radius: $border-radius-default;
     border: 1px solid tint($color-rich-black, 80%);
     text-decoration: none;
     color: tint($color-rich-black, 20%);
-    // min-height: 32px;
     background: $color-white;
 
     &:first-child {
