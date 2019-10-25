@@ -1,12 +1,14 @@
 <template>
   <component :is="wrapper" class="lux-select">
-    <label v-if="label" :for="id">{{ label }}</label>
+    <label v-if="label" :for="id" :class="{ 'lux-hidden': hideLabel }">{{ label }}</label>
+
     <select
       :id="id"
       :class="[
         'lux-select',
         { 'lux-select-error': hasError },
         { 'lux-select-expand': width === 'expand' },
+        size,
       ]"
       :disabled="disabled"
       :required="required"
@@ -23,9 +25,8 @@
         :key="index"
         :value="option.value"
         :disabled="option.disabled"
+        >{{ option.label }}</option
       >
-        {{ option.label }}
-      </option>
     </select>
     <div role="alert" class="lux-error" v-if="errormessage">{{ errormessage }}</div>
   </component>
@@ -77,6 +78,13 @@ export default {
       default: "",
     },
     /**
+     * Visually hides the label of the form input field.
+     */
+    hideLabel: {
+      type: Boolean,
+      default: false,
+    },
+    /**
      * The validation message a user should get.
      */
     errormessage: {
@@ -119,6 +127,16 @@ export default {
       default: "auto",
       validator: value => {
         return value.match(/(auto|expand)/)
+      },
+    },
+    /**
+     * Sets the size of the input area `small, medium, large`
+     */
+    size: {
+      type: String,
+      default: "medium",
+      validator: value => {
+        return value.match(/(small|medium|large)/)
       },
     },
     /**
@@ -186,8 +204,11 @@ $color-placeholder: tint($color-grayscale, 50%);
   font-weight: $font-weight-regular;
   font-family: $font-family-text;
   font-size: $font-size-base;
-  line-height: $line-height-heading;
   width: auto;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
   &.lux-select-expand {
     width: 100%;
   }
@@ -196,6 +217,7 @@ $color-placeholder: tint($color-grayscale, 50%);
     font-size: $font-size-base;
     color: tint($color-rich-black, 20%);
     @include stack-space($space-x-small);
+    line-height: 1;
   }
   .lux-error {
     margin-top: $space-x-small;
@@ -205,21 +227,17 @@ $color-placeholder: tint($color-grayscale, 50%);
     border: 1px solid $color-red;
   }
   select {
-    @include reset;
-    @include inset-squish-space($space-small);
-    padding-right: $space-large;
+    @include inset-space($space-small);
+    @include box-shadow-inputs;
     transition: all 0.2s ease;
     -webkit-appearance: none;
     appearance: none;
     font-family: $font-family-text;
-    background: $color-white;
-    border-radius: $border-radius-default;
-    color: set-text-color($color-rich-black, $color-white);
-    margin: 0;
     border: 0;
     cursor: pointer;
-    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
-      0 0 0 1px tint($color-rich-black, 80%);
+    background: $color-white;
+    border-radius: $border-radius-default;
+    color: $color-rich-black;
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%20000002%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat, repeat;
     background-position: right 0.7em top 50%, 0 0;
@@ -227,19 +245,33 @@ $color-placeholder: tint($color-grayscale, 50%);
 
     &:hover,
     &[hover] {
-      box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+      @include box-shadow-inputs-hover;
     }
-    &:focus,
-    &[focus] {
-      transition: box-shadow 0.2s ease;
-      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
-    }
+
     &[disabled] {
       box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
         0 0 0 1px tint($color-rich-black, 80%);
       background: lighten($color-placeholder, 42%);
       cursor: not-allowed;
       opacity: 0.5;
+    }
+
+    &.small {
+      @include inset-space(12px);
+      font-size: $font-size-small;
+      padding-right: 30px;
+    }
+
+    &.medium {
+      @include inset-space($space-small);
+      font-size: $font-size-base;
+      padding-right: 36px;
+    }
+
+    &.large {
+      @include inset-space(18px);
+      font-size: $font-size-large;
+      padding-right: 50px;
     }
   }
 }

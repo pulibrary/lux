@@ -76,6 +76,15 @@ export default {
     text-decoration: none;
     text-align: center;
     transition: background 250ms ease-in-out, transform 150ms ease;
+    margin: 0 0.25rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     &.solid {
       background: $color-bleu-de-france;
@@ -100,14 +109,17 @@ export default {
     }
 
     &.small {
+      @include inset-space(12px);
       font-size: $font-size-small;
     }
 
     &.medium {
+      @include inset-space(15px);
       font-size: $font-size-base;
     }
 
     &.large {
+      @include inset-space(18px);
       font-size: $font-size-large;
     }
   }
