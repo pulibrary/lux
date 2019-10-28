@@ -72,3 +72,13 @@
   min-width: 0;
   max-width: 100%;
 }
+
+// Box shadow for input elements
+@mixin box-shadow-inputs {
+  box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
+}
+
+// Hover state of box shadow for input elements
+@mixin box-shadow-inputs-hover {
+  box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+}

@@ -1,9 +1,10 @@
 <template>
-  <component :is="element" :class="['lux-dropdown-menu']">
+  <component :is="element" :class="['lux-dropdown-menu', size]">
     <input-button
       v-on:button-clicked="buttonClicked($event)"
       class="lux-dropdown-button"
       variation="dropdown"
+      :size="size"
       >{{ buttonLabel }}</input-button
     >
     <menu-bar
@@ -78,6 +79,16 @@ export default {
         return value.match(/(left|right)/)
       },
     },
+    /**
+     * Sets the size of the dropdown menu area `small, medium, large`
+     */
+    size: {
+      type: String,
+      default: "medium",
+      validator: value => {
+        return value.match(/(small|medium|large)/)
+      },
+    },
   },
   methods: {
     buttonClicked(value) {
@@ -94,9 +105,7 @@ export default {
 
 <style lang="scss" scoped>
 .lux-dropdown-menu {
-  @include reset;
-  @include stack-space($space-small);
-  margin: 0.25rem;
+  margin: 0 0.25rem 1rem;
   font-family: $font-family-text;
   font-size: $font-size-base;
   line-height: 1;
@@ -104,6 +113,44 @@ export default {
   position: relative;
   display: inline-block;
   top: 0;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .lux-dropdown-button {
+    @include inset-space($space-small);
+    transition: all 0.2s ease;
+    margin: 0;
+    padding-right: 36px;
+
+    &:hover,
+    &[hover] {
+      @include box-shadow-inputs-hover;
+    }
+
+    &.small {
+      @include inset-space(12px);
+      font-size: $font-size-small;
+      padding-right: 30px;
+    }
+
+    &.medium {
+      @include inset-space($space-small);
+      font-size: $font-size-base;
+      padding-right: 36px;
+    }
+
+    &.large {
+      @include inset-space(18px);
+      font-size: $font-size-large;
+      padding-right: 50px;
+    }
+  }
 
   .lux-dropdown {
     position: relative;

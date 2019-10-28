@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :aria-label="ariaLabel" :class="['icon', size]" v-html="svg" />
+  <component :is="type" :aria-label="ariaLabel" :class="['vds-icon', size]" v-html="svg" />
 </template>
 
 <script>
@@ -70,7 +70,7 @@ export default {
 
 // We don’t want to use scoped since these styles need to cascade down to SVGs.
 // We also want to be able to style .icon inside buttons etc.
-.icon {
+.vds-icon {
   @include reset;
   &.large svg {
     width: $space-l;

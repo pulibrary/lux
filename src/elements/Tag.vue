@@ -74,6 +74,7 @@ export default {
      */
     size: {
       type: String,
+      default: "medium",
       validator: value => {
         return value.match(/(small|medium|large)/)
       },
@@ -93,7 +94,6 @@ export default {
 
 <style lang="scss">
 .lux-tag {
-  @include reset;
   @include stack-space($space-base);
   font-family: $font-family-heading;
   line-height: $line-height-heading;
@@ -116,26 +116,38 @@ export default {
 
   .lux-tag-item,
   a:visited {
+    @include inset-space($space-small);
     font-size: $font-size-small;
     font-weight: 400;
     line-height: 1rem;
     letter-spacing: 0.32px;
     display: inline-flex;
     align-items: flex-start;
-    padding: 7px 10px;
     margin: 0.25rem;
     border-radius: $border-radius-default;
     border: 1px solid tint($color-rich-black, 80%);
     text-decoration: none;
     color: tint($color-rich-black, 20%);
-    min-height: 32px;
     background: $color-white;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    .prepend-icon,
+    .append-icon {
+      line-height: 14px;
+    }
   }
 
   .lux-tag-item.small {
-    font-size: $font-size-x-small;
-    padding: 4px 9px;
-    min-height: 24px;
+    @include inset-space(11px);
+    font-size: $font-size-small;
+  }
+
+  .lux-tag-item.large {
+    @include inset-space(27px);
+    font-size: $font-size-large;
   }
 
   .lux-tag-item.green {

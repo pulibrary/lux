@@ -282,10 +282,9 @@ $color-placeholder: tint($color-grayscale, 50%);
 
   .lux-input-field {
     @include reset;
+    @include box-shadow-inputs;
     background: $color-white;
     border-radius: $border-radius-default;
-    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
-      0 0 0 1px tint($color-rich-black, 80%);
     display: flex;
     width: auto;
     &.lux-input-expand {
@@ -327,7 +326,7 @@ $color-placeholder: tint($color-grayscale, 50%);
 
     &:hover,
     &[hover] {
-      box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+      @include box-shadow-inputs-hover;
     }
     &:focus,
     &[focus] {
@@ -391,6 +390,9 @@ $color-placeholder: tint($color-grayscale, 50%);
 
   .append-icon {
     padding: $space-xx-small;
+    background-color: $color-white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 }
 </style>

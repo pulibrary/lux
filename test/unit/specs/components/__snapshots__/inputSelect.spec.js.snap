@@ -7,7 +7,7 @@ exports[`InputSelect.vue has the expected html structure 1`] = `
   <!---->
    
   <select
-    class="lux-select"
+    class="lux-select medium"
     errormessage=""
     id="foo"
     name="foo"
@@ -16,15 +16,11 @@ exports[`InputSelect.vue has the expected html structure 1`] = `
       value="one"
     >
       
-      
-    
     </option>
     <option
       value="two"
     >
       
-      
-    
     </option>
   </select>
    

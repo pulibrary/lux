@@ -2,7 +2,7 @@
 
 exports[`DatePicker.vue has the expected html structure 1`] = `
 <div
-  class="lux-date-picker"
+  class="lux-date-picker medium"
 >
   <div
     class="popover-container"
@@ -16,6 +16,7 @@ exports[`DatePicker.vue has the expected html structure 1`] = `
       id="startDate"
       label="Start Date"
       name="start"
+      size="medium"
       value=""
       width="auto"
     />

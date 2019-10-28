@@ -1,5 +1,5 @@
 <template>
-  <div class="lux-date-picker">
+  <div :class="['lux-date-picker', size]">
     <v-date-picker
       v-if="mode === 'single'"
       mode="single"
@@ -14,10 +14,10 @@
         :name="name"
         :required="required"
         :width="width"
+        :size="size"
         :value="!date ? '' : date.toLocaleDateString('en-US')"
         @input="updateInput($event)"
-      >
-      </input-text>
+      ></input-text>
     </v-date-picker>
     <v-date-picker
       v-if="mode === 'range'"
@@ -32,11 +32,11 @@
         :label="label"
         :name="name"
         :width="width"
+        :size="size"
         :required="required"
         :value="!range ? '' : this.formatStart() + ' - ' + this.formatEnd()"
         @input="updateRangeInput($event)"
-      >
-      </input-text>
+      ></input-text>
     </v-date-picker>
   </div>
 </template>
@@ -107,6 +107,16 @@ export default {
       default: "auto",
       validator: value => {
         return value.match(/(auto|expand)/)
+      },
+    },
+    /**
+     * Sets the size of the input area `small, medium, large`
+     */
+    size: {
+      type: String,
+      default: "medium",
+      validator: value => {
+        return value.match(/(small|medium|large)/)
       },
     },
     /**
