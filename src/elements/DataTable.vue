@@ -7,9 +7,7 @@
     </caption>
     <thead>
       <tr>
-        <th v-for="(col, index) in parsedColumns" scope="col">
-          {{ displayName(col) }}
-        </th>
+        <th v-for="(col, index) in parsedColumns" scope="col">{{ displayName(col) }}</th>
       </tr>
     </thead>
     <tbody>
@@ -96,14 +94,14 @@ export default {
 
 <style lang="scss" scoped>
 .lux-data-table {
-  min-width: 85%;
-  border-top: 1px solid #bfbfbf;
-  overflow: hidden;
   border-collapse: collapse;
   border-spacing: 0;
-  background-color: #fff;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
 
   caption {
+    @include stack-space($space-base);
     display: table-caption;
     text-align: left;
     @include responsive-font(
@@ -114,63 +112,64 @@ export default {
     );
     font-weight: $font-weight-bold;
     font-family: $font-family-text;
-    font-size: $font-size-base;
     line-height: $line-height-heading;
-    padding: 0.5vw;
   }
 
   thead {
     display: table-header-group;
     vertical-align: middle;
-    border-color: inherit;
   }
 
   thead tr {
-    background-color: $color-grayscale-darker;
-    color: $color-white;
+    background-color: $color-grayscale-lighter;
+    color: $color-rich-black;
+  }
+
+  th {
+    line-height: 22px;
+    padding: 20px;
+    font-weight: $font-weight-semi-bold;
+    font-family: $font-family-text;
+    font-size: $font-size-x-small;
+    line-height: $line-height-heading;
+    text-align: left;
+    text-transform: uppercase;
+    color: $color-grayscale-darker;
+    letter-spacing: 0.5px;
+  }
+
+  th,
+  td {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid darken($color-grayscale-lighter, 10%);
+    @include inset-space($space-base);
+    overflow: hidden;
   }
 
   tbody tr {
     display: table-row;
     vertical-align: inherit;
-    border-color: inherit;
     background-color: $color-white;
     color: $color-grayscale-darker;
   }
 
-  tbody tr:nth-child(odd) {
-    background-color: $color-grayscale-lighter;
-  }
-
   tbody {
-    border-bottom: 1px solid #bfbfbf;
     background-color: #fff;
   }
 
   td {
-    font-size: 1rem;
-    line-height: 22px;
-    padding: 12px 9px;
+    color: $color-rich-black;
     font-weight: $font-weight-regular;
     font-family: $font-family-text;
     font-size: $font-size-base;
-    line-height: $line-height-heading;
+    line-height: 1.2;
     text-align: left;
   }
 
   .lux-data-table-number {
     text-align: right;
-  }
-
-  th {
-    font-size: 1rem;
-    line-height: 22px;
-    padding: 12px 9px;
-    font-weight: $font-weight-bold;
-    font-family: $font-family-text;
-    font-size: $font-size-base;
-    line-height: $line-height-heading;
-    text-align: left;
   }
 }
 </style>

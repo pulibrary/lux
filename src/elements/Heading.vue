@@ -97,7 +97,7 @@ export default {
 
 .h5 {
   @include responsive-font(1vw, $font-size-base-min, $font-size-base-max, $font-size-base);
-  font-weight: $font-weight-regular;
+  font-weight: $font-weight-semi-bold;
 }
 
 .h6 {
