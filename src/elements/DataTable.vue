@@ -37,9 +37,7 @@
             { 'lux-data-table-number': isNum(col.datatype) },
           ]"
         >
-          <text-style variation="strong">
-            {{ col.summary_value }}
-          </text-style>
+          {{ col.summary_value }}
         </td>
       </tr>
     </tfoot>

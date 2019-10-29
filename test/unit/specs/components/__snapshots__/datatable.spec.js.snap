@@ -16,23 +16,17 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       <th
         scope="col"
       >
-        
         name
-      
       </th>
       <th
         scope="col"
       >
-        
         Email Address
-      
       </th>
       <th
         scope="col"
       >
-        
         age
-      
       </th>
     </tr>
   </thead>
@@ -40,21 +34,21 @@ exports[`DataTable.vue has the expected html structure 1`] = `
   <tbody>
     <tr>
       <td
-        class="foo"
+        class=""
       >
         
         foo
       
       </td>
       <td
-        class="foo"
+        class="lux-data-table-center"
       >
         
         foo@xxx.xxx
       
       </td>
       <td
-        class="foo lux-data-table-number"
+        class="lux-data-table-number"
       >
         
         42
@@ -63,21 +57,21 @@ exports[`DataTable.vue has the expected html structure 1`] = `
     </tr>
     <tr>
       <td
-        class="foo"
+        class=""
       >
         
         bar
       
       </td>
       <td
-        class="foo"
+        class="lux-data-table-center"
       >
         
         bar@xxx.xxx
       
       </td>
       <td
-        class="foo lux-data-table-number"
+        class="lux-data-table-number"
       >
         
         23
@@ -86,21 +80,21 @@ exports[`DataTable.vue has the expected html structure 1`] = `
     </tr>
     <tr>
       <td
-        class="foo"
+        class=""
       >
         
         fez
       
       </td>
       <td
-        class="foo"
+        class="lux-data-table-center"
       >
         
         fez@xxx.xxx
       
       </td>
       <td
-        class="foo lux-data-table-number"
+        class="lux-data-table-number"
       >
         
         34
@@ -108,5 +102,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       </td>
     </tr>
   </tbody>
+   
+  <!---->
 </table>
 `;
