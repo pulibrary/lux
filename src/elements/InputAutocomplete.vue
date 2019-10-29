@@ -1,8 +1,6 @@
 <template>
   <div class="lux-autocomplete">
-    <label v-if="label" :class="{ 'lux-hidden': hideLabel }">
-      <text-style>{{ label }}</text-style>
-    </label>
+    <label v-if="label" :class="{ 'lux-hidden': hideLabel }">{{ label }}</label>
     <div class="lux-autocomplete-input">
       <input
         id="displayInput"
@@ -215,6 +213,11 @@ export default {
 $color-placeholder: tint($color-grayscale, 50%);
 
 .lux-autocomplete {
+  @include stack-space($space-small);
+  font-weight: $font-weight-regular;
+  font-family: $font-family-text;
+  font-size: $font-size-base;
+  line-height: $line-height-heading;
   position: relative;
   width: auto;
 
@@ -294,6 +297,10 @@ input {
   font-size: $font-size-base;
   font-weight: $font-weight-regular;
   line-height: $line-height-heading;
+  position: absolute;
+  background: white;
+  width: 100%;
+  z-index: 999;
 }
 
 .lux-autocomplete-result {
