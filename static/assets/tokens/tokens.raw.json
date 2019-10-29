@@ -565,8 +565,8 @@
     "line_height_small": {
       "type": "number",
       "category": "line-height",
-      "value": "1.3",
-      "originalValue": "1.3",
+      "value": "1.175",
+      "originalValue": "1.175",
       "name": "line_height_small"
     },
     "line_height_heading": {

@@ -118,14 +118,63 @@ var system = (function(t) {
   },
   "03rr": function(t, e) {},
   "08ai": function(t, e, n) {},
-  "0Rnf": function(t, e, n) {},
-  "0jul": function(t, e, n) {
+  "0KE9": function(t, e, n) {
     "use strict"
-    var r = n("HzTV")
+    var r = n("dt+K")
     n.n(r).a
   },
-  "0mHY": function(t, e, n) {},
+  "0Rnf": function(t, e, n) {},
   "0tf1": function(t, e, n) {},
+  "10Lx": function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = { name: "LuxIconPerson", status: "ready", release: "1.0.0", type: "Element" },
+      i = n("KHd+"),
+      a = n("P3nq"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e("g", [
+            e("g", [
+              e("path", {
+                attrs: {
+                  d:
+                    "M21.5,23h-19C2.2,23,2,22.8,2,22.5v-1.9c0-1.5,0.9-2.8,2.3-3.3L9,15.6v-2.5h1V16c0,0.2-0.1,0.4-0.3,0.5l-5,1.8\n\t\t\tc-1,0.4-1.7,1.3-1.7,2.4V22h18v-1.4c0-1.1-0.7-2-1.7-2.4l-5-1.8C14.1,16.4,14,16.2,14,16v-2.8h1v2.5l4.7,1.7\n\t\t\tc1.4,0.5,2.3,1.8,2.3,3.3v1.9C22,22.8,21.8,23,21.5,23z",
+                },
+              }),
+            ]),
+            this._v(" "),
+            e("g", [
+              e("path", {
+                attrs: {
+                  d:
+                    "M12,14.5c-1.5,0-2.9-0.7-3.9-1.9C6,10,6,6,8.1,3.4c1-1.2,2.4-1.9,3.9-1.9l0,0c1.5,0,2.9,0.7,3.9,1.9v0\n\t\t\tC18,6,18,10,15.9,12.6C14.9,13.8,13.5,14.5,12,14.5z M12,2.5c-1.2,0-2.3,0.6-3.2,1.6C7,6.2,7,9.8,8.8,11.9c0.8,1,2,1.6,3.2,1.6\n\t\t\ts2.3-0.6,3.2-1.6c1.8-2.2,1.8-5.7,0-7.8v0C14.3,3.1,13.2,2.5,12,2.5L12,2.5z",
+                },
+              }),
+            ]),
+            this._v(" "),
+            e("g", [
+              e("path", {
+                attrs: {
+                  d:
+                    "M15.7,8.1c-1.2,0-2.1-0.5-2.9-1.6C11.9,7.3,10.4,8,9,8C8.2,8,7.5,7.8,6.8,7.5l0.5-0.9C7.8,6.9,8.4,7,9,7\n\t\t\tc1.3,0,2.9-0.8,3.3-1.7c0.1-0.2,0.3-0.3,0.4-0.3c0.2,0,0.4,0.1,0.4,0.3c0.9,1.5,1.8,2,3.2,1.7c0.1,0,0.2,0,0.3,0l0.2,0l0.1,1\n\t\t\tc-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0C16.3,8.1,16,8.1,15.7,8.1z",
+                },
+              }),
+            ]),
+          ])
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      )
+    "function" == typeof o.a && o()(s)
+    e.default = s.exports
+  },
   "1UX2": function(t, e, n) {
     "use strict"
     var r = n("kda8")
@@ -189,6 +238,7 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  "2/NU": function(t, e, n) {},
   "26cH": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -220,6 +270,13 @@ var system = (function(t) {
               default: "auto",
               validator: function(t) {
                 return t.match(/(auto|expand)/)
+              },
+            },
+            size: {
+              type: String,
+              default: "medium",
+              validator: function(t) {
+                return t.match(/(small|medium|large)/)
               },
             },
             required: { type: Boolean, default: !1 },
@@ -295,7 +352,7 @@ var system = (function(t) {
             n = t._self._c || e
           return n(
             "div",
-            { staticClass: "lux-date-picker" },
+            { class: ["lux-date-picker", t.size] },
             [
               "single" === t.mode
                 ? n(
@@ -327,6 +384,7 @@ var system = (function(t) {
                           name: t.name,
                           required: t.required,
                           width: t.width,
+                          size: t.size,
                           value: t.date ? t.date.toLocaleDateString("en-US") : "",
                         },
                         on: {
@@ -369,6 +427,7 @@ var system = (function(t) {
                           label: t.label,
                           name: t.name,
                           width: t.width,
+                          size: t.size,
                           required: t.required,
                           value: t.range ? this.formatStart() + " - " + this.formatEnd() : "",
                         },
@@ -394,6 +453,478 @@ var system = (function(t) {
       )
     "function" == typeof s.a && s()(c)
     e.default = c.exports
+  },
+  "2F0E": function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = {
+        name: "FormInputs",
+        status: "prototype",
+        release: "1.0.0",
+        type: "Template",
+        metaInfo: { title: "Form | LUX Design System", htmlAttrs: { lang: "en" } },
+        props: { type: { type: String, default: "div" } },
+      },
+      i = n("KHd+"),
+      a = n("BIGG"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this,
+            e = t.$createElement,
+            n = t._self._c || e
+          return n(
+            t.type,
+            { tag: "component", staticClass: "lux-form-inputs" },
+            [
+              n(
+                "wrapper",
+                [
+                  n(
+                    "grid-container",
+                    [
+                      n(
+                        "grid-item",
+                        [
+                          n(
+                            "search-box",
+                            [
+                              n("input-text", {
+                                attrs: {
+                                  id: "foo",
+                                  name: "value",
+                                  label: "Search",
+                                  "hide-label": !0,
+                                  placeholder: "Find all the things",
+                                  size: "small",
+                                },
+                              }),
+                              t._v(" "),
+                              n("input-button", {
+                                attrs: {
+                                  type: "button",
+                                  variation: "icon",
+                                  icon: "search",
+                                  size: "small",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          t._v(" "),
+                          n(
+                            "search-box",
+                            [
+                              n("input-text", {
+                                attrs: {
+                                  id: "foo",
+                                  name: "value",
+                                  label: "Search",
+                                  "hide-label": !0,
+                                  placeholder: "Find all the things",
+                                },
+                              }),
+                              t._v(" "),
+                              n("input-button", {
+                                attrs: { type: "button", variation: "icon", icon: "search" },
+                              }),
+                            ],
+                            1
+                          ),
+                          t._v(" "),
+                          n(
+                            "search-box",
+                            [
+                              n("input-text", {
+                                attrs: {
+                                  id: "foo",
+                                  name: "value",
+                                  label: "Search",
+                                  "hide-label": !0,
+                                  placeholder: "Find all the things",
+                                  size: "large",
+                                },
+                              }),
+                              t._v(" "),
+                              n("input-button", {
+                                attrs: {
+                                  type: "button",
+                                  variation: "icon",
+                                  icon: "search",
+                                  size: "large",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  t._v(" "),
+                  n(
+                    "grid-container",
+                    [
+                      n(
+                        "grid-item",
+                        [
+                          n("input-text", {
+                            attrs: {
+                              id: "foo",
+                              name: "value",
+                              label: "Input",
+                              "hide-label": !0,
+                              placeholder: "Write your text",
+                              helper: "This is helper text to help the user fill out this field",
+                              required: "",
+                              size: "small",
+                            },
+                          }),
+                          t._v(" "),
+                          n("input-text", {
+                            attrs: {
+                              id: "foo",
+                              name: "value",
+                              label: "Input",
+                              "hide-label": !0,
+                              placeholder: "Write your text",
+                              helper: "This is helper text to help the user fill out this field",
+                              required: "",
+                            },
+                          }),
+                          t._v(" "),
+                          n("input-text", {
+                            attrs: {
+                              id: "foo",
+                              name: "value",
+                              label: "Input",
+                              "hide-label": !0,
+                              placeholder: "Write your text",
+                              helper: "This is helper text to help the user fill out this field",
+                              required: "",
+                              size: "large",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                      t._v(" "),
+                      n(
+                        "grid-item",
+                        [
+                          n("input-text", {
+                            attrs: {
+                              id: "foo",
+                              name: "value",
+                              "hide-label": !0,
+                              label: "Icon",
+                              placeholder: "Write your text",
+                              icon: "alert",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                      t._v(" "),
+                      n(
+                        "grid-item",
+                        [
+                          n("input-select", {
+                            attrs: {
+                              label: "Select...",
+                              id: "myChoice",
+                              name: "myChoice",
+                              "hide-label": !0,
+                              value: "bar",
+                              options: [
+                                { label: "opt 1", value: "foo" },
+                                { label: "opt 2", value: "bar" },
+                              ],
+                              size: "small",
+                            },
+                          }),
+                          t._v(" "),
+                          n("input-select", {
+                            attrs: {
+                              label: "Select...",
+                              id: "myChoice",
+                              name: "myChoice",
+                              "hide-label": !0,
+                              value: "bar",
+                              options: [
+                                { label: "opt 1", value: "foo" },
+                                { label: "opt 2", value: "bar" },
+                              ],
+                            },
+                          }),
+                          t._v(" "),
+                          n("input-select", {
+                            attrs: {
+                              label: "Select...",
+                              id: "myChoice",
+                              name: "myChoice",
+                              "hide-label": !0,
+                              value: "bar",
+                              size: "large",
+                              options: [
+                                { label: "opt 1", value: "foo" },
+                                { label: "opt 2", value: "bar" },
+                              ],
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                      t._v(" "),
+                      n(
+                        "grid-item",
+                        [
+                          n("dropdown-menu", {
+                            attrs: {
+                              type: "links",
+                              "button-label": "Options",
+                              "menu-items": [
+                                { name: "Vegetable", component: "Vegetable", disabled: !0 },
+                                { name: "Fruit", component: "Fruit" },
+                                { name: "Apple", component: "Apple", parent: "Fruit" },
+                                { name: "Lettuce", component: "Lettuce", parent: "Vegetable" },
+                                { name: "Carrot", component: "Carrot", parent: "Vegetable" },
+                                { name: "Pear", component: "Pear", parent: "Fruit" },
+                              ],
+                              size: "small",
+                            },
+                          }),
+                          t._v(" "),
+                          n("dropdown-menu", {
+                            attrs: {
+                              type: "links",
+                              "button-label": "Options",
+                              "menu-items": [
+                                { name: "Vegetable", component: "Vegetable", disabled: !0 },
+                                { name: "Fruit", component: "Fruit" },
+                                { name: "Apple", component: "Apple", parent: "Fruit" },
+                                { name: "Lettuce", component: "Lettuce", parent: "Vegetable" },
+                                { name: "Carrot", component: "Carrot", parent: "Vegetable" },
+                                { name: "Pear", component: "Pear", parent: "Fruit" },
+                              ],
+                            },
+                          }),
+                          t._v(" "),
+                          n("dropdown-menu", {
+                            attrs: {
+                              type: "links",
+                              "button-label": "Options",
+                              size: "large",
+                              "menu-items": [
+                                { name: "Vegetable", component: "Vegetable", disabled: !0 },
+                                { name: "Fruit", component: "Fruit" },
+                                { name: "Apple", component: "Apple", parent: "Fruit" },
+                                { name: "Lettuce", component: "Lettuce", parent: "Vegetable" },
+                                { name: "Carrot", component: "Carrot", parent: "Vegetable" },
+                                { name: "Pear", component: "Pear", parent: "Fruit" },
+                              ],
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                      t._v(" "),
+                      n(
+                        "grid-item",
+                        [
+                          n("input-text", {
+                            attrs: {
+                              id: "foe",
+                              name: "value",
+                              label: "Textarea",
+                              type: "textarea",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  t._v(" "),
+                  n("date-picker", {
+                    attrs: {
+                      id: "dateRange",
+                      name: "daterange",
+                      label: "Date Range",
+                      mode: "range",
+                      size: "small",
+                    },
+                  }),
+                  t._v(" "),
+                  n("date-picker", {
+                    attrs: {
+                      id: "dateRange",
+                      name: "daterange",
+                      label: "Date Range",
+                      mode: "range",
+                    },
+                  }),
+                  t._v(" "),
+                  n("date-picker", {
+                    attrs: {
+                      id: "dateRange",
+                      name: "daterange",
+                      label: "Date Range",
+                      mode: "range",
+                      size: "large",
+                    },
+                  }),
+                  t._v(" "),
+                  n("input-radio", {
+                    attrs: {
+                      id: "foo",
+                      vertical: "",
+                      groupLabel: "Where is my mind?",
+                      options: [
+                        {
+                          name: "radio-group-name",
+                          value: "In the clouds",
+                          id: "radio-opt1",
+                          required: !0,
+                        },
+                        {
+                          name: "radio-group-name",
+                          value: "I don't know",
+                          id: "radio-opt2",
+                          disabled: !0,
+                        },
+                      ],
+                    },
+                  }),
+                  t._v(" "),
+                  n("input-checkbox", {
+                    attrs: {
+                      groupLabel: "Where is my mind?",
+                      options: [
+                        {
+                          name: "opt 1",
+                          value: "In the clouds",
+                          id: "checkbox-opt1",
+                          required: !0,
+                        },
+                        { name: "opt 2", value: "I don't know", id: "checkbox-opt2", disabled: !0 },
+                      ],
+                    },
+                  }),
+                  t._v(" "),
+                  n("input-button", {
+                    attrs: {
+                      type: "button",
+                      variation: "icon",
+                      size: "small",
+                      icon: "search",
+                      hideLabel: "",
+                    },
+                  }),
+                  t._v(" "),
+                  n("input-button", {
+                    attrs: { type: "button", variation: "icon", icon: "search", hideLabel: "" },
+                  }),
+                  t._v(" "),
+                  n("input-button", {
+                    attrs: {
+                      type: "button",
+                      variation: "icon",
+                      size: "large",
+                      icon: "search",
+                      hideLabel: "",
+                    },
+                  }),
+                  t._v(" "),
+                  n("input-button", { attrs: { variation: "solid", size: "small" } }, [
+                    t._v("Apply Changes"),
+                  ]),
+                  t._v(" "),
+                  n("input-button", { attrs: { variation: "solid" } }, [t._v("Apply Changes")]),
+                  t._v(" "),
+                  n("input-button", { attrs: { variation: "solid", size: "large" } }, [
+                    t._v("Apply Changes"),
+                  ]),
+                  t._v(" "),
+                  n("tag", {
+                    attrs: {
+                      type: "tag",
+                      "tag-items": [
+                        { name: "Cats", href: "/tags/cats", color: "red", icon: "denied" },
+                        { name: "Cats", href: "/tags/cats", color: "yellow", icon: "alert" },
+                        { name: "Cats", href: "/tags/cats", color: "green", icon: "approved" },
+                        { name: "Cats", href: "/tags/cats", color: "blue" },
+                        { name: "Cats", color: "blue" },
+                      ],
+                    },
+                  }),
+                  t._v(" "),
+                  n("tag", {
+                    attrs: {
+                      type: "filter",
+                      size: "small",
+                      "tag-items": [
+                        { name: "Cats", href: "/tags/cats" },
+                        { name: "Dogs", href: "/tags/dogs" },
+                      ],
+                    },
+                  }),
+                  t._v(" "),
+                  n("tag", {
+                    attrs: {
+                      type: "filter",
+                      "tag-items": [
+                        { name: "Cats", href: "/tags/cats" },
+                        { name: "Dogs", href: "/tags/dogs" },
+                      ],
+                    },
+                  }),
+                  t._v(" "),
+                  n("tag", {
+                    attrs: {
+                      type: "filter",
+                      size: "large",
+                      "tag-items": [
+                        { name: "Cats", href: "/tags/cats" },
+                        { name: "Dogs", href: "/tags/dogs" },
+                      ],
+                    },
+                  }),
+                  t._v(" "),
+                  n(
+                    "hyperlink",
+                    { attrs: { href: "#", variation: "button solid", size: "small" } },
+                    [t._v("Bar")]
+                  ),
+                  t._v(" "),
+                  n("hyperlink", { attrs: { href: "#", variation: "button solid" } }, [
+                    t._v("Bar"),
+                  ]),
+                  t._v(" "),
+                  n(
+                    "hyperlink",
+                    { attrs: { href: "#", variation: "button solid", size: "large" } },
+                    [t._v("Bar")]
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          )
+        },
+        [],
+        !1,
+        null,
+        "a2a22aea",
+        null
+      )
+    "function" == typeof o.a && o()(s)
+    e.default = s.exports
   },
   "2FPS": function(t, e, n) {
     "use strict"
@@ -591,13 +1122,13 @@ var system = (function(t) {
               return E
             }),
             n.d(e, "a", function() {
-              return T
+              return L
             }),
             n.d(e, "b", function() {
-              return $
+              return T
             }),
             n.d(e, "s", function() {
-              return L
+              return $
             }),
             n.d(e, "r", function() {
               return P
@@ -751,17 +1282,17 @@ var system = (function(t) {
             E = function(t, e) {
               return t && t.length ? t[t.length - 1] : e
             },
-            T = function(t) {
+            L = function(t) {
               return Object(o.a)(t) && t.length
             },
-            $ = function(t, e) {
+            T = function(t, e) {
               return !!(function t(e, n) {
                 return e ? (n(e) ? e : t(e.parentElement, n)) : null
               })(t, function(t) {
                 return t === e
               })
             },
-            L = function(t) {
+            $ = function(t) {
               var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "key"
               return t && t.length
                 ? t.reduce(function(t, n) {
@@ -6406,7 +6937,11 @@ var system = (function(t) {
         },
       ]))
   },
-  "2mCe": function(t, e, n) {},
+  "2m2y": function(t, e, n) {
+    "use strict"
+    var r = n("Ok2A")
+    n.n(r).a
+  },
   "30R6": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -6677,7 +7212,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("nlv6"), n("KHd+")),
+      i = (n("9WUz"), n("KHd+")),
       a = n("zckO"),
       o = n.n(a),
       s = Object(i.a)(
@@ -6694,7 +7229,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "0bb8d37c",
+        "2bf5a64e",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -6923,6 +7458,11 @@ var system = (function(t) {
     var r = n("IHu0")
     n.n(r).a
   },
+  "9WUz": function(t, e, n) {
+    "use strict"
+    var r = n("l6ne")
+    n.n(r).a
+  },
   "9b0z": function(t, e) {},
   "9t9y": function(t, e, n) {
     "use strict"
@@ -7118,7 +7658,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("O+rM"), n("KHd+")),
+      i = (n("TxwM"), n("KHd+")),
       a = n("jEXX"),
       o = n.n(a),
       s = Object(i.a)(
@@ -7146,22 +7686,16 @@ var system = (function(t) {
                     "div",
                     { staticClass: "append-icon" },
                     [
-                      n(
-                        "lux-icon-base",
-                        { attrs: { width: "24", height: "24", "icon-name": "search" } },
-                        ["search" === t.icon ? n("lux-icon-search") : t._e()],
-                        1
-                      ),
+                      "search" === t.icon
+                        ? n(
+                            "lux-icon-base",
+                            { attrs: { width: "18", height: "18", "icon-name": "search" } },
+                            [n("lux-icon-search")],
+                            1
+                          )
+                        : t._e(),
                     ],
                     1
-                  )
-                : t._e(),
-              t._v(" "),
-              "dropdown" === t.variation
-                ? n(
-                    "span",
-                    { staticClass: "lux-dropdown-indicator", attrs: { "aria-hidden": "true" } },
-                    [t._v("\n    ▼")]
                   )
                 : t._e(),
             ],
@@ -7171,7 +7705,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "2b4c40da",
+        "33661dd1",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -7325,6 +7859,7 @@ var system = (function(t) {
     e.default = s.exports
   },
   BA3N: function(t, e) {},
+  BIGG: function(t, e) {},
   BND2: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -7624,7 +8159,7 @@ var system = (function(t) {
               n = ++O
             return (null == (e = t) ? "" : A(e)) + n
           },
-          T = function(t) {
+          L = function(t) {
             return "undefined" == typeof window
               ? String(t)
                   .replace(/&/g, "&amp;")
@@ -7639,7 +8174,7 @@ var system = (function(t) {
                   .replace(/"/g, '"')
                   .replace(/'/g, "'")
           }
-        function $(t) {
+        function T(t) {
           void 0 === t && (t = {})
           var e = t.keyName,
             n = t.tagIDKeyName,
@@ -7712,8 +8247,8 @@ var system = (function(t) {
                     if (c[n] && c[n] === f[n]) {
                       var d = c[r],
                         h = f[r]
-                      d && !h && (f[i] = L(t)(d)(f[i])),
-                        d && h && !f[i] && ((f[i] = L(t)(h)(c[i])), delete f[r]),
+                      d && !h && (f[i] = $(t)(d)(f[i])),
+                        d && h && !f[i] && ((f[i] = $(t)(h)(c[i])), delete f[r]),
                         (u = !0)
                       break
                     }
@@ -7724,7 +8259,7 @@ var system = (function(t) {
               },
             })
             a.title && (a.titleChunk = a.title),
-              a.titleTemplate && (a.title = L(t)(a.titleTemplate)(a.titleChunk || "")),
+              a.titleTemplate && (a.title = $(t)(a.titleTemplate)(a.titleChunk || "")),
               a.base && (a.base = Object.keys(a.base).length ? [a.base] : [])
             var o = a.__dangerouslyDisableSanitizers,
               s = a.__dangerouslyDisableSanitizersByTagID,
@@ -7743,7 +8278,7 @@ var system = (function(t) {
                       : (i
                           ? (e[r] = l)
                           : "string" == typeof l
-                          ? (e[r] = T(l))
+                          ? (e[r] = L(l))
                           : y(l)
                           ? (e[r] = c(l))
                           : ((u = l),
@@ -7780,7 +8315,7 @@ var system = (function(t) {
             )
           }
         }
-        var L = function(t) {
+        var $ = function(t) {
           return function(e) {
             return function(n) {
               return "function" == typeof e ? e.call(t, n) : e.replace(/%s/g, n)
@@ -7876,7 +8411,7 @@ var system = (function(t) {
           return (
             void 0 === t && (t = {}),
             function() {
-              var e = $(t)(this.$root)
+              var e = T(t)(this.$root)
               for (var n in e)
                 e.hasOwnProperty(n) &&
                   "titleTemplate" !== n &&
@@ -8009,7 +8544,7 @@ var system = (function(t) {
           return (
             void 0 === t && (t = {}),
             function() {
-              var e = $(t)(this.$root)
+              var e = T(t)(this.$root)
               return H(t).call(this, e), e
             }
           )
@@ -8118,12 +8653,8 @@ var system = (function(t) {
     }.call(this, n("yLpj")))
   },
   CtM7: function(t, e) {},
-  DOxl: function(t, e, n) {
-    "use strict"
-    var r = n("ptKM")
-    n.n(r).a
-  },
   DTy0: function(t, e) {},
+  DhQ2: function(t, e, n) {},
   Dm1F: function(t, e, n) {
     "use strict"
     var r = n("Rkjr")
@@ -8134,6 +8665,7 @@ var system = (function(t) {
     var r = n("X2fP")
     n.n(r).a
   },
+  E6P4: function(t, e, n) {},
   EbDI: function(t, e) {
     t.exports = function(t) {
       if (
@@ -8143,14 +8675,14 @@ var system = (function(t) {
         return Array.from(t)
     }
   },
-  F71a: function(t, e, n) {
-    "use strict"
-    var r = n("MzgK")
-    n.n(r).a
-  },
   FPM5: function(t, e, n) {
     "use strict"
     var r = n("jr/b")
+    n.n(r).a
+  },
+  GqHY: function(t, e, n) {
+    "use strict"
+    var r = n("DhQ2")
     n.n(r).a
   },
   GxD9: function(t, e, n) {
@@ -8226,7 +8758,6 @@ var system = (function(t) {
           (t.exports = new e.a({ el: ".lux", store: a.a }))
       }.call(this, n("3UD+")(t))
   },
-  HzTV: function(t, e, n) {},
   I7an: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -8531,10 +9062,10 @@ var system = (function(t) {
       function E(t, e) {
         ;(this.c = t), (this.f = e), (this.a = l(this.c, "span", { "aria-hidden": "true" }, this.f))
       }
-      function T(t) {
+      function L(t) {
         f(t.c, "body", t.a)
       }
-      function $(t) {
+      function T(t) {
         return (
           "display:block;position:absolute;top:-9999px;left:-9999px;font-size:300px;width:auto;height:auto;line-height:normal;margin:0;padding:0;font-variant:normal;white-space:nowrap;font-family:" +
           C(t.c) +
@@ -8545,7 +9076,7 @@ var system = (function(t) {
           "00;"
         )
       }
-      function L(t, e, n, r, i, a) {
+      function $(t, e, n, r, i, a) {
         ;(this.g = t),
           (this.j = e),
           (this.a = r),
@@ -8567,25 +9098,25 @@ var system = (function(t) {
           (this.h = new E(this.c, this.s)),
           (this.j = new E(this.c, this.s)),
           (this.m = new E(this.c, this.s)),
-          (t = $((t = new x(this.a.c + ",serif", S(this.a))))),
+          (t = T((t = new x(this.a.c + ",serif", S(this.a))))),
           (this.g.a.style.cssText = t),
-          (t = $((t = new x(this.a.c + ",sans-serif", S(this.a))))),
+          (t = T((t = new x(this.a.c + ",sans-serif", S(this.a))))),
           (this.h.a.style.cssText = t),
-          (t = $((t = new x("serif", S(this.a))))),
+          (t = T((t = new x("serif", S(this.a))))),
           (this.j.a.style.cssText = t),
-          (t = $((t = new x("sans-serif", S(this.a))))),
+          (t = T((t = new x("sans-serif", S(this.a))))),
           (this.m.a.style.cssText = t),
-          T(this.g),
-          T(this.h),
-          T(this.j),
-          T(this.m)
+          L(this.g),
+          L(this.h),
+          L(this.j),
+          L(this.m)
       }
       ;(w.prototype.c = function(t) {
         for (var e = [], n = 0; n < arguments.length; n++)
           e.push(arguments[n].replace(/[\W_]+/g, "").toLowerCase())
         return e.join(this.a)
       }),
-        (L.prototype.start = function() {
+        ($.prototype.start = function() {
           var t = this.c.o.document,
             e = this,
             n = s(),
@@ -8718,7 +9249,7 @@ var system = (function(t) {
                     R = p ? 42 < parseInt(p[1], 10) : !v
                   } else R = !1
                 ;(d = R
-                  ? new L(o(e.g, e), o(e.h, e), e.c, l, e.s, f)
+                  ? new $(o(e.g, e), o(e.h, e), e.c, l, e.s, f)
                   : new P(o(e.g, e), o(e.h, e), e.c, l, e.s, t, f)),
                   u.push(d)
               }
@@ -9033,8 +9564,13 @@ var system = (function(t) {
         }.call(e, n, e, t)) || (t.exports = r)
     })()
   },
-  JFuG: function(t, e, n) {},
+  "JSv+": function(t, e) {},
   JYeC: function(t, e) {},
+  Je0I: function(t, e, n) {
+    "use strict"
+    var r = n("E6P4")
+    n.n(r).a
+  },
   JnUq: function(t, e, n) {},
   Jo1H: function(t, e) {},
   JtIp: function(t, e, n) {
@@ -10202,7 +10738,7 @@ var system = (function(t) {
           var t = this.$createElement
           return (this._self._c || t)(this.type, {
             tag: "component",
-            class: ["icon", this.size],
+            class: ["vds-icon", this.size],
             attrs: { "aria-label": this.ariaLabel },
             domProps: { innerHTML: this._s(this.svg) },
           })
@@ -12388,7 +12924,6 @@ var system = (function(t) {
     n.n(r).a
   },
   MerV: function(t, e) {},
-  MzgK: function(t, e, n) {},
   "NC/Q": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -12418,6 +12953,13 @@ var system = (function(t) {
               return t.match(/(left|right)/)
             },
           },
+          size: {
+            type: String,
+            default: "medium",
+            validator: function(t) {
+              return t.match(/(small|medium|large)/)
+            },
+          },
         },
         methods: {
           buttonClicked: function(t) {
@@ -12428,7 +12970,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("0jul"), n("KHd+")),
+      i = (n("2m2y"), n("KHd+")),
       a = n("9b0z"),
       o = n.n(a),
       s = Object(i.a)(
@@ -12439,13 +12981,13 @@ var system = (function(t) {
             n = t._self._c || e
           return n(
             t.element,
-            { tag: "component", class: ["lux-dropdown-menu"] },
+            { tag: "component", class: ["lux-dropdown-menu", t.size] },
             [
               n(
                 "input-button",
                 {
                   staticClass: "lux-dropdown-button",
-                  attrs: { variation: "dropdown" },
+                  attrs: { variation: "dropdown", size: t.size },
                   on: {
                     "button-clicked": function(e) {
                       return t.buttonClicked(e)
@@ -12471,7 +13013,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "5873d4aa",
+        "4990754e",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -12483,11 +13025,6 @@ var system = (function(t) {
     n.n(r).a
   },
   Nhqd: function(t, e) {},
-  "O+rM": function(t, e, n) {
-    "use strict"
-    var r = n("tCMv")
-    n.n(r).a
-  },
   O1vI: function(t, e, n) {
     "use strict"
     var r = n("UAe1")
@@ -12520,6 +13057,7 @@ var system = (function(t) {
           },
           size: {
             type: String,
+            default: "medium",
             validator: function(t) {
               return t.match(/(small|medium|large)/)
             },
@@ -12736,11 +13274,7 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
-  Of5x: function(t, e, n) {
-    "use strict"
-    var r = n("0mHY")
-    n.n(r).a
-  },
+  Ok2A: function(t, e, n) {},
   Otma: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -12782,6 +13316,7 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  P3nq: function(t, e) {},
   P69X: function(t, e, n) {},
   PSLC: function(t, e, n) {
     var r = {
@@ -12811,6 +13346,11 @@ var system = (function(t) {
       (i.id = "PSLC")
   },
   "PZ/G": function(t, e) {},
+  PZ2e: function(t, e, n) {
+    "use strict"
+    var r = n("QkuA")
+    n.n(r).a
+  },
   PrlM: function(t, e, n) {
     "use strict"
     var r = n("/OE0")
@@ -12921,6 +13461,7 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  QkuA: function(t, e, n) {},
   QlrM: function(t, e) {},
   RBhM: function(t, e, n) {},
   RFJP: function(t, e, n) {
@@ -13030,12 +13571,7 @@ var system = (function(t) {
             n = t._self._c || e
           return n("div", { staticClass: "lux-autocomplete" }, [
             t.label
-              ? n(
-                  "label",
-                  { class: { "lux-hidden": t.hideLabel } },
-                  [n("text-style", [t._v(t._s(t.label))])],
-                  1
-                )
+              ? n("label", { class: { "lux-hidden": t.hideLabel } }, [t._v(t._s(t.label))])
               : t._e(),
             t._v(" "),
             n("div", { staticClass: "lux-autocomplete-input" }, [
@@ -13314,6 +13850,11 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  TxwM: function(t, e, n) {
+    "use strict"
+    var r = n("pgsJ")
+    n.n(r).a
+  },
   "U/5H": function(t, e, n) {
     var r, i
     /**!
@@ -13369,9 +13910,9 @@ var system = (function(t) {
         j = !1,
         A = !1,
         E = !1,
-        T = [],
+        L = [],
+        T = !1,
         $ = !1,
-        L = !1,
         P = [],
         I = /\s+/g,
         z = "Sortable" + new Date().getTime(),
@@ -13492,9 +14033,9 @@ var system = (function(t) {
                 k = Ft(M),
                 A = k.top,
                 E = k.bottom,
-                T = k.left,
-                $ = k.right,
-                L = k.width,
+                L = k.left,
+                T = k.right,
+                $ = k.width,
                 P = k.height
               if (
                 ((m = M.scrollWidth),
@@ -13504,7 +14045,7 @@ var system = (function(t) {
                 (O = M.scrollTop),
                 M === d
                   ? ((x =
-                      L < m &&
+                      $ < m &&
                       ("auto" === y.overflowX ||
                         "scroll" === y.overflowX ||
                         "visible" === y.overflowX)),
@@ -13513,9 +14054,9 @@ var system = (function(t) {
                       ("auto" === y.overflowY ||
                         "scroll" === y.overflowY ||
                         "visible" === y.overflowY)))
-                  : ((x = L < m && ("auto" === y.overflowX || "scroll" === y.overflowX)),
+                  : ((x = $ < m && ("auto" === y.overflowX || "scroll" === y.overflowX)),
                     (C = P < g && ("auto" === y.overflowY || "scroll" === y.overflowY))),
-                (b = x && (et($ - l) <= a && S + L < m) - (et(T - l) <= a && !!S)),
+                (b = x && (et(T - l) <= a && S + $ < m) - (et(L - l) <= a && !!S)),
                 (w = C && (et(E - f) <= a && O + P < g) - (et(A - f) <= a && !!O)),
                 !D[p])
               )
@@ -13603,13 +14144,13 @@ var system = (function(t) {
         mt = function(e) {
           if (t) {
             var n = (function(t, e) {
-              for (var n = 0; n < T.length; n++)
-                if (!Et(T[n])) {
-                  var r = Ft(T[n]),
-                    i = T[n][z].options.emptyInsertThreshold,
+              for (var n = 0; n < L.length; n++)
+                if (!Et(L[n])) {
+                  var r = Ft(L[n]),
+                    i = L[n][z].options.emptyInsertThreshold,
                     a = t >= r.left - i && t <= r.right + i,
                     o = e >= r.top - i && e <= r.bottom + i
-                  if (i && a && o) return T[n]
+                  if (i && a && o) return L[n]
                 }
             })((e = e.touches ? e.touches[0] : e).clientX, e.clientY)
             if (n) {
@@ -13678,7 +14219,7 @@ var system = (function(t) {
             ? _t(t, "pointerdown", this._onTapStart)
             : (_t(t, "mousedown", this._onTapStart), _t(t, "touchstart", this._onTapStart)),
           this.nativeDraggable && (_t(t, "dragover", this), _t(t, "dragenter", this)),
-          T.push(this.el),
+          L.push(this.el),
           e.store && e.store.get && this.sort(e.store.get(this) || [])
       }
       function yt(t, e, n, r) {
@@ -13818,10 +14359,10 @@ var system = (function(t) {
           e = e.previousElementSibling
         return e || null
       }
-      function Tt(e) {
-        return Lt(t) < Lt(e) ? 1 : -1
+      function Lt(e) {
+        return $t(t) < $t(e) ? 1 : -1
       }
-      function $t(t) {
+      function Tt(t) {
         for (
           var e = t.tagName + t.className + t.src + t.href + t.textContent, n = e.length, r = 0;
           n--;
@@ -13830,7 +14371,7 @@ var system = (function(t) {
           r += e.charCodeAt(n)
         return r.toString(36)
       }
-      function Lt(t, e) {
+      function $t(t, e) {
         var n = 0
         if (!t || !t.parentNode) return -1
         for (; t && (t = t.previousElementSibling); )
@@ -14009,7 +14550,7 @@ var system = (function(t) {
                     ((f = yt(f, s.draggable, a, !1)), o === f)
                   ))
               ) {
-                if (((n = Lt(f)), (r = Lt(f, s.draggable)), "function" == typeof h)) {
+                if (((n = $t(f)), (r = $t(f, s.draggable)), "function" == typeof h)) {
                   if (h.call(this, e, f, this))
                     return (
                       Mt(i, d, "filter", f, a, a, n, void 0, r),
@@ -14335,12 +14876,12 @@ var system = (function(t) {
                   var D,
                     j = 0,
                     A = u.sortableMouseAligned,
-                    T = t.parentNode !== c,
+                    L = t.parentNode !== c,
                     P = "vertical" === _ ? "top" : "left",
                     I = Vt(u, "top") || Vt(t, "top"),
                     N = I ? I.scrollTop : void 0
                   if (
-                    (x !== u && ((S = null), (D = Ft(u)[P]), ($ = !1)),
+                    (x !== u && ((S = null), (D = Ft(u)[P]), (T = !1)),
                     ((function(e, n, r) {
                       var i = (e === t && k) || Ft(e),
                         a = (n === t && k) || Ft(n),
@@ -14353,12 +14894,12 @@ var system = (function(t) {
                       return o === u || s === l || o + c / 2 === u + f / 2
                     })(t, u, _) &&
                       A) ||
-                    T ||
+                    L ||
                     I ||
                     f.invertSwap ||
                     "insert" === S ||
                     "swap" === S
-                      ? ("swap" !== S && (L = f.invertSwap || T),
+                      ? ("swap" !== S && ($ = f.invertSwap || L),
                         (j = (function(e, n, r, i, a, o, s) {
                           var c = Ft(n),
                             u = "vertical" === r ? e.clientY : e.clientX,
@@ -14370,10 +14911,10 @@ var system = (function(t) {
                           if (!o)
                             if (s && O < l * i)
                               if (
-                                (!$ &&
+                                (!T &&
                                   (1 === C ? u > f + (l * a) / 2 : u < d - (l * a) / 2) &&
-                                  ($ = !0),
-                                $)
+                                  (T = !0),
+                                T)
                               )
                                 p = !0
                               else {
@@ -14382,7 +14923,7 @@ var system = (function(t) {
                                 if (1 === C ? u < f + O : u > d - O) return -1 * C
                               }
                             else if (u > f + (l * (1 - i)) / 2 && u < d - (l * (1 - i)) / 2)
-                              return Tt(n)
+                              return Lt(n)
                           if ((p = p || o) && (u < f + (l * a) / 2 || u > d - (l * a) / 2))
                             return u > f + l / 2 ? 1 : -1
                           return 0
@@ -14394,11 +14935,11 @@ var system = (function(t) {
                           null == f.invertedSwapThreshold
                             ? f.swapThreshold
                             : f.invertedSwapThreshold,
-                          L,
+                          $,
                           x === u
                         )),
                         (S = "swap"))
-                      : ((j = Tt(u)), (S = "insert")),
+                      : ((j = Lt(u)), (S = "insert")),
                     0 === j)
                   )
                     return B(!1)
@@ -14415,7 +14956,7 @@ var system = (function(t) {
                       V && !Y ? c.appendChild(t) : u.parentNode.insertBefore(t, V ? Y : u),
                       I && ct(I, 0, N - I.scrollTop),
                       (e = t.parentNode),
-                      void 0 === D || L || (O = et(D - Ft(u)[P])),
+                      void 0 === D || $ || (O = et(D - Ft(u)[P])),
                       W(),
                       B(!0)
                     )
@@ -14444,7 +14985,7 @@ var system = (function(t) {
               )
             }
             function W() {
-              Mt(b, i, "change", u, c, i, l, Lt(t), d, Lt(t, f.draggable), n)
+              Mt(b, i, "change", u, c, i, l, $t(t), d, $t(t, f.draggable), n)
             }
           },
           _animate: function(e, n) {
@@ -14507,8 +15048,8 @@ var system = (function(t) {
               c = this.options
             ;(A = !1),
               (j = !1),
-              (L = !1),
               ($ = !1),
+              (T = !1),
               clearInterval(this._loopId),
               clearInterval(m),
               lt(),
@@ -14541,8 +15082,8 @@ var system = (function(t) {
                   xt(t, this.options.chosenClass, !1),
                   Mt(this, i, "unchoose", t, e, i, l, null, d, null, o),
                   i !== e
-                    ? ((f = Lt(t)),
-                      (h = Lt(t, c.draggable)),
+                    ? ((f = $t(t)),
+                      (h = $t(t, c.draggable)),
                       f >= 0 &&
                         (Mt(null, e, "add", t, e, i, l, f, d, h, o),
                         Mt(this, i, "remove", t, e, i, l, f, d, h, o),
@@ -14550,8 +15091,8 @@ var system = (function(t) {
                         Mt(this, i, "sort", t, e, i, l, f, d, h, o)),
                       v && v.save())
                     : t.nextSibling !== a &&
-                      ((f = Lt(t)),
-                      (h = Lt(t, c.draggable)),
+                      ((f = $t(t)),
+                      (h = $t(t, c.draggable)),
                       f >= 0 &&
                         (Mt(this, i, "update", t, e, i, l, f, d, h, o),
                         Mt(this, i, "sort", t, e, i, l, f, d, h, o))),
@@ -14594,7 +15135,7 @@ var system = (function(t) {
               r++
             )
               yt((t = n[r]), a.draggable, this.el, !1) &&
-                e.push(t.getAttribute(a.dataIdAttr) || $t(t))
+                e.push(t.getAttribute(a.dataIdAttr) || Tt(t))
             return e
           },
           sort: function(t) {
@@ -14631,7 +15172,7 @@ var system = (function(t) {
                 t.removeAttribute("draggable")
               }),
               this._onDrop(),
-              T.splice(T.indexOf(this.el), 1),
+              L.splice(L.indexOf(this.el), 1),
               (this.el = t = null)
           },
           _hideClone: function() {
@@ -14670,7 +15211,7 @@ var system = (function(t) {
           closest: yt,
           toggleClass: xt,
           clone: Nt,
-          index: Lt,
+          index: $t,
           nextTick: Ht,
           cancelNextTick: Yt,
           detectDirection: at,
@@ -15116,6 +15657,7 @@ var system = (function(t) {
           multiple: { type: Boolean, default: !1 },
           options: { required: !0, type: Array },
           label: { type: String, default: "" },
+          hideLabel: { type: Boolean, default: !1 },
           errormessage: { type: String, default: "" },
           wrapper: {
             type: String,
@@ -15133,6 +15675,13 @@ var system = (function(t) {
               return t.match(/(auto|expand)/)
             },
           },
+          size: {
+            type: String,
+            default: "medium",
+            validator: function(t) {
+              return t.match(/(small|medium|large)/)
+            },
+          },
           disabled: { type: Boolean, default: !1 },
           required: { type: Boolean, default: !1 },
           hover: { type: Boolean, default: !1 },
@@ -15147,7 +15696,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("uxwp"), n("KHd+")),
+      i = (n("GqHY"), n("KHd+")),
       a = n("zvzC"),
       o = n.n(a),
       s = Object(i.a)(
@@ -15157,7 +15706,11 @@ var system = (function(t) {
             e = t.$createElement,
             n = t._self._c || e
           return n(t.wrapper, { tag: "component", staticClass: "lux-select" }, [
-            t.label ? n("label", { attrs: { for: t.id } }, [t._v(t._s(t.label))]) : t._e(),
+            t.label
+              ? n("label", { class: { "lux-hidden": t.hideLabel }, attrs: { for: t.id } }, [
+                  t._v(t._s(t.label)),
+                ])
+              : t._e(),
             t._v(" "),
             n(
               "select",
@@ -15166,6 +15719,7 @@ var system = (function(t) {
                   "lux-select",
                   { "lux-select-error": t.hasError },
                   { "lux-select-expand": "expand" === t.width },
+                  t.size,
                 ],
                 attrs: {
                   id: t.id,
@@ -15190,7 +15744,7 @@ var system = (function(t) {
                 return n(
                   "option",
                   { key: r, attrs: { disabled: e.disabled }, domProps: { value: e.value } },
-                  [t._v("\n      " + t._s(e.label) + "\n    ")]
+                  [t._v(t._s(e.label))]
                 )
               }),
               0
@@ -15206,7 +15760,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "75c585b6",
+        "2a529e3a",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -15376,11 +15930,6 @@ var system = (function(t) {
   ZNHZ: function(t, e, n) {
     "use strict"
     var r = n("08ai")
-    n.n(r).a
-  },
-  ZNRA: function(t, e, n) {
-    "use strict"
-    var r = n("coAE")
     n.n(r).a
   },
   ZYGN: function(t, e, n) {
@@ -15680,7 +16229,7 @@ var system = (function(t) {
       (i.id = "bzL3")
   },
   c1KM: function(t, e, n) {
-    var r = { "./Index.vue": "lF/O", "./NotFound.vue": "4K1/" }
+    var r = { "./FormInputs.vue": "2F0E", "./Index.vue": "lF/O", "./NotFound.vue": "4K1/" }
     function i(t) {
       var e = a(t)
       return n(e)
@@ -15741,7 +16290,6 @@ var system = (function(t) {
     var r = n("LOUM")
     n.n(r).a
   },
-  coAE: function(t, e, n) {},
   cu24: function(t, e, n) {
     "use strict"
     var r = n("r8XY")
@@ -15820,6 +16368,7 @@ var system = (function(t) {
     e.default = s.exports
   },
   daU6: function(t, e) {},
+  "dt+K": function(t, e, n) {},
   e7Eb: function(t, e) {},
   eAtJ: function(t, e) {
     t.exports =
@@ -16183,6 +16732,8 @@ var system = (function(t) {
       "./LuxIconFlower.vue": "LPnE",
       "./LuxIconGlobe.vue": "W+NU",
       "./LuxIconHospital.vue": "KeWn",
+      "./LuxIconNote.vue": "xAyx",
+      "./LuxIconPerson.vue": "10Lx",
       "./LuxIconPicture.vue": "aHKj",
       "./LuxIconRefresh.vue": "Otma",
       "./LuxIconRelax.vue": "ox1f",
@@ -16374,6 +16925,7 @@ var system = (function(t) {
     var r = n("fmEb")
     n.n(r).a
   },
+  l6ne: function(t, e, n) {},
   "lF/O": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -16819,6 +17371,7 @@ var system = (function(t) {
         type: "Element",
         props: {
           caption: { required: !0, type: String },
+          summaryLabel: { required: !1, type: String },
           columns: { required: !0, type: Array },
           jsonData: { required: !0, type: Array },
         },
@@ -16831,6 +17384,10 @@ var system = (function(t) {
                 : { name: e.toLowerCase() }
             })
           },
+          footerColumns: function() {
+            var t = this.columns
+            return t.shift(), t
+          },
         },
         methods: {
           displayName: function(t) {
@@ -16842,9 +17399,18 @@ var system = (function(t) {
           isNum: function(t) {
             return "number" === t
           },
+          isLeft: function(t) {
+            return "left" === t
+          },
+          isCenter: function(t) {
+            return "center" === t
+          },
+          isRight: function(t) {
+            return "right" === t
+          },
         },
       },
-      o = (n("ZNRA"), n("KHd+")),
+      o = (n("PZ2e"), n("KHd+")),
       s = n("gvHy"),
       c = n.n(s),
       u = Object(o.a)(
@@ -16860,9 +17426,7 @@ var system = (function(t) {
               n(
                 "tr",
                 t._l(t.parsedColumns, function(e, r) {
-                  return n("th", { attrs: { scope: "col" } }, [
-                    t._v("\n        " + t._s(t.displayName(e)) + "\n      "),
-                  ])
+                  return n("th", { attrs: { scope: "col" } }, [t._v(t._s(t.displayName(e)))])
                 }),
                 0
               ),
@@ -16876,7 +17440,14 @@ var system = (function(t) {
                   t._l(t.parsedColumns, function(r, i) {
                     return n(
                       "td",
-                      { class: ["foo", { "lux-data-table-number": t.isNum(r.datatype) }] },
+                      {
+                        class: [
+                          { "lux-data-table-left": t.isLeft(r.align) },
+                          { "lux-data-table-center": t.isCenter(r.align) },
+                          { "lux-data-table-right": t.isRight(r.align) },
+                          { "lux-data-table-number": t.isNum(r.datatype) },
+                        ],
+                      },
                       [t._v("\n        " + t._s(e[r.name]) + "\n      ")]
                     )
                   }),
@@ -16885,12 +17456,39 @@ var system = (function(t) {
               }),
               0
             ),
+            t._v(" "),
+            t.summaryLabel
+              ? n("tfoot", [
+                  n(
+                    "tr",
+                    [
+                      n("th", { attrs: { scope: "row" } }, [t._v(t._s(t.summaryLabel))]),
+                      t._v(" "),
+                      t._l(t.footerColumns, function(e, r) {
+                        return n(
+                          "td",
+                          {
+                            class: [
+                              { "lux-data-table-left": t.isLeft(e.align) },
+                              { "lux-data-table-center": t.isCenter(e.align) },
+                              { "lux-data-table-right": t.isRight(e.align) },
+                              { "lux-data-table-number": t.isNum(e.datatype) },
+                            ],
+                          },
+                          [t._v("\n        " + t._s(e.summary_value) + "\n      ")]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
+                ])
+              : t._e(),
           ])
         },
         [],
         !1,
         null,
-        "47c213c8",
+        "d314382a",
         null
       )
     "function" == typeof c.a && c()(u)
@@ -17019,11 +17617,6 @@ var system = (function(t) {
     e.default = s.exports
   },
   n1u2: function(t, e) {},
-  nlv6: function(t, e, n) {
-    "use strict"
-    var r = n("2mCe")
-    n.n(r).a
-  },
   o0o1: function(t, e, n) {
     t.exports = n("ls82")
   },
@@ -17152,13 +17745,13 @@ var system = (function(t) {
         return e
       }
       function E(t, e, n) {}
-      var T = function(t, e, n) {
+      var L = function(t, e, n) {
           return !1
         },
-        $ = function(t) {
+        T = function(t) {
           return t
         }
-      function L(t, e) {
+      function $(t, e) {
         if (t === e) return !0
         var n = s(t),
           r = s(e)
@@ -17170,7 +17763,7 @@ var system = (function(t) {
             return (
               t.length === e.length &&
               t.every(function(t, n) {
-                return L(t, e[n])
+                return $(t, e[n])
               })
             )
           if (t instanceof Date && e instanceof Date) return t.getTime() === e.getTime()
@@ -17180,7 +17773,7 @@ var system = (function(t) {
           return (
             o.length === c.length &&
             o.every(function(n) {
-              return L(t[n], e[n])
+              return $(t[n], e[n])
             })
           )
         } catch (t) {
@@ -17188,7 +17781,7 @@ var system = (function(t) {
         }
       }
       function P(t, e) {
-        for (var n = 0; n < t.length; n++) if (L(t[n], e)) return n
+        for (var n = 0; n < t.length; n++) if ($(t[n], e)) return n
         return -1
       }
       function I(t) {
@@ -17223,12 +17816,12 @@ var system = (function(t) {
           warnHandler: null,
           ignoredElements: [],
           keyCodes: Object.create(null),
-          isReservedTag: T,
-          isReservedAttr: T,
-          isUnknownElement: T,
+          isReservedTag: L,
+          isReservedAttr: L,
+          isUnknownElement: L,
           getTagNamespace: E,
-          parsePlatformTagName: $,
-          mustUseProp: T,
+          parsePlatformTagName: T,
+          mustUseProp: L,
           async: !0,
           _lifecycleHooks: H,
         },
@@ -17510,24 +18103,24 @@ var system = (function(t) {
           for (var e = 0, n = t.length; e < n; e++) kt(t[e])
         })
       var Et = Y.optionMergeStrategies
-      function Tt(t, e) {
+      function Lt(t, e) {
         if (!e) return t
         for (var n, r, i, a = ut ? Reflect.ownKeys(e) : Object.keys(e), o = 0; o < a.length; o++)
           "__ob__" !== (n = a[o]) &&
-            ((r = t[n]), (i = e[n]), _(t, n) ? r !== i && u(r) && u(i) && Tt(r, i) : jt(t, n, i))
+            ((r = t[n]), (i = e[n]), _(t, n) ? r !== i && u(r) && u(i) && Lt(r, i) : jt(t, n, i))
         return t
       }
-      function $t(t, e, n) {
+      function Tt(t, e, n) {
         return n
           ? function() {
               var r = "function" == typeof e ? e.call(n, n) : e,
                 i = "function" == typeof t ? t.call(n, n) : t
-              return r ? Tt(r, i) : i
+              return r ? Lt(r, i) : i
             }
           : e
           ? t
             ? function() {
-                return Tt(
+                return Lt(
                   "function" == typeof e ? e.call(this, this) : e,
                   "function" == typeof t ? t.call(this, this) : t
                 )
@@ -17535,7 +18128,7 @@ var system = (function(t) {
             : e
           : t
       }
-      function Lt(t, e) {
+      function $t(t, e) {
         var n = e ? (t ? t.concat(e) : Array.isArray(e) ? e : [e]) : t
         return n
           ? (function(t) {
@@ -17549,10 +18142,10 @@ var system = (function(t) {
         return e ? j(i, e) : i
       }
       ;(Et.data = function(t, e, n) {
-        return n ? $t(t, e, n) : e && "function" != typeof e ? t : $t(t, e)
+        return n ? Tt(t, e, n) : e && "function" != typeof e ? t : Tt(t, e)
       }),
         H.forEach(function(t) {
-          Et[t] = Lt
+          Et[t] = $t
         }),
         N.forEach(function(t) {
           Et[t + "s"] = Pt
@@ -17575,7 +18168,7 @@ var system = (function(t) {
           var i = Object.create(null)
           return j(i, t), e && j(i, e), i
         }),
-        (Et.provide = $t)
+        (Et.provide = Tt)
       var It = function(t, e) {
         return void 0 === e ? t : e
       }
@@ -17994,7 +18587,7 @@ var system = (function(t) {
         return o ? this.$createElement("template", { slot: o }, i) : i
       }
       function _e(t) {
-        return Nt(this.$options, "filters", t) || $
+        return Nt(this.$options, "filters", t) || T
       }
       function we(t, e) {
         return Array.isArray(t) ? -1 === t.indexOf(e) : t !== e
@@ -18085,13 +18678,13 @@ var system = (function(t) {
       function Ee(t, e) {
         return "string" == typeof t ? e + t : t
       }
-      function Te(t) {
+      function Le(t) {
         ;(t._o = Oe),
           (t._n = p),
           (t._s = h),
           (t._l = ye),
           (t._t = be),
-          (t._q = L),
+          (t._q = $),
           (t._i = P),
           (t._m = Se),
           (t._f = _e),
@@ -18104,7 +18697,7 @@ var system = (function(t) {
           (t._d = Ae),
           (t._p = Ee)
       }
-      function $e(t, e, r, i, o) {
+      function Te(t, e, r, i, o) {
         var s,
           c = this,
           u = o.options
@@ -18139,7 +18732,7 @@ var system = (function(t) {
                 return Ve(s, t, e, n, r, f)
               })
       }
-      function Le(t, e, n, r, i) {
+      function $e(t, e, n, r, i) {
         var a = _t(t)
         return (
           (a.fnContext = n),
@@ -18151,7 +18744,7 @@ var system = (function(t) {
       function Pe(t, e) {
         for (var n in e) t[C(n)] = e[n]
       }
-      Te($e.prototype)
+      Le(Te.prototype)
       var Ie = {
           init: function(t, e) {
             if (t.componentInstance && !t.componentInstance._isDestroyed && t.data.keepAlive) {
@@ -18329,12 +18922,12 @@ var system = (function(t) {
                   u = s.props
                 if (i(u)) for (var l in u) c[l] = Ht(l, u, e || n)
                 else i(r.attrs) && Pe(c, r.attrs), i(r.props) && Pe(c, r.props)
-                var f = new $e(r, c, o, a, t),
+                var f = new Te(r, c, o, a, t),
                   d = s.render.call(null, f._c, f)
-                if (d instanceof mt) return Le(d, r, f.parent, s)
+                if (d instanceof mt) return $e(d, r, f.parent, s)
                 if (Array.isArray(d)) {
                   for (var h = le(d) || [], p = new Array(h.length), v = 0; v < h.length; v++)
-                    p[v] = Le(h[v], r, f.parent, s)
+                    p[v] = $e(h[v], r, f.parent, s)
                   return p
                 }
               })(t, h, e, o, c)
@@ -19043,7 +19636,7 @@ var system = (function(t) {
             })
         })(Mn),
         (function(t) {
-          Te(t.prototype),
+          Le(t.prototype),
             (t.prototype.$nextTick = function(t) {
               return ne(t, this)
             }),
@@ -19070,12 +19663,12 @@ var system = (function(t) {
               )
             })
         })(Mn)
-      var Tn = [String, RegExp, Array],
-        $n = {
+      var Ln = [String, RegExp, Array],
+        Tn = {
           KeepAlive: {
             name: "keep-alive",
             abstract: !0,
-            props: { include: Tn, exclude: Tn, max: [String, Number] },
+            props: { include: Ln, exclude: Ln, max: [String, Number] },
             created: function() {
               ;(this.cache = Object.create(null)), (this.keys = [])
             },
@@ -19137,7 +19730,7 @@ var system = (function(t) {
             t.options[e + "s"] = Object.create(null)
           }),
           (t.options._base = t),
-          j(t.options.components, $n),
+          j(t.options.components, Tn),
           (function(t) {
             t.use = function(t) {
               var e = this._installedPlugins || (this._installedPlugins = [])
@@ -19180,9 +19773,9 @@ var system = (function(t) {
             return this.$vnode && this.$vnode.ssrContext
           },
         }),
-        Object.defineProperty(Mn, "FunctionalRenderContext", { value: $e }),
+        Object.defineProperty(Mn, "FunctionalRenderContext", { value: Te }),
         (Mn.version = "2.6.10")
-      var Ln = v("style,class"),
+      var $n = v("style,class"),
         Pn = v("input,textarea,option,select,progress"),
         In = function(t, e, n) {
           return (
@@ -19572,10 +20165,10 @@ var system = (function(t) {
           i = e.slice(n + 1)
         return '_f("' + r + '")(' + t + (")" !== i ? "," + i : i)
       }
-      function Tr(t, e) {
+      function Lr(t, e) {
         console.error("[Vue compiler]: " + t)
       }
-      function $r(t, e) {
+      function Tr(t, e) {
         return t
           ? t
               .map(function(t) {
@@ -19586,7 +20179,7 @@ var system = (function(t) {
               })
           : []
       }
-      function Lr(t, e, n, r, i) {
+      function $r(t, e, n, r, i) {
         ;(t.props || (t.props = [])).push(Rr({ name: e, value: n, dynamic: i }, r)), (t.plain = !1)
       }
       function Pr(t, e, n, r, i) {
@@ -19928,24 +20521,24 @@ var system = (function(t) {
         ji = "transition",
         Ai = "transitionend",
         Ei = "animation",
-        Ti = "animationend"
+        Li = "animationend"
       Mi &&
         (void 0 === window.ontransitionend &&
           void 0 !== window.onwebkittransitionend &&
           ((ji = "WebkitTransition"), (Ai = "webkitTransitionEnd")),
         void 0 === window.onanimationend &&
           void 0 !== window.onwebkitanimationend &&
-          ((Ei = "WebkitAnimation"), (Ti = "webkitAnimationEnd")))
-      var $i = U
+          ((Ei = "WebkitAnimation"), (Li = "webkitAnimationEnd")))
+      var Ti = U
         ? window.requestAnimationFrame
           ? window.requestAnimationFrame.bind(window)
           : setTimeout
         : function(t) {
             return t()
           }
-      function Li(t) {
-        $i(function() {
-          $i(t)
+      function $i(t) {
+        Ti(function() {
+          Ti(t)
         })
       }
       function Pi(t, e) {
@@ -19961,7 +20554,7 @@ var system = (function(t) {
           a = r.timeout,
           o = r.propCount
         if (!i) return n()
-        var s = i === ki ? Ai : Ti,
+        var s = i === ki ? Ai : Li,
           c = 0,
           u = function() {
             t.removeEventListener(s, l), n()
@@ -20051,32 +20644,32 @@ var system = (function(t) {
               j = k && v ? v : f,
               A = k && h ? h : l,
               E = (k && _) || m,
-              T = k && "function" == typeof w ? w : g,
-              $ = (k && x) || y,
-              L = (k && C) || b,
+              L = k && "function" == typeof w ? w : g,
+              T = (k && x) || y,
+              $ = (k && C) || b,
               P = p(s(S) ? S.enter : S)
             0
             var z = !1 !== o && !Z,
-              N = Wi(T),
+              N = Wi(L),
               H = (n._enterCb = I(function() {
                 z && (Ii(n, A), Ii(n, j)),
-                  H.cancelled ? (z && Ii(n, D), L && L(n)) : $ && $(n),
+                  H.cancelled ? (z && Ii(n, D), $ && $(n)) : T && T(n),
                   (n._enterCb = null)
               }))
             t.data.show ||
               ce(t, "insert", function() {
                 var e = n.parentNode,
                   r = e && e._pending && e._pending[t.key]
-                r && r.tag === t.tag && r.elm._leaveCb && r.elm._leaveCb(), T && T(n, H)
+                r && r.tag === t.tag && r.elm._leaveCb && r.elm._leaveCb(), L && L(n, H)
               }),
               E && E(n),
               z &&
                 (Pi(n, D),
                 Pi(n, j),
-                Li(function() {
+                $i(function() {
                   Ii(n, D), H.cancelled || (Pi(n, A), N || (Bi(P) ? setTimeout(H, P) : zi(n, c, H)))
                 })),
-              t.data.show && (e && e(), T && T(n, H)),
+              t.data.show && (e && e(), L && L(n, H)),
               z || N || H()
           }
         }
@@ -20119,7 +20712,7 @@ var system = (function(t) {
             b &&
               (Pi(n, u),
               Pi(n, f),
-              Li(function() {
+              $i(function() {
                 Ii(n, u), x.cancelled || (Pi(n, l), _ || (Bi(w) ? setTimeout(x, w) : zi(n, c, x)))
               })),
             h && h(n, x),
@@ -20487,7 +21080,7 @@ var system = (function(t) {
               i = (t._vOptions = [].map.call(t.options, Zi))
             if (
               i.some(function(t, e) {
-                return !L(t, r[e])
+                return !$(t, r[e])
               })
             )
               (t.multiple
@@ -20512,13 +21105,13 @@ var system = (function(t) {
           for (var a, o, s = 0, c = t.options.length; s < c; s++)
             if (((o = t.options[s]), i))
               (a = P(r, Zi(o)) > -1), o.selected !== a && (o.selected = a)
-            else if (L(Zi(o), r)) return void (t.selectedIndex !== s && (t.selectedIndex = s))
+            else if ($(Zi(o), r)) return void (t.selectedIndex !== s && (t.selectedIndex = s))
           i || (t.selectedIndex = -1)
         }
       }
       function Ji(t, e) {
         return e.every(function(e) {
-          return !L(e, t)
+          return !$(e, t)
         })
       }
       function Zi(t) {
@@ -20789,7 +21382,7 @@ var system = (function(t) {
       }
       ;(Mn.config.mustUseProp = In),
         (Mn.config.isReservedTag = Zn),
-        (Mn.config.isReservedAttr = Ln),
+        (Mn.config.isReservedAttr = $n),
         (Mn.config.getTagNamespace = Qn),
         (Mn.config.isUnknownElement = function(t) {
           if (!U) return !0
@@ -20895,9 +21488,9 @@ var system = (function(t) {
         ja = "((?:" + Da + "\\:)?" + Da + ")",
         Aa = new RegExp("^<" + ja),
         Ea = /^\s*(\/?)>/,
-        Ta = new RegExp("^<\\/" + ja + "[^>]*>"),
-        $a = /^<!DOCTYPE [^>]+>/i,
-        La = /^<!\--/,
+        La = new RegExp("^<\\/" + ja + "[^>]*>"),
+        Ta = /^<!DOCTYPE [^>]+>/i,
+        $a = /^<!\--/,
         Pa = /^<!\[/,
         Ia = v("script,style,textarea", !0),
         za = {},
@@ -20956,17 +21549,17 @@ var system = (function(t) {
         }
       }
       function po(t, e) {
-        ;(Ba = e.warn || Tr),
-          (Xa = e.isPreTag || T),
-          (Ga = e.mustUseProp || T),
-          (Ja = e.getTagNamespace || T)
-        var n = e.isReservedTag || T
+        ;(Ba = e.warn || Lr),
+          (Xa = e.isPreTag || L),
+          (Ga = e.mustUseProp || L),
+          (Ja = e.getTagNamespace || L)
+        var n = e.isReservedTag || L
         ;(function(t) {
           return !!t.component || !n(t.tag)
         },
-          (qa = $r(e.modules, "transformNode")),
-          (Ua = $r(e.modules, "preTransformNode")),
-          (Ka = $r(e.modules, "postTransformNode")),
+          (qa = Tr(e.modules, "transformNode")),
+          (Ua = Tr(e.modules, "preTransformNode")),
+          (Ka = Tr(e.modules, "postTransformNode")),
           (Wa = e.delimiters))
         var r,
           i,
@@ -21023,8 +21616,8 @@ var system = (function(t) {
                 r,
                 i = [],
                 a = e.expectHTML,
-                o = e.isUnaryTag || T,
-                s = e.canBeLeftOpenTag || T,
+                o = e.isUnaryTag || L,
+                s = e.canBeLeftOpenTag || L,
                 c = 0;
               t;
 
@@ -21050,7 +21643,7 @@ var system = (function(t) {
               } else {
                 var h = t.indexOf("<")
                 if (0 === h) {
-                  if (La.test(t)) {
+                  if ($a.test(t)) {
                     var p = t.indexOf("--\x3e")
                     if (p >= 0) {
                       e.shouldKeepComment && e.comment(t.substring(4, p), c, c + p + 3), C(p + 3)
@@ -21064,12 +21657,12 @@ var system = (function(t) {
                       continue
                     }
                   }
-                  var m = t.match($a)
+                  var m = t.match(Ta)
                   if (m) {
                     C(m[0].length)
                     continue
                   }
-                  var g = t.match(Ta)
+                  var g = t.match(La)
                   if (g) {
                     var y = c
                     C(g[0].length), M(g[1], y, c)
@@ -21088,9 +21681,9 @@ var system = (function(t) {
                   for (
                     w = t.slice(h);
                     !(
-                      Ta.test(w) ||
-                      Aa.test(w) ||
                       La.test(w) ||
+                      Aa.test(w) ||
+                      $a.test(w) ||
                       Pa.test(w) ||
                       (x = w.indexOf("<", 1)) < 0
                     );
@@ -21398,7 +21991,7 @@ var system = (function(t) {
                           : (Hr(t, "update:" + C(r), s, null, !1, 0, u[e]),
                             M(r) !== C(r) && Hr(t, "update:" + M(r), s, null, !1, 0, u[e])))),
                     (o && o.prop) || (!t.component && Ga(t.tag, t.attrsMap.type, r))
-                      ? Lr(t, r, a, u[e], c)
+                      ? $r(t, r, a, u[e], c)
                       : Pr(t, r, a, u[e], c)
                 else if (Za.test(r))
                   (r = r.replace(Za, "")),
@@ -21418,7 +22011,7 @@ var system = (function(t) {
                   !t.component &&
                     "muted" === r &&
                     Ga(t.tag, t.attrsMap.type, r) &&
-                    Lr(t, r, "true", u[e])
+                    $r(t, r, "true", u[e])
             }
           })(t),
           t
@@ -21548,7 +22141,7 @@ var system = (function(t) {
                     i = Yr(t, "value") || "null",
                     a = Yr(t, "true-value") || "true",
                     o = Yr(t, "false-value") || "false"
-                  Lr(
+                  $r(
                     t,
                     "checked",
                     "Array.isArray(" +
@@ -21586,7 +22179,7 @@ var system = (function(t) {
                 !(function(t, e, n) {
                   var r = n && n.number,
                     i = Yr(t, "value") || "null"
-                  Lr(t, "checked", "_q(" + e + "," + (i = r ? "_n(" + i + ")" : i) + ")"),
+                  $r(t, "checked", "_q(" + e + "," + (i = r ? "_n(" + i + ")" : i) + ")"),
                     Hr(t, "change", Wr(e, i), null, !0)
                 })(t, r, i)
               else if ("input" === a || "textarea" === a)
@@ -21602,7 +22195,7 @@ var system = (function(t) {
                   s && (l = "$event.target.value.trim()"), o && (l = "_n(" + l + ")")
                   var f = Wr(e, l)
                   c && (f = "if($event.target.composing)return;" + f),
-                    Lr(t, "value", "(" + e + ")"),
+                    $r(t, "value", "(" + e + ")"),
                     Hr(t, u, f, null, !0),
                     (s || o) && Hr(t, "blur", "$forceUpdate()")
                 })(t, r, i)
@@ -21610,10 +22203,10 @@ var system = (function(t) {
               return !0
             },
             text: function(t, e) {
-              e.value && Lr(t, "textContent", "_s(" + e.value + ")", e)
+              e.value && $r(t, "textContent", "_s(" + e.value + ")", e)
             },
             html: function(t, e) {
-              e.value && Lr(t, "innerHTML", "_s(" + e.value + ")", e)
+              e.value && $r(t, "innerHTML", "_s(" + e.value + ")", e)
             },
           },
           isPreTag: function(t) {
@@ -21641,7 +22234,7 @@ var system = (function(t) {
       function jo(t, e) {
         t &&
           ((Oo = Do(e.staticKeys || "")),
-          (Mo = e.isReservedTag || T),
+          (Mo = e.isReservedTag || L),
           (function t(e) {
             e.static = (function(t) {
               if (2 === t.type) return !1
@@ -21694,8 +22287,8 @@ var system = (function(t) {
       }
       var Ao = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*(?:[\w$]+)?\s*\(/,
         Eo = /\([^)]*?\);*$/,
-        To = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/,
-        $o = {
+        Lo = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/,
+        To = {
           esc: 27,
           tab: 9,
           enter: 13,
@@ -21706,7 +22299,7 @@ var system = (function(t) {
           down: 40,
           delete: [8, 46],
         },
-        Lo = {
+        $o = {
           esc: ["Esc", "Escape"],
           tab: "Tab",
           enter: "Enter",
@@ -21756,15 +22349,15 @@ var system = (function(t) {
               .join(",") +
             "]"
           )
-        var e = To.test(t.value),
+        var e = Lo.test(t.value),
           n = Ao.test(t.value),
-          r = To.test(t.value.replace(Eo, ""))
+          r = Lo.test(t.value.replace(Eo, ""))
         if (t.modifiers) {
           var i = "",
             a = "",
             o = []
           for (var s in t.modifiers)
-            if (Io[s]) (a += Io[s]), $o[s] && o.push(s)
+            if (Io[s]) (a += Io[s]), To[s] && o.push(s)
             else if ("exact" === s) {
               var c = t.modifiers
               a += Po(
@@ -21801,8 +22394,8 @@ var system = (function(t) {
       function Ho(t) {
         var e = parseInt(t, 10)
         if (e) return "$event.keyCode!==" + e
-        var n = $o[t],
-          r = Lo[t]
+        var n = To[t],
+          r = $o[t]
         return (
           "_k($event.keyCode," +
           JSON.stringify(t) +
@@ -21839,11 +22432,11 @@ var system = (function(t) {
         },
         Fo = function(t) {
           ;(this.options = t),
-            (this.warn = t.warn || Tr),
-            (this.transforms = $r(t.modules, "transformCode")),
-            (this.dataGenFns = $r(t.modules, "genData")),
+            (this.warn = t.warn || Lr),
+            (this.transforms = Tr(t.modules, "transformCode")),
+            (this.dataGenFns = Tr(t.modules, "genData")),
             (this.directives = j(j({}, Yo), t.directives))
-          var e = t.isReservedTag || T
+          var e = t.isReservedTag || L
           ;(this.maybeComponent = function(t) {
             return !!t.component || !e(t.tag)
           }),
@@ -22412,6 +23005,7 @@ var system = (function(t) {
     var r = n("rn+L")
     n.n(r).a
   },
+  pgsJ: function(t, e, n) {},
   "po+s": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -22508,7 +23102,6 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
-  ptKM: function(t, e, n) {},
   q2A7: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -22754,7 +23347,6 @@ var system = (function(t) {
     n.n(r).a.load({ google: { families: ["Fira+Sans:300,400,400i,600,700"] } })
   },
   swsh: function(t, e) {},
-  tCMv: function(t, e, n) {},
   tCVW: function(t, e, n) {},
   uJhq: function(t, e, n) {
     "use strict"
@@ -22786,7 +23378,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("F71a"), n("KHd+")),
+      i = (n("wuEA"), n("KHd+")),
       a = n("CByH"),
       o = n.n(a),
       s = Object(i.a)(
@@ -22819,7 +23411,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "29de5941",
+        "1117a5a7",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -22828,11 +23420,6 @@ var system = (function(t) {
   ux9Q: function(t, e, n) {
     "use strict"
     var r = n("aM9+")
-    n.n(r).a
-  },
-  uxwp: function(t, e, n) {
-    "use strict"
-    var r = n("JFuG")
     n.n(r).a
   },
   vB0O: function(t, e) {},
@@ -22924,7 +23511,7 @@ var system = (function(t) {
           type: { type: String, default: "div" },
           columns: { type: String, default: "" },
           offset: { type: Boolean, default: !1 },
-          vertical: { type: String, default: "start" },
+          vertical: { type: String, default: "" },
         },
       },
       i = (n("M0Vt"), n("KHd+")),
@@ -23093,7 +23680,71 @@ var system = (function(t) {
   },
   wjTC: function(t, e) {},
   woMB: function(t, e) {},
+  wuEA: function(t, e, n) {
+    "use strict"
+    var r = n("2/NU")
+    n.n(r).a
+  },
   wzZG: function(t, e) {},
+  xAyx: function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = { name: "LuxIconNote", status: "ready", release: "1.0.0", type: "Element" },
+      i = n("KHd+"),
+      a = n("JSv+"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e("g", [
+            e("g", [
+              e("path", {
+                attrs: {
+                  d:
+                    "M7.5,22c-0.1,0-0.1,0-0.2,0C7.1,21.9,7,21.7,7,21.5V18H0.5C0.2,18,0,17.8,0,17.5v-16C0,1.2,0.2,1,0.5,1h23\n\t\t\tC23.8,1,24,1.2,24,1.5v16c0,0.3-0.2,0.5-0.5,0.5H11.7l-3.9,3.9C7.8,21.9,7.6,22,7.5,22z M1,17h6.5C7.8,17,8,17.2,8,17.5v2.8\n\t\t\tl3.1-3.1c0.1-0.1,0.2-0.1,0.4-0.1H23V2H1V17z",
+                },
+              }),
+            ]),
+            this._v(" "),
+            e("g", [
+              e("path", {
+                attrs: {
+                  d:
+                    "M14.5,7h-9C5.2,7,5,6.8,5,6.5S5.2,6,5.5,6h9C14.8,6,15,6.2,15,6.5S14.8,7,14.5,7z",
+                },
+              }),
+            ]),
+            this._v(" "),
+            e("g", [
+              e("path", {
+                attrs: {
+                  d:
+                    "M18.5,10h-13C5.2,10,5,9.8,5,9.5S5.2,9,5.5,9h13C18.8,9,19,9.2,19,9.5S18.8,10,18.5,10z",
+                },
+              }),
+            ]),
+            this._v(" "),
+            e("g", [
+              e("path", {
+                attrs: {
+                  d:
+                    "M18.5,13h-13C5.2,13,5,12.8,5,12.5S5.2,12,5.5,12h13c0.3,0,0.5,0.2,0.5,0.5S18.8,13,18.5,13z",
+                },
+              }),
+            ]),
+          ])
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      )
+    "function" == typeof o.a && o()(s)
+    e.default = s.exports
+  },
   "xMM/": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -23158,7 +23809,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("Of5x"), n("KHd+")),
+      i = (n("0KE9"), n("KHd+")),
       a = n("pCL/"),
       o = n.n(a),
       s = Object(i.a)(
@@ -23279,7 +23930,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "7ca42f40",
+        "d83becb2",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -23524,7 +24175,7 @@ var system = (function(t) {
         type: "Pattern",
         props: { type: { type: String, default: "div" } },
       },
-      i = (n("DOxl"), n("KHd+")),
+      i = (n("Je0I"), n("KHd+")),
       a = n("iNJb"),
       o = n.n(a),
       s = Object(i.a)(
@@ -23541,7 +24192,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "52cf6ee0",
+        "578175de",
         null
       )
     "function" == typeof o.a && o()(s)
