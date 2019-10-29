@@ -14,12 +14,35 @@
       <tr v-for="(lineItem, index) in jsonData">
         <td
           v-for="(col, index) in parsedColumns"
-          :class="['foo', { 'lux-data-table-number': isNum(col.datatype) }]"
+          :class="[
+            { 'lux-data-table-left': isLeft(col.align) },
+            { 'lux-data-table-center': isCenter(col.align) },
+            { 'lux-data-table-right': isRight(col.align) },
+            { 'lux-data-table-number': isNum(col.datatype) },
+          ]"
         >
           {{ lineItem[col.name] }}
         </td>
       </tr>
     </tbody>
+    <tfoot v-if="summaryLabel">
+      <tr>
+        <th scope="row">{{ summaryLabel }}</th>
+        <td
+          v-for="(col, index) in footerColumns"
+          :class="[
+            { 'lux-data-table-left': isLeft(col.align) },
+            { 'lux-data-table-center': isCenter(col.align) },
+            { 'lux-data-table-right': isRight(col.align) },
+            { 'lux-data-table-number': isNum(col.datatype) },
+          ]"
+        >
+          <text-style variation="strong">
+            {{ col.summary_value }}
+          </text-style>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </template>
 
@@ -39,6 +62,13 @@ export default {
      */
     caption: {
       required: true,
+      type: String,
+    },
+    /**
+     * summaryLabel provides context to the data values in tfoot element cells.
+     */
+    summaryLabel: {
+      required: false,
       type: String,
     },
     /**
@@ -72,6 +102,11 @@ export default {
       })
       return pCols
     },
+    footerColumns() {
+      let fCols = this.columns
+      fCols.shift()
+      return fCols
+    },
   },
   methods: {
     displayName(col) {
@@ -85,8 +120,16 @@ export default {
       return value && typeof value === "object" && value.constructor === Object
     },
     isNum(value) {
-      // todo for some reason, this value is not coming through
       return value === "number" ? true : false
+    },
+    isLeft(value) {
+      return value === "left" ? true : false
+    },
+    isCenter(value) {
+      return value === "center" ? true : false
+    },
+    isRight(value) {
+      return value === "right" ? true : false
     },
   },
 }
@@ -171,12 +214,24 @@ export default {
   .lux-data-table-number {
     text-align: right;
   }
+
+  .lux-data-table-left {
+    text-align: left;
+  }
+
+  .lux-data-table-center {
+    text-align: center;
+  }
+
+  .lux-data-table-right {
+    text-align: right;
+  }
 }
 </style>
 
 <docs>
   ```jsx
-  <data-table caption="Staff Emails" :columns="['name',{ 'name': 'email', 'display_name': 'Email Address' },{ 'name': 'age', 'datatype': 'number'}]" :json-data="[
+  <data-table caption="Staff Emails" summary-label="Average" :columns="['name',{ 'name': 'email', 'display_name': 'Email Address', 'align': 'center' },{ 'name': 'age', 'datatype': 'number', 'summary_value': '33'}]" :json-data="[
     {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
     {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
     {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
