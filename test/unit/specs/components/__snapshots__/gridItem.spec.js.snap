@@ -2,6 +2,6 @@
 
 exports[`GridItem.vue has the expected html structure 1`] = `
 <div
-  class="lux-col start"
+  class="lux-col"
 />
 `;
