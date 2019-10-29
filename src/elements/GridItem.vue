@@ -44,7 +44,7 @@ export default {
      */
     vertical: {
       type: String,
-      default: "start",
+      default: "",
     },
   },
 }

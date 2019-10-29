@@ -164,6 +164,11 @@ export default {
     padding-left: 0;
   }
 
+  .lux-card-media + .lux-card-content,
+  .lux-card-content:only-child {
+    flex: 1;
+  }
+
   /deep/ .lux-card-content {
     padding: 1rem;
 
