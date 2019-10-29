@@ -14,8 +14,8 @@ describe("DataTable.vue", () => {
         caption: "This is a caption.",
         columns: [
           "name",
-          { name: "email", display_name: "Email Address" },
-          { name: "age", datatype: "number" },
+          { name: "email", display_name: "Email Address", align: "center" },
+          { name: "age", datatype: "number", summary_value: "33" },
         ],
         jsonData: [
           { id: 1, name: "foo", email: "foo@xxx.xxx", age: 42 },
@@ -53,6 +53,25 @@ describe("DataTable.vue", () => {
     const cols = wrapper.vm.parsedColumns
     expect(cols[0].name).toBe("name")
     expect(cols[1].name).toBe("email")
+  })
+
+  it("should return true for the appropriate boolean functions for alignment", () => {
+    expect(wrapper.vm.isLeft("left")).toBe(true)
+    expect(wrapper.vm.isCenter("left")).toBe(false)
+    expect(wrapper.vm.isRight("right")).toBe(true)
+  })
+
+  it("should show tfoot if summaryLabel is present", () => {
+    const tfoot1 = wrapper.find("tfoot")
+    console.log(tfoot1)
+    wrapper.setProps({ summaryLabel: "Average" })
+    const th = wrapper.find("tfoot th")
+    expect(th.text()).toBe("Average")
+  })
+
+  it("should remove the first column from the footerColumns, which is reserved for summaryLabel", () => {
+    expect(wrapper.vm.footerColumns.length).toBe(2)
+    expect(wrapper.vm.footerColumns[0].name).toBe("email")
   })
 
   it("has the expected html structure", () => {
