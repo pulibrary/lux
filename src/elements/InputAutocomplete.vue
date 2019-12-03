@@ -12,6 +12,7 @@
         @keydown.up="onArrowUp"
         @keydown.enter="onEnter"
         @keydown.esc="onEscape"
+        :required="required"
       />
       <ul v-show="isOpen" class="lux-autocomplete-results">
         <li class="loading" v-if="isLoading">Loading results...</li>
@@ -102,6 +103,14 @@ export default {
     isAsync: {
       type: Boolean,
       required: false,
+      default: false,
+    },
+    /**
+     * Whether the form input field is required or not.
+     * `true, false`
+     */
+    required: {
+      type: Boolean,
       default: false,
     },
   },
