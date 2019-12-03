@@ -1,6 +1,6 @@
 <template>
   <component :is="wrapper" class="lux-input" :class="{ 'lux-has-icon': icon }">
-    <label v-if="label" :class="{ 'lux-hidden': hideLabel }">{{ label }}</label>
+    <label v-if="label" :for="id" :class="{ 'lux-hidden': hideLabel }">{{ label }}</label>
     <div
       class="lux-input-field"
       :class="[{ 'lux-input-expand': width === 'expand' }, { disabled: disabled }, size]"
@@ -93,7 +93,7 @@ export default {
      * Text value of the form input field.
      */
     value: {
-      type: String,
+      type: [String, Number],
       default: "",
     },
     /**
