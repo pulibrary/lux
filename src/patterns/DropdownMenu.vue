@@ -1,5 +1,5 @@
 <template>
-  <component :is="element" :class="['lux-dropdown-menu', size]" v-click-outside="deselect">
+  <component :is="element" :class="['lux-dropdown-menu', size]" v-click-outside="hide">
     <input-button
       v-on:button-clicked="buttonClicked($event)"
       class="lux-dropdown-button"
@@ -91,10 +91,7 @@ export default {
     },
   },
   methods: {
-    foo: function(event) {
-      console.log("clicked outside!")
-    },
-    deselect: function(event) {
+    hide: function(event) {
       this.isVisible = false
     },
     buttonClicked(value) {
