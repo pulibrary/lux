@@ -118,11 +118,6 @@ var system = (function(t) {
   },
   "03rr": function(t, e) {},
   "08ai": function(t, e, n) {},
-  "0KE9": function(t, e, n) {
-    "use strict"
-    var r = n("dt+K")
-    n.n(r).a
-  },
   "0Rnf": function(t, e, n) {},
   "0tf1": function(t, e, n) {},
   "10Lx": function(t, e, n) {
@@ -239,6 +234,7 @@ var system = (function(t) {
     e.default = s.exports
   },
   "2/NU": function(t, e, n) {},
+  "22mo": function(t, e, n) {},
   "26cH": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -6937,11 +6933,6 @@ var system = (function(t) {
         },
       ]))
   },
-  "2m2y": function(t, e, n) {
-    "use strict"
-    var r = n("Ok2A")
-    n.n(r).a
-  },
   "30R6": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -7185,6 +7176,7 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  "4szo": function(t, e, n) {},
   "4z53": function(t, e, n) {},
   "5Dup": function(t, e, n) {
     "use strict"
@@ -8849,6 +8841,11 @@ var system = (function(t) {
   },
   I8lK: function(t, e) {},
   IB4K: function(t, e, n) {},
+  IDjU: function(t, e, n) {
+    "use strict"
+    var r = n("22mo")
+    n.n(r).a
+  },
   IHu0: function(t, e, n) {},
   Ijbi: function(t, e) {
     t.exports = function(t) {
@@ -12962,6 +12959,9 @@ var system = (function(t) {
           },
         },
         methods: {
+          hide: function(t) {
+            this.isVisible = !1
+          },
           buttonClicked: function(t) {
             ;(this.isVisible = !this.isVisible), this.$emit("button-clicked", t)
           },
@@ -12969,8 +12969,23 @@ var system = (function(t) {
             ;(this.isVisible = !1), this.$emit("menu-item-clicked", t)
           },
         },
+        directives: {
+          "click-outside": {
+            bind: function(t, e, n) {
+              var r = e.modifiers.bubble,
+                i = function(n) {
+                  ;(r || (!t.contains(n.target) && t !== n.target)) && e.value(n)
+                }
+              ;(t.__vueClickOutside__ = i), document.addEventListener("click", i)
+            },
+            unbind: function(t, e) {
+              document.removeEventListener("click", t.__vueClickOutside__),
+                (t.__vueClickOutside__ = null)
+            },
+          },
+        },
       },
-      i = (n("2m2y"), n("KHd+")),
+      i = (n("lN5s"), n("KHd+")),
       a = n("9b0z"),
       o = n.n(a),
       s = Object(i.a)(
@@ -12981,7 +12996,18 @@ var system = (function(t) {
             n = t._self._c || e
           return n(
             t.element,
-            { tag: "component", class: ["lux-dropdown-menu", t.size] },
+            {
+              directives: [
+                {
+                  name: "click-outside",
+                  rawName: "v-click-outside",
+                  value: t.hide,
+                  expression: "hide",
+                },
+              ],
+              tag: "component",
+              class: ["lux-dropdown-menu", t.size],
+            },
             [
               n(
                 "input-button",
@@ -13013,7 +13039,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "4990754e",
+        "7e034a4f",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -13274,7 +13300,6 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
-  Ok2A: function(t, e, n) {},
   Otma: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -13483,6 +13508,7 @@ var system = (function(t) {
           id: { type: String, default: "" },
           name: { type: String, default: "" },
           isAsync: { type: Boolean, required: !1, default: !1 },
+          required: { type: Boolean, default: !1 },
         },
         data: function() {
           return {
@@ -13579,7 +13605,12 @@ var system = (function(t) {
                 directives: [
                   { name: "model", rawName: "v-model", value: t.search, expression: "search" },
                 ],
-                attrs: { id: "displayInput", autocomplete: "off", type: "text" },
+                attrs: {
+                  id: "displayInput",
+                  autocomplete: "off",
+                  type: "text",
+                  required: t.required,
+                },
                 domProps: { value: t.search },
                 on: {
                   input: [
@@ -13609,6 +13640,11 @@ var system = (function(t) {
                     function(e) {
                       return !e.type.indexOf("key") &&
                         t._k(e.keyCode, "esc", 27, e.key, ["Esc", "Escape"])
+                        ? null
+                        : t.onEscape(e)
+                    },
+                    function(e) {
+                      return !e.type.indexOf("key") && t._k(e.keyCode, "tab", 9, e.key, "Tab")
                         ? null
                         : t.onEscape(e)
                     },
@@ -16368,7 +16404,6 @@ var system = (function(t) {
     e.default = s.exports
   },
   daU6: function(t, e) {},
-  "dt+K": function(t, e, n) {},
   e7Eb: function(t, e) {},
   eAtJ: function(t, e) {
     t.exports =
@@ -16985,6 +17020,11 @@ var system = (function(t) {
       )
     "function" == typeof o.a && o()(s)
     e.default = s.exports
+  },
+  lN5s: function(t, e, n) {
+    "use strict"
+    var r = n("4szo")
+    n.n(r).a
   },
   lSNA: function(t, e) {
     t.exports = function(t, e, n) {
@@ -23766,7 +23806,7 @@ var system = (function(t) {
               return t.match(/(text|number|email|textarea)/)
             },
           },
-          value: { type: String, default: "" },
+          value: { type: [String, Number], default: "" },
           placeholder: { type: String, default: "" },
           label: { type: String, default: "" },
           hideLabel: { type: Boolean, default: !1 },
@@ -23809,7 +23849,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("0KE9"), n("KHd+")),
+      i = (n("IDjU"), n("KHd+")),
       a = n("pCL/"),
       o = n.n(a),
       s = Object(i.a)(
@@ -23823,7 +23863,9 @@ var system = (function(t) {
             { tag: "component", staticClass: "lux-input", class: { "lux-has-icon": t.icon } },
             [
               t.label
-                ? n("label", { class: { "lux-hidden": t.hideLabel } }, [t._v(t._s(t.label))])
+                ? n("label", { class: { "lux-hidden": t.hideLabel }, attrs: { for: t.id } }, [
+                    t._v(t._s(t.label)),
+                  ])
                 : t._e(),
               t._v(" "),
               n(
@@ -23930,7 +23972,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "d83becb2",
+        "db61ded2",
         null
       )
     "function" == typeof o.a && o()(s)
