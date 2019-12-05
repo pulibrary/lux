@@ -1,7 +1,7 @@
 <template>
-  <component :is="type" :class="['lux-library-header']">
+  <component :is="type" :class="['lux-library-header', theme]">
     <wrapper class="lux-header-content" :maxWidth="maxWidth">
-      <library-logo></library-logo>
+      <library-logo :theme="theme"></library-logo>
       <a class="lux-app-name" :href="appUrl">{{ appName }}</a>
       <spacer></spacer>
       <slot />
@@ -49,6 +49,13 @@ export default {
       type: Number,
       default: 1170,
     },
+    /**
+     * Whether the header is dark or light. Default is set to dark.
+     */
+    theme: {
+      type: String,
+      default: "dark",
+    },
   },
 }
 </script>
@@ -62,8 +69,8 @@ export default {
 .lux-library-header {
   @include reset;
   font-family: $font-family-heading;
-  background: $color-grayscale-darker;
   color: set-text-color($color-rich-black, $color-white);
+  background: $color-grayscale-darker;
   padding: 0;
   border-top: 3px solid $color-princeton-orange-on-black;
 
@@ -127,13 +134,40 @@ export default {
       text-decoration: underline;
     }
   }
+
+  &.light {
+    color: set-text-color($color-white, $color-rich-black);
+    background: $color-white;
+
+    .lux-app-name:not(:empty) {
+      color: $color-rich-black;
+    }
+
+    /deep/ .lux-dropdown-menu .lux-dropdown {
+      background: transparent;
+      color: $color-rich-black;
+    }
+
+    /deep/ .lux-dropdown-menu .lux-dropdown .lux-dropdown-indicator {
+      color: $color-rich-black;
+    }
+
+    /deep/ .lux-nav a {
+      color: $color-rich-black;
+
+      &:hover,
+      &:focus {
+        color: $color-rich-black;
+      }
+    }
+  }
 }
 </style>
 
 <docs>
   ```jsx
   <div>
-    <library-header app-name="Catalog" app-url="https://catalog.princeton.edu">
+    <library-header app-name="Catalog" app-url="https://catalog.princeton.edu" theme="light">
       <menu-bar type="links" :menu-items="[
           {name: 'Help', component: 'Help', href: '/help/'},
           {name: 'Feedback', component: 'Feedback', href: '/feedback/'},
