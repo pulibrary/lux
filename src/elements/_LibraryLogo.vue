@@ -1,7 +1,8 @@
 <template>
-  <component :is="type" class="lux-library-contact">
+  <component :is="type" class="lux-library-contact" :theme="theme">
     <a href="https://library.princeton.edu">
-      <logo-library width="155px" height="34px" />
+      <logo-library width="155px" height="34px" v-if="theme === 'dark'" />
+      <logo-library width="155px" height="34px" v-else color="#000" />
     </a>
   </component>
 </template>
@@ -23,6 +24,13 @@ export default {
     type: {
       type: String,
       default: "div",
+    },
+    /**
+     * Whether the theme is dark or light.
+     */
+    theme: {
+      type: String,
+      default: "dark",
     },
   },
 }
