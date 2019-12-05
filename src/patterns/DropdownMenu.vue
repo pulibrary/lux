@@ -135,7 +135,7 @@ export default {
   font-family: $font-family-text;
   font-size: $font-size-base;
   line-height: 1;
-  color: set-text-color($color-rich-black, $color-white);
+  color: tint($color-rich-black, 20%);
   position: relative;
   display: inline-block;
   top: 0;
@@ -150,6 +150,7 @@ export default {
 
   .lux-dropdown-button {
     @include inset-space($space-small);
+    color: tint($color-rich-black, 20%);
     transition: all 0.2s ease;
     margin: 0;
     padding-right: 36px;

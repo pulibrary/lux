@@ -1,5 +1,5 @@
 <template>
-  <ul class="lux-tag" :class="[type, horizontal]">
+  <ul class="lux-tag" :class="[type, horizontal]" :aria-label="label">
     <li v-for="(item, index) in tagItems">
       <component
         :is="componentType(item)"
@@ -79,6 +79,13 @@ export default {
         return value.match(/(small|medium|large)/)
       },
     },
+    /**
+     * Sets the label of the list.
+     */
+    label: {
+      type: String,
+      default: "",
+    },
   },
   methods: {
     componentType(item) {
@@ -114,10 +121,16 @@ export default {
     justify-content: center;
   }
 
+  li {
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
   .lux-tag-item,
   a:visited {
     @include inset-space($space-small);
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     font-weight: 400;
     line-height: 1rem;
     letter-spacing: 0.32px;
@@ -130,13 +143,9 @@ export default {
     color: tint($color-rich-black, 20%);
     background: $color-white;
 
-    &:first-child {
-      margin-left: 0;
-    }
-
     .prepend-icon,
     .append-icon {
-      line-height: 14px;
+      line-height: 16px;
     }
   }
 
@@ -249,7 +258,7 @@ export default {
       ]"
       horizontal="end"/>
 
-     <tag type="filter" :tag-items="[
+     <tag type="filter" label="filtered by" :tag-items="[
       {name: 'Cats', href: '/tags/cats'},
       {name: 'Dogs', href: '/tags/dogs'}
       ]"/>
