@@ -4,6 +4,8 @@
 #
 
 props:
+  font_family_system:
+    value: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
   font_family_heading:
     value: "'franklin-gothic-urw', Helvetica, Arial, sans-serif"
   font_family_text:

@@ -15,6 +15,15 @@ props:
   color_princeton_orange_on_black:
     value: "{!princeton_orange_on_black}"
     category: color_group_1
+  color_princeton_salmon:
+    value: "hsla({!princeton}, 79%, 1)"
+    category: color_group_1
+  color_princeton_salmon_light:
+    value: "hsla({!princeton}, 89%, 1)"
+    category: color_group_1
+  color_princeton_salmon_lighter:
+    value: "hsla({!princeton}, 99%, 1)"
+    category: color_group_1
 
   color_tan_darker:
     value: "hsla({!tan}, 33%, 1)"
@@ -34,18 +43,34 @@ props:
 
   color_grayscale_darker:
     value: "hsla({!grayscale}, 28%, 1)"
-    category: color_group_4
+    category: color_group_5
   color_grayscale_dark:
     value: "hsla({!grayscale}, 46%, 1)"
-    category: color_group_4
+    category: color_group_5
   color_grayscale:
     value: "hsla({!grayscale}, 62%, 1)"
-    category: color_group_4
+    category: color_group_5
   color_grayscale_light:
-    value: "hsla({!grayscale}, 75%, 1)"
-    category: color_group_4
+    value: "hsla({!grayscale}, 79%, 1)"
+    category: color_group_5
   color_grayscale_lighter:
     value: "hsla(0, 0%, 96%, 1)"
+    category: color_group_5
+
+  color_grayscale_warm_darker:
+    value: "hsla({!grayscale_warm}, 28%, 1)"
+    category: color_group_4
+  color_grayscale_warm_dark:
+    value: "hsla({!grayscale_warm}, 46%, 1)"
+    category: color_group_4
+  color_grayscale_warm:
+    value: "hsla({!grayscale_warm}, 62%, 1)"
+    category: color_group_4
+  color_grayscale_warm_light:
+    value: "hsla({!grayscale_warm}, 75%, 1)"
+    category: color_group_4
+  color_grayscale_warm_lighter:
+    value: "hsla({!grayscale_warm}, 97%, 1)"
     category: color_group_4
 
   color_bleu_de_france_darker:
@@ -66,19 +91,19 @@ props:
 
   color_green:
     value: "#7cb518"
-    category: color_group_5
+    category: color_group_6
   color_yellow:
     value: "#FFBA0A"
-    category: color_group_5
+    category: color_group_6
   color_red:
     value: "#C92813"
-    category: color_group_5
+    category: color_group_6
   color_rich_black:
     value: "{!rich_black}"
-    category: color_group_6
+    category: color_group_7
   color_white:
     value: "{!white}"
-    category: color_group_6
+    category: color_group_7
 global:
   type: color
   category: color

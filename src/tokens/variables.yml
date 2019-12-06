@@ -4,6 +4,8 @@
 #
 
 aliases:
+  princeton:
+    value: "30, 100%"
   princeton_orange_on_white:
     value: "#e77500"
   princeton_orange_on_black:
@@ -12,6 +14,8 @@ aliases:
     value: "32, 44%"
   grayscale:
     value: "217, 9%"
+  grayscale_warm:
+    value: "48, 29%"
   bleu_de_france:
     value: "210, 60%"
   rich_black:
