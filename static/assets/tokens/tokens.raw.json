@@ -1,34 +1,47 @@
 {
   "aliases": {
-    "princeton_orange_on_white": {
-      "value": "#e77500"
-    },
-    "princeton_orange_on_black": {
-      "value": "#f58025"
-    },
     "tan": {
       "value": "32, 44%"
+    },
+    "princeton_orange_on_white": {
+      "value": "#e77500"
     },
     "grayscale": {
       "value": "217, 9%"
     },
+    "white": {
+      "value": "#fff"
+    },
+    "princeton": {
+      "value": "30, 100%"
+    },
     "bleu_de_france": {
       "value": "210, 60%"
+    },
+    "princeton_orange_on_black": {
+      "value": "#f58025"
     },
     "rich_black": {
       "value": "#001123"
     },
-    "white": {
-      "value": "#fff"
+    "grayscale_warm": {
+      "value": "48, 29%"
     }
   },
   "props": {
     "color_grayscale_light": {
       "type": "color",
-      "category": "color_group_4",
-      "value": "rgb(186, 190, 197)",
-      "originalValue": "hsla({!grayscale}, 75%, 1)",
+      "category": "color_group_5",
+      "value": "rgb(197, 200, 206)",
+      "originalValue": "hsla({!grayscale}, 79%, 1)",
       "name": "color_grayscale_light"
+    },
+    "color_princeton_salmon_lighter": {
+      "type": "color",
+      "category": "color_group_1",
+      "value": "rgb(255, 252, 250)",
+      "originalValue": "hsla({!princeton}, 99%, 1)",
+      "name": "color_princeton_salmon_lighter"
     },
     "color_tan": {
       "type": "color",
@@ -53,7 +66,7 @@
     },
     "color_green": {
       "type": "color",
-      "category": "color_group_5",
+      "category": "color_group_6",
       "value": "rgb(124, 181, 24)",
       "originalValue": "#7cb518",
       "name": "color_green"
@@ -65,6 +78,13 @@
       "originalValue": "{!princeton_orange_on_white}",
       "name": "color_princeton_orange_on_white"
     },
+    "color_grayscale_warm_darker": {
+      "type": "color",
+      "category": "color_group_4",
+      "value": "rgb(92, 84, 51)",
+      "originalValue": "hsla({!grayscale_warm}, 28%, 1)",
+      "name": "color_grayscale_warm_darker"
+    },
     "color_tan_lighter": {
       "type": "color",
       "category": "color_group_3",
@@ -74,35 +94,42 @@
     },
     "color_grayscale_dark": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color_group_5",
       "value": "rgb(107, 115, 128)",
       "originalValue": "hsla({!grayscale}, 46%, 1)",
       "name": "color_grayscale_dark"
     },
     "color_grayscale": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color_group_5",
       "value": "rgb(149, 156, 167)",
       "originalValue": "hsla({!grayscale}, 62%, 1)",
       "name": "color_grayscale"
     },
     "color_white": {
       "type": "color",
-      "category": "color_group_6",
+      "category": "color_group_7",
       "value": "rgb(255, 255, 255)",
       "originalValue": "{!white}",
       "name": "color_white"
     },
     "color_grayscale_lighter": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color_group_5",
       "value": "rgb(245, 245, 245)",
       "originalValue": "hsla(0, 0%, 96%, 1)",
       "name": "color_grayscale_lighter"
     },
+    "color_grayscale_warm_light": {
+      "type": "color",
+      "category": "color_group_4",
+      "value": "rgb(210, 202, 173)",
+      "originalValue": "hsla({!grayscale_warm}, 75%, 1)",
+      "name": "color_grayscale_warm_light"
+    },
     "color_yellow": {
       "type": "color",
-      "category": "color_group_5",
+      "category": "color_group_6",
       "value": "rgb(255, 186, 10)",
       "originalValue": "#FFBA0A",
       "name": "color_yellow"
@@ -137,24 +164,45 @@
     },
     "color_red": {
       "type": "color",
-      "category": "color_group_5",
+      "category": "color_group_6",
       "value": "rgb(201, 40, 19)",
       "originalValue": "#C92813",
       "name": "color_red"
     },
+    "color_princeton_salmon_light": {
+      "type": "color",
+      "category": "color_group_1",
+      "value": "rgb(255, 227, 199)",
+      "originalValue": "hsla({!princeton}, 89%, 1)",
+      "name": "color_princeton_salmon_light"
+    },
     "color_grayscale_darker": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color_group_5",
       "value": "rgb(65, 70, 78)",
       "originalValue": "hsla({!grayscale}, 28%, 1)",
       "name": "color_grayscale_darker"
     },
     "color_rich_black": {
       "type": "color",
-      "category": "color_group_6",
+      "category": "color_group_7",
       "value": "rgb(0, 17, 35)",
       "originalValue": "{!rich_black}",
       "name": "color_rich_black"
+    },
+    "color_grayscale_warm": {
+      "type": "color",
+      "category": "color_group_4",
+      "value": "rgb(186, 175, 130)",
+      "originalValue": "hsla({!grayscale_warm}, 62%, 1)",
+      "name": "color_grayscale_warm"
+    },
+    "color_grayscale_warm_dark": {
+      "type": "color",
+      "category": "color_group_4",
+      "value": "rgb(151, 138, 83)",
+      "originalValue": "hsla({!grayscale_warm}, 46%, 1)",
+      "name": "color_grayscale_warm_dark"
     },
     "color_tan_light": {
       "type": "color",
@@ -163,12 +211,26 @@
       "originalValue": "hsla({!tan}, 63%, 1)",
       "name": "color_tan_light"
     },
+    "color_grayscale_warm_lighter": {
+      "type": "color",
+      "category": "color_group_4",
+      "value": "rgb(250, 249, 245)",
+      "originalValue": "hsla({!grayscale_warm}, 97%, 1)",
+      "name": "color_grayscale_warm_lighter"
+    },
     "color_tan_darker": {
       "type": "color",
       "category": "color_group_3",
       "value": "rgb(121, 87, 47)",
       "originalValue": "hsla({!tan}, 33%, 1)",
       "name": "color_tan_darker"
+    },
+    "color_princeton_salmon": {
+      "type": "color",
+      "category": "color_group_1",
+      "value": "rgb(255, 201, 148)",
+      "originalValue": "hsla({!princeton}, 79%, 1)",
+      "name": "color_princeton_salmon"
     },
     "color_princeton_orange_on_black": {
       "type": "color",
@@ -295,6 +357,13 @@
       "value": "16px",
       "originalValue": "16px",
       "name": "font_size_base"
+    },
+    "font_family_system": {
+      "type": "...",
+      "category": "font",
+      "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "originalValue": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "name": "font_family_system"
     },
     "font_family_heading": {
       "type": "...",

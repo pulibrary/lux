@@ -1,6 +1,9 @@
 $tokens-map: (
   "color-grayscale-light": (
-    rgb(186, 190, 197),
+    rgb(197, 200, 206),
+  ),
+  "color-princeton-salmon-lighter": (
+    rgb(255, 252, 250),
   ),
   "color-tan": (
     rgb(188, 139, 82),
@@ -17,6 +20,9 @@ $tokens-map: (
   "color-princeton-orange-on-white": (
     rgb(231, 117, 0),
   ),
+  "color-grayscale-warm-darker": (
+    rgb(92, 84, 51),
+  ),
   "color-tan-lighter": (
     rgb(219, 193, 163),
   ),
@@ -31,6 +37,9 @@ $tokens-map: (
   ),
   "color-grayscale-lighter": (
     rgb(245, 245, 245),
+  ),
+  "color-grayscale-warm-light": (
+    rgb(210, 202, 173),
   ),
   "color-yellow": (
     rgb(255, 186, 10),
@@ -50,17 +59,32 @@ $tokens-map: (
   "color-red": (
     rgb(201, 40, 19),
   ),
+  "color-princeton-salmon-light": (
+    rgb(255, 227, 199),
+  ),
   "color-grayscale-darker": (
     rgb(65, 70, 78),
   ),
   "color-rich-black": (
     rgb(0, 17, 35),
   ),
+  "color-grayscale-warm": (
+    rgb(186, 175, 130),
+  ),
+  "color-grayscale-warm-dark": (
+    rgb(151, 138, 83),
+  ),
   "color-tan-light": (
     rgb(202, 163, 119),
   ),
+  "color-grayscale-warm-lighter": (
+    rgb(250, 249, 245),
+  ),
   "color-tan-darker": (
     rgb(121, 87, 47),
+  ),
+  "color-princeton-salmon": (
+    rgb(255, 201, 148),
   ),
   "color-princeton-orange-on-black": (
     rgb(245, 128, 37),
@@ -115,6 +139,18 @@ $tokens-map: (
   ),
   "font-size-base": (
     16px,
+  ),
+  "font-family-system": (
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
   ),
   "font-family-heading": (
     "franklin-gothic-urw",
