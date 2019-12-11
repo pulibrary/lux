@@ -21,7 +21,15 @@
             { 'lux-data-table-number': isNum(col.datatype) },
           ]"
         >
-          {{ lineItem[col.name] }}
+          <input
+            v-if="col.checkbox"
+            :id="lineItem[col.name]"
+            type="checkbox"
+            :aria-label="Object.values(lineItem).join(', ')"
+            :name="col.name"
+            :value="lineItem[col.name]"
+          />
+          <span v-else>{{ lineItem[col.name] }}</span>
         </td>
       </tr>
     </tbody>
@@ -70,7 +78,11 @@ export default {
       type: String,
     },
     /**
-     * columns defines the columns and order for which the data should be displayed.
+     * columns define the columns and order for which the data should be displayed.
+     * Columns entries can be simple strings, or they may be more complicated objects
+     * that can define `name`, `display_name`,`align`, and `checkbox` properties.
+     * Use `checkbox=true` to create a checkbox whose value is the value for that
+     * column value for the row in the table.
      * `e.g. ['name', 'email', 'age']`
      */
     columns: {
@@ -229,10 +241,17 @@ export default {
 
 <docs>
   ```jsx
-  <data-table caption="Staff Emails" summary-label="Average" :columns="['name',{ 'name': 'email', 'display_name': 'Email Address', 'align': 'center' },{ 'name': 'age', 'datatype': 'number', 'summary_value': '33'}]" :json-data="[
-    {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
-    {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
-    {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
-  ]"/>
+  <data-table caption="Staff Emails" summary-label="Average"
+    :columns="[
+      { 'name': 'id', 'display_name': 'Select Items', 'align': 'center', 'checkbox': true },
+      'name',
+      { 'name': 'email', 'display_name': 'Email Address', 'align': 'center' },
+      { 'name': 'age', 'datatype': 'number', 'summary_value': '33'}
+    ]"
+    :json-data="[
+      {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
+      {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
+      {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
+    ]"/>
   ```
 </docs>
