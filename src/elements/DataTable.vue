@@ -219,6 +219,82 @@ export default {
     font-size: $font-size-base;
     line-height: 1.2;
     text-align: left;
+
+    input {
+      position: relative;
+      width: auto;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:checked {
+        box-shadow: none;
+        border: 0;
+      }
+    }
+
+    input::before,
+    input::after {
+      position: absolute;
+      content: "";
+
+      /*Needed for the line-height to take effect*/
+      display: inline-block;
+    }
+
+    /*Outer box of the fake checkbox*/
+    input::before {
+      height: 16px;
+      width: 16px;
+      background-color: $color-white;
+      border: 0;
+      border-radius: $border-radius-default;
+      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+        0 0 0 1px tint($color-rich-black, 80%);
+      left: 0;
+      top: 4px;
+    }
+
+    /* On mouse-over, add a grey background color */
+    input:not([disabled]):hover::before {
+      box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+    }
+
+    input:checked::before {
+      transition: box-shadow 0.2s ease;
+      background-color: $color-bleu-de-france;
+      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+      outline: 0;
+    }
+
+    /*Checkmark of the fake checkbox*/
+    input::after {
+      height: 5px;
+      width: 10px;
+      border-left: 2px solid $color-white;
+      border-bottom: 2px solid $color-white;
+
+      transform: rotate(-45deg);
+
+      left: 3px;
+      top: 7px;
+    }
+
+    /*Hide the checkmark by default*/
+    input[type="checkbox"]::after {
+      content: none;
+    }
+
+    /*Unhide on the checked state*/
+    input[type="checkbox"]:checked::after {
+      content: "";
+    }
+
+    /*Adding focus styles on the outer-box of the fake checkbox*/
+    input[type="checkbox"]:focus::before {
+      transition: box-shadow $duration-quickly ease;
+      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+    }
   }
 
   .lux-data-table-number {
