@@ -16,6 +16,11 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       <th
         scope="col"
       >
+        Select Items
+      </th>
+      <th
+        scope="col"
+      >
         name
       </th>
       <th
@@ -34,71 +39,104 @@ exports[`DataTable.vue has the expected html structure 1`] = `
   <tbody>
     <tr>
       <td
+        class="lux-data-table-center"
+      >
+        <input
+          aria-label="1, foo, foo@xxx.xxx, 42"
+          id="1"
+          name="id"
+          type="checkbox"
+          value="1"
+        />
+      </td>
+      <td
         class=""
       >
-        
-        foo
-      
+        <span>
+          foo
+        </span>
       </td>
       <td
         class="lux-data-table-center"
       >
-        
-        foo@xxx.xxx
-      
+        <span>
+          foo@xxx.xxx
+        </span>
       </td>
       <td
         class="lux-data-table-number"
       >
-        
-        42
-      
+        <span>
+          42
+        </span>
       </td>
     </tr>
     <tr>
       <td
+        class="lux-data-table-center"
+      >
+        <input
+          aria-label="2, bar, bar@xxx.xxx, 23"
+          id="2"
+          name="id"
+          type="checkbox"
+          value="2"
+        />
+      </td>
+      <td
         class=""
       >
-        
-        bar
-      
+        <span>
+          bar
+        </span>
       </td>
       <td
         class="lux-data-table-center"
       >
-        
-        bar@xxx.xxx
-      
+        <span>
+          bar@xxx.xxx
+        </span>
       </td>
       <td
         class="lux-data-table-number"
       >
-        
-        23
-      
+        <span>
+          23
+        </span>
       </td>
     </tr>
     <tr>
       <td
+        class="lux-data-table-center"
+      >
+        <input
+          aria-label="3, fez, fez@xxx.xxx, 34"
+          id="3"
+          name="id"
+          type="checkbox"
+          value="3"
+        />
+      </td>
+      <td
         class=""
       >
-        
-        fez
-      
+        <span>
+          fez
+        </span>
       </td>
       <td
         class="lux-data-table-center"
       >
-        
-        fez@xxx.xxx
-      
+        <span>
+          fez@xxx.xxx
+        </span>
       </td>
       <td
         class="lux-data-table-number"
       >
-        
-        34
-      
+        <span>
+          34
+        </span>
       </td>
     </tr>
   </tbody>

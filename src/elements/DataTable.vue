@@ -21,7 +21,15 @@
             { 'lux-data-table-number': isNum(col.datatype) },
           ]"
         >
-          {{ lineItem[col.name] }}
+          <input
+            v-if="col.checkbox"
+            :id="lineItem[col.name]"
+            type="checkbox"
+            :aria-label="Object.values(lineItem).join(', ')"
+            :name="col.name"
+            :value="lineItem[col.name]"
+          />
+          <span v-else>{{ lineItem[col.name] }}</span>
         </td>
       </tr>
     </tbody>
@@ -70,7 +78,11 @@ export default {
       type: String,
     },
     /**
-     * columns defines the columns and order for which the data should be displayed.
+     * columns define the columns and order for which the data should be displayed.
+     * Columns entries can be simple strings, or they may be more complicated objects
+     * that can define `name`, `display_name`,`align`, and `checkbox` properties.
+     * Use `checkbox=true` to create a checkbox whose value is the value for that
+     * column value for the row in the table.
      * `e.g. ['name', 'email', 'age']`
      */
     columns: {
@@ -207,6 +219,82 @@ export default {
     font-size: $font-size-base;
     line-height: 1.2;
     text-align: left;
+
+    input {
+      position: relative;
+      width: auto;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:checked {
+        box-shadow: none;
+        border: 0;
+      }
+    }
+
+    input::before,
+    input::after {
+      position: absolute;
+      content: "";
+
+      /*Needed for the line-height to take effect*/
+      display: inline-block;
+    }
+
+    /*Outer box of the fake checkbox*/
+    input::before {
+      height: 16px;
+      width: 16px;
+      background-color: $color-white;
+      border: 0;
+      border-radius: $border-radius-default;
+      box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
+        0 0 0 1px tint($color-rich-black, 80%);
+      left: 0;
+      top: 4px;
+    }
+
+    /* On mouse-over, add a grey background color */
+    input:not([disabled]):hover::before {
+      box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+    }
+
+    input:checked::before {
+      transition: box-shadow 0.2s ease;
+      background-color: $color-bleu-de-france;
+      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+      outline: 0;
+    }
+
+    /*Checkmark of the fake checkbox*/
+    input::after {
+      height: 5px;
+      width: 10px;
+      border-left: 2px solid $color-white;
+      border-bottom: 2px solid $color-white;
+
+      transform: rotate(-45deg);
+
+      left: 3px;
+      top: 7px;
+    }
+
+    /*Hide the checkmark by default*/
+    input[type="checkbox"]::after {
+      content: none;
+    }
+
+    /*Unhide on the checked state*/
+    input[type="checkbox"]:checked::after {
+      content: "";
+    }
+
+    /*Adding focus styles on the outer-box of the fake checkbox*/
+    input[type="checkbox"]:focus::before {
+      transition: box-shadow $duration-quickly ease;
+      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+    }
   }
 
   .lux-data-table-number {
@@ -229,10 +317,17 @@ export default {
 
 <docs>
   ```jsx
-  <data-table caption="Staff Emails" summary-label="Average" :columns="['name',{ 'name': 'email', 'display_name': 'Email Address', 'align': 'center' },{ 'name': 'age', 'datatype': 'number', 'summary_value': '33'}]" :json-data="[
-    {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
-    {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
-    {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
-  ]"/>
+  <data-table caption="Staff Emails" summary-label="Average"
+    :columns="[
+      { 'name': 'id', 'display_name': 'Select Items', 'align': 'center', 'checkbox': true },
+      'name',
+      { 'name': 'email', 'display_name': 'Email Address', 'align': 'center' },
+      { 'name': 'age', 'datatype': 'number', 'summary_value': '33'}
+    ]"
+    :json-data="[
+      {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
+      {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
+      {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
+    ]"/>
   ```
 </docs>

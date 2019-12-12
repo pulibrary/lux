@@ -13,6 +13,7 @@ describe("DataTable.vue", () => {
       propsData: {
         caption: "This is a caption.",
         columns: [
+          { name: "id", display_name: "Select Items", align: "center", checkbox: true },
           "name",
           { name: "email", display_name: "Email Address", align: "center" },
           { name: "age", datatype: "number", summary_value: "33" },
@@ -33,10 +34,17 @@ describe("DataTable.vue", () => {
   })
 
   it("should render the Display Name", () => {
-    const th = wrapper.findAll("th").at(1)
+    const th = wrapper.findAll("th").at(2)
     expect(th.text()).toBe("Email Address")
-    const th2 = wrapper.findAll("th").at(0)
+    const th2 = wrapper.findAll("th").at(1)
     expect(th2.text()).toBe("name")
+  })
+
+  it("should render a checkbox when checkbox is true", () => {
+    const td1 = wrapper.find("input")
+    expect(td1.exists()).toBe(true)
+    const td2 = wrapper.findAll("td").at(1)
+    expect(td2.text()).toBe("foo")
   })
 
   it("evaluates isNum correctly", () => {
@@ -51,8 +59,8 @@ describe("DataTable.vue", () => {
 
   it("parses columns correctly", () => {
     const cols = wrapper.vm.parsedColumns
-    expect(cols[0].name).toBe("name")
-    expect(cols[1].name).toBe("email")
+    expect(cols[1].name).toBe("name")
+    expect(cols[2].name).toBe("email")
   })
 
   it("should return true for the appropriate boolean functions for alignment", () => {
@@ -70,8 +78,8 @@ describe("DataTable.vue", () => {
   })
 
   it("should remove the first column from the footerColumns, which is reserved for summaryLabel", () => {
-    expect(wrapper.vm.footerColumns.length).toBe(2)
-    expect(wrapper.vm.footerColumns[0].name).toBe("email")
+    expect(wrapper.vm.footerColumns.length).toBe(3)
+    expect(wrapper.vm.footerColumns[1].name).toBe("email")
   })
 
   it("has the expected html structure", () => {
