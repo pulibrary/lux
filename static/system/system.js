@@ -229,7 +229,6 @@ var system = (function(t) {
     e.default = s.exports
   },
   "2/NU": function(t, e, n) {},
-  "22mo": function(t, e, n) {},
   "26cH": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -7498,6 +7497,7 @@ var system = (function(t) {
     e.default = s.exports
   },
   "9xho": function(t, e) {},
+  "A+EW": function(t, e, n) {},
   A32m: function(t, e, n) {},
   A4bl: function(t, e, n) {
     "use strict"
@@ -8840,11 +8840,6 @@ var system = (function(t) {
   },
   I8lK: function(t, e) {},
   IB4K: function(t, e, n) {},
-  IDjU: function(t, e, n) {
-    "use strict"
-    var r = n("22mo")
-    n.n(r).a
-  },
   IHu0: function(t, e, n) {},
   Ijbi: function(t, e) {
     t.exports = function(t) {
@@ -23556,6 +23551,11 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  vyfy: function(t, e, n) {
+    "use strict"
+    var r = n("A+EW")
+    n.n(r).a
+  },
   w6ll: function(t, e) {},
   w9WQ: function(t, e, n) {
     "use strict"
@@ -23856,6 +23856,7 @@ var system = (function(t) {
           rows: { type: String, default: "5" },
           maxlength: { type: Number, default: 256 },
           disabled: { type: Boolean, default: !1 },
+          readonly: { type: Boolean, default: !1 },
           required: { type: Boolean, default: !1 },
           hover: { type: Boolean, default: !1 },
           focus: { type: Boolean, default: !1 },
@@ -23867,7 +23868,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("IDjU"), n("KHd+")),
+      i = (n("vyfy"), n("KHd+")),
       a = n("pCL/"),
       o = n.n(a),
       s = Object(i.a)(
@@ -23904,6 +23905,7 @@ var system = (function(t) {
                           autocomplete: "off",
                           name: t.name,
                           id: t.id,
+                          readonly: t.readonly,
                           disabled: t.disabled,
                           required: t.required,
                           type: t.type,
@@ -23934,6 +23936,7 @@ var system = (function(t) {
                           name: t.name,
                           id: t.id,
                           disabled: t.disabled,
+                          readonly: t.readonly,
                           required: t.required,
                           rows: t.rows,
                           maxlength: t.maxlength,
@@ -23990,7 +23993,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "db61ded2",
+        "4d16608c",
         null
       )
     "function" == typeof o.a && o()(s)
