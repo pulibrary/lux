@@ -11,6 +11,7 @@
         :name="name"
         :value="value"
         :id="id"
+        :readonly="readonly"
         :disabled="disabled"
         :required="required"
         :type="type"
@@ -30,6 +31,7 @@
         :name="name"
         :id="id"
         :disabled="disabled"
+        :readonly="readonly"
         :required="required"
         :rows="rows"
         :maxlength="maxlength"
@@ -198,6 +200,14 @@ export default {
      * `true, false`
      */
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Whether the form input field is readonly or not.
+     * `true, false`
+     */
+    readonly: {
       type: Boolean,
       default: false,
     },
