@@ -1567,7 +1567,7 @@ var system = (function(t) {
             i = n(4),
             a = /d{1,2}|W{1,4}|M{1,4}|YY(?:YY)?|S{1,3}|Do|ZZ|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'/g,
             o = /\d\d?/,
-            s = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i,
+            s = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF/]+(\s*?[\u0600-\u06FF]+){1,2}/i,
             c = /\[([^]*?)\]/gm,
             u = function() {}
           function l(t) {
@@ -12490,7 +12490,7 @@ var system = (function(t) {
         var r
         ;(n.r(e), "undefined" != typeof window) &&
           ((r = window.document.currentScript) &&
-            (r = r.src.match(/(.+\/)[^\/]+\.js(\?.*)?$/)) &&
+            (r = r.src.match(/(.+\/)[^/]+\.js(\?.*)?$/)) &&
             (n.p = r[1]))
         var i = n("5176"),
           a = n.n(i),
@@ -24357,11 +24357,6 @@ var system = (function(t) {
                       { "lux-alert-fullscreen": t.isFullScreen },
                     ],
                     attrs: { role: "alert" },
-                    on: {
-                      click: function(e) {
-                        return t.hideAlert()
-                      },
-                    },
                   },
                   [
                     t._t("default", [t._v("\n      " + t._s(t.alertMessage) + "\n    ")]),
@@ -24375,6 +24370,11 @@ var system = (function(t) {
                               type: "button",
                               "data-dismiss": "alert",
                               "aria-label": "Close",
+                            },
+                            on: {
+                              click: function(e) {
+                                return t.hideAlert()
+                              },
                             },
                           },
                           [n("span", { attrs: { "aria-hidden": "true" } }, [t._v("×")])]
