@@ -11,7 +11,6 @@
         { 'lux-alert-info': isInfo },
         { 'lux-alert-fullscreen': isFullScreen },
       ]"
-      @click="hideAlert()"
       role="alert"
     >
       <slot>
@@ -23,6 +22,7 @@
         class="lux-close"
         data-dismiss="alert"
         aria-label="Close"
+        @click="hideAlert()"
       >
         <span aria-hidden="true">×</span>
       </button>
