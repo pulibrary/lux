@@ -5,6 +5,7 @@ exports[`DatePicker.vue has the expected html structure 1`] = `
   class="lux-date-picker medium"
 >
   <div
+    attributes="[object Object]"
     class="popover-container"
     data-v-1ad2436f=""
     tabindex="-1"

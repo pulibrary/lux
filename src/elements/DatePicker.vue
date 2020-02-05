@@ -5,6 +5,7 @@
       mode="single"
       :disabled-dates="disabledDates"
       :update-on-input="true"
+      :attributes="attributes"
       v-model="date"
       @popover-did-disappear="calendarClosedSingle($event)"
     >
@@ -24,6 +25,7 @@
       mode="range"
       :disabled-dates="disabledDates"
       :update-on-input="true"
+      :attributes="attributes"
       v-model="range"
       @popover-did-disappear="calendarClosedRange($event)"
     >
@@ -62,6 +64,18 @@ export default {
     return {
       date: this.defaultDate,
       range: this.defaultDates,
+      attributes: [
+        {
+          bar: {
+            color: "red",
+            class: "lux-holiday-highlight",
+          },
+          dates: this.holidays,
+          popover: {
+            label: "Official PUL Holiday",
+          },
+        },
+      ],
     }
   },
   props: {
@@ -158,6 +172,14 @@ export default {
       default: null,
       required: false,
     },
+    /**
+     * Highlight PUL holidays using an array of strings in YYYY-MM-DD format. Example: ["2019-11-28","2019-11-29"]
+     */
+    holidays: {
+      type: Array,
+      default: null,
+      required: false,
+    },
   },
   methods: {
     calendarClosedSingle(value) {
@@ -243,6 +265,10 @@ export default {
   display: inline-block;
   width: 100%;
 }
+
+.lux-holiday-highlight {
+  color: $color-red;
+}
 </style>
 
 <docs>
@@ -250,7 +276,7 @@ export default {
   <div>
     <date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]" />
 
-    <date-picker id="today" name="today" label="Today's Date" mode="single" :defaultDate="new Date()" />
+    <date-picker id="today" name="today" label="Today's Date" mode="single" :holidays="['2020-02-20','2020-02-21']" :defaultDate="new Date()" />
   </div>
   ```
 </docs>
