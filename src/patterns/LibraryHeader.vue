@@ -90,11 +90,16 @@ export default {
       color: $color-white;
       font-size: $font-size-large;
       font-weight: 400;
-      height: 35px;
       letter-spacing: 1px;
       line-height: 33px;
       margin: 8px 0 0;
       text-decoration: none;
+      text-align: center;
+
+      @media #{$media-query-x-large} {
+        height: 35px;
+        text-align: left;
+      }
     }
 
     @media #{$media-query-medium} {
@@ -117,6 +122,10 @@ export default {
     color: $color-white;
   }
 
+  &.dark /deep/ .lux-nav .lux-has-children {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjkyLjQgMjkyLjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5Mi40IDI5Mi40OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yODcsNjkuNGMtMy40LTMuNS04LjEtNS41LTEzLTUuNEgxOC40Yy01LDAtOS4zLDEuOC0xMi45LDUuNEMyLDcyLjcsMCw3Ny40LDAsODIuMmMwLDUsMS44LDkuMyw1LjQsMTIuOQoJbDEyOCwxMjcuOWMzLjYsMy42LDcuOCw1LjQsMTIuOCw1LjRzOS4yLTEuOCwxMi44LTUuNEwyODcsOTVjMy41LTMuNSw1LjQtNy44LDUuNC0xMi44cy0xLjktOS4yLTUuNS0xMi44TDI4Nyw2OS40eiIvPgo8L3N2Zz4K");
+  }
+
   /deep/ .lux-nav {
     min-width: 100px;
     top: 37px;
@@ -132,6 +141,22 @@ export default {
     &:focus {
       color: $color-white;
       text-decoration: underline;
+    }
+  }
+
+  /deep/ .lux-nav-children {
+    background: $color-white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+
+    a {
+      color: $color-rich-black;
+
+      &:hover,
+      &:focus {
+        color: $color-rich-black;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -171,7 +196,9 @@ export default {
       <menu-bar type="links" :menu-items="[
           {name: 'Help', component: 'Help', href: '/help/'},
           {name: 'Feedback', component: 'Feedback', href: '/feedback/'},
-          {name: 'Your Account', component: 'Account', href: '/account/'}
+          {name: 'Your Account', component: 'Account', href: '/account/', children: [
+            {name: 'Logout', component: 'Logout', href: '/account/'}
+          ]}
         ]"
       ></menu-bar>
     </library-header>
