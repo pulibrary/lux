@@ -2188,6 +2188,9 @@ button.lux-close {
   display: inline-block;
   width: 100%;
 }
+.lux-holiday-highlight {
+  color: #c92813;
+}
 .lux-flex-container[data-v-592ff8c7] {
   padding: 0 1rem 1rem 0;
   display: flex;
