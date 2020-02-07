@@ -1,26 +1,46 @@
 <template>
   <nav v-if="type === 'links'" class="lux-nav">
     <ul>
-      <li v-for="(item, index) in parsedMenuItems">
-        <a
-          :key="index"
-          :href="item.href"
-          :class="[
-            'lux-nav-item',
-            { 'lux-active': localActive === item.component },
-            { 'lux-is-child': item.hasOwnProperty('parent') === true },
-          ]"
-          v-html="item.name"
-          @click="menuItemClicked($event)"
-        >
-        </a>
+      <li v-for="(item, index) in menuItems">
+        <template v-if="item.children">
+          <a
+            :key="index"
+            :href="item.href"
+            :title="item.name"
+            class="lux-has-children lux-nav-item"
+            aria-haspopup="true"
+            @click="menuItemClicked($event, item)"
+            >{{ item.name }}</a
+          >
+          <ul class="lux-nav-children" aria-label="submenu">
+            <li v-for="{ href, name, index, target } in item.children" :key="index">
+              <a
+                :href="href"
+                :title="name"
+                :target="target"
+                class="lux-nav-item"
+                @click="menuItemClicked($event, item)"
+                >{{ name }}</a
+              >
+            </li>
+          </ul>
+        </template>
+        <template v-else>
+          <a
+            :href="item.href"
+            :title="item.name"
+            class="lux-nav-item"
+            @click="menuItemClicked($event, item)"
+            >{{ item.name }}</a
+          >
+        </template>
       </li>
     </ul>
   </nav>
 
   <div v-else-if="type === 'buttons'" class="lux-menu">
     <ul>
-      <li v-for="(item, index) in parsedMenuItems">
+      <li v-for="(item, index) in menuItems">
         <button
           :key="index"
           :href="item.href"
@@ -88,22 +108,6 @@ export default {
         this.$emit("input", val)
       },
     },
-    parsedMenuItems() {
-      // We need to look for any hierarchy in the menuItems and structure accordingly
-      let parents = this.menuItems.filter(item => !item.hasOwnProperty("parent"))
-      let newOptions = []
-      parents.forEach((element, index) => {
-        newOptions.push(element)
-        let children = this.menuItems.filter(item => item.parent === element.name)
-        let reformattedChildren = children.map(item => {
-          item.name = " - " + item.name
-          return item
-        })
-        Array.prototype.push.apply(newOptions, reformattedChildren)
-      })
-
-      return newOptions
-    },
   },
   methods: {
     menuItemClicked(value, item) {
@@ -123,9 +127,8 @@ $color-nav-link-active: $color-bleu-de-france;
   font-family: $font-family-text;
   font-size: $font-size-small;
   line-height: $line-height-base;
-  color: $color-white;
-  text-align: center;
   width: 100%;
+
   @media #{$media-query-large} {
     // This is how you’d use design tokens with media queries
   }
@@ -133,11 +136,30 @@ $color-nav-link-active: $color-bleu-de-france;
   ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding-left: 0;
   }
 
   li {
-    display: inline-block;
+    color: $color-nav-link;
+    display: block;
+    float: left;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+
+    &:hover,
+    &:focus-within {
+      cursor: pointer;
+    }
+
+    &:hover > ul,
+    &:focus-within > ul,
+    & ul:hover,
+    & ul:focus {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
   }
 
   a {
@@ -145,19 +167,48 @@ $color-nav-link-active: $color-bleu-de-france;
     padding: $space-x-small 0;
     margin: 0 $space-x-small;
     text-decoration: none;
-    display: inline-block;
-    &:hover {
+    display: block;
+
+    &:hover,
+    &:focus {
       color: $color-nav-link-active;
     }
+
     &.lux-active {
       border-bottom: 2px solid $color-nav-link;
       font-weight: $font-weight-bold;
       color: $color-nav-link;
     }
+
+    &.lux-has-children {
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%20000002%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat, repeat;
+      background-position: right 0.7em top 52%, 0 0;
+      background-size: 0.55em auto, 100%;
+      padding-right: 23px;
+    }
   }
 
-  .lux-nav-item.lux-is-child {
-    padding-left: 1.75rem;
+  .lux-nav-children {
+    visibility: hidden;
+    opacity: 0;
+    min-width: 100%;
+    width: auto;
+    position: absolute;
+    margin-top: 0;
+    left: 0;
+    display: none;
+    z-index: 999;
+
+    li {
+      clear: both;
+      width: 100%;
+    }
+  }
+
+  li:last-child .lux-nav-children {
+    right: 0;
+    left: initial;
   }
 }
 
@@ -220,8 +271,10 @@ $color-nav-link-active: $color-bleu-de-france;
   <menu-bar type="links" active="Dashboard" :menu-items="[
     {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
     {name: 'Posts', component: 'Posts', href: '/example/'},
-    {name: 'Users', component: 'Users', href: '/example/'},
-    {name: 'Settings', component: 'Settings', href: '/example/'}
+    {name: 'Users', component: 'Users', href: '/example/', children: [
+      {name: 'Settings', component: 'Settings', href: '/example/'},
+      {name: 'Logout', component: 'Logout', href: '/example/'}
+    ]}    
   ]"/>
   ```
 </docs>

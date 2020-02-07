@@ -20,10 +20,8 @@
 <script>
 /**
  * Dropdowns allows a user to select a value from a series of options. Note that a simple,
- * two-level hierarchy is possible by adding a `parent` property and setting its value
- * to the name of its parent. Note from the example that the order of the menuItem data
- * does not matter.
- * Please note that full closing tags are required.
+ * two-level hierarchy (not recursive) is possible by adding a `children` property
+ * to the item and supplying sub-items using the same syntax as the top level items.
  */
 export default {
   name: "DropdownMenu",
@@ -62,7 +60,8 @@ export default {
       },
     },
     /**
-     * The html element name used for the container
+     * An array of item (and sub-item) options for the DropdownMenu. Properties
+     * for menuItems are described in the MenuBar pattern.
      */
     menuItems: {
       type: Array,
@@ -216,10 +215,34 @@ export default {
       list-style-type: none;
       margin: 0;
       padding: 0;
+      display: block;
+      width: 100%;
     }
 
     li {
       display: block;
+      width: 100%;
+    }
+
+    .lux-has-children {
+      background: none;
+    }
+
+    &.lux-show .lux-nav-children {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      position: relative;
+
+      a {
+        padding-left: 1.5rem;
+        color: $color-rich-black;
+
+        &::before {
+          content: "-";
+          padding-right: 0.5rem;
+        }
+      }
     }
 
     .lux-nav-item {
@@ -263,12 +286,11 @@ export default {
 <docs>
   ```jsx
   <dropdown-menu type="links" button-label="Select Options" :menu-items="[
-    {name: 'Vegetable', component: 'Vegetable', disabled: true},
-    {name: 'Fruit', component: 'Fruit'},
-    {name: 'Apple', component: 'Apple', parent: 'Fruit'},
-    {name: 'Lettuce', component: 'Lettuce', parent: 'Vegetable'},
-    {name: 'Carrot', component: 'Carrot', parent: 'Vegetable'},
-    {name: 'Pear', component: 'Pear', parent: 'Fruit'},
+    {name: 'Vegetable'},
+    {name: 'Fruit', children: [
+      {name: 'Apple'},
+      {name: 'Pear'},
+    ]},
   ]"></dropdown-menu>
   ```
 </docs>
