@@ -7,11 +7,20 @@
     </caption>
     <thead>
       <tr>
-        <th v-for="(col, index) in parsedColumns" scope="col">{{ displayName(col) }}</th>
+        <th v-for="(col, index) in parsedColumns" scope="col">
+          <input-button
+            v-if="col.sortable"
+            type="button"
+            v-on:button-clicked="sortTable(col.name)"
+            variation="text"
+            >{{ displayName(col) }}</input-button
+          >
+          <span v-else>{{ displayName(col) }}</span>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(lineItem, index) in jsonData">
+      <tr v-for="(lineItem, index) in rows">
         <td
           v-for="(col, index) in parsedColumns"
           :class="[
@@ -61,6 +70,11 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  data() {
+    return {
+      rows: this.jsonData,
+    }
+  },
   props: {
     /**
      * caption provides context for the data that is helpful to users, particularly those who use screenreaders.
@@ -80,7 +94,7 @@ export default {
     /**
      * columns define the columns and order for which the data should be displayed.
      * Columns entries can be simple strings, or they may be more complicated objects
-     * that can define `name`, `display_name`,`align`, and `checkbox` properties.
+     * that can define `name`, `display_name`,`align`, `sortable`, and `checkbox` properties.
      * Use `checkbox=true` to create a checkbox whose value is the value for that
      * column value for the row in the table.
      * `e.g. ['name', 'email', 'age']`
@@ -125,6 +139,9 @@ export default {
       } else {
         return col.name
       }
+    },
+    sortTable(value) {
+      this.rows.sort((a, b) => a[value] - b[value])
     },
     isObject(value) {
       return value && typeof value === "object" && value.constructor === Object
@@ -322,7 +339,7 @@ export default {
       { 'name': 'id', 'display_name': 'Select Items', 'align': 'center', 'checkbox': true },
       'name',
       { 'name': 'email', 'display_name': 'Email Address', 'align': 'center' },
-      { 'name': 'age', 'datatype': 'number', 'summary_value': '33'}
+      { 'name': 'age', 'datatype': 'number', 'summary_value': '33', 'sortable': true}
     ]"
     :json-data="[
       {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
