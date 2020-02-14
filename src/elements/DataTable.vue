@@ -8,6 +8,11 @@
     <thead>
       <tr>
         <th v-for="(col, index) in parsedColumns" scope="col">
+          <lux-icon-base v-if="col.sortable" width="16" height="16" icon-name="approved">
+            <lux-icon-ascending v-if="ascending"></lux-icon-ascending>
+            <lux-icon-descending v-if="ascending === false"></lux-icon-descending>
+            <lux-icon-unsorted v-if="ascending === null"></lux-icon-unsorted>
+          </lux-icon-base>
           <input-button
             v-if="col.sortable"
             type="button"
@@ -73,6 +78,7 @@ export default {
   data() {
     return {
       rows: this.jsonData,
+      ascending: null,
     }
   },
   props: {
@@ -141,7 +147,13 @@ export default {
       }
     },
     sortTable(value) {
-      this.rows.sort((a, b) => a[value] - b[value])
+      if (this.ascending) {
+        this.rows.sort((a, b) => b[value] - a[value])
+      } else {
+        this.rows.sort((a, b) => a[value] - b[value])
+      }
+      this.ascending = !this.ascending
+      console.log(this.ascending)
     },
     isObject(value) {
       return value && typeof value === "object" && value.constructor === Object
