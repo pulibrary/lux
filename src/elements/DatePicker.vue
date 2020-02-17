@@ -18,6 +18,7 @@
         :size="size"
         :value="!date ? '' : date.toLocaleDateString('en-US')"
         @input="updateInput($event)"
+        :placeholder="placeholder"
       ></input-text>
     </v-date-picker>
     <v-date-picker
@@ -38,6 +39,7 @@
         :required="required"
         :value="!range ? '' : this.formatStart() + ' - ' + this.formatEnd()"
         @input="updateRangeInput($event)"
+        :placeholder="placeholder"
       ></input-text>
     </v-date-picker>
   </div>
@@ -140,6 +142,13 @@ export default {
     required: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Placeholder text to display
+     */
+    placeholder: {
+      type: String,
+      default: "",
     },
     /**
      * defaultDate offers a way to add data that may already exist for the field when `mode='single'`.
@@ -274,7 +283,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]" />
+    <date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]"  placeholder="01/10/2020" />
 
     <date-picker id="today" name="today" label="Today's Date" mode="single" :holidays="['2020-02-20','2020-02-21']" :defaultDate="new Date()" />
   </div>
