@@ -16,7 +16,7 @@
           <input-button
             v-if="col.sortable"
             type="button"
-            v-on:button-clicked="sortTable(col, index)"
+            v-on:button-clicked="sortTable(col)"
             variation="text"
             >{{ displayName(col) }}</input-button
           >
@@ -149,7 +149,7 @@ export default {
         return col.name
       }
     },
-    sortTable(value, index) {
+    sortTable(value) {
       if (!value.ascending) {
         this.rows.sort(function(a, b) {
           var textA = a[value.name.toLowerCase()].toString().toLowerCase()
@@ -367,7 +367,7 @@ export default {
     :columns="[
       { 'name': 'id', 'display_name': 'Select Items', 'align': 'center', 'checkbox': true },
       'name',
-      { 'name': 'email', 'display_name': 'Email Address', 'align': 'center' },
+      { 'name': 'email', 'display_name': 'Email Address', 'align': 'center', 'sortable': true },
       { 'name': 'age', 'datatype': 'number', 'summary_value': '33', 'sortable': true}
     ]"
     :json-data="[

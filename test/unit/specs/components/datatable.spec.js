@@ -15,8 +15,8 @@ describe("DataTable.vue", () => {
         columns: [
           { name: "id", display_name: "Select Items", align: "center", checkbox: true },
           "name",
-          { name: "email", display_name: "Email Address", align: "center" },
-          { name: "age", datatype: "number", summary_value: "33" },
+          { name: "email", display_name: "Email Address", align: "center", sortable: true },
+          { name: "age", datatype: "number", summary_value: "33", sortable: true },
         ],
         jsonData: [
           { id: 1, name: "foo", email: "foo@xxx.xxx", age: 42 },
@@ -70,8 +70,6 @@ describe("DataTable.vue", () => {
   })
 
   it("should show tfoot if summaryLabel is present", () => {
-    const tfoot1 = wrapper.find("tfoot")
-    console.log(tfoot1)
     wrapper.setProps({ summaryLabel: "Average" })
     const th = wrapper.find("tfoot th")
     expect(th.text()).toBe("Average")
@@ -80,6 +78,16 @@ describe("DataTable.vue", () => {
   it("should remove the first column from the footerColumns, which is reserved for summaryLabel", () => {
     expect(wrapper.vm.footerColumns.length).toBe(3)
     expect(wrapper.vm.footerColumns[1].name).toBe("email")
+  })
+
+  it("should sort the table appropriately", () => {
+    wrapper.vm.sortTable(wrapper.vm.parsedColumns[3]) // age ascending
+    expect(wrapper.vm.rows[0].age).toBe(23)
+    wrapper.vm.sortTable(wrapper.vm.parsedColumns[3]) // age descending
+    expect(wrapper.vm.rows[0].age).toBe(42)
+    wrapper.vm.sortTable(wrapper.vm.parsedColumns[2]) // email ascending
+    expect(wrapper.vm.rows[0].email).toBe("bar@xxx.xxx")
+    expect(wrapper.vm.parsedColumns[3].ascending).toBe(null) // age ascending should be reset to null
   })
 
   it("has the expected html structure", () => {

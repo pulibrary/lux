@@ -16,22 +16,64 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       <th
         scope="col"
       >
-        Select Items
+        <!---->
+         
+        <span>
+          Select Items
+        </span>
       </th>
       <th
         scope="col"
       >
-        name
+        <!---->
+         
+        <span>
+          name
+        </span>
       </th>
       <th
         scope="col"
       >
-        Email Address
+        <lux-icon-base
+          height="16"
+          icon-name="approved"
+          width="16"
+        >
+          <!---->
+           
+          <!---->
+           
+          <lux-icon-unsorted />
+        </lux-icon-base>
+         
+        <input-button
+          type="button"
+          variation="text"
+        >
+          Email Address
+        </input-button>
       </th>
       <th
         scope="col"
       >
-        age
+        <lux-icon-base
+          height="16"
+          icon-name="approved"
+          width="16"
+        >
+          <!---->
+           
+          <!---->
+           
+          <lux-icon-unsorted />
+        </lux-icon-base>
+         
+        <input-button
+          type="button"
+          variation="text"
+        >
+          age
+        </input-button>
       </th>
     </tr>
   </thead>
