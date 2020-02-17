@@ -22,6 +22,7 @@ describe("DataTable.vue", () => {
           { id: 1, name: "foo", email: "foo@xxx.xxx", age: 42 },
           { id: 2, name: "bar", email: "bar@xxx.xxx", age: 23 },
           { id: 3, name: "fez", email: "fez@xxx.xxx", age: 34 },
+          { id: 4, name: "hey", email: "hey@xxx.xxx", age: 4 },
         ],
       },
     })
@@ -82,7 +83,7 @@ describe("DataTable.vue", () => {
 
   it("should sort the table appropriately", () => {
     wrapper.vm.sortTable(wrapper.vm.parsedColumns[3]) // age ascending
-    expect(wrapper.vm.rows[0].age).toBe(23)
+    expect(wrapper.vm.rows[0].age).toBe(4)
     wrapper.vm.sortTable(wrapper.vm.parsedColumns[3]) // age descending
     expect(wrapper.vm.rows[0].age).toBe(42)
     wrapper.vm.sortTable(wrapper.vm.parsedColumns[2]) // email ascending

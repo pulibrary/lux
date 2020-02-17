@@ -8,7 +8,12 @@
     <thead>
       <tr>
         <th v-for="(col, index) in parsedColumns" scope="col">
-          <lux-icon-base v-if="col.sortable" width="16" height="16" icon-name="approved">
+          <lux-icon-base
+            v-if="col.sortable"
+            width="16"
+            height="16"
+            :icon-name="iconLabel(col.ascending)"
+          >
             <lux-icon-ascending v-if="col.ascending"></lux-icon-ascending>
             <lux-icon-descending v-if="col.ascending === false"></lux-icon-descending>
             <lux-icon-unsorted v-if="col.ascending === null"></lux-icon-unsorted>
@@ -101,6 +106,7 @@ export default {
      * columns define the columns and order for which the data should be displayed.
      * Columns entries can be simple strings, or they may be more complicated objects
      * that can define `name`, `display_name`,`align`, `sortable`, and `checkbox` properties.
+     * Sorting on numeric values requires a column to have a `datatype='number'` property.
      * Use `checkbox=true` to create a checkbox whose value is the value for that
      * column value for the row in the table.
      * `e.g. ['name', 'email', 'age']`
@@ -142,6 +148,15 @@ export default {
     },
   },
   methods: {
+    iconLabel(value) {
+      if (value === true) {
+        return "ascending"
+      } else if (value === false) {
+        return "descending"
+      } else if (value === null) {
+        return "unsorted"
+      }
+    },
     displayName(col) {
       if (col.hasOwnProperty("display_name")) {
         return col.display_name
@@ -149,27 +164,36 @@ export default {
         return col.name
       }
     },
-    sortTable(value) {
-      if (!value.ascending) {
-        this.rows.sort(function(a, b) {
-          var textA = a[value.name.toLowerCase()].toString().toLowerCase()
-          var textB = b[value.name.toLowerCase()].toString().toLowerCase()
-          return textA < textB ? -1 : textA > textB ? 1 : 0
-        })
-      } else {
-        this.rows.sort(function(a, b) {
-          var textA = a[value.name.toLowerCase()].toString().toLowerCase()
-          var textB = b[value.name.toLowerCase()].toString().toLowerCase()
-          return textA < textB ? 1 : textA > textB ? -1 : 0
-        })
-      }
-      value.ascending = !value.ascending
-      // reset other columns ascending prop to null (aka, "unsorted")
-      this.parsedColumns = this.parsedColumns.map(function(col) {
-        if (value.name != col.name) {
-          col.ascending = null
+    sortTable(col) {
+      if (!col.ascending) {
+        if (col.datatype === "number") {
+          this.rows.sort((a, b) => a[col.name] - b[col.name])
+        } else {
+          this.rows.sort(function(a, b) {
+            var textA = a[col.name.toLowerCase()].toString().toLowerCase()
+            var textB = b[col.name.toLowerCase()].toString().toLowerCase()
+            return textA < textB ? -1 : textA > textB ? 1 : 0
+          })
         }
-        return col
+      } else {
+        if (col.datatype === "number") {
+          this.rows.sort((a, b) => b[col.name] - a[col.name])
+        } else {
+          this.rows.sort(function(a, b) {
+            var textA = a[col.name.toLowerCase()].toString().toLowerCase()
+            var textB = b[col.name.toLowerCase()].toString().toLowerCase()
+            return textA < textB ? 1 : textA > textB ? -1 : 0
+          })
+        }
+      }
+      col.ascending = !col.ascending
+
+      // reset other columns ascending prop to null (aka, "unsorted")
+      this.parsedColumns = this.parsedColumns.map(function(column) {
+        if (col.name != column.name) {
+          column.ascending = null
+        }
+        return column
       })
     },
     isObject(value) {
@@ -368,12 +392,13 @@ export default {
       { 'name': 'id', 'display_name': 'Select Items', 'align': 'center', 'checkbox': true },
       'name',
       { 'name': 'email', 'display_name': 'Email Address', 'align': 'center', 'sortable': true },
-      { 'name': 'age', 'datatype': 'number', 'summary_value': '33', 'sortable': true}
+      { 'name': 'age', 'datatype': 'number', 'summary_value': '33', 'sortable': true }
     ]"
     :json-data="[
       {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
       {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
       {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
+      {'id': 4,'name': 'hey','email': 'hey@xxx.xxx', 'age': 4 },
     ]"/>
   ```
 </docs>

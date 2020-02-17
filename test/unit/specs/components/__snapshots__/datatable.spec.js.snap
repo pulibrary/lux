@@ -36,7 +36,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       >
         <lux-icon-base
           height="16"
-          icon-name="approved"
+          icon-name="unsorted"
           width="16"
         >
           <!---->
@@ -58,7 +58,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       >
         <lux-icon-base
           height="16"
-          icon-name="approved"
+          icon-name="unsorted"
           width="16"
         >
           <!---->
@@ -178,6 +178,40 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       >
         <span>
           34
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="lux-data-table-center"
+      >
+        <input
+          aria-label="4, hey, hey@xxx.xxx, 4"
+          id="4"
+          name="id"
+          type="checkbox"
+          value="4"
+        />
+      </td>
+      <td
+        class=""
+      >
+        <span>
+          hey
+        </span>
+      </td>
+      <td
+        class="lux-data-table-center"
+      >
+        <span>
+          hey@xxx.xxx
+        </span>
+      </td>
+      <td
+        class="lux-data-table-number"
+      >
+        <span>
+          4
         </span>
       </td>
     </tr>
