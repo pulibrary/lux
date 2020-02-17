@@ -78,6 +78,7 @@ export default {
   data() {
     return {
       rows: this.jsonData,
+      parsedColumns: [],
     }
   },
   props: {
@@ -117,23 +118,23 @@ export default {
       type: Array,
     },
   },
-  computed: {
-    parsedColumns() {
-      // We need to normalize the data by converting any simple string field
-      // names into objects with a name property
-      let pCols = this.columns.map(item => {
-        if (!this.isObject(item)) {
-          return { name: item.toLowerCase(), ascending: null }
-        } else {
-          item.name = item.name.toLowerCase()
-          if (item.sortable && typeof item.ascending === "undefined") {
-            item.ascending = null
-          }
-          return item
+  created: function() {
+    // We need to normalize the data by converting any simple string field
+    // names into objects with a name property
+    let pCols = this.columns.map(item => {
+      if (!this.isObject(item)) {
+        return { name: item.toLowerCase(), ascending: null }
+      } else {
+        item.name = item.name.toLowerCase()
+        if (item.sortable && typeof item.ascending === "undefined") {
+          item.ascending = null
         }
-      })
-      return pCols
-    },
+        return item
+      }
+    })
+    this.parsedColumns = pCols
+  },
+  computed: {
     footerColumns() {
       let fCols = this.columns
       fCols.shift()
@@ -163,9 +164,7 @@ export default {
         })
       }
       value.ascending = !value.ascending
-      // reset other columns
-      // this should be a reactive data property...
-      // lifecycle hook should be used instead of computed
+      // reset other columns ascending prop to null (aka, "unsorted")
       this.parsedColumns = this.parsedColumns.map(function(col) {
         if (value.name != col.name) {
           col.ascending = null
