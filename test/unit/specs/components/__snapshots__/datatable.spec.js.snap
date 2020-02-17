@@ -16,22 +16,64 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       <th
         scope="col"
       >
-        Select Items
+        <!---->
+         
+        <span>
+          Select Items
+        </span>
       </th>
       <th
         scope="col"
       >
-        name
+        <!---->
+         
+        <span>
+          name
+        </span>
       </th>
       <th
         scope="col"
       >
-        Email Address
+        <lux-icon-base
+          height="16"
+          icon-name="unsorted"
+          width="16"
+        >
+          <!---->
+           
+          <!---->
+           
+          <lux-icon-unsorted />
+        </lux-icon-base>
+         
+        <input-button
+          type="button"
+          variation="text"
+        >
+          Email Address
+        </input-button>
       </th>
       <th
         scope="col"
       >
-        age
+        <lux-icon-base
+          height="16"
+          icon-name="unsorted"
+          width="16"
+        >
+          <!---->
+           
+          <!---->
+           
+          <lux-icon-unsorted />
+        </lux-icon-base>
+         
+        <input-button
+          type="button"
+          variation="text"
+        >
+          age
+        </input-button>
       </th>
     </tr>
   </thead>
@@ -136,6 +178,40 @@ exports[`DataTable.vue has the expected html structure 1`] = `
       >
         <span>
           34
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="lux-data-table-center"
+      >
+        <input
+          aria-label="4, hey, hey@xxx.xxx, 4"
+          id="4"
+          name="id"
+          type="checkbox"
+          value="4"
+        />
+      </td>
+      <td
+        class=""
+      >
+        <span>
+          hey
+        </span>
+      </td>
+      <td
+        class="lux-data-table-center"
+      >
+        <span>
+          hey@xxx.xxx
+        </span>
+      </td>
+      <td
+        class="lux-data-table-number"
+      >
+        <span>
+          4
         </span>
       </td>
     </tr>
