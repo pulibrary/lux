@@ -9,14 +9,14 @@
       <tr>
         <th v-for="(col, index) in parsedColumns" scope="col">
           <lux-icon-base v-if="col.sortable" width="16" height="16" icon-name="approved">
-            <lux-icon-ascending v-if="ascending"></lux-icon-ascending>
-            <lux-icon-descending v-if="ascending === false"></lux-icon-descending>
-            <lux-icon-unsorted v-if="ascending === null"></lux-icon-unsorted>
+            <lux-icon-ascending v-if="col.ascending"></lux-icon-ascending>
+            <lux-icon-descending v-if="col.ascending === false"></lux-icon-descending>
+            <lux-icon-unsorted v-if="col.ascending === null"></lux-icon-unsorted>
           </lux-icon-base>
           <input-button
             v-if="col.sortable"
             type="button"
-            v-on:button-clicked="sortTable(col.name)"
+            v-on:button-clicked="sortTable(col, index)"
             variation="text"
             >{{ displayName(col) }}</input-button
           >
@@ -124,9 +124,12 @@ export default {
       // names into objects with a name property
       let pCols = this.columns.map(item => {
         if (!this.isObject(item)) {
-          return { name: item.toLowerCase() }
+          return { name: item.toLowerCase(), ascending: null }
         } else {
           item.name = item.name.toLowerCase()
+          if (item.sortable && typeof item.ascending === "undefined") {
+            item.ascending = null
+          }
           return item
         }
       })
@@ -146,14 +149,15 @@ export default {
         return col.name
       }
     },
-    sortTable(value) {
-      if (this.ascending) {
-        this.rows.sort((a, b) => b[value] - a[value])
+    sortTable(value, index) {
+      if (value.ascending) {
+        this.rows.sort((a, b) => b[value.name] - a[value.name])
       } else {
-        this.rows.sort((a, b) => a[value] - b[value])
+        this.rows.sort((a, b) => a[value.name] - b[value.name])
       }
-      this.ascending = !this.ascending
-      console.log(this.ascending)
+      value.ascending = !value.ascending
+      console.log(value + ", " + index)
+      console.log(this.parsedColumns)
     },
     isObject(value) {
       return value && typeof value === "object" && value.constructor === Object
