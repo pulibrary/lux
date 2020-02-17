@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['lux-col', columns, vertical, { push: offset }]">
+  <component :is="type" :class="['lux-col', columns, vertical, { push: offset }, order]">
     <slot />
   </component>
 </template>
@@ -29,6 +29,13 @@ export default {
      * The inclusion of `fill` will set the grid item to have a width based on the space available.
      */
     columns: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Sets the order to lay out an item in a grid container.
+     */
+    order: {
       type: String,
       default: "",
     },
@@ -125,6 +132,20 @@ $grid-columns: 12;
     }
   }
 }
+
+@for $i from 1 through $grid-columns {
+  .order-sm-#{$i} {
+    order: $i;
+  }
+}
+
+@media only screen and #{$media-query-large} {
+  @for $i from 1 through $grid-columns {
+    .order-lg-#{$i} {
+      order: $i;
+    }
+  }
+}
 </style>
 
 <docs>
@@ -150,6 +171,13 @@ $grid-columns: 12;
       <grid-item columns="lg-3" vertical="start" style="border: 1px solid black; padding: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
       <grid-item columns="lg-3 auto" vertical="center" style="border: 1px solid black; padding: 1rem;" :offset="true">Grid items can be used to layout a page using a 12 column grid.</grid-item>
       <grid-item columns="lg-3" vertical="end" style="border: 1px solid black; padding: 1rem;">Grid items can be used to layout a page using a 12 column grid.</grid-item>
+    </grid-container>
+
+    <!-- inline styling for demonstration purposes only -->
+    <grid-container horizontal="center" style="height:200px;">
+      <grid-item columns="lg-3" order="order-sm-3 order-lg-1" vertical="start" style="border: 1px solid black; padding: 1rem;">First - Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3 auto" order="order-sm-2 order-lg-2" vertical="center" style="border: 1px solid black; padding: 1rem;" :offset="true">Second - Grid items can be used to layout a page using a 12 column grid.</grid-item>
+      <grid-item columns="lg-3" order="order-sm-1 order-lg-3" vertical="end" style="border: 1px solid black; padding: 1rem;">Third - Grid items can be used to layout a page using a 12 column grid.</grid-item>
     </grid-container>
   </div>
   ```
