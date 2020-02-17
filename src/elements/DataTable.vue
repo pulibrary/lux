@@ -78,7 +78,6 @@ export default {
   data() {
     return {
       rows: this.jsonData,
-      ascending: null,
     }
   },
   props: {
@@ -150,14 +149,29 @@ export default {
       }
     },
     sortTable(value, index) {
-      if (value.ascending) {
-        this.rows.sort((a, b) => b[value.name] - a[value.name])
+      if (!value.ascending) {
+        this.rows.sort(function(a, b) {
+          var textA = a[value.name.toLowerCase()].toString().toLowerCase()
+          var textB = b[value.name.toLowerCase()].toString().toLowerCase()
+          return textA < textB ? -1 : textA > textB ? 1 : 0
+        })
       } else {
-        this.rows.sort((a, b) => a[value.name] - b[value.name])
+        this.rows.sort(function(a, b) {
+          var textA = a[value.name.toLowerCase()].toString().toLowerCase()
+          var textB = b[value.name.toLowerCase()].toString().toLowerCase()
+          return textA < textB ? 1 : textA > textB ? -1 : 0
+        })
       }
       value.ascending = !value.ascending
-      console.log(value + ", " + index)
-      console.log(this.parsedColumns)
+      // reset other columns
+      // this should be a reactive data property...
+      // lifecycle hook should be used instead of computed
+      this.parsedColumns = this.parsedColumns.map(function(col) {
+        if (value.name != col.name) {
+          col.ascending = null
+        }
+        return col
+      })
     },
     isObject(value) {
       return value && typeof value === "object" && value.constructor === Object
