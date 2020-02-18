@@ -17,6 +17,7 @@ exports[`DatePicker.vue has the expected html structure 1`] = `
       id="startDate"
       label="Start Date"
       name="start"
+      placeholder=""
       size="medium"
       value=""
       width="auto"
