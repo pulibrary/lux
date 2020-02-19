@@ -42,13 +42,20 @@
         >
           <input
             v-if="col.checkbox"
-            :id="lineItem[col.name]"
+            :id="lineItem[col.name].value"
             type="checkbox"
             :aria-label="Object.values(lineItem).join(', ')"
             :name="col.name"
-            :value="lineItem[col.name]"
+            :value="lineItem[col.name].value"
           />
-          <span v-else>{{ lineItem[col.name] }}</span>
+          <span v-else>
+            <a v-if="lineItem[col.name].link" :href="lineItem[col.name].link">
+              {{ lineItem[col.name].value }}
+            </a>
+            <span v-else>
+              {{ lineItem[col.name].value }}
+            </span>
+          </span>
         </td>
       </tr>
     </tbody>
@@ -125,20 +132,40 @@ export default {
     },
   },
   created: function() {
-    // We need to normalize the data by converting any simple string field
+    // Normalize the column data by converting any simple string field
     // names into objects with a name property
-    let pCols = this.columns.map(item => {
-      if (!this.isObject(item)) {
-        return { name: item.toLowerCase(), ascending: null }
+    let pCols = this.columns.map(col => {
+      if (!this.isObject(col)) {
+        return { name: col.toLowerCase(), ascending: null }
       } else {
-        item.name = item.name.toLowerCase()
-        if (item.sortable && typeof item.ascending === "undefined") {
-          item.ascending = null
+        col.name = col.name.toLowerCase()
+        if (col.sortable && typeof col.ascending === "undefined") {
+          col.ascending = null
         }
-        return item
+        return col
       }
     })
     this.parsedColumns = pCols
+
+    // Normalize the row data by converting any simple values into
+    // objects with the link and row-link properties
+    let rowNum = this.jsonData.length
+    let rows = []
+    for (let i = 0; i < rowNum; i++) {
+      // console.log(this.jsonData[i].name)
+      for (var key in this.jsonData[i]) {
+        if (this.jsonData[i].hasOwnProperty(key)) {
+          if (!this.isObject(this.jsonData[i][key])) {
+            this.jsonData[i][key] = { value: this.jsonData[i][key], link: null, rowLink: false }
+          } else {
+            if (!this.jsonData[i][key].link && this.jsonData[i][key].rowLink) {
+              this.jsonData[i][key].rowLink = false
+            }
+          }
+        }
+      }
+    }
+    this.rows = this.jsonData
   },
   computed: {
     footerColumns() {
