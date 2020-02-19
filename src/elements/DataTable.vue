@@ -30,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(lineItem, index) in rows">
+      <tr class="row" v-for="(lineItem, index) in rows">
         <td
           v-for="(col, index) in parsedColumns"
           :class="[
@@ -49,7 +49,11 @@
             :value="lineItem[col.name].value"
           />
           <span v-else>
-            <a v-if="lineItem[col.name].link" :href="lineItem[col.name].link">
+            <a
+              v-if="lineItem[col.name].link"
+              :href="lineItem[col.name].link"
+              :class="{ rowLink: lineItem[col.name].rowLink }"
+            >
               {{ lineItem[col.name].value }}
             </a>
             <span v-else>
@@ -150,7 +154,6 @@ export default {
     // Normalize the row data by converting any simple values into
     // objects with the link and row-link properties
     let rowNum = this.jsonData.length
-    let rows = []
     for (let i = 0; i < rowNum; i++) {
       // console.log(this.jsonData[i].name)
       for (var key in this.jsonData[i]) {
@@ -194,21 +197,21 @@ export default {
     sortTable(col) {
       if (!col.ascending) {
         if (col.datatype === "number") {
-          this.rows.sort((a, b) => a[col.name] - b[col.name])
+          this.rows.sort((a, b) => a[col.name].value - b[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
-            var textA = a[col.name.toLowerCase()].toString().toLowerCase()
-            var textB = b[col.name.toLowerCase()].toString().toLowerCase()
+            var textA = a[col.name.toLowerCase()].value.toString().toLowerCase()
+            var textB = b[col.name.toLowerCase()].value.toString().toLowerCase()
             return textA < textB ? -1 : textA > textB ? 1 : 0
           })
         }
       } else {
         if (col.datatype === "number") {
-          this.rows.sort((a, b) => b[col.name] - a[col.name])
+          this.rows.sort((a, b) => b[col.name].value - a[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
-            var textA = a[col.name.toLowerCase()].toString().toLowerCase()
-            var textB = b[col.name.toLowerCase()].toString().toLowerCase()
+            var textA = a[col.name.toLowerCase()].value.toString().toLowerCase()
+            var textB = b[col.name.toLowerCase()].value.toString().toLowerCase()
             return textA < textB ? 1 : textA > textB ? -1 : 0
           })
         }
@@ -422,7 +425,7 @@ export default {
       { 'name': 'age', 'datatype': 'number', 'summary_value': '33', 'sortable': true }
     ]"
     :json-data="[
-      {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
+      {'id': 1,'name': { value: 'foo', link: 'https://library.princeton.edu', rowLink: true },'email': 'foo@xxx.xxx', 'age': 42 },
       {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
       {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
       {'id': 4,'name': 'hey','email': 'hey@xxx.xxx', 'age': 4 },
