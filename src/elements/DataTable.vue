@@ -49,11 +49,7 @@
             :value="lineItem[col.name].value"
           />
           <span v-else>
-            <a
-              v-if="lineItem[col.name].link"
-              :href="lineItem[col.name].link"
-              :class="{ rowLink: lineItem[col.name].rowLink }"
-            >
+            <a v-if="lineItem[col.name].link" :href="lineItem[col.name].link">
               {{ lineItem[col.name].value }}
             </a>
             <span v-else>
@@ -128,7 +124,10 @@ export default {
     },
     /**
      * jsonData is supplied via Array with an object representing each row.
-     * See example for exact structure.
+     * Applying links to data cell content can be achieved by supplying an object
+     * that contains a `value` and `link` property.
+     * (e.g., `{ value: 'content', link: 'https://url.com'}`)
+     * See above example for exact structure.
      */
     jsonData: {
       required: true,
@@ -159,11 +158,7 @@ export default {
       for (var key in this.jsonData[i]) {
         if (this.jsonData[i].hasOwnProperty(key)) {
           if (!this.isObject(this.jsonData[i][key])) {
-            this.jsonData[i][key] = { value: this.jsonData[i][key], link: null, rowLink: false }
-          } else {
-            if (!this.jsonData[i][key].link && this.jsonData[i][key].rowLink) {
-              this.jsonData[i][key].rowLink = false
-            }
+            this.jsonData[i][key] = { value: this.jsonData[i][key], link: null }
           }
         }
       }
@@ -425,7 +420,7 @@ export default {
       { 'name': 'age', 'datatype': 'number', 'summary_value': '33', 'sortable': true }
     ]"
     :json-data="[
-      {'id': 1,'name': { value: 'foo', link: 'https://library.princeton.edu', rowLink: true },'email': 'foo@xxx.xxx', 'age': 42 },
+      {'id': 1,'name': { value: 'foo', link: 'https://library.princeton.edu'},'email': 'foo@xxx.xxx', 'age': 42 },
       {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
       {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
       {'id': 4,'name': 'hey','email': 'hey@xxx.xxx', 'age': 4 },
