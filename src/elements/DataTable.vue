@@ -30,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(lineItem, index) in rows">
+      <tr class="row" v-for="(lineItem, index) in rows">
         <td
           v-for="(col, index) in parsedColumns"
           :class="[
@@ -42,13 +42,20 @@
         >
           <input
             v-if="col.checkbox"
-            :id="lineItem[col.name]"
+            :id="lineItem[col.name].value"
             type="checkbox"
             :aria-label="Object.values(lineItem).join(', ')"
             :name="col.name"
-            :value="lineItem[col.name]"
+            :value="lineItem[col.name].value"
           />
-          <span v-else>{{ lineItem[col.name] }}</span>
+          <span v-else>
+            <a v-if="lineItem[col.name].link" :href="lineItem[col.name].link">
+              {{ lineItem[col.name].value }}
+            </a>
+            <span v-else>
+              {{ lineItem[col.name].value }}
+            </span>
+          </span>
         </td>
       </tr>
     </tbody>
@@ -117,7 +124,10 @@ export default {
     },
     /**
      * jsonData is supplied via Array with an object representing each row.
-     * See example for exact structure.
+     * Applying links to data cell content can be achieved by supplying an object
+     * that contains a `value` and `link` property.
+     * (e.g., `{ value: 'content', link: 'https://url.com'}`)
+     * See above example for exact structure.
      */
     jsonData: {
       required: true,
@@ -125,20 +135,35 @@ export default {
     },
   },
   created: function() {
-    // We need to normalize the data by converting any simple string field
+    // Normalize the column data by converting any simple string field
     // names into objects with a name property
-    let pCols = this.columns.map(item => {
-      if (!this.isObject(item)) {
-        return { name: item.toLowerCase(), ascending: null }
+    let pCols = this.columns.map(col => {
+      if (!this.isObject(col)) {
+        return { name: col.toLowerCase(), ascending: null }
       } else {
-        item.name = item.name.toLowerCase()
-        if (item.sortable && typeof item.ascending === "undefined") {
-          item.ascending = null
+        col.name = col.name.toLowerCase()
+        if (col.sortable && typeof col.ascending === "undefined") {
+          col.ascending = null
         }
-        return item
+        return col
       }
     })
     this.parsedColumns = pCols
+
+    // Normalize the row data by converting any simple values into
+    // objects with the link and row-link properties
+    let rowNum = this.jsonData.length
+    for (let i = 0; i < rowNum; i++) {
+      // console.log(this.jsonData[i].name)
+      for (var key in this.jsonData[i]) {
+        if (this.jsonData[i].hasOwnProperty(key)) {
+          if (!this.isObject(this.jsonData[i][key])) {
+            this.jsonData[i][key] = { value: this.jsonData[i][key], link: null }
+          }
+        }
+      }
+    }
+    this.rows = this.jsonData
   },
   computed: {
     footerColumns() {
@@ -167,21 +192,21 @@ export default {
     sortTable(col) {
       if (!col.ascending) {
         if (col.datatype === "number") {
-          this.rows.sort((a, b) => a[col.name] - b[col.name])
+          this.rows.sort((a, b) => a[col.name].value - b[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
-            var textA = a[col.name.toLowerCase()].toString().toLowerCase()
-            var textB = b[col.name.toLowerCase()].toString().toLowerCase()
+            var textA = a[col.name.toLowerCase()].value.toString().toLowerCase()
+            var textB = b[col.name.toLowerCase()].value.toString().toLowerCase()
             return textA < textB ? -1 : textA > textB ? 1 : 0
           })
         }
       } else {
         if (col.datatype === "number") {
-          this.rows.sort((a, b) => b[col.name] - a[col.name])
+          this.rows.sort((a, b) => b[col.name].value - a[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
-            var textA = a[col.name.toLowerCase()].toString().toLowerCase()
-            var textB = b[col.name.toLowerCase()].toString().toLowerCase()
+            var textA = a[col.name.toLowerCase()].value.toString().toLowerCase()
+            var textB = b[col.name.toLowerCase()].value.toString().toLowerCase()
             return textA < textB ? 1 : textA > textB ? -1 : 0
           })
         }
@@ -395,7 +420,7 @@ export default {
       { 'name': 'age', 'datatype': 'number', 'summary_value': '33', 'sortable': true }
     ]"
     :json-data="[
-      {'id': 1,'name': 'foo','email': 'foo@xxx.xxx', 'age': 42 },
+      {'id': 1,'name': { value: 'foo', link: 'https://library.princeton.edu'},'email': 'foo@xxx.xxx', 'age': 42 },
       {'id': 2,'name': 'bar','email': 'bar@xxx.xxx', 'age': 23 },
       {'id': 3,'name': 'fez','email': 'fez@xxx.xxx', 'age': 34 },
       {'id': 4,'name': 'hey','email': 'hey@xxx.xxx', 'age': 4 },

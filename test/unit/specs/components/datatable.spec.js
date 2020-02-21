@@ -10,6 +10,13 @@ describe("DataTable.vue", () => {
   beforeEach(() => {
     wrapper = mount(DataTable, {
       localVue,
+      stubs: [
+        "input-button",
+        "lux-icon-base",
+        "lux-icon-unsorted",
+        "lux-icon-ascending",
+        "lux-icon-descending",
+      ],
       propsData: {
         caption: "This is a caption.",
         columns: [
@@ -19,7 +26,12 @@ describe("DataTable.vue", () => {
           { name: "age", datatype: "number", summary_value: "33", sortable: true },
         ],
         jsonData: [
-          { id: 1, name: "foo", email: "foo@xxx.xxx", age: 42 },
+          {
+            id: 1,
+            name: { value: "foo", link: "https://example.com" },
+            email: "foo@xxx.xxx",
+            age: 42,
+          },
           { id: 2, name: "bar", email: "bar@xxx.xxx", age: 23 },
           { id: 3, name: "fez", email: "fez@xxx.xxx", age: 34 },
           { id: 4, name: "hey", email: "hey@xxx.xxx", age: 4 },
@@ -83,11 +95,12 @@ describe("DataTable.vue", () => {
 
   it("should sort the table appropriately", () => {
     wrapper.vm.sortTable(wrapper.vm.parsedColumns[3]) // age ascending
-    expect(wrapper.vm.rows[0].age).toBe(4)
+    expect(wrapper.vm.rows[0].age.value).toBe(4)
     wrapper.vm.sortTable(wrapper.vm.parsedColumns[3]) // age descending
-    expect(wrapper.vm.rows[0].age).toBe(42)
+    expect(wrapper.vm.rows[0].age.value).toBe(42)
+    expect(wrapper.vm.rows[0].name.link).toBe("https://example.com")
     wrapper.vm.sortTable(wrapper.vm.parsedColumns[2]) // email ascending
-    expect(wrapper.vm.rows[0].email).toBe("bar@xxx.xxx")
+    expect(wrapper.vm.rows[0].email.value).toBe("bar@xxx.xxx")
     expect(wrapper.vm.parsedColumns[3].ascending).toBe(null) // age ascending should be reset to null
   })
 
