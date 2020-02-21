@@ -4,8 +4,12 @@
 #
 
 props:
+  media_query_small:
+    value: "(max-width: 599px)"
   media_query_medium:
     value: "(min-width: 600px)"
+  media_query_medium_max:
+    value: "(max-width: 899px)"
   media_query_large:
     value: "(min-width: 900px)"
   media_query_x_large:
