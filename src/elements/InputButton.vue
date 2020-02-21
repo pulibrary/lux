@@ -5,6 +5,11 @@
     :disabled="disabled"
     @click="buttonClicked($event)"
   >
+    <div v-if="variation === 'icon-prepend'" class="prepend-icon">
+      <lux-icon-base width="18" height="18" v-if="icon === 'search'" icon-name="search">
+        <lux-icon-search></lux-icon-search>
+      </lux-icon-base>
+    </div>
     <slot />
     <div v-if="variation === 'icon'" class="append-icon">
       <lux-icon-base width="18" height="18" v-if="icon === 'search'" icon-name="search">
@@ -134,7 +139,8 @@ export default {
     transform: scale(0.99);
   }
 
-  &.icon {
+  &.icon,
+  &.icon-prepend {
     padding: 4px;
 
     &.small {
@@ -151,6 +157,12 @@ export default {
       @include inset-space(18px);
       font-size: $font-size-large;
     }
+  }
+
+  &.icon,
+  &.icon-prepend {
+    display: flex;
+    align-items: center;
   }
 
   &.solid {
@@ -229,6 +241,7 @@ export default {
   ```jsx
   <div>
     <input-button type="button" variation="icon" size="small" icon="search" hideLabel></input-button>
+    <input-button type="button" variation="icon-prepend" size="small" icon="search" hideLabel>Search</input-button>
 
     <input-button variation="solid" size="small">Apply Changes</input-button>
     <input-button type="button" variation="solid">Apply Changes</input-button>

@@ -13,9 +13,9 @@
       ]"
       role="alert"
     >
-      <slot>
-        {{ alertMessage }}
-      </slot>
+      <span>
+        <slot>{{ alertMessage }}</slot>
+      </span>
       <button
         v-if="dismissible"
         type="button"
@@ -136,6 +136,7 @@ export default {
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  position: relative;
 }
 .lux-alert-success {
   background-color: #dff0d8;
@@ -158,10 +159,15 @@ export default {
   color: #31708f;
 }
 
+.lux-alert-dismissible > span {
+  width: calc(100% - 25px);
+  display: inline-block;
+}
+
 .lux-alert-dismissible .lux-close {
-  position: relative;
-  top: -0.95rem;
-  right: -1.25rem;
+  position: absolute;
+  top: -4px;
+  right: -5px;
   padding: 0.75rem 1.25rem;
   color: inherit;
 }

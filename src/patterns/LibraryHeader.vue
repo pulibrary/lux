@@ -2,7 +2,10 @@
   <component :is="type" :class="['lux-library-header', theme]">
     <wrapper class="lux-header-content" :maxWidth="maxWidth">
       <library-logo :theme="theme"></library-logo>
-      <a class="lux-app-name" :href="appUrl">{{ appName }}</a>
+      <a class="lux-app-name" :href="appUrl" :title="appName">
+        <span class="full-name">{{ appName }}</span>
+        <span class="abbr-name">{{ abbrName }}</span>
+      </a>
       <spacer></spacer>
       <slot />
     </wrapper>
@@ -32,6 +35,13 @@ export default {
      * The name of the application or site
      */
     appName: {
+      type: String,
+      default: "",
+    },
+    /**
+     * The abbreviation of the application or site's name
+     */
+    abbrName: {
       type: String,
       default: "",
     },
@@ -68,86 +78,37 @@ export default {
  */
 .lux-library-header {
   @include reset;
-  font-family: $font-family-heading;
-  color: set-text-color($color-rich-black, $color-white);
-  background: $color-grayscale-darker;
-  padding: 0;
   border-top: 3px solid $color-princeton-orange-on-black;
+  font-family: $font-family-heading;
+  position: relative;
 
-  .lux-header-content {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  /deep/ .lux-main-menu {
     width: auto;
-    padding: 0.5rem 1rem;
+  }
 
+  @media #{$media-query-medium-max} {
+    /deep/ .lux-main-menu .lux-main-menu-list.lux-show {
+      top: 50px;
+    }
+  }
+
+  /deep/ .lux-main-menu .lux-submenu-toggle {
     @media #{$media-query-large} {
-      max-width: 1170px;
-    }
-
-    .lux-app-name:not(:empty) {
-      border-left: 0;
       color: $color-white;
-      font-size: $font-size-large;
-      font-weight: 400;
-      letter-spacing: 1px;
-      line-height: 33px;
-      margin: 8px 0 0;
-      text-decoration: none;
-      text-align: center;
-
-      @media #{$media-query-x-large} {
-        height: 35px;
-        text-align: left;
-      }
     }
-
-    @media #{$media-query-medium} {
-      flex-direction: row;
-
-      /deep/ .lux-app-name:not(:empty) {
-        border-left: 1px solid $color-grayscale-light;
-        padding: 0 0 0 1rem;
-        margin: 0 0 0 1rem;
-      }
-    }
+    padding-right: 25px;
   }
 
-  /deep/ .lux-dropdown-menu .lux-dropdown {
-    background: transparent;
-    color: $color-white;
-  }
-
-  /deep/ .lux-dropdown-menu .lux-dropdown .lux-dropdown-indicator {
-    color: $color-white;
-  }
-
-  &.dark /deep/ .lux-nav .lux-has-children {
-    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjkyLjQgMjkyLjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5Mi40IDI5Mi40OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yODcsNjkuNGMtMy40LTMuNS04LjEtNS41LTEzLTUuNEgxOC40Yy01LDAtOS4zLDEuOC0xMi45LDUuNEMyLDcyLjcsMCw3Ny40LDAsODIuMmMwLDUsMS44LDkuMyw1LjQsMTIuOQoJbDEyOCwxMjcuOWMzLjYsMy42LDcuOCw1LjQsMTIuOCw1LjRzOS4yLTEuOCwxMi44LTUuNEwyODcsOTVjMy41LTMuNSw1LjQtNy44LDUuNC0xMi44cy0xLjktOS4yLTUuNS0xMi44TDI4Nyw2OS40eiIvPgo8L3N2Zz4K");
-  }
-
-  /deep/ .lux-nav {
-    min-width: 100px;
-    top: 37px;
+  /deep/ .lux-main-menu-list li:last-child ul {
+    left: initial;
     right: 0;
-    width: auto;
   }
 
-  /deep/ .lux-nav a {
-    color: $color-white;
-    white-space: nowrap;
-
-    &:hover,
-    &:focus {
-      color: $color-white;
-      text-decoration: underline;
+  /deep/ .lux-main-menu .lux-has-children ul {
+    @media #{$media-query-large} {
+      background: $color-white;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
-  }
-
-  /deep/ .lux-nav-children {
-    background: $color-white;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
 
     a {
       color: $color-rich-black;
@@ -155,35 +116,117 @@ export default {
       &:hover,
       &:focus {
         color: $color-rich-black;
-        text-decoration: underline;
+      }
+    }
+  }
+
+  &.dark {
+    background: $color-grayscale-darker;
+
+    @media #{$media-query-medium-max} {
+      /deep/ .lux-main-menu a {
+        color: $color-rich-black;
+      }
+    }
+
+    @media #{$media-query-large} {
+      /deep/ .lux-main-menu a,
+      /deep/ .lux-main-menu button {
+        color: $color-white;
+
+        &:hover,
+        &:focus {
+          color: $color-white;
+        }
+      }
+    }
+
+    /deep/ .lux-main-menu .lux-submenu-toggle {
+      background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjkyLjQgMjkyLjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5Mi40IDI5Mi40OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yODcsNjkuNGMtMy40LTMuNS04LjEtNS41LTEzLTUuNEgxOC40Yy01LDAtOS4zLDEuOC0xMi45LDUuNEMyLDcyLjcsMCw3Ny40LDAsODIuMmMwLDUsMS44LDkuMyw1LjQsMTIuOQoJbDEyOCwxMjcuOWMzLjYsMy42LDcuOCw1LjQsMTIuOCw1LjRzOS4yLTEuOCwxMi44LTUuNEwyODcsOTVjMy41LTMuNSw1LjQtNy44LDUuNC0xMi44cy0xLjktOS4yLTUuNS0xMi44TDI4Nyw2OS40eiIvPgo8L3N2Zz4K");
+
+      @media #{$media-query-large} {
+        color: white;
       }
     }
   }
 
   &.light {
-    color: set-text-color($color-white, $color-rich-black);
     background: $color-white;
+
+    /deep/ .hamburger-inner,
+    /deep/ .hamburger-inner:after,
+    /deep/ .hamburger-inner:before {
+      background-color: $color-rich-black;
+    }
+
+    @media #{$media-query-medium-max} {
+      /deep/ .lux-main-menu a {
+        color: $color-rich-black;
+      }
+    }
+
+    @media #{$media-query-large} {
+      /deep/ .lux-main-menu a,
+      /deep/ .lux-main-menu button {
+        color: $color-rich-black;
+
+        &:hover,
+        &:focus {
+          color: $color-rich-black;
+        }
+      }
+    }
 
     .lux-app-name:not(:empty) {
       color: $color-rich-black;
     }
+  }
+}
 
-    /deep/ .lux-dropdown-menu .lux-dropdown {
-      background: transparent;
-      color: $color-rich-black;
+.lux-header-content {
+  align-items: center;
+  display: flex;
+  padding: 0 $space-small;
+
+  @media #{$media-query-large} {
+    flex-direction: row;
+    max-width: 1170px;
+  }
+}
+
+.lux-app-name:not(:empty) {
+  align-self: center;
+  border-left: 0;
+  color: $color-white;
+  display: flex;
+  font-size: $font-size-x-large;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 33px;
+  padding-left: 1rem;
+  text-align: center;
+  text-decoration: none;
+
+  @media #{$media-query-x-large} {
+    border-left: 1px solid $color-grayscale-light;
+    height: 35px;
+    margin: 0 0 0 1rem;
+    padding: 0 0 0 1rem;
+    text-align: left;
+  }
+
+  .full-name {
+    display: none;
+  }
+
+  @media #{$media-query-large} {
+    .full-name {
+      display: block;
+      font-size: $font-size-large;
     }
 
-    /deep/ .lux-dropdown-menu .lux-dropdown .lux-dropdown-indicator {
-      color: $color-rich-black;
-    }
-
-    /deep/ .lux-nav a {
-      color: $color-rich-black;
-
-      &:hover,
-      &:focus {
-        color: $color-rich-black;
-      }
+    .abbr-name {
+      display: none;
     }
   }
 }
@@ -192,8 +235,8 @@ export default {
 <docs>
   ```jsx
   <div>
-    <library-header app-name="Catalog" app-url="https://catalog.princeton.edu" theme="light">
-      <menu-bar type="links" :menu-items="[
+    <library-header app-name="Leave and Travel Requests" abbr-name="LTR" app-url="https://catalog.princeton.edu" theme="dark">
+      <menu-bar type="main-menu" :menu-items="[
           {name: 'Help', component: 'Help', href: '/help/'},
           {name: 'Feedback', component: 'Feedback', href: '/feedback/'},
           {name: 'Your Account', component: 'Account', href: '/account/', children: [

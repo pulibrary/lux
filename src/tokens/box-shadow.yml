@@ -12,6 +12,8 @@ props:
     value: "inset 0 0 0 1px rgba(0,0,0,.05)"
   box_shadow_selected:
     value: "0 0 0 1px {!princeton_orange_on_white}"
+  box_shadow_large:
+    value: "0 10px 30px 0 rgba(0, 0, 0, 0.1)"
 global:
   type: ...
   category: box-shadow

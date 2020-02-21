@@ -1,8 +1,9 @@
 <template>
-  <component :is="type" class="lux-library-contact" :theme="theme">
+  <component :is="type" :theme="theme" class="lux-library-logo">
     <a href="https://library.princeton.edu">
-      <logo-library width="155px" height="34px" v-if="theme === 'dark'" />
-      <logo-library width="155px" height="34px" v-else color="#000" />
+      <logo-library width="155px" height="34px" v-if="theme === 'dark'" class="full-logo" />
+      <logo-library width="155px" height="34px" v-else color="#000" class="full-logo" />
+      <logo-library-icon width="34px" height="34px" class="icon-only" />
     </a>
   </component>
 </template>
@@ -37,12 +38,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.lux-library-contact {
-  @include reset;
-  font-family: $font-family-heading;
-  font-size: $font-size-x-small;
-  line-height: $line-height-heading;
-  color: $color-rich-black;
+.lux-library-logo {
+  margin: $space-x-small 0;
+}
+
+.full-logo {
+  display: none;
+}
+
+.icon-only {
+  display: block;
+}
+
+@media #{$media-query-x-large} {
+  .icon-only {
+    display: none;
+  }
+  .full-logo {
+    display: block;
+  }
 }
 </style>
 

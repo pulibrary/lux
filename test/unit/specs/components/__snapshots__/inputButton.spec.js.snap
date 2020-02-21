@@ -4,7 +4,8 @@ exports[`InputButton.vue has the expected html structure 1`] = `
 <button
   class="lux-button text medium"
 >
-  Apply Changes. 
+  <!---->
+   Apply Changes. 
   <!---->
 </button>
 `;

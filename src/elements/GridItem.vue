@@ -66,7 +66,7 @@ $grid-columns: 12;
 
 .lux-col {
   padding: $space-small 0 0 $space-small;
-  flex-basis: 0%;
+  flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
   max-width: 100%;
@@ -115,11 +115,21 @@ $grid-columns: 12;
   }
 }
 
-@media only screen and #{$media-query-large} {
-  .lux-col {
-    flex-basis: 0;
-  }
+@media only screen and #{$media-query-medium} {
+  @for $i from 1 through $grid-columns {
+    .md-#{$i} {
+      flex-basis: round-width($i);
+      flex-grow: 0;
+      max-width: round-width($i);
 
+      &.auto {
+        flex-basis: auto;
+      }
+    }
+  }
+}
+
+@media only screen and #{$media-query-large} {
   @for $i from 1 through $grid-columns {
     .lg-#{$i} {
       flex-basis: round-width($i);
