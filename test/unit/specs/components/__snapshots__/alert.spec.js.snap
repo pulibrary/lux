@@ -6,7 +6,10 @@ exports[`Alert.vue has the expected html structure 1`] = `
   name="fade"
   role="alert"
 >
-  Here's some info for you. 
+  <span>
+    Here's some info for you.
+  </span>
+   
   <!---->
 </div>
 `;
