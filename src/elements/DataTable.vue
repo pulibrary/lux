@@ -195,7 +195,7 @@ export default {
     },
     sortTable(col) {
       if (!col.ascending) {
-        if (col.datatype === "number") {
+        if (col.datatype === "number" || col.datatype === "currency") {
           this.rows.sort((a, b) => a[col.name].value - b[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
@@ -205,7 +205,7 @@ export default {
           })
         }
       } else {
-        if (col.datatype === "number") {
+        if (col.datatype === "number" || col.datatype === "currency") {
           this.rows.sort((a, b) => b[col.name].value - a[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
