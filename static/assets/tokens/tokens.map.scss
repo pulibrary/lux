@@ -200,9 +200,19 @@ $tokens-map: (
   "z-index-sticky": (
     100,
   ),
+  "media-query-small": (
+    (
+      max-width: 599px,
+    ),
+  ),
   "media-query-medium": (
     (
       min-width: 600px,
+    ),
+  ),
+  "media-query-medium-max": (
+    (
+      max-width: 899px,
     ),
   ),
   "media-query-large": (
@@ -233,6 +243,9 @@ $tokens-map: (
   ),
   "box-shadow-selected": (
     0 0 0 1px #e77500,
+  ),
+  "box-shadow-large": (
+    0 10px 30px 0 rgba(0, 0, 0, 0.1),
   ),
   "letter-spacing-x-large": (
     2px,

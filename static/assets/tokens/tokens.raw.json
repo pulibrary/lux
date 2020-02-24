@@ -463,12 +463,26 @@
       "originalValue": "100",
       "name": "z_index_sticky"
     },
+    "media_query_small": {
+      "type": "...",
+      "category": "media-query",
+      "value": "(max-width: 599px)",
+      "originalValue": "(max-width: 599px)",
+      "name": "media_query_small"
+    },
     "media_query_medium": {
       "type": "...",
       "category": "media-query",
       "value": "(min-width: 600px)",
       "originalValue": "(min-width: 600px)",
       "name": "media_query_medium"
+    },
+    "media_query_medium_max": {
+      "type": "...",
+      "category": "media-query",
+      "value": "(max-width: 899px)",
+      "originalValue": "(max-width: 899px)",
+      "name": "media_query_medium_max"
     },
     "media_query_large": {
       "type": "...",
@@ -518,6 +532,13 @@
       "value": "0 0 0 1px #e77500",
       "originalValue": "0 0 0 1px {!princeton_orange_on_white}",
       "name": "box_shadow_selected"
+    },
+    "box_shadow_large": {
+      "type": "...",
+      "category": "box-shadow",
+      "value": "0 10px 30px 0 rgba(0, 0, 0, 0.1)",
+      "originalValue": "0 10px 30px 0 rgba(0, 0, 0, 0.1)",
+      "name": "box_shadow_large"
     },
     "letter_spacing_x_large": {
       "type": "number",
