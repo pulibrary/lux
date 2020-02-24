@@ -66,7 +66,7 @@
   >
     <button
       aria-haspopup="true"
-      aria-expanded="false"
+      :aria-expanded="isVisible ? 'true' : 'false'"
       class="lux-main-menu-toggle"
       :class="{ 'is-active': isVisible }"
       @click="isVisible = !isVisible"
@@ -83,7 +83,7 @@
         <template v-if="item.children">
           <button
             aria-haspopup="true"
-            aria-expanded="false"
+            :aria-expanded="activeItem ? 'true' : 'false'"
             class="lux-submenu-toggle"
             @click="setActiveItem(index)"
           >
