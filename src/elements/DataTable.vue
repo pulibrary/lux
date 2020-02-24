@@ -38,6 +38,7 @@
             { 'lux-data-table-center': isCenter(col.align) },
             { 'lux-data-table-right': isRight(col.align) },
             { 'lux-data-table-number': isNum(col.datatype) },
+            { 'lux-data-table-currency': isCurrency(col.datatype) },
           ]"
         >
           <input
@@ -69,9 +70,12 @@
             { 'lux-data-table-center': isCenter(col.align) },
             { 'lux-data-table-right': isRight(col.align) },
             { 'lux-data-table-number': isNum(col.datatype) },
+            { 'lux-data-table-currency': isCurrency(col.datatype) },
           ]"
         >
-          {{ col.summary_value }}
+          <span>
+            {{ col.summary_value }}
+          </span>
         </td>
       </tr>
     </tfoot>
@@ -223,6 +227,9 @@ export default {
     },
     isObject(value) {
       return value && typeof value === "object" && value.constructor === Object
+    },
+    isCurrency(value) {
+      return value === "currency" ? true : false
     },
     isNum(value) {
       return value === "number" ? true : false
@@ -390,6 +397,14 @@ export default {
       transition: box-shadow $duration-quickly ease;
       box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
     }
+  }
+
+  .lux-data-table-currency {
+    text-align: right;
+  }
+
+  .lux-data-table-currency > span::before {
+    content: "$";
   }
 
   .lux-data-table-number {
