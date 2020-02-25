@@ -38,6 +38,7 @@
             { 'lux-data-table-center': isCenter(col.align) },
             { 'lux-data-table-right': isRight(col.align) },
             { 'lux-data-table-number': isNum(col.datatype) },
+            { 'lux-data-table-currency': isCurrency(col.datatype) },
           ]"
         >
           <input
@@ -69,9 +70,12 @@
             { 'lux-data-table-center': isCenter(col.align) },
             { 'lux-data-table-right': isRight(col.align) },
             { 'lux-data-table-number': isNum(col.datatype) },
+            { 'lux-data-table-currency': isCurrency(col.datatype) },
           ]"
         >
-          {{ col.summary_value }}
+          <span>
+            {{ col.summary_value }}
+          </span>
         </td>
       </tr>
     </tfoot>
@@ -113,7 +117,8 @@ export default {
      * columns define the columns and order for which the data should be displayed.
      * Columns entries can be simple strings, or they may be more complicated objects
      * that can define `name`, `display_name`,`align`, `sortable`, and `checkbox` properties.
-     * Sorting on numeric values requires a column to have a `datatype='number'` property.
+     * Sorting on `numeric` or `currency` values requires a column to have
+     * a `datatype='number'` or `datatype='currency'` property.
      * Use `checkbox=true` to create a checkbox whose value is the value for that
      * column value for the row in the table.
      * `e.g. ['name', 'email', 'age']`
@@ -191,7 +196,7 @@ export default {
     },
     sortTable(col) {
       if (!col.ascending) {
-        if (col.datatype === "number") {
+        if (col.datatype === "number" || col.datatype === "currency") {
           this.rows.sort((a, b) => a[col.name].value - b[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
@@ -201,7 +206,7 @@ export default {
           })
         }
       } else {
-        if (col.datatype === "number") {
+        if (col.datatype === "number" || col.datatype === "currency") {
           this.rows.sort((a, b) => b[col.name].value - a[col.name].value)
         } else {
           this.rows.sort(function(a, b) {
@@ -223,6 +228,9 @@ export default {
     },
     isObject(value) {
       return value && typeof value === "object" && value.constructor === Object
+    },
+    isCurrency(value) {
+      return value === "currency" ? true : false
     },
     isNum(value) {
       return value === "number" ? true : false
@@ -390,6 +398,14 @@ export default {
       transition: box-shadow $duration-quickly ease;
       box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
     }
+  }
+
+  .lux-data-table-currency {
+    text-align: right;
+  }
+
+  .lux-data-table-currency > span::before {
+    content: "$";
   }
 
   .lux-data-table-number {
