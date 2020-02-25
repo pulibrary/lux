@@ -7,7 +7,7 @@
     </caption>
     <thead>
       <tr>
-        <th v-for="(col, index) in parsedColumns" scope="col">
+        <th v-for="(col, index) in parsedColumns" scope="col" nowrap>
           <lux-icon-base
             v-if="col.sortable"
             width="16"
@@ -302,6 +302,18 @@ export default {
     border-top: 1px solid darken($color-grayscale-lighter, 10%);
     @include inset-space($space-base);
     overflow: hidden;
+  }
+
+  th button {
+    padding: 0px;
+    font-weight: $font-weight-semi-bold;
+    font-family: $font-family-text;
+    font-size: $font-size-x-small;
+    line-height: $line-height-heading;
+    text-align: left;
+    text-transform: uppercase;
+    color: $color-grayscale-darker;
+    letter-spacing: 0.5px;
   }
 
   tbody tr {
