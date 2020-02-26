@@ -14,6 +14,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
   <thead>
     <tr>
       <th
+        nowrap="nowrap"
         scope="col"
       >
         <!---->
@@ -23,6 +24,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         </span>
       </th>
       <th
+        nowrap="nowrap"
         scope="col"
       >
         <!---->
@@ -32,6 +34,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         </span>
       </th>
       <th
+        nowrap="nowrap"
         scope="col"
       >
         <lux-icon-base-stub
@@ -54,6 +57,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         </input-button-stub>
       </th>
       <th
+        nowrap="nowrap"
         scope="col"
       >
         <lux-icon-base-stub
