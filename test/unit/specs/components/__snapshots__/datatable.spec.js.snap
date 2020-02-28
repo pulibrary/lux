@@ -79,6 +79,29 @@ exports[`DataTable.vue has the expected html structure 1`] = `
           age
         </input-button-stub>
       </th>
+      <th
+        nowrap="nowrap"
+        scope="col"
+      >
+        <lux-icon-base-stub
+          height="16"
+          icon-name="unsorted"
+          width="16"
+        >
+          <!---->
+           
+          <!---->
+           
+          <lux-icon-unsorted-stub />
+        </lux-icon-base-stub>
+         
+        <input-button-stub
+          type="button"
+          variation="text"
+        >
+          birthday
+        </input-button-stub>
+      </th>
     </tr>
   </thead>
    
@@ -90,7 +113,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object]"
+          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
           id="1"
           name="id"
           type="checkbox"
@@ -132,6 +155,17 @@ exports[`DataTable.vue has the expected html structure 1`] = `
           </span>
         </span>
       </td>
+      <td
+        class=""
+      >
+        <span>
+          <span>
+            
+            May 5, 2000
+          
+          </span>
+        </span>
+      </td>
     </tr>
     <tr
       class="row"
@@ -140,7 +174,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object]"
+          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
           id="2"
           name="id"
           type="checkbox"
@@ -180,6 +214,17 @@ exports[`DataTable.vue has the expected html structure 1`] = `
           </span>
         </span>
       </td>
+      <td
+        class=""
+      >
+        <span>
+          <span>
+            
+            April 5, 2000
+          
+          </span>
+        </span>
+      </td>
     </tr>
     <tr
       class="row"
@@ -188,7 +233,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object]"
+          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
           id="3"
           name="id"
           type="checkbox"
@@ -228,6 +273,17 @@ exports[`DataTable.vue has the expected html structure 1`] = `
           </span>
         </span>
       </td>
+      <td
+        class=""
+      >
+        <span>
+          <span>
+            
+            January 5, 2000
+          
+          </span>
+        </span>
+      </td>
     </tr>
     <tr
       class="row"
@@ -236,7 +292,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object]"
+          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
           id="4"
           name="id"
           type="checkbox"
@@ -272,6 +328,17 @@ exports[`DataTable.vue has the expected html structure 1`] = `
           <span>
             
             4
+          
+          </span>
+        </span>
+      </td>
+      <td
+        class=""
+      >
+        <span>
+          <span>
+            
+            March 5, 2000
           
           </span>
         </span>

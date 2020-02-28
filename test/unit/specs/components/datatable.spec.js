@@ -24,6 +24,7 @@ describe("DataTable.vue", () => {
           "name",
           { name: "email", display_name: "Email Address", align: "center", sortable: true },
           { name: "age", datatype: "number", summary_value: "33", sortable: true },
+          { name: "birthday", datatype: "date", sortable: true },
         ],
         jsonData: [
           {
@@ -31,10 +32,11 @@ describe("DataTable.vue", () => {
             name: { value: "foo", link: "https://example.com" },
             email: "foo@xxx.xxx",
             age: 42,
+            birthday: "May 5, 2000",
           },
-          { id: 2, name: "bar", email: "bar@xxx.xxx", age: 23 },
-          { id: 3, name: "fez", email: "fez@xxx.xxx", age: 34 },
-          { id: 4, name: "hey", email: "hey@xxx.xxx", age: 4 },
+          { id: 2, name: "bar", email: "bar@xxx.xxx", age: 23, birthday: "April 5, 2000" },
+          { id: 3, name: "fez", email: "fez@xxx.xxx", age: 34, birthday: "January 5, 2000" },
+          { id: 4, name: "hey", email: "hey@xxx.xxx", age: 4, birthday: "March 5, 2000" },
         ],
       },
     })
@@ -89,7 +91,7 @@ describe("DataTable.vue", () => {
   })
 
   it("should remove the first column from the footerColumns, which is reserved for summaryLabel", () => {
-    expect(wrapper.vm.footerColumns.length).toBe(3)
+    expect(wrapper.vm.footerColumns.length).toBe(4)
     expect(wrapper.vm.footerColumns[1].name).toBe("email")
   })
 
@@ -102,6 +104,9 @@ describe("DataTable.vue", () => {
     wrapper.vm.sortTable(wrapper.vm.parsedColumns[2]) // email ascending
     expect(wrapper.vm.rows[0].email.value).toBe("bar@xxx.xxx")
     expect(wrapper.vm.parsedColumns[3].ascending).toBe(null) // age ascending should be reset to null
+
+    wrapper.vm.sortTable(wrapper.vm.parsedColumns[4]) // birthday ascending
+    expect(wrapper.vm.rows[0].birthday.value).toBe("January 5, 2000")
   })
 
   it("has the expected html structure", () => {
