@@ -50,9 +50,9 @@
             :value="lineItem[col.name].value"
           />
           <span v-else>
-            <a v-if="lineItem[col.name].link" :href="lineItem[col.name].link">
+            <hyperlink v-if="lineItem[col.name].link" :href="lineItem[col.name].link">
               {{ lineItem[col.name].value }}
-            </a>
+            </hyperlink>
             <span v-else>
               {{ lineItem[col.name].value }}
             </span>
@@ -321,6 +321,14 @@ export default {
     vertical-align: inherit;
     background-color: $color-white;
     color: $color-grayscale-darker;
+
+    &:hover {
+      background: $color-grayscale-warm-lighter;
+
+      input {
+        background: $color-grayscale-warm-lighter;
+      }
+    }
   }
 
   tbody {
