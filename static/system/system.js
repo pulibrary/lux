@@ -165,6 +165,7 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  "1Np3": function(t, e, n) {},
   "1UX2": function(t, e, n) {
     "use strict"
     var r = n("kda8")
@@ -17351,6 +17352,11 @@ var system = (function(t) {
   },
   kHig: function(t, e) {},
   kda8: function(t, e, n) {},
+  kr8x: function(t, e, n) {
+    "use strict"
+    var r = n("1Np3")
+    n.n(r).a
+  },
   kwgh: function(t, e, n) {
     "use strict"
     var r = n("fmEb")
@@ -17851,6 +17857,10 @@ var system = (function(t) {
                 ? this.rows.sort(function(e, n) {
                     return n[t.name].value - e[t.name].value
                   })
+                : "date" === t.datatype
+                ? this.rows.sort(function(e, n) {
+                    return new Date(n[t.name].value) - new Date(e[t.name].value)
+                  })
                 : this.rows.sort(function(e, n) {
                     var r = e[t.name.toLowerCase()].value.toString().toLowerCase(),
                       i = n[t.name.toLowerCase()].value.toString().toLowerCase()
@@ -17859,6 +17869,10 @@ var system = (function(t) {
               : "number" === t.datatype || "currency" === t.datatype
               ? this.rows.sort(function(e, n) {
                   return e[t.name].value - n[t.name].value
+                })
+              : "date" === t.datatype
+              ? this.rows.sort(function(e, n) {
+                  return new Date(e[t.name].value) - new Date(n[t.name].value)
                 })
               : this.rows.sort(function(e, n) {
                   var r = e[t.name.toLowerCase()].value.toString().toLowerCase(),
@@ -17890,7 +17904,7 @@ var system = (function(t) {
           },
         },
       },
-      o = (n("pS3E"), n("KHd+")),
+      o = (n("kr8x"), n("KHd+")),
       s = n("gvHy"),
       c = n.n(s),
       u = Object(o.a)(
@@ -17982,15 +17996,23 @@ var system = (function(t) {
                               },
                               domProps: { value: e[r.name].value },
                             })
-                          : n("span", [
-                              e[r.name].link
-                                ? n("a", { attrs: { href: e[r.name].link } }, [
-                                    t._v("\n            " + t._s(e[r.name].value) + "\n          "),
-                                  ])
-                                : n("span", [
-                                    t._v("\n            " + t._s(e[r.name].value) + "\n          "),
-                                  ]),
-                            ]),
+                          : n(
+                              "span",
+                              [
+                                e[r.name].link
+                                  ? n("hyperlink", { attrs: { href: e[r.name].link } }, [
+                                      t._v(
+                                        "\n            " + t._s(e[r.name].value) + "\n          "
+                                      ),
+                                    ])
+                                  : n("span", [
+                                      t._v(
+                                        "\n            " + t._s(e[r.name].value) + "\n          "
+                                      ),
+                                    ]),
+                              ],
+                              1
+                            ),
                       ]
                     )
                   }),
@@ -18032,7 +18054,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "cae87e42",
+        "27f0e388",
         null
       )
     "function" == typeof c.a && c()(u)
@@ -23582,11 +23604,6 @@ var system = (function(t) {
     var r = n("rn+L")
     n.n(r).a
   },
-  pS3E: function(t, e, n) {
-    "use strict"
-    var r = n("rWk7")
-    n.n(r).a
-  },
   "po+s": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -23921,7 +23938,6 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
-  rWk7: function(t, e, n) {},
   "rn+L": function(t, e, n) {},
   "s5+B": function(t, e) {},
   sBaT: function(t, e) {},
