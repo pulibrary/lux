@@ -17,8 +17,6 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         nowrap="nowrap"
         scope="col"
       >
-        <!---->
-         
         <span>
           Select Items
         </span>
@@ -27,8 +25,6 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         nowrap="nowrap"
         scope="col"
       >
-        <!---->
-         
         <span>
           name
         </span>
@@ -37,22 +33,22 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         nowrap="nowrap"
         scope="col"
       >
-        <lux-icon-base-stub
-          height="16"
-          icon-name="unsorted"
-          width="16"
-        >
-          <!---->
-           
-          <!---->
-           
-          <lux-icon-unsorted-stub />
-        </lux-icon-base-stub>
-         
         <input-button-stub
           type="button"
           variation="text"
         >
+          <lux-icon-base-stub
+            height="16"
+            icon-name="unsorted"
+            width="16"
+          >
+            <!---->
+             
+            <!---->
+             
+            <lux-icon-unsorted-stub />
+          </lux-icon-base-stub>
+          
           Email Address
         </input-button-stub>
       </th>
@@ -60,22 +56,22 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         nowrap="nowrap"
         scope="col"
       >
-        <lux-icon-base-stub
-          height="16"
-          icon-name="unsorted"
-          width="16"
-        >
-          <!---->
-           
-          <!---->
-           
-          <lux-icon-unsorted-stub />
-        </lux-icon-base-stub>
-         
         <input-button-stub
           type="button"
           variation="text"
         >
+          <lux-icon-base-stub
+            height="16"
+            icon-name="unsorted"
+            width="16"
+          >
+            <!---->
+             
+            <!---->
+             
+            <lux-icon-unsorted-stub />
+          </lux-icon-base-stub>
+          
           age
         </input-button-stub>
       </th>
@@ -83,22 +79,22 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         nowrap="nowrap"
         scope="col"
       >
-        <lux-icon-base-stub
-          height="16"
-          icon-name="unsorted"
-          width="16"
-        >
-          <!---->
-           
-          <!---->
-           
-          <lux-icon-unsorted-stub />
-        </lux-icon-base-stub>
-         
         <input-button-stub
           type="button"
           variation="text"
         >
+          <lux-icon-base-stub
+            height="16"
+            icon-name="unsorted"
+            width="16"
+          >
+            <!---->
+             
+            <!---->
+             
+            <lux-icon-unsorted-stub />
+          </lux-icon-base-stub>
+          
           birthday
         </input-button-stub>
       </th>
