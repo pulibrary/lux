@@ -1,4 +1,5 @@
 import { galleryState, galleryMutations } from "./gallery/index"
+import { cartState, cartMutations } from "./cart/index"
 
 export const counterModule = {
   state: { count: 10 },
@@ -23,5 +24,11 @@ export const galleryModule = {
   mutations: galleryMutations,
 }
 
+export const cartModule = {
+  // namespaced: true,
+  state: cartState,
+  mutations: cartMutations,
+}
+
 let modules
-export default (modules = { counterModule, galleryModule })
+export default modules = { counterModule, galleryModule, cartModule }

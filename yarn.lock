@@ -12823,6 +12823,13 @@ vue-webpack-loaders@^1.0.8:
     vue-style-loader "^3.0.1"
     vue-template-compiler "^2.5.16"
 
+vue2-storage@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/vue2-storage/-/vue2-storage-5.0.0.tgz#1f95bd58a7671ad05fcc88ab8f3e2dc4fb414e69"
+  integrity sha512-HDrQ7Q8TfquaCpHnf5rLJmFLgwt9VvDyvu7xJm6I+m63IKIq+hqUZscn6vG0A56mFGcTArP+2Lzfezf5vrukPg==
+  dependencies:
+    object-assign "^4.1.1"
+
 vue@^2.4.2, vue@^2.5.0, vue@^2.5.16, vue@^2.5.18:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
