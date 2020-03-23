@@ -46,6 +46,7 @@ export default {
       let items = this.items
       items.push(this.callnumber)
       store.commit("UPDATE_ITEMS", items)
+      console.log(this.items)
     },
   },
 }
