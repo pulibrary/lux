@@ -1,5 +1,5 @@
 import { galleryState, galleryMutations } from "./gallery/index"
-import { cartState, cartMutations } from "./cart/index"
+import { cartState, cartMutations, cartActions } from "./cart/index"
 
 export const counterModule = {
   state: { count: 10 },
@@ -27,6 +27,7 @@ export const galleryModule = {
 export const cartModule = {
   // namespaced: true,
   state: cartState,
+  actions: cartActions,
   mutations: cartMutations,
 }
 

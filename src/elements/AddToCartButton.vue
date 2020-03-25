@@ -23,9 +23,9 @@ export default {
       get() {
         return this.cart.items
       },
-      set(value) {
-        store.commit("UPDATE_ITEMS", value)
-      },
+      // set(value) {
+      //   store.commit("UPDATE_ITEMS", value)
+      // },
     },
     ...mapState({
       cart: state => store.state.cart,
@@ -40,13 +40,30 @@ export default {
       default: "",
       required: true,
     },
+    /**
+     * This is the unique library identifier for the requestable item
+     */
+    title: {
+      type: String,
+      default: "",
+      required: true,
+    },
+    /**
+     * This is the unique library identifier for the requestable item
+     */
+    containers: {
+      type: Array,
+      default: () => [],
+      required: false,
+    },
   },
   methods: {
     addToCart() {
-      let items = this.items
-      items.push(this.callnumber)
-      store.commit("UPDATE_ITEMS", items)
-      console.log(this.items)
+      store.dispatch("addItemToCart", {
+        callnumber: this.callnumber,
+        title: this.title,
+        containers: this.containers[0].type + " " + this.containers[0].value,
+      })
     },
   },
 }
@@ -57,7 +74,9 @@ export default {
 <docs>
   ```jsx
   <div>
-    <add-to-cart-button callnumber="foo" variation="solid" size="small">Add Item to Cart</add-to-cart-button>
+    <add-to-cart-button callnumber="Foo" title="Catch-22" :containers="[{ type: 'box', value: '1' }, { type: 'folder', value: '1' }]">Add Foo to Cart</add-to-cart-button>
+    <add-to-cart-button callnumber="Bar" title="The Hobbit" :containers="[{ type: 'box', value: '1' }, { type: 'folder', value: '1' }]">Add Bar to Cart</add-to-cart-button>
+    <add-to-cart-button callnumber="Baz" title="High Fidelity" :containers="[{ type: 'box', value: '1' }, { type: 'folder', value: '1' }]">Add Baz to Cart</add-to-cart-button>
   </div>
   ```
 </docs>

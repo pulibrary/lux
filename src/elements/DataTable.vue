@@ -255,7 +255,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .lux-data-table {
   border-collapse: collapse;
   border-spacing: 0;
