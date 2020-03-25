@@ -2,7 +2,7 @@
   <transition name="slide">
     <div v-if="isVisible" :style="style" class="panel-wrap">
       <div class="panel">
-        <table :class="['lux-data-table']">
+        <table v-if="items.length" :class="['lux-data-table']">
           <caption>
             Request Cart
           </caption>
@@ -10,7 +10,7 @@
             <tr>
               <th>Title</th>
               <th>Call Number</th>
-              <th>Containers</th>
+              <th colspan="2">Containers</th>
             </tr>
           </thead>
           <tbody>
@@ -23,9 +23,19 @@
               <td>{{ item.title }}</td>
               <td>{{ item.callnumber }}</td>
               <td>{{ item.containers }}</td>
+              <td>
+                <input-button
+                  @button-clicked="removeFromCart(item)"
+                  type="button"
+                  variation="outline"
+                >
+                  Remove
+                </input-button>
+              </td>
             </tr>
           </tbody>
         </table>
+        <heading v-else level="h3">Your cart is currently empty.</heading>
       </div>
     </div>
   </transition>
@@ -76,7 +86,11 @@ export default {
       required: false,
     },
   },
-  methods: {},
+  methods: {
+    removeFromCart(item) {
+      store.dispatch("removeItemFromCart", item)
+    },
+  },
 }
 </script>
 
@@ -87,7 +101,7 @@ export default {
   top: 0px;
   bottom: 0;
   right: 0;
-  width: 30em;
+  width: 38em;
   transform: translateX(0%);
   z-index: 1000; /* Stay on top */
 }
