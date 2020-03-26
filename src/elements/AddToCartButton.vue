@@ -19,13 +19,20 @@ export default {
   release: "1.0.0",
   type: "Element",
   computed: {
+    item: function() {
+      return {
+        callnumber: this.callnumber,
+        title: this.title,
+        containers: this.containers,
+        subcontainers: this.subcontainers,
+        unitid: this.unitid,
+        physloc: this.physloc,
+      }
+    },
     items: {
       get() {
         return this.cart.items
       },
-      // set(value) {
-      //   store.commit("UPDATE_ITEMS", value)
-      // },
     },
     ...mapState({
       cart: state => store.state.cart,
@@ -33,7 +40,8 @@ export default {
   },
   props: {
     /**
-     * This is the unique library identifier for the requestable item
+     * The unique library identifier for the requestable item
+     * For Finding Aids, this is the `CollectionID_ComponentID`
      */
     callnumber: {
       type: String,
@@ -41,7 +49,7 @@ export default {
       required: true,
     },
     /**
-     * This is the unique library identifier for the requestable item
+     * The title of the item
      */
     title: {
       type: String,
@@ -49,21 +57,41 @@ export default {
       required: true,
     },
     /**
-     * This is the unique library identifier for the requestable item
+     * Requestable containers that are considered "retrieval units"
      */
     containers: {
       type: Array,
       default: () => [],
       required: false,
     },
+    /**
+     * Additional subcontainers that contain the content
+     */
+    subcontainers: {
+      type: Array,
+      default: () => [],
+      required: false,
+    },
+    /**
+     * The container identifier, often a barcode, but not always
+     */
+    unitid: {
+      type: Object,
+      default: () => {},
+      required: true,
+    },
+    /**
+     * The physical location of the item
+     */
+    physloc: {
+      type: Object,
+      default: () => {},
+      required: true,
+    },
   },
   methods: {
     addToCart() {
-      store.dispatch("addItemToCart", {
-        callnumber: this.callnumber,
-        title: this.title,
-        containers: this.containers[0].type + " " + this.containers[0].value,
-      })
+      store.dispatch("addItemToCart", this.item)
     },
   },
 }
@@ -74,9 +102,22 @@ export default {
 <docs>
   ```jsx
   <div>
-    <add-to-cart-button callnumber="Foo" title="Catch-22" :containers="[{ type: 'box', value: '1' }, { type: 'folder', value: '1' }]">Add Foo to Cart</add-to-cart-button>
-    <add-to-cart-button callnumber="Bar" title="The Hobbit" :containers="[{ type: 'box', value: '1' }, { type: 'folder', value: '1' }]">Add Bar to Cart</add-to-cart-button>
-    <add-to-cart-button callnumber="Baz" title="High Fidelity" :containers="[{ type: 'box', value: '1' }, { type: 'folder', value: '1' }]">Add Baz to Cart</add-to-cart-button>
+    <add-to-cart-button callnumber="Foo" title="Catch-22"
+    :unitid="{ type: 'barcode', value: '32101040795617' }"
+    :physloc="{ type: 'code', value: 'rcpxm' }"
+    :containers="[{ type: 'volume', value: '4' }]">
+      Add Catch-22 to Cart</add-to-cart-button>
+    <add-to-cart-button callnumber="Bar" title="The Hobbit"
+    :unitid="{ type: 'barcode', value: '32101040795617' }"
+    :physloc="{ type: 'code', value: 'rcpxm' }"
+    :containers="[{ type: 'box', value: '11' }, { type: 'box', value: '12' }]">
+      Add The Hobbit to Cart</add-to-cart-button>
+    <add-to-cart-button callnumber="Baz" title="High Fidelity"
+    :unitid="{ type: 'barcode', value: '32101040795617' }"
+    :physloc="{ type: 'code', value: 'rcpxm' }"
+    :subcontainers="[{ type: 'folder', value: '1' }, { type: 'folder', value: '2' }]"
+    :containers="[{ type: 'box', value: '10' }]">
+      Add High Fidelity to Cart</add-to-cart-button>
   </div>
   ```
 </docs>

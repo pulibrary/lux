@@ -22,7 +22,13 @@
             >
               <td>{{ item.title }}</td>
               <td>{{ item.callnumber }}</td>
-              <td>{{ item.containers }}</td>
+              <td>
+                {{ displayContainers(item.containers) }}
+                <br />
+                <em v-if="item.subcontainers.length"
+                  >[{{ displayContainers(item.subcontainers) }}]</em
+                >
+              </td>
               <td>
                 <input-button
                   @button-clicked="removeFromCart(item)"
@@ -90,6 +96,15 @@ export default {
     removeFromCart(item) {
       store.dispatch("removeItemFromCart", item)
     },
+    displayContainers(containers) {
+      let displayString = containers.map(function(container) {
+        // capitalize each container type
+        return (
+          container.type.charAt(0).toUpperCase() + container.type.slice(1) + " " + container.value
+        )
+      })
+      return displayString.join(", ")
+    },
   },
 }
 </script>
@@ -137,7 +152,13 @@ export default {
 <docs>
   ```jsx
   <div>
-    <add-to-cart-button callnumber="ABC" title="Moby Dick" :containers="[{ type: 'box', value: '1' }, { type: 'folder', value: '1' }]">Add Foo to Cart</add-to-cart-button>
+    <add-to-cart-button callnumber="ABC" title="Moby Dick"
+      :unitid="{ type: 'barcode', value: '32101040795617' }"
+      :physloc="{ type: 'code', value: 'rcpxm' }"
+      :subcontainers="[{ type: 'folder', value: '1' }, { type: 'folder', value: '2' }]"
+      :containers="[{ type: 'box', value: '1' }, { type: 'box', value: '2' }]">
+      Add Foo to Cart
+    </add-to-cart-button>
     <cart-view-toggle></cart-view-toggle>
     <cart-detail top="190px"></cart-detail>
   </div>
