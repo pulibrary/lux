@@ -1,10 +1,23 @@
 <template>
   <transition name="slide">
     <div v-if="isVisible" :style="style" class="panel-wrap">
-      <div class="panel">
-        <table v-if="items.length" :class="['lux-data-table']">
+      <div v-if="items.length" class="panel">
+        <input-button
+          v-on:button-clicked="toggleCartView($event)"
+          class="top-left"
+          type="button"
+          variation="text"
+        >
+          <lux-icon-base icon-name="denied">
+            <lux-icon-denied></lux-icon-denied>
+          </lux-icon-base>
+        </input-button>
+        <table :class="['lux-data-table']">
           <caption>
             Request Cart
+            <lux-icon-base width="30" height="30" icon-name="Cart">
+              <lux-icon-cart></lux-icon-cart>
+            </lux-icon-base>
           </caption>
           <thead>
             <tr>
@@ -41,7 +54,16 @@
             </tr>
           </tbody>
         </table>
-        <heading v-else level="h3">Your cart is currently empty.</heading>
+        <div class="cart-actions">
+          <div class="center">
+            <input-button type="submit" variation="solid" block>
+              {{ requestButtonText() }}
+            </input-button>
+          </div>
+        </div>
+      </div>
+      <div v-else class="panel">
+        <heading level="h3">Your cart is currently empty.</heading>
       </div>
     </div>
   </transition>
@@ -105,6 +127,16 @@ export default {
       })
       return displayString.join(", ")
     },
+    requestButtonText() {
+      let text = "Request " + this.items.length + " Item"
+      if (this.items.length > 1) {
+        text = text + "s"
+      }
+      return text
+    },
+    toggleCartView(event) {
+      store.commit("TOGGLE_VISIBILITY")
+    },
   },
 }
 </script>
@@ -135,6 +167,33 @@ export default {
   right: 0;
   overflow: auto;
   padding: 1em;
+}
+
+.cart-actions {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  background: $color-rich-black;
+  color: $color-white;
+  height: 80px;
+  width: 100%;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.top-left {
+  position: absolute;
+  left: -10px;
+  top: 0px;
+}
+
+table {
+  margin-top: 2em;
 }
 
 .slide-enter-active,
