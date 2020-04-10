@@ -211,9 +211,9 @@ table {
 <docs>
   ```jsx
   <div>
-    <add-to-cart-button callnumber="ABC" title="Moby Dick"
+    <add-to-cart-button callnumber="ABC" title="Moby Dick" location="mudd" referencenumber="MC044"
       :unitid="{ type: 'barcode', value: '32101040795617' }"
-      :physloc="{ type: 'code', value: 'rcpxm' }"
+      physloc="rcpxm"
       :subcontainers="[{ type: 'folder', value: '1' }, { type: 'folder', value: '2' }]"
       :containers="[{ type: 'box', value: '1' }, { type: 'box', value: '2' }]">
       Add Foo to Cart
