@@ -1,5 +1,11 @@
-<template>
-  <component :is="type" :class="['lux-text-style ', variation]">
+<template functional>
+  <component
+    :is="props.type"
+    :class="['lux-text-style ', props.variation, data.class, data.staticClass]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+    >
     <slot/>
   </component>
 </template>

@@ -1,6 +1,12 @@
-<template>
-  <div class="lux-media-image" :class="[height, {'lux-default-thumbnail': !source}]">
-    <img v-if="source" @error="source = null" :src="source" :alt="alt" :class="[{'lux-cover': cover}, {'lux-contain': contain}]">
+<template functional>
+  <div class="lux-media-image"
+       :class="[props.height, {'lux-default-thumbnail':
+               !props.src}, data.class, data.staticClass]"
+       :style="[data.style, data.staticStyle]"
+       v-bind="data.attrs"
+       v-on="listeners">
+    <img v-if="props.src" @error="props.src = null" :src="props.src"
+    :alt="props.alt" :class="[{'lux-cover': props.cover}, {'lux-contain': props.contain}]">
     <lux-icon-base v-else
       width="50"
       height="50"
@@ -19,11 +25,6 @@ export default {
   status: "ready",
   release: "1.0.0",
   type: "Element",
-  data: function() {
-    return {
-      source: this.src,
-    }
-  },
   props: {
     /**
      * The image displayed
