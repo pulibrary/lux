@@ -8,22 +8,23 @@
     <thead>
       <tr>
         <th v-for="(col, index) in parsedColumns" scope="col" nowrap>
-          <lux-icon-base
-            v-if="col.sortable"
-            width="16"
-            height="16"
-            :icon-name="iconLabel(col.ascending)"
-          >
-            <lux-icon-ascending v-if="col.ascending"></lux-icon-ascending>
-            <lux-icon-descending v-if="col.ascending === false"></lux-icon-descending>
-            <lux-icon-unsorted v-if="col.ascending === null"></lux-icon-unsorted>
-          </lux-icon-base>
           <input-button
             v-if="col.sortable"
             type="button"
             v-on:button-clicked="sortTable(col)"
             variation="text"
-            >{{ displayName(col) }}</input-button
+          >
+            <lux-icon-base
+              v-if="col.sortable"
+              width="16"
+              height="16"
+              :icon-name="iconLabel(col.ascending)"
+            >
+              <lux-icon-ascending v-if="col.ascending"></lux-icon-ascending>
+              <lux-icon-descending v-if="col.ascending === false"></lux-icon-descending>
+              <lux-icon-unsorted v-if="col.ascending === null"></lux-icon-unsorted>
+            </lux-icon-base>
+            {{ displayName(col) }}</input-button
           >
           <span v-else>{{ displayName(col) }}</span>
         </th>
@@ -321,6 +322,13 @@ export default {
     text-transform: uppercase;
     color: $color-grayscale-darker;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    /deep/ .lux-icon {
+      display: initial;
+    }
   }
 
   tbody tr {
