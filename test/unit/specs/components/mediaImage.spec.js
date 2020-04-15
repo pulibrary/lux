@@ -9,27 +9,36 @@ let wrapper
 
 describe("MediaImage.vue", () => {
   beforeEach(() => {
-    wrapper = mount(MediaImage, {
-      localVue,
-      propsData: {
-        src: "",
-        height: "medium",
-        alt: "alt text",
-        cover: true,
-        contain: false,
-      },
-      stubs: ["lux-icon-base", "lux-icon-file"],
+    wrapper = buildWrapper({
+      src: "",
+      height: "medium",
+      alt: "alt text",
+      cover: true,
+      contain: false,
     })
   })
+
+  function buildWrapper(props) {
+    return mount(MediaImage, {
+      localVue,
+      propsData: props,
+      stubs: ["lux-icon-base", "lux-icon-file"],
+    })
+  }
 
   it("displays svg icon when src is bad or non-existent", () => {
     const mediaimg = wrapper.find(".lux-media-image")
     expect(mediaimg.classes()).toContain("medium")
-    wrapper.setProps({ height: "large" })
-    expect(mediaimg.classes()).toContain("large")
-    const svg = wrapper.find('[name="pul-icon-file"]')
-    expect(wrapper.find('[icon-name="file"]').exists()).toBe(true)
-    expect(wrapper.find("img").exists()).toBe(false)
+    let newWrapper = buildWrapper({
+      src: "",
+      height: "large",
+      alt: "alt text",
+      cover: true,
+      contain: false,
+    })
+    expect(newWrapper.find(".lux-media-image").classes()).toContain("large")
+    expect(newWrapper.find('[icon-name="file"]').exists()).toBe(true)
+    expect(newWrapper.find("img").exists()).toBe(false)
   })
 
   it("displays image when src exists", () => {
