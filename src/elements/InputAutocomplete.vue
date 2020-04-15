@@ -245,6 +245,48 @@ $color-placeholder: tint($color-grayscale, 50%);
       @include visually-hidden;
     }
   }
+
+  input {
+    @include inset-squish-space($space-small);
+    @include stack-space($space-small);
+    appearance: none;
+    -webkit-appearance: none;
+    background: $color-white;
+    border-radius: $border-radius-default;
+    border: 0;
+    color: set-text-color($color-rich-black, $color-white);
+    font-family: $font-family-text;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-heading;
+    margin: 0;
+    transition: all 0.2s ease;
+    width: 100%;
+
+    &::-webkit-input-placeholder {
+      -webkit-font-smoothing: antialiased;
+      color: $color-placeholder;
+    }
+    &:-ms-input-placeholder {
+      color: $color-placeholder;
+    }
+    &::-moz-placeholder {
+      color: $color-placeholder;
+      -moz-osx-font-smoothing: grayscale;
+      opacity: 1;
+    }
+
+    &:hover,
+    &[hover] {
+      box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+    }
+    &:focus,
+    &[focus] {
+      transition: box-shadow 0.2s ease;
+      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+      outline: 0;
+    }
+  }
 }
 
 .lux-autocomplete-input {
@@ -252,48 +294,6 @@ $color-placeholder: tint($color-grayscale, 50%);
   background: $color-white;
   border-radius: $border-radius-default;
   box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 80%);
-}
-
-input {
-  @include inset-squish-space($space-small);
-  @include stack-space($space-small);
-  appearance: none;
-  -webkit-appearance: none;
-  background: $color-white;
-  border-radius: $border-radius-default;
-  border: 0;
-  color: set-text-color($color-rich-black, $color-white);
-  font-family: $font-family-text;
-  font-size: $font-size-base;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-heading;
-  margin: 0;
-  transition: all 0.2s ease;
-  width: 100%;
-
-  &::-webkit-input-placeholder {
-    -webkit-font-smoothing: antialiased;
-    color: $color-placeholder;
-  }
-  &:-ms-input-placeholder {
-    color: $color-placeholder;
-  }
-  &::-moz-placeholder {
-    color: $color-placeholder;
-    -moz-osx-font-smoothing: grayscale;
-    opacity: 1;
-  }
-
-  &:hover,
-  &[hover] {
-    box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
-  }
-  &:focus,
-  &[focus] {
-    transition: box-shadow 0.2s ease;
-    box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
-    outline: 0;
-  }
 }
 
 .lux-autocomplete-results {
