@@ -1,16 +1,18 @@
-<template>
-  <article
-    :id="id"
-    @click.capture="select($event)"
+<template functional>
+  <article :id="props.id"
     class="lux-card"
     :class="[
-      size,
-      { 'lux-card-selected': selected },
-      { 'lux-card-edited': edited },
-      { 'lux-card-disabled': disabled },
+      props.size,
+      { 'lux-card-selected': props.selected },
+      { 'lux-card-edited': props.edited },
+      { 'lux-card-disabled': props.disabled },
+      data.class,
+      data.staticClass
     ]"
-    v-bind:style="{ 'max-width': cardPixelWidth + 'px' }"
-  >
+    v-bind:style="{'max-width': props.cardPixelWidth + 'px' }"
+    :ref="data.ref"
+    v-bind="data.attrs"
+    v-on="listeners">
     <slot />
   </article>
 </template>
@@ -84,15 +86,10 @@ export default {
       default: "",
     },
   },
-  methods: {
-    select: function(event) {
-      this.$emit("card-click", event)
-    },
-  },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .lux-card {
   @include reset;
   @include stack-space($space-base);
@@ -134,17 +131,17 @@ export default {
   }
 
   .lux-heading,
-  .lux-text-style {
+  .lux-text-style.default {
     padding: 0 1rem;
   }
 
   .lux-heading,
-  .lux-text-style,
+  .lux-text-style.default,
   .lux-media-image {
     pointer-events: none;
   }
 
-  .lux-text-style {
+  .lux-text-style.default {
     padding-bottom: 1rem;
   }
 

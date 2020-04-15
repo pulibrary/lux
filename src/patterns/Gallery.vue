@@ -10,8 +10,7 @@
       :selected="isSelected(item)"
       :disabled="isDisabled(item)"
       :edited="hasChanged(item.id)"
-      @card-click="select(item.id, $event)"
-    >
+      @click.capture="select(item.id, $event)">
       <media-image :src="item.mediaUrl"></media-image>
       <heading level="h2">{{ item.title }}</heading>
       <text-style variation="default">{{ item.caption }}</text-style>
@@ -103,12 +102,12 @@ export default {
         let selected = []
         if (event.metaKey) {
           selected = this.gallery.selected
-          selected.push(this.getItemById(event.target.id))
+          selected.push(this.getItemById(id))
           store.commit("SELECT", selected)
         } else {
           if (this.gallery.selected.length === 1 && event.shiftKey) {
             var first = this.getItemIndexById(this.gallery.selected[0].id)
-            var second = this.getItemIndexById(event.target.id)
+            var second = this.getItemIndexById(id)
             var min = Math.min(first, second)
             var max = Math.max(first, second)
             for (var i = min; i <= max; i++) {
@@ -116,7 +115,7 @@ export default {
             }
             store.commit("SELECT", selected)
           } else {
-            store.commit("SELECT", [this.getItemById(event.target.id)])
+            store.commit("SELECT", [this.getItemById(id)])
           }
         }
       }
@@ -139,7 +138,7 @@ export default {
   // },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .lux-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -163,7 +162,7 @@ export default {
       height: auto;
     }
   }
-  .lux-galleryCard {
+  .lux-card.lux-galleryCard {
     width: auto;
   }
 }
