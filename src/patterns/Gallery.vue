@@ -163,6 +163,9 @@ export default {
       height: auto;
     }
   }
+  .lux-galleryCard {
+    width: auto;
+  }
 }
 </style>
 <docs>
