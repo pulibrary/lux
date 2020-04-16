@@ -1,14 +1,11 @@
-<template>
-  <div class="lux-media-image" :class="[height, { 'lux-default-thumbnail': !source }]">
-    <img
-      v-if="source"
-      @error="source = null"
-      :src="source"
-      :alt="alt"
-      :class="[{ 'lux-cover': cover }, { 'lux-contain': contain }]"
-    />
+<template functional>
+  <div class="lux-media-image"
+       :class="[props.height, {'lux-default-thumbnail': !props.src}, data.class, data.staticClass]"
+       :style="[data.style, data.staticStyle]"
+       v-bind="data.attrs"
+       v-on="listeners">
+    <img v-if="props.src" @error="$options.methods.fixSrc" :src="props.src" :alt="props.alt" :class="[{'lux-cover': props.cover}, {'lux-contain': props.contain}]" />
     <lux-icon-base
-      v-else
       width="50"
       height="50"
       icon-name="file"
@@ -28,9 +25,11 @@ export default {
   status: "ready",
   release: "1.0.0",
   type: "Element",
-  data: function() {
-    return {
-      source: this.src,
+  methods: {
+    fixSrc(event) {
+      console.log(event)
+      event.target.parentNode.classList.add("lux-default-thumbnail")
+      event.target.remove()
     }
   },
   props: {
@@ -99,11 +98,18 @@ export default {
     object-fit: contain;
   }
 
+  .lux-icon {
+    display: none;
+  }
+
   &.lux-default-thumbnail {
     background: $color-grayscale;
     display: flex;
     align-items: center;
 
+    .lux-icon {
+      display: block;
+    }
     .lux-svg-icon,
     svg {
       display: block;

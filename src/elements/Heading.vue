@@ -1,5 +1,12 @@
-<template>
-  <component :is="level" class="lux-heading" :class="[{ 'lux-hidden': hidden }, size]">
+<template functional>
+  <component
+    :is="props.level"
+    class="lux-heading"
+    :class="[{'lux-hidden': props.hidden}, data.style, data.staticStyle, props.size]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+    >
     <slot />
   </component>
 </template>

@@ -1,16 +1,16 @@
-<template>
+<template functional>
   <div class="lux-icon">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      :width="width"
-      :height="height"
+      :width="props.width"
+      :height="props.height"
       viewBox="0 0 24 24"
-      :aria-labelledby="iconName"
-      :aria-hidden="iconHide"
+      :aria-labelledby="props.iconName"
+      :aria-hidden="props.iconHide"
       role="img"
     >
-      <title v-if="iconName" :id="iconName" lang="en">{{ iconName }}</title>
-      <g :fill="iconColor">
+      <title v-if="props.iconName" :id="props.iconName" lang="en">{{ props.iconName }}</title>
+      <g :fill="props.iconColor">
         <slot></slot>
       </g>
     </svg>
