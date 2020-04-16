@@ -181,7 +181,7 @@ export default {
   }
 }
 
-.lux-card /deep/ .lux-link {
+.lux-card a.lux-link {
   color: $color-rich-black;
   outline: 0;
 
