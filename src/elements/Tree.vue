@@ -1,18 +1,15 @@
 <template>
-  <li @click="clicked">
-    <span>{{ collection.title[0] }}</span>
-    <ul v-show="collection.components.length > 0" @click="clicked">
-      <tree-item :json-data="collection.components[0]"></tree-item>
-    </ul>
-  </li>
+  <ul>
+    <tree-item :json-data="collection"></tree-item>
+  </ul>
 </template>
 
 <script>
 /**
- * TreeItems are the building blocks of hierarchical navigation.
+ * Trees are the wrapper of TreeItems.
  */
 export default {
-  name: "TreeItem",
+  name: "Tree",
   status: "prototype",
   release: "1.0.0",
   type: "Element",
@@ -47,7 +44,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <tree-item :id="123" :json-data='
+    <tree :json-data='
     {
       "id": "C0614",
       "level": "collection",
@@ -107,7 +104,7 @@ export default {
         "Blair and Lee Family Papers"
       ]
     }
-    '></tree-item>
+    '></tree>
   </div>
   ```
 
