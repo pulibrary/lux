@@ -1,8 +1,11 @@
 <template>
   <li @click="clicked">
-    <span>{{ collection.title[0] }}</span>
-    <ul v-show="collection.components.length > 0" @click="clicked">
-      <tree-item :json-data="collection.components[0]"></tree-item>
+    <span>{{ collection.title[0] }} {{ hasChildren ? (isOpen ? "[-]" : "[+]") : "" }}</span>
+    <ul v-show="isOpen && hasChildren" @click="clicked">
+      <tree-item
+        v-for="(component, index) in collection.components"
+        :json-data="component"
+      ></tree-item>
     </ul>
   </li>
 </template>
@@ -29,7 +32,8 @@ export default {
   },
   data: function() {
     return {
-      isOpen: false,
+      hasChildren: this.jsonData.components.length > 0,
+      isOpen: true,
       collection: this.jsonData,
     }
   },
@@ -47,62 +51,12 @@ export default {
 <docs>
   ```jsx
   <div>
-    <tree-item :id="123" :json-data='
+    <tree-item :json-data='
     {
       "id": "C0614",
       "level": "collection",
       "component_level": null,
-      "components": [
-        {
-          "id": "C0614_c00001",
-          "level": "Series",
-          "component_level": 1,
-          "reference": "C0614_c00001",
-          "components": [
-            {
-              "id": "C0614_c00002",
-              "level": "Subseries",
-              "component_level": 2,
-              "reference": "C0614_c00002",
-              "components": [
-                {
-                  "id": "C0614_c00003",
-                  "level": "File",
-                  "component_level": 3,
-                  "reference": "C0614_c00003",
-                  "components": [],
-                  "title": [
-                    "General Writings"
-                  ]
-                },
-                {
-                  "id": "C0614_c00004",
-                  "level": "File",
-                  "component_level": 3,
-                  "reference": "C0614_c00004",
-                  "components": [],
-                  "title": [
-                    "General Writings"
-                  ]
-                }
-              ],
-              "title": [
-                "Writings"
-              ]
-            }
-          ],
-          "title": [
-            "Papers of Francis Preston Blair"
-          ]
-        },
-        {
-          "id": "C0614_i474",
-          "level": "Physicalitem",
-          "component_level": 1,
-          "reference": "C0614_i474",
-          "components": []
-        }
-      ],
+      "components": [],
       "title": [
         "Blair and Lee Family Papers"
       ]
