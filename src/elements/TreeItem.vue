@@ -1,5 +1,5 @@
 <template>
-  <li @click="clicked">
+  <li @click="clicked" :class="[{ selected: isSelected }]">
     <span>{{ collection.title[0] }} {{ hasChildren ? (isOpen ? "[-]" : "[+]") : "" }}</span>
     <ul v-show="isOpen && hasChildren" @click="clicked">
       <tree-item
@@ -34,6 +34,7 @@ export default {
     return {
       hasChildren: this.jsonData.components.length > 0,
       isOpen: true,
+      isSelected: false,
       collection: this.jsonData,
     }
   },
@@ -41,12 +42,31 @@ export default {
     clicked: function() {
       console.log(this.jsonData)
       this.isOpen = !this.isOpen
+      this.isSelected = !this.isSelected
     },
   },
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+li {
+  list-style-type: none;
+  font-family: sans-serif;
+  border: 1px;
+  margin: 10px 0 10px 10px;
+}
+
+li span {
+  background: $color-grayscale-warm;
+  width: 100%;
+  display: block;
+  padding: 0.5em 0.5em 0.5em 2em;
+}
+
+li.selected {
+  background: $color-grayscale-warm-light;
+}
+</style>
 
 <docs>
   ```jsx
