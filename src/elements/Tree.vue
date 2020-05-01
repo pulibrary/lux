@@ -27,7 +27,7 @@ export default {
   data: function() {
     return {
       isOpen: false,
-      collection: this.jsonData,
+      collection: JSON.parse(this.jsonData),
     }
   },
   methods: {
@@ -69,7 +69,7 @@ export default {
                   "reference": "C0614_c00003",
                   "components": [],
                   "title": [
-                    "General Writings"
+                    "General Writings 1"
                   ]
                 },
                 {
@@ -79,7 +79,7 @@ export default {
                   "reference": "C0614_c00004",
                   "components": [],
                   "title": [
-                    "General Writings"
+                    "General Writings 2"
                   ]
                 }
               ],
@@ -91,13 +91,6 @@ export default {
           "title": [
             "Papers of Francis Preston Blair"
           ]
-        },
-        {
-          "id": "C0614_i474",
-          "level": "Physicalitem",
-          "component_level": 1,
-          "reference": "C0614_i474",
-          "components": []
         }
       ],
       "title": [
