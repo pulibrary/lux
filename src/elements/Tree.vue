@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <tree-item :json-data="collection"></tree-item>
+    <tree-item id="foo" :json-data="collection"></tree-item>
   </ul>
 </template>
 
@@ -27,14 +27,14 @@ export default {
   data: function() {
     return {
       isOpen: false,
-      collection: JSON.parse(this.jsonData),
+      collection: this.jsonData,
     }
   },
   methods: {
-    clicked: function() {
-      console.log(this.jsonData)
-      this.isOpen = !this.isOpen
-    },
+    // clicked: function() {
+    //   console.log(this.jsonData)
+    //   this.isOpen = !this.isOpen
+    // },
   },
 }
 </script>
@@ -44,8 +44,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <tree :json-data='
-    {
+    <tree :json-data='{
       "id": "C0614",
       "level": "collection",
       "component_level": null,
@@ -96,8 +95,7 @@ export default {
       "title": [
         "Blair and Lee Family Papers"
       ]
-    }
-    '></tree>
+    }'></tree>
   </div>
   ```
 

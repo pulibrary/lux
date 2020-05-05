@@ -1,6 +1,6 @@
 <template>
-  <li @click="clicked" :class="[{ selected: isSelected }]">
-    <label for="[{ collection.title[0] }]"
+  <li :class="[{ selected: isSelected }]">
+    <label for="[{ collection.title[0] }]" @click.self="clicked($event)"
       >{{ collection.title[0] }} {{ hasChildren ? (isOpen ? "[-]" : "[+]") : "" }}</label
     >
     <input type="checkbox" checked id="[{ collection.title[0] }]" />
@@ -30,6 +30,7 @@ export default {
       default: "",
     },
     jsonData: {
+      default: [],
       required: true,
     },
   },
@@ -42,10 +43,13 @@ export default {
     }
   },
   methods: {
-    clicked: function() {
-      console.log(this.collection.title[0])
-      this.isOpen = !this.isOpen
-      this.isSelected = !this.isSelected
+    clicked: function(event) {
+      if (event) {
+        event.preventDefault()
+        console.log(event)
+        this.isOpen = !this.isOpen
+        this.isSelected = !this.isSelected
+      }
     },
   },
 }
