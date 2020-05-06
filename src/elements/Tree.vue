@@ -1,10 +1,12 @@
 <template>
-  <ul>
-    <tree-item id="foo" :json-data="collection"></tree-item>
+  <ul class="lux-tree">
+    <tree-item :id="collection.id" :json-data="collection"> </tree-item>
   </ul>
 </template>
 
 <script>
+import store from "../store"
+import { mapState, mapGetters } from "vuex"
 /**
  * Trees are the wrapper of TreeItems.
  */
@@ -30,11 +32,10 @@ export default {
       collection: this.jsonData,
     }
   },
-  methods: {
-    // clicked: function() {
-    //   console.log(this.jsonData)
-    //   this.isOpen = !this.isOpen
-    // },
+  computed: {
+    ...mapState({
+      tree: state => store.state.tree,
+    }),
   },
 }
 </script>
