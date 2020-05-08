@@ -1,8 +1,17 @@
 <template>
   <li>
     <div class="container">
-      <div @click.self="toggled($event)" class="item">
-        <input type="checkbox" checked id="[{ collection.title[0] }]" />
+      <div class="item">
+        <input-button
+          @button-clicked="toggled($event)"
+          class="expand-collapse"
+          type="button"
+          variation="icon"
+          size="small"
+          :icon="expandCollapseIcon"
+          block
+        >
+        </input-button>
       </div>
       <div
         @click.capture="select(collection.id, $event)"
@@ -54,6 +63,12 @@ export default {
     }
   },
   computed: {
+    expandCollapseIcon: function() {
+      if (this.isOpen) {
+        return "arrow-down"
+      }
+      return "arrow-right"
+    },
     isSelected: function() {
       if (this.tree.selected === this.id) {
         return true
@@ -87,6 +102,7 @@ ul.lux-tree li {
 
 ul.lux-tree li div.item-label {
   background: $color-grayscale-warm;
+  margin-left: 8px;
   width: 100%;
   display: block;
   padding: 0.5em 0.5em 0.5em 2em;
@@ -137,13 +153,16 @@ ul.lux-tree .container {
 
 ul.lux-tree .item {
   background: $color-grayscale-warm;
-  margin-right: 8px;
   width: 36px; /* A fixed width as the default */
   flex: 1 auto;
 }
 
 ul.lux-tree .item-label {
   flex-grow: 1; /* Set the middle element to grow and stretch */
+}
+
+.expand-collapse {
+  background: transparent;
 }
 </style>
 

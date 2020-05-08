@@ -6,14 +6,14 @@
     @click="buttonClicked($event)"
   >
     <div v-if="variation === 'icon-prepend'" class="prepend-icon">
-      <lux-icon-base width="18" height="18" v-if="icon === 'search'" icon-name="search">
-        <lux-icon-search></lux-icon-search>
+      <lux-icon-base width="18" height="18" :icon-name="icon">
+        <component :is="iconComponent"></component>
       </lux-icon-base>
     </div>
     <slot />
     <div v-if="variation === 'icon'" class="append-icon">
-      <lux-icon-base width="18" height="18" v-if="icon === 'search'" icon-name="search">
-        <lux-icon-search></lux-icon-search>
+      <lux-icon-base width="18" height="18" :icon-name="icon">
+        <component :is="iconComponent"></component>
       </lux-icon-base>
     </div>
   </button>
@@ -22,7 +22,10 @@
 <script>
 /**
  * Buttons are used to toggle something in the interface or trigger new
- * content in the same context.
+ * content in the same context. Buttons may include icons. A list of available icons
+ * can be found in [the Icons secion of the docs](/#/Icons). To supply an `icon` prop,
+ * use the last part of the camelCase icon name. For example, to include the `<lux-icon-file>` icon,
+ * you would set `icon='file'` as one of the InputButton props.
  */
 export default {
   name: "InputButton",
@@ -33,6 +36,11 @@ export default {
     return {
       label: "Submit",
     }
+  },
+  computed: {
+    iconComponent() {
+      return "lux-icon-" + this.icon
+    },
   },
   props: {
     /**
@@ -97,7 +105,7 @@ export default {
       default: false,
     },
     /**
-     * Indicates what icon to use.
+     * Indicates what icon to use. See description above for example/usage.
      */
     icon: {
       type: String,
