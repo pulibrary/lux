@@ -118,7 +118,7 @@ ul.lux-tree li div.item-label {
   background: $color-grayscale-warm;
   width: 100%;
   display: block;
-  padding: 0.5em 0.5em 0.5em 2em;
+  padding: 0.5em 0.5em 0.5em 0;
 }
 
 ul.lux-tree li div.item-label.selected {
@@ -134,6 +134,8 @@ ul.lux-tree .item {
   width: 36px; /* A fixed width as the default */
   flex: 1 auto;
   position: relative;
+  max-height: 36px;
+  max-width: 36px;
 }
 
 .lux-tree .item .lux-button {
@@ -161,14 +163,18 @@ ul.lux-tree .item-label {
 
 .leafnode {
   margin-left: 0px;
+  label {
+    hyphens: auto;
+    padding-left: 2em;
+  }
 }
 
 .branchnode {
   margin-left: 8px;
-}
-
-.lux-tree label {
-  hyphens: auto;
+  label {
+    hyphens: auto;
+    padding-left: 1em;
+  }
 }
 </style>
 
