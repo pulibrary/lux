@@ -1,7 +1,7 @@
 <template>
   <li>
     <div class="container">
-      <div class="item">
+      <div class="item" v-if="hasChildren">
         <input-button
           @button-clicked="toggled($event)"
           class="expand-collapse"
@@ -15,10 +15,24 @@
       </div>
       <div
         @click.capture="select(collection.id, $event)"
-        :class="['item-label', { selected: isSelected }]"
+        :class="[
+          'item-label',
+          { selected: isSelected },
+          { leafnode: !hasChildren },
+          { branchnode: hasChildren },
+        ]"
       >
+        <lux-icon-base
+          v-if="!hasChildren"
+          width="30"
+          height="30"
+          icon-name="End Node"
+          icon-color="gray"
+        >
+          <lux-icon-end-node></lux-icon-end-node>
+        </lux-icon-base>
         <label for="[{ collection.title[0] }]">
-          {{ collection.title[0] }} {{ hasChildren ? (isOpen ? "[-]" : "[+]") : "" }}
+          {{ collection.title[0] }}
         </label>
       </div>
     </div>
@@ -102,7 +116,6 @@ ul.lux-tree li {
 
 ul.lux-tree li div.item-label {
   background: $color-grayscale-warm;
-  margin-left: 8px;
   width: 100%;
   display: block;
   padding: 0.5em 0.5em 0.5em 2em;
@@ -112,41 +125,6 @@ ul.lux-tree li div.item-label.selected {
   background: $color-grayscale-warm-light;
 }
 
-//
-// li input {
-//   width: 1em;
-//   height: 1em;
-//   position: absolute;
-//   left: -0.5em;
-//   top: 0;
-//   opacity: 0;
-//   cursor: pointer;
-// }
-// li input + ul {
-//   height: 1em;
-//   margin: -16px 0 0 -44px;
-//   background: url("https://www.thecssninja.com/demo/css_tree/toggle-small-expand.png") no-repeat
-//     40px 0;
-// }
-// li input + ul > li {
-//   display: none;
-//   margin-left: -14px !important;
-//   padding-left: 1px;
-// }
-// li input:checked + ul {
-//   height: auto;
-//   margin: -21px 0 0 -44px;
-//   padding: 25px 0 0 80px;
-//   background: url("https://www.thecssninja.com/demo/css_tree/toggle-small.png") no-repeat 40px 5px;
-// }
-// li input:checked + ul > li {
-//   display: block;
-//   margin: 0 0 0.063em;
-// }
-// li input:checked + ul > li:first-child {
-//   margin: 0 0 0.125em;
-// }
-
 ul.lux-tree .container {
   display: flex;
 }
@@ -155,14 +133,42 @@ ul.lux-tree .item {
   background: $color-grayscale-warm;
   width: 36px; /* A fixed width as the default */
   flex: 1 auto;
+  position: relative;
+}
+
+.lux-tree .item .lux-button {
+  position: absolute;
+  top: -2px;
+  left: -7px;
+  max-width: 36px;
+  max-height: 36px;
 }
 
 ul.lux-tree .item-label {
   flex-grow: 1; /* Set the middle element to grow and stretch */
+  position: relative;
+}
+
+.lux-tree .item-label .lux-icon {
+  position: absolute;
+  top: 4px;
+  left: 0px;
 }
 
 .expand-collapse {
   background: transparent;
+}
+
+.leafnode {
+  margin-left: 0px;
+}
+
+.branchnode {
+  margin-left: 8px;
+}
+
+.lux-tree label {
+  hyphens: auto;
 }
 </style>
 

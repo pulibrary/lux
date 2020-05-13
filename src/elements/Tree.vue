@@ -1,6 +1,6 @@
 <template>
   <ul class="lux-tree">
-    <tree-item :id="collection.id" :json-data="collection"> </tree-item>
+    <tree-item :id="collection.id" :json-data="collection" :selected="selected"> </tree-item>
   </ul>
 </template>
 
@@ -22,6 +22,9 @@ export default {
     id: {
       default: "",
     },
+    selected: {
+      default: null,
+    },
     jsonData: {
       required: true,
     },
@@ -37,15 +40,27 @@ export default {
       tree: state => store.state.tree,
     }),
   },
+  beforeMount: function() {
+    if (this.selected) {
+      // if props are passed in select the appropriate node
+      store.commit("SELECT", this.selected)
+    }
+  },
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.lux-tree.lux-button.icon.small {
+  padding: 0px;
+}
+</style>
 
 <docs>
   ```jsx
   <div>
-    <tree :json-data='{
+    <tree
+    selected="C0614_c00002"
+    :json-data='{
       "id": "C0614",
       "level": "collection",
       "component_level": null,
