@@ -31,9 +31,9 @@
         >
           <lux-icon-end-node></lux-icon-end-node>
         </lux-icon-base>
-        <label for="[{ collection.title[0] }]">
+        <div>
           {{ collection.title[0] }}
-        </label>
+        </div>
       </div>
     </div>
     <ul v-show="isOpen && hasChildren">
@@ -111,14 +111,13 @@ export default {
 ul.lux-tree li {
   list-style-type: none;
   font-family: sans-serif;
-  margin: 8px 0px 8px 0px;
+  margin: 0px;
 }
 
 ul.lux-tree li div.item-label {
   background: $color-grayscale-warm;
   width: 100%;
-  display: block;
-  padding: 0.5em 0.5em 0.5em 0;
+  padding: 0.5em 0.5em 0.5em 1em;
 }
 
 ul.lux-tree li div.item-label.selected {
@@ -127,34 +126,33 @@ ul.lux-tree li div.item-label.selected {
 
 ul.lux-tree .container {
   display: flex;
+  margin: 4px;
 }
 
 ul.lux-tree .item {
-  background: $color-grayscale-warm;
-  width: 36px; /* A fixed width as the default */
   flex: 1 auto;
-  position: relative;
-  max-height: 36px;
-  max-width: 36px;
+  margin-right: 4px;
 }
 
 .lux-tree .item .lux-button {
-  position: absolute;
-  top: -2px;
-  left: -7px;
-  max-width: 36px;
-  max-height: 36px;
+  // position: absolute;
+  // top: -2px;
+  // left: -7px;
+  background: $color-grayscale-warm;
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  margin: 0;
 }
 
 ul.lux-tree .item-label {
   flex-grow: 1; /* Set the middle element to grow and stretch */
-  position: relative;
+  min-height: 36px;
 }
 
 .lux-tree .item-label .lux-icon {
-  position: absolute;
-  top: 4px;
-  left: 0px;
+  align-self: start;
+  height: 16px;
 }
 
 .expand-collapse {
@@ -162,19 +160,23 @@ ul.lux-tree .item-label {
 }
 
 .leafnode {
+  display: flex;
+  align-items: center;
   margin-left: 0px;
-  label {
-    hyphens: auto;
-    padding-left: 2em;
-  }
+  hyphens: auto;
+  padding-left: 2em;
 }
 
 .branchnode {
-  margin-left: 8px;
-  label {
-    hyphens: auto;
-    padding-left: 1em;
-  }
+  hyphens: auto;
+  padding-left: 1em;
+}
+
+.lux-expanded {
+  width: initial;
+}
+.lux-tree .lux-button.icon.small {
+  padding: 4px;
 }
 </style>
 
