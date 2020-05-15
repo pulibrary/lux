@@ -8,7 +8,7 @@
 import store from "../store"
 import { mapState, mapGetters } from "vuex"
 /**
- * Trees are the wrapper of TreeItems.
+ * Trees are used to display and navigate hierarchical data.
  */
 export default {
   name: "Tree",
