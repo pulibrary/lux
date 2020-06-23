@@ -1,7 +1,7 @@
 describe("Integration test with visual testing", function() {
   it("Loads the homepage", function() {
     // Load the page or perform any other interactions with the app.
-    cy.visit("http://localhost:6060/#/Elements/Alert")
+    cy.visit("http://localhost:6060/#/Patterns/DropdownMenu")
 
     // Inject axe
     cy.injectAxe()
@@ -10,6 +10,6 @@ describe("Integration test with visual testing", function() {
     })
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot()
+    // cy.percySnapshot()
   })
 })
