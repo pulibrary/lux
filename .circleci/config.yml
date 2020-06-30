@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/lux
     docker:
-      - image: circleci/node:10.16.0-browsers
+      - image: circleci/node:10.18.1-browsers
     steps:
       - checkout
       # Log the current branch
