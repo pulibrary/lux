@@ -39,6 +39,7 @@
     <ul v-show="isOpen && hasChildren">
       <tree-item
         v-for="(component, index) in collection.components"
+        :key="component.id"
         :json-data="component"
         :id="component.id"
       ></tree-item>
