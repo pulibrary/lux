@@ -120,13 +120,13 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class=""
       >
         <span>
-          <hyperlink
+          <hyperlink-stub
             href="https://example.com"
           >
             
             foo
           
-          </hyperlink>
+          </hyperlink-stub>
         </span>
       </td>
       <td
