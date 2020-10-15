@@ -9,7 +9,7 @@
             class="lux-announcement__close"
             data-dismiss="alert"
             aria-label="Close"
-            @click="hideAlert()"
+            @click="hideBanner()"
           >
             <span aria-hidden="true">×</span>
           </button>

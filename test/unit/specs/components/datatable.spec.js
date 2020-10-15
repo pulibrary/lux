@@ -16,6 +16,7 @@ describe("DataTable.vue", () => {
         "lux-icon-unsorted",
         "lux-icon-ascending",
         "lux-icon-descending",
+        "hyperlink",
       ],
       propsData: {
         caption: "This is a caption.",

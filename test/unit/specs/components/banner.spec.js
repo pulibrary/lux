@@ -13,10 +13,7 @@ describe("Banner.vue", () => {
       slots: {
         default: "Here's some info for you.",
       },
-      // if props are set here, buttons aren't rendered
-      // props: {
-      //   dismissible: true,
-      // }
+      stubs: ["wrapper"],
     })
   })
 
