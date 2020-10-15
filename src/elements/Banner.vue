@@ -2,7 +2,7 @@
   <transition name="fade">
     <div v-if="show" :class="['lux-banner', { 'lux-banner-fullscreen': isFullScreen }]">
       <div class="lux-announcement open">
-        <wrapper fullWidth="true">
+        <wrapper maxWidth="1125">
           <button
             v-if="dismissible"
             type="button"
@@ -90,11 +90,6 @@ export default {
 .lux-banner {
   @include reset;
   font-family: $font-family-text;
-  // padding: 0.75rem 1.25rem;
-  // margin-bottom: 1rem;
-  // border: 1px solid transparent;
-  // border-radius: 0.25rem;
-  // position: relative;
 }
 
 .lux-banner-dismissible > span {
@@ -110,16 +105,6 @@ export default {
   color: inherit;
 }
 
-.lux-close {
-  float: right;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: 0.5;
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -133,7 +118,7 @@ export default {
   position: relative;
   background: #1da3ff;
   color: white;
-  padding: 0.5rem;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
   transition: 0.2s;
   z-index: 1;
 
@@ -157,7 +142,7 @@ export default {
   &__close {
     position: absolute;
     right: 15px;
-    top: 15px;
+    top: 5px;
     font-size: 18px;
     width: 25px;
     height: 25px;

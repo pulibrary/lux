@@ -9,7 +9,7 @@ exports[`Banner.vue has the expected html structure 1`] = `
     class="lux-announcement open"
   >
     <wrapper-stub
-      fullwidth="true"
+      maxwidth="1125"
     >
       <!---->
        Here's some info for you.
