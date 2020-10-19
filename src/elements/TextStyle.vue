@@ -5,7 +5,7 @@
     :style="[data.style, data.staticStyle]"
     v-bind="data.attrs"
     v-on="listeners"
-    >
+  >
     <slot />
   </component>
 </template>
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // Design Tokens with local scope
 $positive-text: #7cb518;
 
