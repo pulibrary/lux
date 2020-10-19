@@ -9,9 +9,12 @@ import store from "@/store/index"
 
 // Vue Design System: Auto importing components globally
 import DesignSystem from "@/system"
+import VueCookies from "vue-cookies"
 
 Vue.use(DesignSystem)
 Vue.use(Meta)
+
+Vue.use(VueCookies)
 
 Vue.config.productionTip = false
 Vue.config.devtools = true
