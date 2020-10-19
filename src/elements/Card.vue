@@ -145,12 +145,6 @@ export default {
   .lux-media-image {
     pointer-events: none;
   }
-
-  /deep/ .lux-tag-item {
-    border-radius: $border-radius-pill;
-    font-weight: 400;
-    color: red;
-  }
 }
 
 .full-width {
