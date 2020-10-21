@@ -5,7 +5,7 @@
         :is="componentType(item)"
         :key="index"
         :href="item.href"
-        :class="['lux-tag-item', size, item.color]"
+        :class="['lux-tag-item', size, item.color, { pill: isPill(item.style) }]"
       >
         <span v-if="item.icon" class="prepend-icon">
           <lux-icon-base width="14" height="14">
@@ -88,6 +88,9 @@ export default {
     },
   },
   methods: {
+    isPill(pill) {
+      return pill === "pill" ? true : false
+    },
     componentType(item) {
       if (item.hasOwnProperty("href")) {
         return "a"
@@ -201,6 +204,11 @@ export default {
     border-color: transparent;
   }
 
+  .lux-tag-item.pill {
+    border-radius: $border-radius-pill;
+    font-weight: 400;
+  }
+
   a:hover.blue,
   a:focus.blue {
     color: darken($color-bleu-de-france-dark, 25%);
@@ -250,7 +258,7 @@ export default {
   ```jsx
   <div>
     <tag type="tag" :tag-items="[
-      {name: 'Cats', href: '/tags/cats', color: 'red', icon: 'denied'},
+      {name: 'Cats', href: '/tags/cats', color: 'red', icon: 'denied', style: 'pill'},
       {name: 'Cats', href: '/tags/cats', color: 'yellow', icon: 'alert'},
       {name: 'Cats', href: '/tags/cats', color: 'green', icon: 'approved'},
       {name: 'Cats', href: '/tags/cats', color: 'blue'},

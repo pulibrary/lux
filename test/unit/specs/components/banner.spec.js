@@ -37,7 +37,7 @@ describe("Banner.vue", () => {
   })
 
   it("should hide banner when hideBanner() is called", () => {
-    expect(wrapper.vm.show).toBe(true)
+    wrapper.vm.show = true
     wrapper.vm.hideBanner()
     expect(wrapper.vm.show).toBe(false)
   })

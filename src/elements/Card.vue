@@ -1,5 +1,6 @@
 <template functional>
-  <article :id="props.id"
+  <article
+    :id="props.id"
     class="lux-card"
     :class="[
       props.size,
@@ -7,12 +8,13 @@
       { 'lux-card-edited': props.edited },
       { 'lux-card-disabled': props.disabled },
       data.class,
-      data.staticClass
+      data.staticClass,
     ]"
-    v-bind:style="{'max-width': props.cardPixelWidth + 'px' }"
+    v-bind:style="{ 'max-width': props.cardPixelWidth + 'px' }"
     :ref="data.ref"
     v-bind="data.attrs"
-    v-on="listeners">
+    v-on="listeners"
+  >
     <slot />
   </article>
 </template>
@@ -130,24 +132,18 @@ export default {
     width: 400px;
   }
 
-  .lux-heading,
-  .lux-text-style.default {
+  .lux-text-style {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .lux-heading {
     padding: 0 1rem;
   }
 
   .lux-heading,
-  .lux-text-style.default,
+  .lux-text-style,
   .lux-media-image {
     pointer-events: none;
-  }
-
-  .lux-text-style.default {
-    padding-bottom: 1rem;
-  }
-
-  /deep/ .lux-tag-item {
-    border-radius: $border-radius-pill;
-    font-weight: 400;
   }
 }
 
@@ -164,6 +160,11 @@ export default {
   .lux-card-media + .lux-card-content,
   .lux-card-content:only-child {
     flex: 1;
+  }
+
+  .lux-heading,
+  .lux-text-style {
+    padding: 0;
   }
 
   /deep/ .lux-card-content {
@@ -237,7 +238,7 @@ export default {
       </card-header>
       <card-content>
         <tag type="tag" :tag-items="[
-          {name: 'Pending', color: 'yellow'}
+          {name: 'Pending', color: 'yellow', style: 'pill'}
           ]"
           horizontal="end"
           size="small"/>

@@ -1,26 +1,26 @@
 <template>
-  <transition name="fade">
-    <div v-if="show" :class="['lux-banner', { 'lux-banner-fullscreen': isFullScreen }]">
-      <div class="lux-announcement open">
-        <wrapper maxWidth="1125">
-          <button
-            v-if="dismissible"
-            type="button"
-            class="lux-announcement__close"
-            data-dismiss="alert"
-            aria-label="Close"
-            @click="hideBanner()"
-          >
-            <span aria-hidden="true">×</span>
-          </button>
-          <slot>{{ bannerMessage }}</slot>
-        </wrapper>
-      </div>
+  <div v-if="show" :class="['lux-banner', { 'lux-banner-fullscreen': isFullScreen }]">
+    <div class="lux-announcement open">
+      <wrapper maxWidth="1125">
+        <button
+          v-if="dismissible"
+          type="button"
+          class="lux-announcement__close"
+          data-dismiss="alert"
+          aria-label="Close"
+          @click="hideBanner()"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+        <slot>{{ bannerMessage }}</slot>
+      </wrapper>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
+import VueCookies from "vue-cookies"
+
 /**
  * Banners are used to provide timely, general information to users of a website or app.
  */
@@ -65,13 +65,13 @@ export default {
   methods: {
     hideBanner() {
       this.show = false
+      VueCookies.set("showBanner", false)
     },
   },
-  mounted() {
-    if (this.autoclear) {
-      setTimeout(() => {
-        this.show = false
-      }, 2000)
+  created: function() {
+    console.log(VueCookies.isKey("showBanner"))
+    if (VueCookies.isKey("showBanner")) {
+      this.show = VueCookies.get("showBanner") === "true"
     }
   },
 }
@@ -103,15 +103,6 @@ export default {
   right: -5px;
   padding: 0.75rem 1.25rem;
   color: inherit;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 
 .lux-announcement {
