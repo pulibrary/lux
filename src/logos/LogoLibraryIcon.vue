@@ -8,7 +8,6 @@
     aria-labelledby="logo-library"
     role="presentation"
   >
-    <title id="logo-library">Princeton University Library Logo</title>
 
     <g>
       <path

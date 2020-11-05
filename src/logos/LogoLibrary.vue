@@ -8,7 +8,6 @@
     aria-labelledby="logo-library"
     role="presentation"
   >
-    <title id="logo-library">Princeton University Library Logo</title>
     <g>
       <clipPath id="clip-path"><path d="M3 .91h90v90H3z" fill="none" /></clipPath>
       <rect width="96" height="97" rx="12.24" ry="12.24" fill="#ef7622" />
