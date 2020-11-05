@@ -4,6 +4,7 @@
       <logo-library width="155px" height="34px" v-if="theme === 'dark'" class="full-logo" />
       <logo-library width="155px" height="34px" v-else color="#000" class="full-logo" />
       <logo-library-icon width="34px" height="34px" class="icon-only" />
+      <title id="logo-library">Princeton University Library Logo</title>
     </a>
   </component>
 </template>
