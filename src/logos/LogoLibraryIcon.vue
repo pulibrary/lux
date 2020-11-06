@@ -6,7 +6,7 @@
     viewBox="0 0 96 97"
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-library-icon"
-    role="presentation"
+    role="img"
   >
     <title id="logo-library-icon">Princeton University Library Icon</title>
     <g>
