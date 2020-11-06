@@ -6,7 +6,7 @@
     viewBox="0 0 115.7 31.1"
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-friends"
-    role="presentation"
+    role="img"
   >
     <title id="logo-friends" lang="en">Friends of Princeton University Library</title>
     <g>

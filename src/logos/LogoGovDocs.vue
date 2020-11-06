@@ -6,7 +6,7 @@
     viewBox="0 0 32 32"
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-gov-docs"
-    role="presentation"
+    role="img"
   >
     <title id="logo-gov-docs" lang="en">Government Docs Logo</title>
     <g>

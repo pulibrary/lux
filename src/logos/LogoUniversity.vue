@@ -5,7 +5,7 @@
     :height="height"
     viewBox="0 0 263 71.84"
     aria-labelledby="logo-university"
-    role="presentation"
+    role="img"
   >
     <title id="logo-university" lang="en">Princeton University Logo</title>
     <g>
