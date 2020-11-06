@@ -6,7 +6,7 @@
     viewBox="0 0 24 24"
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-twitter"
-    role="presentation"
+    role="img"
   >
     <title id="logo-twitter" lang="en">Twitter Logo</title>
     <g>

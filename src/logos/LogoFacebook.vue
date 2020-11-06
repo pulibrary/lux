@@ -6,9 +6,9 @@
     viewBox="0 0 24 24"
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-facebook"
-    role="presentation"
+    role="img"
   >
-    <title id="logo - facebook" lang="en">Facebook Logo</title>
+    <title id="logo-facebook" lang="en">Facebook Logo</title>
     <g>
       <path
         d="M18.768 7.465H14.5V5.56c0-.896.594-1.105 1.012-1.105H18.5V.513L14.171.5C10.244.5 9.5 3.438 9.5 5.32v2.144h-3v4h3v12h5v-12h3.851l.417-3.999z"
