@@ -5,10 +5,10 @@
     :height="height"
     viewBox="0 0 96 97"
     preserveAspectRatio="xMinYMid"
-    aria-labelledby="logo-library"
+    aria-labelledby="logo-library-icon"
     role="img"
   >
-    <title id="logo-library">Princeton University Library Logo</title>
+    <title id="logo-library-icon">Princeton University Library Logo</title>
 
     <g>
       <path
