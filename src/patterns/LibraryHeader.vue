@@ -1,7 +1,7 @@
 <template>
   <component :is="type" :class="['lux-library-header', theme]">
     <wrapper class="lux-header-content" :maxWidth="maxWidth">
-      <library-logo :theme="theme"></library-logo>
+      <library-logo :theme="value(theme)"></library-logo>
       <a class="lux-app-name" :href="appUrl" :title="appName" aria-labelledby="appName">
         <span id="appName" class="full-name">{{ appName }}</span>
         <span class="abbr-name">{{ abbrName }}</span>
@@ -60,11 +60,16 @@ export default {
       default: 1170,
     },
     /**
-     * Whether the header is dark or light. Default is set to dark.
+     * Whether the header is dark, shade, or light. Default is set to dark.
      */
     theme: {
       type: String,
       default: "dark",
+    },
+  },
+  methods: {
+    value: function(theme) {
+      return theme == "light" ? "light" : "dark"
     },
   },
 }
@@ -121,6 +126,36 @@ export default {
   }
 
   &.dark {
+    background: $color-rich-black;
+
+    @media #{$media-query-medium-max} {
+      /deep/ .lux-main-menu a {
+        color: $color-rich-black;
+      }
+    }
+
+    @media #{$media-query-large} {
+      /deep/ .lux-main-menu a,
+      /deep/ .lux-main-menu button {
+        color: $color-white;
+
+        &:hover,
+        &:focus {
+          color: $color-white;
+        }
+      }
+    }
+
+    /deep/ .lux-main-menu .lux-submenu-toggle {
+      background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjkyLjQgMjkyLjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5Mi40IDI5Mi40OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yODcsNjkuNGMtMy40LTMuNS04LjEtNS41LTEzLTUuNEgxOC40Yy01LDAtOS4zLDEuOC0xMi45LDUuNEMyLDcyLjcsMCw3Ny40LDAsODIuMmMwLDUsMS44LDkuMyw1LjQsMTIuOQoJbDEyOCwxMjcuOWMzLjYsMy42LDcuOCw1LjQsMTIuOCw1LjRzOS4yLTEuOCwxMi44LTUuNEwyODcsOTVjMy41LTMuNSw1LjQtNy44LDUuNC0xMi44cy0xLjktOS4yLTUuNS0xMi44TDI4Nyw2OS40eiIvPgo8L3N2Zz4K");
+
+      @media #{$media-query-large} {
+        color: white;
+      }
+    }
+  }
+
+  &.shade {
     background: $color-grayscale-darker;
 
     @media #{$media-query-medium-max} {
