@@ -1,6 +1,6 @@
 <template>
   <div v-if="show" :class="['lux-banner', { 'lux-banner-fullscreen': isFullScreen }]">
-    <div class="lux-announcement open">
+    <div class="lux-announcement open" role="alert">
       <wrapper maxWidth="1125">
         <button
           v-if="dismissible"
@@ -69,7 +69,6 @@ export default {
     },
   },
   created: function() {
-    console.log(VueCookies.isKey("showBanner"))
     if (VueCookies.isKey("showBanner")) {
       this.show = VueCookies.get("showBanner") === "true"
     }
