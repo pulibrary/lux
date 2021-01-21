@@ -7820,6 +7820,7 @@ var system = (function(t) {
     var r = n("WXGF")
     n.n(r).a
   },
+  AzCp: function(t, e, n) {},
   "B+5f": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -8788,8 +8789,7 @@ var system = (function(t) {
           },
         },
         created: function() {
-          console.log(i.a.isKey("showBanner")),
-            i.a.isKey("showBanner") && (this.show = "true" === i.a.get("showBanner"))
+          i.a.isKey("showBanner") && (this.show = "true" === i.a.get("showBanner"))
         },
       },
       o = (n("SL3b"), n("KHd+")),
@@ -8805,7 +8805,7 @@ var system = (function(t) {
             ? n("div", { class: ["lux-banner", { "lux-banner-fullscreen": t.isFullScreen }] }, [
                 n(
                   "div",
-                  { staticClass: "lux-announcement open" },
+                  { staticClass: "lux-announcement open", attrs: { role: "alert" } },
                   [
                     n(
                       "wrapper",
@@ -13807,8 +13807,13 @@ var system = (function(t) {
           maxWidth: { type: Number, default: 1170 },
           theme: { type: String, default: "dark" },
         },
+        methods: {
+          value: function(t) {
+            return "light" == t ? "light" : "dark"
+          },
+        },
       },
-      i = (n("qcvR"), n("KHd+")),
+      i = (n("bjrT"), n("KHd+")),
       a = n("s5+B"),
       o = n.n(a),
       s = Object(i.a)(
@@ -13825,7 +13830,7 @@ var system = (function(t) {
                 "wrapper",
                 { staticClass: "lux-header-content", attrs: { maxWidth: t.maxWidth } },
                 [
-                  n("library-logo", { attrs: { theme: t.theme } }),
+                  n("library-logo", { attrs: { theme: t.value(t.theme) } }),
                   t._v(" "),
                   n(
                     "a",
@@ -13855,7 +13860,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "01186518",
+        "55812d38",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -16855,6 +16860,11 @@ var system = (function(t) {
     "function" == typeof d.a && d()(p)
     e.default = p.exports
   },
+  bjrT: function(t, e, n) {
+    "use strict"
+    var r = n("AzCp")
+    n.n(r).a
+  },
   bzL3: function(t, e, n) {
     var r = {
       "./deprecated.svg": "/thn",
@@ -17028,7 +17038,6 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
-  dUti: function(t, e, n) {},
   daU6: function(t, e) {},
   e7Eb: function(t, e) {},
   eAtJ: function(t, e) {
@@ -24024,11 +24033,6 @@ var system = (function(t) {
     e.default = s.exports
   },
   qKJg: function(t, e) {},
-  qcvR: function(t, e, n) {
-    "use strict"
-    var r = n("dUti")
-    n.n(r).a
-  },
   qwBE: function(t, e, n) {
     "use strict"
     n.r(e)
