@@ -14,6 +14,9 @@
         @keydown.esc="onEscape"
         @keydown.tab="onEscape"
         :required="required"
+        v-focus="focused"
+        @focus="focused = true"
+        @blur="focused = false"
       />
       <ul v-show="isOpen" class="lux-autocomplete-results">
         <li class="loading" v-if="isLoading">Loading results...</li>
@@ -34,6 +37,7 @@
 </template>
 
 <script>
+import { mixin as focusMixin } from "vue-focus"
 /**
  * InputAutocomplete is a cross between a text input and select input.
  * This component is used to offer users suggested values that
@@ -46,6 +50,7 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
+  mixins: [focusMixin],
   props: {
     /**
      * The available items in the autocomplete. This can be a simple array of strings
@@ -111,6 +116,14 @@ export default {
      * `true, false`
      */
     required: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Whether the input is focused or not
+     * `true, false`
+     */
+    focused: {
       type: Boolean,
       default: false,
     },
