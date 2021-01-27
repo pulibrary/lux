@@ -17,12 +17,13 @@
         :type="type"
         :maxlength="maxlength"
         :hover="hover"
-        :focus="focus"
         :placeholder="placeholder"
         :errormessage="errormessage"
         :class="['lux-input', { 'lux-input-error': hasError }]"
         v-on:input="$emit('input', $event.target.value)"
         @blur="inputblur($event)"
+        v-focus="focused"
+        @focus="focused = true"
       />
 
       <textarea
@@ -36,7 +37,8 @@
         :rows="rows"
         :maxlength="maxlength"
         :hover="hover"
-        :focus="focus"
+        v-focus="focused"
+        @focus="focused = true"
         :value="value"
         :placeholder="placeholder"
         :errormessage="errormessage"
@@ -64,6 +66,7 @@
 </template>
 
 <script>
+import { mixin as focusMixin } from "vue-focus"
 /**
  * Form Inputs are used to allow users to provide text input when the expected
  * input is short. Form Input has a range of options and supports several text
@@ -74,6 +77,7 @@ export default {
   status: "ready",
   release: "1.0.0",
   type: "Element",
+  mixins: [focusMixin],
   computed: {
     hasError() {
       return this.errormessage.length
@@ -231,7 +235,7 @@ export default {
      * Manually trigger input field’s focus state.
      * `true, false`
      */
-    focus: {
+    focused: {
       type: Boolean,
       default: false,
     },
@@ -247,6 +251,7 @@ export default {
   methods: {
     inputblur(value) {
       this.$emit("inputblur", value)
+      this.focused = false
     },
   },
 }
@@ -415,7 +420,7 @@ $color-placeholder: tint($color-grayscale, 50%);
     <input-text id="foo" name="value" label="Input" :hide-label="true" placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="small"></input-text>
 
     <input-text id="bar" name="value" label=":hover" hover placeholder="Write your text"></input-text>
-    <input-text id="fee" name="value" label=":focus" focus placeholder="Write your text"></input-text>
+    <input-text id="fee" name="value" label=":focus" focused placeholder="Write your text"></input-text>
     <input-text id="foe" name="value" label="[disabled]" disabled placeholder="Disabled input"></input-text>
     <input-text id="foe" name="value" label="Textarea" type="textarea"></input-text>
 
