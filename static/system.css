@@ -2989,7 +2989,7 @@ button.lux-close {
   background: #c5c8ce;
   color: #001123;
 }
-.lux-button[data-v-b7851b04] {
+.lux-button[data-v-4819e799] {
   padding: 9px 16px;
   font-family: franklin-gothic-urw, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -3005,55 +3005,55 @@ button.lux-close {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-.lux-button[data-v-b7851b04]:active {
+.lux-button[data-v-4819e799]:active {
   transform: scale(0.99);
 }
-.lux-button.icon-prepend[data-v-b7851b04],
-.lux-button.icon[data-v-b7851b04] {
+.lux-button.icon-prepend[data-v-4819e799],
+.lux-button.icon[data-v-4819e799] {
   padding: 4px;
 }
-.lux-button.icon-prepend.small[data-v-b7851b04],
-.lux-button.icon.small[data-v-b7851b04] {
+.lux-button.icon-prepend.small[data-v-4819e799],
+.lux-button.icon.small[data-v-4819e799] {
   padding: 4px 7px;
   font-size: 14px;
 }
-.lux-button.icon-prepend.medium[data-v-b7851b04],
-.lux-button.icon.medium[data-v-b7851b04] {
+.lux-button.icon-prepend.medium[data-v-4819e799],
+.lux-button.icon.medium[data-v-4819e799] {
   padding: 7px 12px;
   font-size: 16px;
 }
-.lux-button.icon-prepend.large[data-v-b7851b04],
-.lux-button.icon.large[data-v-b7851b04] {
+.lux-button.icon-prepend.large[data-v-4819e799],
+.lux-button.icon.large[data-v-4819e799] {
   padding: 11px 18px;
   font-size: 24px;
 }
-.lux-button.icon-prepend[data-v-b7851b04],
-.lux-button.icon[data-v-b7851b04] {
+.lux-button.icon-prepend[data-v-4819e799],
+.lux-button.icon[data-v-4819e799] {
   display: flex;
   align-items: center;
 }
-.lux-button.solid[data-v-b7851b04] {
+.lux-button.solid[data-v-4819e799] {
   background: #2c6eaf;
   color: #fff;
 }
-.lux-button.solid[data-v-b7851b04]:focus,
-.lux-button.solid[data-v-b7851b04]:hover {
+.lux-button.solid[data-v-4819e799]:focus,
+.lux-button.solid[data-v-4819e799]:hover {
   background: #23578b;
 }
-.lux-button.outline[data-v-b7851b04] {
+.lux-button.outline[data-v-4819e799] {
   background: transparent;
   color: #2c6eaf;
   border: 2px solid #2c6eaf;
 }
-.lux-button.outline[data-v-b7851b04]:focus,
-.lux-button.outline[data-v-b7851b04]:hover {
+.lux-button.outline[data-v-4819e799]:focus,
+.lux-button.outline[data-v-4819e799]:hover {
   color: #23578b;
   border-color: #23578b;
 }
-.lux-button.text[data-v-b7851b04] {
+.lux-button.text[data-v-4819e799] {
   background-color: transparent;
 }
-.lux-button.dropdown[data-v-b7851b04] {
+.lux-button.dropdown[data-v-4819e799] {
   box-shadow: inset 0 1px 0 0 rgba(0, 17, 35, 0.07), 0 0 0 1px #cccfd3;
   background: #fff;
   border-radius: 3px;
@@ -3064,32 +3064,32 @@ button.lux-close {
   background-size: 0.65em auto, 100%;
   padding-right: 36px;
 }
-.lux-button.dropdown[data-v-b7851b04]:hover {
+.lux-button.dropdown[data-v-4819e799]:hover {
   box-shadow: 0 1px 5px 0 rgba(0, 17, 35, 0.07), 0 0 0 1px #99a0a7;
 }
-.small[data-v-b7851b04] {
+.small[data-v-4819e799] {
   padding: 7px 12px;
   font-size: 14px;
 }
-.medium[data-v-b7851b04] {
+.medium[data-v-4819e799] {
   padding: 9px 16px;
   font-size: 16px;
 }
-.large[data-v-b7851b04] {
+.large[data-v-4819e799] {
   padding: 11px 18px;
   font-size: 24px;
 }
-.lux-expanded[data-v-b7851b04] {
+.lux-expanded[data-v-4819e799] {
   display: block;
   width: 100%;
   max-width: 100%;
 }
-[disabled][data-v-b7851b04] {
+[disabled][data-v-4819e799] {
   background: #c5c8ce;
   cursor: not-allowed;
 }
-[disabled][data-v-b7851b04]:focus,
-[disabled][data-v-b7851b04]:hover {
+[disabled][data-v-4819e799]:focus,
+[disabled][data-v-4819e799]:hover {
   background: #c5c8ce;
 }
 fieldset[data-v-e556e8be] {
@@ -3485,7 +3485,7 @@ fieldset[data-v-57890a04] {
   font-size: 24px;
   padding: 11px 50px 11px 18px;
 }
-.lux-input[data-v-4d16608c] {
+.lux-input[data-v-92311edc] {
   margin-bottom: 16px;
   font-weight: 400;
   font-family: franklin-gothic-urw, Helvetica, Arial, sans-serif;
@@ -3493,19 +3493,19 @@ fieldset[data-v-57890a04] {
   line-height: 1;
   width: auto;
 }
-.lux-input[data-v-4d16608c]:last-child {
+.lux-input[data-v-92311edc]:last-child {
   margin-bottom: 0;
 }
-.lux-input label[data-v-4d16608c] {
+.lux-input label[data-v-92311edc] {
   display: block;
   font-size: 16px;
   color: #33414f;
   margin-bottom: 8px;
 }
-.lux-input label[data-v-4d16608c]:last-child {
+.lux-input label[data-v-92311edc]:last-child {
   margin-bottom: 0;
 }
-.lux-input label.lux-hidden[data-v-4d16608c] {
+.lux-input label.lux-hidden[data-v-92311edc] {
   position: absolute !important;
   top: 0;
   clip: rect(1px, 1px, 1px, 1px) !important;
@@ -3515,7 +3515,7 @@ fieldset[data-v-57890a04] {
   padding: 0 !important;
   border: 0 !important;
 }
-.lux-input .lux-input-field[data-v-4d16608c] {
+.lux-input .lux-input-field[data-v-92311edc] {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -3525,11 +3525,11 @@ fieldset[data-v-57890a04] {
   display: flex;
   width: auto;
 }
-.lux-input .lux-input-field.lux-input-expand[data-v-4d16608c] {
+.lux-input .lux-input-field.lux-input-expand[data-v-92311edc] {
   width: 100%;
 }
-.lux-input .lux-input-field input[data-v-4d16608c],
-.lux-input .lux-input-field textarea[data-v-4d16608c] {
+.lux-input .lux-input-field input[data-v-92311edc],
+.lux-input .lux-input-field textarea[data-v-92311edc] {
   box-sizing: border-box;
   padding: 8px 16px 9px;
   transition: all 0.2s ease;
@@ -3544,80 +3544,80 @@ fieldset[data-v-57890a04] {
   border: 0;
   width: 100%;
 }
-.lux-input .lux-input-field input[data-v-4d16608c]::-webkit-input-placeholder,
-.lux-input .lux-input-field textarea[data-v-4d16608c]::-webkit-input-placeholder {
+.lux-input .lux-input-field input[data-v-92311edc]::-webkit-input-placeholder,
+.lux-input .lux-input-field textarea[data-v-92311edc]::-webkit-input-placeholder {
   -webkit-font-smoothing: antialiased;
   color: #caced3;
 }
-.lux-input .lux-input-field input[data-v-4d16608c]:-ms-input-placeholder,
-.lux-input .lux-input-field textarea[data-v-4d16608c]:-ms-input-placeholder {
+.lux-input .lux-input-field input[data-v-92311edc]:-ms-input-placeholder,
+.lux-input .lux-input-field textarea[data-v-92311edc]:-ms-input-placeholder {
   color: #caced3;
 }
-.lux-input .lux-input-field input[data-v-4d16608c]::-moz-placeholder,
-.lux-input .lux-input-field textarea[data-v-4d16608c]::-moz-placeholder {
+.lux-input .lux-input-field input[data-v-92311edc]::-moz-placeholder,
+.lux-input .lux-input-field textarea[data-v-92311edc]::-moz-placeholder {
   color: #caced3;
   -moz-osx-font-smoothing: grayscale;
   opacity: 1;
 }
-.lux-input .lux-input-field textarea[data-v-4d16608c] {
+.lux-input .lux-input-field textarea[data-v-92311edc] {
   resize: none;
 }
-.lux-input .lux-input-field[data-v-4d16608c]:hover,
-.lux-input .lux-input-field[hover][data-v-4d16608c] {
+.lux-input .lux-input-field[data-v-92311edc]:hover,
+.lux-input .lux-input-field[hover][data-v-92311edc] {
   box-shadow: 0 1px 5px 0 rgba(0, 17, 35, 0.07), 0 0 0 1px #99a0a7;
 }
-.lux-input .lux-input-field[data-v-4d16608c]:focus,
-.lux-input .lux-input-field[focus][data-v-4d16608c] {
+.lux-input .lux-input-field[data-v-92311edc]:focus,
+.lux-input .lux-input-field[focus][data-v-92311edc] {
   transition: box-shadow 0.2s ease;
   box-shadow: inset 0 0 0 1px #2c6eaf, 0 0 0 1px #2c6eaf;
   outline: 0;
 }
-.lux-input .lux-input-field.disabled[data-v-4d16608c],
-.lux-input .lux-input-field[disabled][data-v-4d16608c] {
+.lux-input .lux-input-field.disabled[data-v-92311edc],
+.lux-input .lux-input-field[disabled][data-v-92311edc] {
   box-shadow: inset 0 1px 0 0 rgba(0, 17, 35, 0.07), 0 0 0 1px #cccfd3;
   background: #fff;
   cursor: not-allowed;
   opacity: 0.5;
 }
-.lux-input .lux-input-field.disabled input[data-v-4d16608c],
-.lux-input .lux-input-field.disabled textarea[data-v-4d16608c],
-.lux-input .lux-input-field[disabled] input[data-v-4d16608c],
-.lux-input .lux-input-field[disabled] textarea[data-v-4d16608c] {
+.lux-input .lux-input-field.disabled input[data-v-92311edc],
+.lux-input .lux-input-field.disabled textarea[data-v-92311edc],
+.lux-input .lux-input-field[disabled] input[data-v-92311edc],
+.lux-input .lux-input-field[disabled] textarea[data-v-92311edc] {
   cursor: not-allowed;
 }
-.lux-input .small input[data-v-4d16608c],
-.lux-input .small textarea[data-v-4d16608c] {
+.lux-input .small input[data-v-92311edc],
+.lux-input .small textarea[data-v-92311edc] {
   padding: 7px 12px;
   font-size: 14px;
 }
-.lux-input .medium input[data-v-4d16608c],
-.lux-input .medium textarea[data-v-4d16608c] {
+.lux-input .medium input[data-v-92311edc],
+.lux-input .medium textarea[data-v-92311edc] {
   padding: 9px 16px;
   font-size: 16px;
 }
-.lux-input .large input[data-v-4d16608c],
-.lux-input .large textarea[data-v-4d16608c] {
+.lux-input .large input[data-v-92311edc],
+.lux-input .large textarea[data-v-92311edc] {
   padding: 11px 18px;
   font-size: 24px;
 }
-.lux-input .lux-error[data-v-4d16608c] {
+.lux-input .lux-error[data-v-92311edc] {
   margin-top: 8px;
   font-size: 14px;
   color: #c92813;
 }
-.lux-input .lux-input-error[data-v-4d16608c] {
+.lux-input .lux-input-error[data-v-92311edc] {
   border: 1px solid #c92813;
 }
-.lux-input .lux-helper[data-v-4d16608c] {
+.lux-input .lux-helper[data-v-92311edc] {
   margin-top: 8px;
   font-size: 14px;
   color: #6b7380;
   width: 100%;
 }
-.lux-has-icon input[data-v-4d16608c] {
+.lux-has-icon input[data-v-92311edc] {
   flex: 1;
 }
-.lux-has-icon .append-icon[data-v-4d16608c] {
+.lux-has-icon .append-icon[data-v-92311edc] {
   padding: 4px;
   background-color: #fff;
   border-top-right-radius: 3px;
