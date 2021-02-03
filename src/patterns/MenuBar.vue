@@ -97,6 +97,7 @@
                 :href="child.href"
                 :title="child.name"
                 :target="child.target"
+                :data-method="child.method"
                 class="lux-nav-item"
                 >{{ child.name }}</a
               >
@@ -152,7 +153,7 @@ export default {
       type: String,
     },
     /**
-     * Menu items are options to be displayed to the user.
+     * Menu items are options to be displayed to the user. To mimic a Rails link_to helper for an item, simply pass the HTTP method with a `method` property.
      */
     menuItems: {
       required: true,
@@ -321,7 +322,6 @@ $color-nav-link-active: $color-bleu-de-france;
   li {
     display: block;
   }
-
   .lux-menu-item {
     background: $color-white;
     border: 0;
@@ -556,7 +556,7 @@ $color-nav-link-active: $color-bleu-de-france;
       {name: 'External Site', component: 'External Site', href: 'http://princeton.edu', target: '_blank'},
       {name: 'Settings', component: 'Settings', href: '/example/'},
       {name: 'Logout', component: 'Logout', href: '/example/'}
-    ]}    
+    ]}
   ]"/>
   ```
 </docs>
