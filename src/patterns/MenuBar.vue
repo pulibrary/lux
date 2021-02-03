@@ -66,6 +66,7 @@
   >
     <button
       aria-haspopup="true"
+      aria-label="Main Menu"
       :aria-expanded="isVisible ? 'true' : 'false'"
       class="lux-main-menu-toggle"
       :class="{ 'is-active': isVisible }"
