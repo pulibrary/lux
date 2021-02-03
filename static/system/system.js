@@ -7552,6 +7552,7 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s)
     e.default = s.exports
   },
+  "8lGR": function(t, e, n) {},
   "9I8L": function(t, e) {},
   "9RVY": function(t, e, n) {},
   "9WUz": function(t, e, n) {
@@ -8893,6 +8894,11 @@ var system = (function(t) {
     }
   },
   G91T: function(t, e) {},
+  GStj: function(t, e, n) {
+    "use strict"
+    var r = n("8lGR")
+    n.n(r).a
+  },
   GqHY: function(t, e, n) {
     "use strict"
     var r = n("DhQ2")
@@ -14344,7 +14350,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("g7p+"), n("KHd+")),
+      i = (n("GStj"), n("KHd+")),
       a = n("+97c"),
       o = n.n(a),
       s = Object(i.a)(
@@ -14542,6 +14548,7 @@ var system = (function(t) {
                                             href: e.href,
                                             title: e.name,
                                             target: e.target,
+                                            "data-method": e.method,
                                           },
                                         },
                                         [t._v(t._s(e.name))]
@@ -14575,7 +14582,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "edc163ee",
+        "0ede2420",
         null
       )
     "function" == typeof o.a && o()(s)
@@ -15952,7 +15959,6 @@ var system = (function(t) {
     })
   },
   UAe1: function(t, e, n) {},
-  UKfa: function(t, e, n) {},
   VO2P: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -17305,11 +17311,6 @@ var system = (function(t) {
     e.default = s.exports
   },
   fmEb: function(t, e, n) {},
-  "g7p+": function(t, e, n) {
-    "use strict"
-    var r = n("UKfa")
-    n.n(r).a
-  },
   gEzz: function(t, e, n) {
     "use strict"
     n.r(e)
