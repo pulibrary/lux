@@ -109,7 +109,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
+          aria-label="id: 1, name: foo, email: foo@xxx.xxx, age: 42, birthday: May 5, 2000"
           id="1"
           name="id"
           type="checkbox"
@@ -170,7 +170,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
+          aria-label="id: 2, name: bar, email: bar@xxx.xxx, age: 23, birthday: April 5, 2000"
           id="2"
           name="id"
           type="checkbox"
@@ -229,7 +229,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
+          aria-label="id: 3, name: fez, email: fez@xxx.xxx, age: 34, birthday: January 5, 2000"
           id="3"
           name="id"
           type="checkbox"
@@ -288,7 +288,7 @@ exports[`DataTable.vue has the expected html structure 1`] = `
         class="lux-data-table-center"
       >
         <input
-          aria-label="[object Object], [object Object], [object Object], [object Object], [object Object]"
+          aria-label="id: 4, name: hey, email: hey@xxx.xxx, age: 4, birthday: March 5, 2000"
           id="4"
           name="id"
           type="checkbox"

@@ -46,7 +46,7 @@
             v-if="col.checkbox"
             :id="lineItem[col.name].value"
             type="checkbox"
-            :aria-label="Object.values(lineItem).join(', ')"
+            :aria-label="getAriaLabel(lineItem)"
             :name="col.name"
             :value="lineItem[col.name].value"
           />
@@ -89,8 +89,8 @@
  */
 export default {
   name: "DataTable",
-  status: "prototype",
-  release: "1.0.0",
+  status: "ready",
+  release: "3.1.4",
   type: "Element",
   data() {
     return {
@@ -182,6 +182,13 @@ export default {
     },
   },
   methods: {
+    getAriaLabel(lineItems) {
+      let lines = []
+      for (const [key, item] of Object.entries(lineItems)) {
+        lines.push(`${key}: ${item.value}`)
+      }
+      return lines.join(", ")
+    },
     iconLabel(value) {
       if (value === true) {
         return "ascending"
@@ -389,8 +396,6 @@ export default {
       border-radius: $border-radius-default;
       box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
         0 0 0 1px tint($color-rich-black, 80%);
-      left: 0;
-      top: 4px;
     }
 
     /* On mouse-over, add a grey background color */
@@ -414,8 +419,8 @@ export default {
 
       transform: rotate(-45deg);
 
-      left: 3px;
-      top: 7px;
+      left: 2px;
+      top: 3px;
     }
 
     /*Hide the checkmark by default*/
