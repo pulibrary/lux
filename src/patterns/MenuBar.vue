@@ -74,8 +74,8 @@
     >
       <hamburger></hamburger>
     </button>
-    <ul class="lux-main-menu-list" :class="{ 'lux-show': isVisible }">
-      <li
+    <div class="lux-main-menu-list" :class="{ 'lux-show': isVisible }">
+      <div
         role="presentation"
         v-for="(item, index) in menuItems"
         :key="index"
@@ -110,8 +110,8 @@
             {{ item.name }}
           </a>
         </template>
-      </li>
-    </ul>
+      </div>
+    </div>
   </nav>
 </template>
 
