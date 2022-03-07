@@ -202,7 +202,7 @@
     "webpack-merge-and-include-globally": "^2.1.7"
   },
   "engines": {
-    "node": ">= 10.16.0",
+    "node": ">= 12.22.1",
     "npm": ">= 3.0.0"
   },
   "browserslist": [
