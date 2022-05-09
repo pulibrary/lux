@@ -10,7 +10,12 @@ exports[`DatePicker.vue has the expected html structure 1`] = `
     data-v-1ad2436f=""
     tabindex="-1"
   >
-    <!---->
+    <transition-stub
+      data-v-1ad2436f=""
+      name="slide-fade"
+    >
+      <!---->
+    </transition-stub>
      
     <input-text-stub
       data-v-1ad2436f=""
