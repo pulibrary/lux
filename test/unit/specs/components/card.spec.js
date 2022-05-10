@@ -10,7 +10,9 @@ describe("Card.vue", () => {
   function buildWrapper(props) {
     return mount(Card, {
       localVue,
-      propsData: props,
+      context: {
+        props: props,
+      },
       stubs: ["lux-icon-base", "lux-icon-file"],
     })
   }
@@ -34,13 +36,13 @@ describe("Card.vue", () => {
   })
 
   it("should have the appropriate class when sized", () => {
-    const wrapper = buildWrapper({size: "full-width" })
+    const wrapper = buildWrapper({ size: "full-width" })
     const card = wrapper.find(".lux-card")
     expect(card.is(".full-width")).toBe(true)
   })
 
   it("has the expected html structure", () => {
-    const wrapper = buildWrapper({id: "MyCard"})
+    const wrapper = buildWrapper({ id: "MyCard" })
     expect(wrapper.element).toMatchSnapshot()
   })
 })

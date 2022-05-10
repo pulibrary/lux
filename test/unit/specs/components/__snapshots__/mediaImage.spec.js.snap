@@ -2,11 +2,7 @@
 
 exports[`MediaImage.vue has the expected html structure 1`] = `
 <div
-  alt="alt text"
-  class="lux-media-image lux-default-thumbnail"
-  cover="true"
-  height="medium"
-  src=""
+  class="lux-media-image medium lux-default-thumbnail"
 >
   <!---->
    

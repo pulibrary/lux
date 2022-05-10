@@ -55,7 +55,7 @@ import { setupCalendar, DatePicker } from "v-calendar"
 import "v-calendar/lib/v-calendar.min.css"
 
 export default {
-  name: "DatePicker",
+  name: "LuxDatePicker",
   status: "prototype",
   release: "1.0.0",
   type: "Element",
@@ -283,9 +283,9 @@ export default {
 <docs>
   ```jsx
   <div>
-    <date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]"  placeholder="01/10/2020" />
+    <lux-date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]"  placeholder="01/10/2020" />
 
-    <date-picker id="today" name="today" label="Today's Date" mode="single" :holidays="['2020-02-20','2020-02-21']" :defaultDate="new Date()" />
+    <lux-date-picker id="today" name="today" label="Today's Date" mode="single" :holidays="['2020-02-20','2020-02-21']" :defaultDate="new Date()" />
   </div>
   ```
 </docs>
