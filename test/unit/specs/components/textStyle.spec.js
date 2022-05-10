@@ -25,8 +25,10 @@ describe("TextStyle.vue", () => {
       slots: {
         default: "foo",
       },
-      propsData: {
-        type: "span",
+      context: {
+        props: {
+          type: "span",
+        },
       },
     })
     expect(wrapper2.find("p").exists()).toBe(false)

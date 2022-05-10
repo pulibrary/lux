@@ -1,14 +1,14 @@
 import { createLocalVue, mount } from "@vue/test-utils"
-import DatePicker from "@/elements/DatePicker.vue"
+import LuxDatePicker from "@/elements/LuxDatePicker.vue"
 
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
 
-describe("DatePicker.vue", () => {
+describe("LuxDatePicker.vue", () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(DatePicker, {
+    wrapper = mount(LuxDatePicker, {
       localVue,
       stubs: ["wrapper", "input-text"],
       propsData: {

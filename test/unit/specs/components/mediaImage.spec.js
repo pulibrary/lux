@@ -21,7 +21,9 @@ describe("MediaImage.vue", () => {
   function buildWrapper(props) {
     return mount(MediaImage, {
       localVue,
-      propsData: props,
+      context: {
+        props: props,
+      },
       stubs: ["lux-icon-base", "lux-icon-file"],
     })
   }
@@ -44,12 +46,14 @@ describe("MediaImage.vue", () => {
   it("displays image when src exists", () => {
     const wrapper2 = mount(MediaImage, {
       localVue,
-      propsData: {
-        src: "https://picsum.photos/400/300/?random",
-        height: "medium",
-        alt: "alt text",
-        cover: false,
-        contain: true,
+      context: {
+        props: {
+          src: "https://picsum.photos/400/300/?random",
+          height: "medium",
+          alt: "alt text",
+          cover: false,
+          contain: true,
+        },
       },
     })
     expect(wrapper2.find('[name="pul-icon-file"]').exists()).toBe(false)

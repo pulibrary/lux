@@ -13,9 +13,10 @@ describe("Heading.vue", () => {
       slots: {
         default: "Here's a heading.",
       },
-      propsData: props
-    }
-    )
+      context: {
+        props: props,
+      },
+    })
   }
 
   it("should render the appropriate level heading", () => {

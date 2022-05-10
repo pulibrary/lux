@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DatePicker.vue has the expected html structure 1`] = `
+exports[`LuxDatePicker.vue has the expected html structure 1`] = `
 <div
   class="lux-date-picker medium"
 >
