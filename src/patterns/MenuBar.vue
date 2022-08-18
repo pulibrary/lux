@@ -86,6 +86,7 @@
             aria-haspopup="true"
             :aria-expanded="activeItem ? 'true' : 'false'"
             class="lux-submenu-toggle"
+            :data-method="item.method"
             @click="setActiveItem(index)"
           >
             {{ item.name }}
@@ -106,7 +107,13 @@
           </ul>
         </template>
         <template v-else>
-          <a :key="index" :href="item.href" :title="item.name" class="lux-nav-item">
+          <a
+            :key="index"
+            :href="item.href"
+            :title="item.name"
+            :data-method="item.method"
+            class="lux-nav-item"
+          >
             {{ item.name }}
           </a>
         </template>
