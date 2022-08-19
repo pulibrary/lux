@@ -8981,7 +8981,6 @@ var system = (function(t) {
           (t.exports = new e.default({ el: ".lux", store: a.a }))
       }.call(this, n("3UD+")(t))
   },
-  HwwI: function(t, e, n) {},
   I7an: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -12406,7 +12405,7 @@ var system = (function(t) {
           },
         },
       },
-      i = (n("v21v"), n("KHd+")),
+      i = (n("pHap"), n("KHd+")),
       a = n("+97c"),
       o = n.n(a),
       s = Object(i.a)(
@@ -12577,6 +12576,7 @@ var system = (function(t) {
                                     attrs: {
                                       "aria-haspopup": "true",
                                       "aria-expanded": t.activeItem ? "true" : "false",
+                                      "data-method": e.method,
                                     },
                                     on: {
                                       click: function(e) {
@@ -12621,7 +12621,7 @@ var system = (function(t) {
                                   {
                                     key: r,
                                     staticClass: "lux-nav-item",
-                                    attrs: { href: e.href, title: e.name },
+                                    attrs: { href: e.href, title: e.name, "data-method": e.method },
                                   },
                                   [t._v("\n          " + t._s(e.name) + "\n        ")]
                                 ),
@@ -12639,7 +12639,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "b94021aa",
+        "4e32cc2f",
         null
       )
     "function" == typeof o.a && o()(s), (s.options.__file = "MenuBar.vue")
@@ -15320,6 +15320,7 @@ var system = (function(t) {
     var r = n("H3bh")
     n.n(r).a
   },
+  nlvQ: function(t, e, n) {},
   "o+Xd": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -20830,6 +20831,11 @@ var system = (function(t) {
   },
   p3Ql: function(t, e) {},
   "pCL/": function(t, e) {},
+  pHap: function(t, e, n) {
+    "use strict"
+    var r = n("nlvQ")
+    n.n(r).a
+  },
   "po+s": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -25615,11 +25621,6 @@ var system = (function(t) {
     e.default = s.exports
   },
   uvW8: function(t, e, n) {},
-  v21v: function(t, e, n) {
-    "use strict"
-    var r = n("HwwI")
-    n.n(r).a
-  },
   vB0O: function(t, e) {},
   vW6B: function(t, e, n) {
     "use strict"
