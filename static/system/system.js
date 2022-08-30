@@ -7704,7 +7704,8 @@ var system = (function(t) {
             },
             updateInput: function(t) {
               this.isValidFormat(t) &&
-                ((this.date = this.parseDate(t)), this.$emit("updateInput", t))
+                (0 === t.trim().length ? (this.date = null) : (this.date = this.parseDate(t)),
+                this.$emit("updateInput", t))
             },
             updateRangeInput: function(t) {
               if (t.includes(" - ")) {
@@ -7718,6 +7719,7 @@ var system = (function(t) {
               }
             },
             isValidFormat: function(t) {
+              if (0 === t.trim().length) return !0
               return /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(t)
             },
             inputblur: function(t) {
