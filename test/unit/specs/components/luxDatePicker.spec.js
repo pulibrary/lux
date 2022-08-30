@@ -24,11 +24,13 @@ describe("LuxDatePicker.vue", () => {
     expect(wrapper.vm.isValidFormat("foo")).toBe(false)
   })
 
-  it("should update the date value when a new date is input", () => {
+  it("should update the date value when a new date or a blank/null is input", () => {
     expect(wrapper.vm.date).toBe(null)
     wrapper.vm.updateInput("01/01/2019")
     const nd = new Date("2019-01-01")
     expect(wrapper.vm.date).toEqual(nd)
+    wrapper.vm.updateInput(" ")
+    expect(wrapper.vm.date).toBe(null)
   })
 
   it("should not update the date value when the input is an invalid date", () => {

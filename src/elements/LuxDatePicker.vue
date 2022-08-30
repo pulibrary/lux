@@ -226,7 +226,11 @@ export default {
     },
     updateInput(value) {
       if (this.isValidFormat(value)) {
-        this.date = this.parseDate(value)
+        if (value.trim().length === 0) {
+          this.date = null
+        } else {
+          this.date = this.parseDate(value)
+        }
         this.$emit("updateInput", value)
       }
     },
@@ -244,6 +248,9 @@ export default {
       }
     },
     isValidFormat(d) {
+      if (d.trim().length === 0) {
+        return true
+      }
       let date_regex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
       return date_regex.test(d)
     },
