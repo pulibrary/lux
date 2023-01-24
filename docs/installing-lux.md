@@ -211,6 +211,18 @@ you should see the icon of a mountain scene:
 </lux-icon-base>
 ```
 
+## How to install LUX in a Rails app that uses Vite, rather than webpacker
+
+The steps are largely the same.  Here are the main differences:
+
+1. Instead of installing `webpacker`, you will install the `vite_rails` gem.  [Documentation here](https://vite-ruby.netlify.app/guide/#installation-%F0%9F%92%BF).
+2. Instead of `javascript_pack_tag` and `stylesheet_pack_tag`, you can simply use `vite_javascript_tag`.
+3. Instead of `app/javascript/packs/application.js`, mount the Vue app in `app/javascript/entrypoints/application.js`.
+4. Vite compiles your javascript into an ecmascript module, and includes it through a tag like `<script src="file.js" type="module">`.  Scripts with `type="module"` are treated as deferred, meaning there can be quite some time between when the DOM is parsed and the LUX components actually start to display.  To avoid flashes of unstyled content (FOUC) in a vite applications, you can:
+    1. Set the CSS on the `<html>` element to `display:none`.
+    2. Add some javascript to `app/javascript/packs/application.js` to remove the `display:none` style.
+    3. Alternatively, you could mount the Vue app outside of vite.  Just be sure that your mount code is not included with `type="module"` or `defer`.
+
 ## How to install LUX in a Drupal app
 
 Coming soon ...
