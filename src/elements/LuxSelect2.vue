@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label class="typo__label">Tagging</label>
+    <label class="typo__label" :for="id">{{ inputLabel }}</label>
     <multiselect
       v-model="vals"
       tag-placeholder="Add this as new tag"
@@ -11,6 +11,7 @@
       :multiple="true"
       :taggable="true"
       @tag="addTag"
+      :id="id"
     ></multiselect>
     <pre class="language-json"><code>{{ value  }}</code></pre>
   </div>
@@ -34,6 +35,7 @@ export default {
     return {
       vals: this.value,
       opts: this.options,
+      id: this.inputId,
     }
   },
   props: {
@@ -52,6 +54,16 @@ export default {
       type: Array,
       default: null,
       required: false,
+    },
+    inputLabel: {
+      type: String,
+      default: null,
+      required: true,
+    },
+    inputId: {
+      type: String,
+      default: null,
+      required: true,
     },
   },
   methods: {
@@ -77,7 +89,8 @@ export default {
       { name: 'Vue.js', code: 'vu' },
       { name: 'Javascript', code: 'js' },
       { name: 'Open Source', code: 'os' },
-    ]" :value="[{ name: 'Javascript', code: 'js' }]"></lux-select2>
+    ]" :value="[{ name: 'Javascript', code: 'js' }]"
+    :id="Example" :inputLabel="Example tagging"></lux-select2>
   </div>
   ```
 </docs>
