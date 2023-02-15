@@ -1,8 +1,9 @@
 <template>
   <div>
-    <label class="typo__label" :for="id">{{ inputLabel }}</label>
+    <label v-if="inputLabel" :for="id">{{ inputLabel }}</label>
     <multiselect
       v-model="vals"
+      :id="id"
       tag-placeholder="Add this as new tag"
       placeholder="Search or add a tag"
       label="name"
@@ -11,9 +12,8 @@
       :multiple="true"
       :taggable="true"
       @tag="addTag"
-      :id="id"
     ></multiselect>
-    <pre class="language-json"><code>{{ value  }}</code></pre>
+    <pre class="language-json"><code>{{ vals  }}</code></pre>
   </div>
 </template>
 
@@ -35,7 +35,6 @@ export default {
     return {
       vals: this.value,
       opts: this.options,
-      id: this.inputId,
     }
   },
   props: {
@@ -55,12 +54,17 @@ export default {
       default: null,
       required: false,
     },
+    /**
+     * The label of the LuxSelect2 field.
+     */
     inputLabel: {
       type: String,
-      default: null,
-      required: true,
+      default: "",
     },
-    inputId: {
+    /**
+     * Unique identifier of the LuxSelect2 field.
+     */
+    id: {
       type: String,
       default: null,
       required: true,
@@ -85,12 +89,19 @@ export default {
 <docs>
   ```jsx
   <div>
-    <lux-select2 :options="[
-      { name: 'Vue.js', code: 'vu' },
-      { name: 'Javascript', code: 'js' },
-      { name: 'Open Source', code: 'os' },
-    ]" :value="[{ name: 'Javascript', code: 'js' }]"
-    :id="Example" :inputLabel="Example tagging"></lux-select2>
+    <lux-select2 
+      id="some_id"
+      inputLabel="Input label"
+      :options="[
+        { name: 'Vue.js', code: 'vu' },
+        { name: 'Javascript', code: 'js' },
+        { name: 'Open Source', code: 'os' },
+      ]" 
+      :value="[{ 
+        name: 'Javascript', 
+        code: 'js' 
+      }]"
+    ></lux-select2>
   </div>
   ```
 </docs>
