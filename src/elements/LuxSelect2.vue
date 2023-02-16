@@ -5,7 +5,7 @@
       v-model="vals"
       :id="id"
       tag-placeholder="Add this as new tag"
-      placeholder="Search or add a tag"
+      :placeholder="placeholder"
       label="name"
       track-by="code"
       :options="opts"
@@ -38,6 +38,11 @@ export default {
     }
   },
   props: {
+    placeholder: {
+      type: String,
+      default: "Search or add a tag",
+      required: false,
+    },
     /**
      * Set the selected options using an array of label/value pairs
      */
@@ -92,6 +97,7 @@ export default {
     <lux-select2 
       id="some_id"
       inputLabel="Input label"
+      placeholder="Search or add a thingummy"
       :options="[
         { name: 'Vue.js', code: 'vu' },
         { name: 'Javascript', code: 'js' },

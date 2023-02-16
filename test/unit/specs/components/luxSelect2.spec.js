@@ -18,7 +18,7 @@ describe("LuxSelect2.vue", () => {
           { name: "Javascript", code: "js" },
           { name: "Open Source", code: "os" },
         ],
-        value: [],
+        value: [{ name: "Javascript", code: "js" }],
       },
     })
   })
@@ -34,5 +34,48 @@ describe("LuxSelect2.vue", () => {
     wrapper.setProps({ inputLabel: "Multiple choice:" })
     expect(wrapper.find("label").attributes("for")).toBe("test_id")
     expect(wrapper.find("input").attributes("id")).toBe("test_id")
+  })
+
+  it("should have a list of options", () => {
+    const allOptions = wrapper.findAll("li")
+
+    expect(allOptions.at(0).text()).toBe("Vue.js")
+    expect(allOptions.at(1).text()).toBe("Javascript")
+    expect(allOptions.at(2).text()).toBe("Open Source")
+  })
+
+  it("should have selected options", () => {
+    const selected = wrapper.findAll(".multiselect__tag")
+    expect(selected.length).toBe(1)
+    expect(selected.at(0).text()).toBe("Javascript")
+  })
+
+  it("should have values associated with the names", () => {
+    const selected_hash = wrapper.find("code")
+    expect(selected_hash.text().includes('code": "js"')).toBe(true)
+  })
+
+  it("should have an optional placeholder with a default", () => {
+    var placeholder = wrapper.find("input").attributes("placeholder")
+
+    console.log(placeholder)
+    expect(placeholder).toBe("Search or add a tag")
+    wrapper.setProps({ placeholder: "Search or add an accessibility need" })
+    var placeholder = wrapper.find("input").attributes("placeholder")
+    expect(placeholder).toBe("Search or add an accessibility need")
+  })
+
+  it("should have an optional tag-placeholder with a default", () => {
+    var mySpan = wrapper.find('[span="data-select"]')
+
+    console.log(mySpan)
+
+    const textInput = wrapper.find("input")
+    console.log(wrapper)
+    console.log(textInput)
+    textInput.setValue("some value")
+    console.log(textInput)
+    // expect(wrapper.attributes()['data-select']).toBe('apple')
+    // expect(wrapper.find('span').attributes('data-select')).toBe('something')
   })
 })
