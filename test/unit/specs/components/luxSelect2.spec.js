@@ -58,24 +58,9 @@ describe("LuxSelect2.vue", () => {
   it("should have an optional placeholder with a default", () => {
     var placeholder = wrapper.find("input").attributes("placeholder")
 
-    console.log(placeholder)
     expect(placeholder).toBe("Search or add a tag")
     wrapper.setProps({ placeholder: "Search or add an accessibility need" })
     var placeholder = wrapper.find("input").attributes("placeholder")
     expect(placeholder).toBe("Search or add an accessibility need")
-  })
-
-  it("should have an optional tag-placeholder with a default", () => {
-    var mySpan = wrapper.find('[span="data-select"]')
-
-    console.log(mySpan)
-
-    const textInput = wrapper.find("input")
-    console.log(wrapper)
-    console.log(textInput)
-    textInput.setValue("some value")
-    console.log(textInput)
-    // expect(wrapper.attributes()['data-select']).toBe('apple')
-    // expect(wrapper.find('span').attributes('data-select')).toBe('something')
   })
 })

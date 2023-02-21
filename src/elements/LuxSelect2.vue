@@ -4,7 +4,7 @@
     <multiselect
       v-model="vals"
       :id="id"
-      tag-placeholder="Add this as new tag"
+      :tag-placeholder="tagPlaceholder"
       :placeholder="placeholder"
       label="name"
       track-by="code"
@@ -38,11 +38,23 @@ export default {
     }
   },
   props: {
+    /**
+     * Optionally set the placeholder using a string
+     */
     placeholder: {
       type: String,
       default: "Search or add a tag",
       required: false,
     },
+    /**
+     * Optionally set the tag placeholder using a string
+     */
+    tagPlaceholder: {
+      type: String,
+      default: "Add this as new tag",
+      required: false,
+    },
+
     /**
      * Set the selected options using an array of label/value pairs
      */
@@ -98,6 +110,7 @@ export default {
       id="some_id"
       inputLabel="Input label"
       placeholder="Search or add a thingummy"
+      tagPlaceholder="Add this as a new thingummy"
       :options="[
         { name: 'Vue.js', code: 'vu' },
         { name: 'Javascript', code: 'js' },
