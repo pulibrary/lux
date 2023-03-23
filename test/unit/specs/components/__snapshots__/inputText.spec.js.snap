@@ -13,6 +13,7 @@ exports[`InputText.vue has the expected html structure 1`] = `
       autocomplete="off"
       class="lux-input"
       errormessage=""
+      focus="true"
       id="foo"
       maxlength="256"
       name="pass this"

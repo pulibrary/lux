@@ -20,8 +20,14 @@ describe("InputAutocomplete.vue", () => {
           { id: 3, label: "Mango" },
           { id: 4, label: "Pineapple" },
         ],
+        focused: true,
       },
     })
+  })
+
+  it("should be focused when the focused property is set to true", () => {
+    const input = wrapper.find("#displayInput").element
+    expect(input).toBe(document.activeElement)
   })
 
   it("should populate the inputValue with an id when defaultValue is passed and found in items", () => {
