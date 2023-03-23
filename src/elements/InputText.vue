@@ -8,6 +8,7 @@
       <input
         v-if="type !== 'textarea'"
         autocomplete="off"
+        ref="textInput"
         :name="name"
         :value="value"
         :id="id"
@@ -19,16 +20,16 @@
         :hover="hover"
         :placeholder="placeholder"
         :errormessage="errormessage"
+        :focus="focused"
         :class="['lux-input', { 'lux-input-error': hasError }]"
         v-on:input="$emit('input', $event.target.value)"
         @blur="inputblur($event)"
-        v-focus="focused"
-        @focus="focused = true"
       />
 
       <textarea
         v-else
         autocomplete="off"
+        ref="textArea"
         :name="name"
         :id="id"
         :disabled="disabled"
@@ -37,8 +38,7 @@
         :rows="rows"
         :maxlength="maxlength"
         :hover="hover"
-        v-focus="focused"
-        @focus="focused = true"
+        :focus="focused"
         :value="value"
         :placeholder="placeholder"
         :errormessage="errormessage"
@@ -66,7 +66,6 @@
 </template>
 
 <script>
-import { mixin as focusMixin } from "vue-focus"
 /**
  * Form Inputs are used to allow users to provide text input when the expected
  * input is short. Form Input has a range of options and supports several text
@@ -77,7 +76,6 @@ export default {
   status: "ready",
   release: "1.0.0",
   type: "Element",
-  mixins: [focusMixin],
   computed: {
     hasError() {
       return this.errormessage.length
@@ -251,8 +249,21 @@ export default {
   methods: {
     inputblur(value) {
       this.$emit("inputblur", value)
-      this.focused = false
     },
+  },
+  mounted: function() {
+    let vm = this
+
+    vm.$nextTick(function() {
+      if (vm.focused) {
+        if (vm.type == "text") {
+          this.$refs.textInput.focus()
+        }
+        if (vm.type == "textarea") {
+          this.$refs.textArea.focus()
+        }
+      }
+    })
   },
 }
 </script>
@@ -420,7 +431,7 @@ $color-placeholder: tint($color-grayscale, 50%);
     <input-text id="foo" name="value" label="Input" :hide-label="true" placeholder="Write your text" helper="This is helper text to help the user fill out this field" size="small"></input-text>
 
     <input-text id="bar" name="value" label=":hover" hover placeholder="Write your text"></input-text>
-    <input-text id="fee" name="value" label=":focus" focused placeholder="Write your text"></input-text>
+    <input-text id="fee" name="value" label=":focused" focused placeholder="Write your text"></input-text>
     <input-text id="foe" name="value" label="[disabled]" disabled placeholder="Disabled input"></input-text>
     <input-text id="foe" name="value" label="Textarea" type="textarea"></input-text>
 

@@ -5,6 +5,7 @@
       <input
         id="displayInput"
         autocomplete="off"
+        ref="autoComplete"
         type="text"
         @input="onChange"
         v-model="search"
@@ -14,9 +15,6 @@
         @keydown.esc="onEscape"
         @keydown.tab="onEscape"
         :required="required"
-        v-focus="focused"
-        @focus="focused = true"
-        @blur="focused = false"
       />
       <ul v-show="isOpen" class="lux-autocomplete-results">
         <li class="loading" v-if="isLoading">Loading results...</li>
@@ -37,7 +35,6 @@
 </template>
 
 <script>
-import { mixin as focusMixin } from "vue-focus"
 /**
  * InputAutocomplete is a cross between a text input and select input.
  * This component is used to offer users suggested values that
@@ -50,7 +47,6 @@ export default {
   status: "prototype",
   release: "1.0.0",
   type: "Element",
-  mixins: [focusMixin],
   props: {
     /**
      * The available items in the autocomplete. This can be a simple array of strings
@@ -224,6 +220,13 @@ export default {
   },
   mounted() {
     document.addEventListener("click", this.handleClickOutside)
+    let vm = this
+
+    vm.$nextTick(function() {
+      if (vm.focused) {
+        this.$refs.autoComplete.focus()
+      }
+    })
   },
   destroyed() {
     document.removeEventListener("click", this.handleClickOutside)
@@ -343,7 +346,7 @@ $color-placeholder: tint($color-grayscale, 50%);
 <docs>
   ```jsx
   <div>
-    <input-autocomplete label="Fruit" default-value="Banana" :items="[ 'Apple', 'Banana', 'Orange', 'Mango', 'Pear', 'Peach', 'Grape', 'Tangerine', 'Pineapple']" />
+    <input-autocomplete focused label="Fruit" default-value="Banana" :items="[ 'Apple', 'Banana', 'Orange', 'Mango', 'Pear', 'Peach', 'Grape', 'Tangerine', 'Pineapple']" />
     <input-autocomplete label="Fruit with IDs" default-value="Banana" :items="[ {id: 1, label: 'Apple'}, {id: 2, label: 'Banana'}, {id: 3, label: 'Mango'}, {id: 4, label: 'Pineapple'}]" />
   </div>
   ```

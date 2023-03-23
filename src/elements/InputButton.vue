@@ -1,12 +1,10 @@
 <template>
   <button
+    ref="inputButton"
     :type="!!type ? type : false"
     :class="['lux-button', variation, size, { 'lux-expanded': block == true }]"
     :disabled="disabled"
     @click="buttonClicked($event)"
-    v-focus="focused"
-    @focus="focused = true"
-    @blur="focused = false"
   >
     <div v-if="variation === 'icon-prepend'" class="prepend-icon">
       <lux-icon-base width="18" height="18" v-if="icon === 'search'" icon-name="search">
@@ -23,7 +21,6 @@
 </template>
 
 <script>
-import { mixin as focusMixin } from "vue-focus"
 /**
  * Buttons are used to toggle something in the interface or trigger new
  * content in the same context.
@@ -33,7 +30,6 @@ export default {
   status: "ready",
   release: "1.0.0",
   type: "Element",
-  mixins: [focusMixin],
   data: function() {
     return {
       label: "Submit",
@@ -128,6 +124,15 @@ export default {
       }
       this.$emit("button-clicked", value)
     },
+  },
+  mounted() {
+    let vm = this
+
+    vm.$nextTick(function() {
+      if (vm.focused) {
+        this.$refs.inputButton.focus()
+      }
+    })
   },
 }
 </script>
@@ -253,8 +258,8 @@ export default {
 <docs>
   ```jsx
   <div>
-    <input-button type="button" variation="icon" size="small" icon="search" hideLabel></input-button>
-    <input-button focused=true type="button" variation="icon-prepend" size="small" icon="search" hideLabel>Search</input-button>
+    <input-button type="button" focused variation="icon" size="small" icon="search" hideLabel></input-button>
+    <input-button type="button" variation="icon-prepend" size="small" icon="search" hideLabel>Search</input-button>
 
     <input-button variation="solid" size="small">Apply Changes</input-button>
     <input-button type="button" variation="solid">Apply Changes</input-button>
