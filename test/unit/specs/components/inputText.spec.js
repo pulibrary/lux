@@ -14,8 +14,15 @@ describe("InputText.vue", () => {
         id: "foo",
         value: "bar",
         name: "pass this",
+        focused: true,
       },
+      attachToDocument: true,
     })
+  })
+
+  it("should be focused when the focused property is set to true", () => {
+    const input = wrapper.find("input").element
+    expect(input).toBe(document.activeElement)
   })
 
   it("should emit an input event with the correct value when text is input", () => {

@@ -15,8 +15,14 @@ describe("InputButton.vue", () => {
       },
       propsData: {
         variation: "text",
+        focused: true,
       },
     })
+  })
+
+  it("should be focused when the focused property is set to true", () => {
+    const button = wrapper.find("button").element
+    expect(button).toBe(document.activeElement)
   })
 
   it("should emit the correct event when clicked", () => {
@@ -25,7 +31,9 @@ describe("InputButton.vue", () => {
     const emitted1 = wrapper.emitted()
     expect(Object.prototype.hasOwnProperty.call(emitted1, "button-clicked")).toBe(true)
     expect(Object.prototype.hasOwnProperty.call(emitted1, "system-alert")).toBe(false)
-    wrapper.setProps({ customAlertEvent: { alertStatus: "success", alertMessage: "This is my message." } })
+    wrapper.setProps({
+      customAlertEvent: { alertStatus: "success", alertMessage: "This is my message." },
+    })
     const button2 = wrapper.find("button")
     button2.trigger("click")
     const emitted2 = wrapper.emitted()
