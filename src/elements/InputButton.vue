@@ -106,7 +106,8 @@ export default {
       default: false,
     },
     /**
-     * Indicates what icon to use.
+     * Indicates what icon to use. Values should be hyphenated and do not use the "lux-icon-" prefix.
+     * For example, instead of `lux-icon-search`, simply use `search`.
      */
     icon: {
       type: String,
