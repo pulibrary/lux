@@ -7461,6 +7461,36 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s), (s.options.__file = "LuxIconDenied.vue")
     e.default = s.exports
   },
+  "8jRb": function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = { name: "LuxIconArrowDown", status: "ready", release: "1.0.0", type: "Element" },
+      i = n("KHd+"),
+      a = n("V45c"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e("g", [
+            e("path", {
+              attrs: {
+                d:
+                  "M12,19c-0.1,0-0.3-0.1-0.4-0.2L0.1,5.8c-0.2-0.2-0.2-0.5,0-0.7c0.2-0.2,0.5-0.2,0.7,0L12,17.7L23.1,5.2\n  \t\tc0.2-0.2,0.5-0.2,0.7,0c0.2,0.2,0.2,0.5,0,0.7l-11.5,13C12.3,18.9,12.1,19,12,19z",
+              },
+            }),
+          ])
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      )
+    "function" == typeof o.a && o()(s), (s.options.__file = "LuxIconArrowDown.vue")
+    e.default = s.exports
+  },
   "9+4o": function(t, e) {},
   "9I8L": function(t, e) {},
   "9WUz": function(t, e, n) {
@@ -13080,6 +13110,7 @@ var system = (function(t) {
     n.n(r).a
   },
   UK8r: function(t, e, n) {},
+  V45c: function(t, e) {},
   VO2P: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -14732,6 +14763,8 @@ var system = (function(t) {
       "./LuxIconAdd.vue": "qwBE",
       "./LuxIconAlert.vue": "30j6",
       "./LuxIconApproved.vue": "B7n5",
+      "./LuxIconArrowDown.vue": "8jRb",
+      "./LuxIconArrowRight.vue": "nIaP",
       "./LuxIconAscending.vue": "suyH",
       "./LuxIconBase.vue": "1dIj",
       "./LuxIconClock.vue": "/kEJ",
@@ -14787,6 +14820,7 @@ var system = (function(t) {
       (t.exports = i),
       (i.id = "i9NM")
   },
+  iCyf: function(t, e) {},
   iNJb: function(t, e) {},
   iiMY: function(t, e, n) {},
   ijgq: function(t, e) {},
@@ -19316,6 +19350,36 @@ var system = (function(t) {
   },
   mxAO: function(t, e) {},
   n1u2: function(t, e) {},
+  nIaP: function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = { name: "LuxIconArrowRight", status: "ready", release: "1.0.0", type: "Element" },
+      i = n("KHd+"),
+      a = n("iCyf"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e("g", [
+            e("path", {
+              attrs: {
+                d:
+                  "M5.5,24c-0.1,0-0.3-0.1-0.4-0.2c-0.2-0.2-0.2-0.5,0-0.7L17.7,12L5.2,0.9C5,0.7,4.9,0.4,5.1,0.2c0.2-0.2,0.5-0.2,0.7,0\n  \t\tl13,11.5c0.1,0.1,0.2,0.2,0.2,0.4s-0.1,0.3-0.2,0.4l-13,11.5C5.7,24,5.6,24,5.5,24z",
+              },
+            }),
+          ])
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      )
+    "function" == typeof o.a && o()(s), (s.options.__file = "LuxIconArrowRight.vue")
+    e.default = s.exports
+  },
   nj48: function(t, e, n) {
     "use strict"
     var r = n("H3bh")
