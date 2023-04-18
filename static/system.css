@@ -1108,7 +1108,7 @@ button.lux-close {
   background: #c5c8ce;
   color: #001123;
 }
-.lux-button[data-v-0f0a32e2] {
+.lux-button[data-v-5b3e9994] {
   padding: 9px 16px;
   font-family: franklin-gothic-urw, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -1124,55 +1124,55 @@ button.lux-close {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-.lux-button[data-v-0f0a32e2]:active {
+.lux-button[data-v-5b3e9994]:active {
   transform: scale(0.99);
 }
-.lux-button.icon-prepend[data-v-0f0a32e2],
-.lux-button.icon[data-v-0f0a32e2] {
+.lux-button.icon-prepend[data-v-5b3e9994],
+.lux-button.icon[data-v-5b3e9994] {
   padding: 4px;
 }
-.lux-button.icon-prepend.small[data-v-0f0a32e2],
-.lux-button.icon.small[data-v-0f0a32e2] {
+.lux-button.icon-prepend.small[data-v-5b3e9994],
+.lux-button.icon.small[data-v-5b3e9994] {
   padding: 4px 7px;
   font-size: 14px;
 }
-.lux-button.icon-prepend.medium[data-v-0f0a32e2],
-.lux-button.icon.medium[data-v-0f0a32e2] {
+.lux-button.icon-prepend.medium[data-v-5b3e9994],
+.lux-button.icon.medium[data-v-5b3e9994] {
   padding: 7px 12px;
   font-size: 16px;
 }
-.lux-button.icon-prepend.large[data-v-0f0a32e2],
-.lux-button.icon.large[data-v-0f0a32e2] {
+.lux-button.icon-prepend.large[data-v-5b3e9994],
+.lux-button.icon.large[data-v-5b3e9994] {
   padding: 11px 18px;
   font-size: 24px;
 }
-.lux-button.icon-prepend[data-v-0f0a32e2],
-.lux-button.icon[data-v-0f0a32e2] {
+.lux-button.icon-prepend[data-v-5b3e9994],
+.lux-button.icon[data-v-5b3e9994] {
   display: flex;
   align-items: center;
 }
-.lux-button.solid[data-v-0f0a32e2] {
+.lux-button.solid[data-v-5b3e9994] {
   background: #2c6eaf;
   color: #fff;
 }
-.lux-button.solid[data-v-0f0a32e2]:focus,
-.lux-button.solid[data-v-0f0a32e2]:hover {
+.lux-button.solid[data-v-5b3e9994]:focus,
+.lux-button.solid[data-v-5b3e9994]:hover {
   background: #23578b;
 }
-.lux-button.outline[data-v-0f0a32e2] {
+.lux-button.outline[data-v-5b3e9994] {
   background: transparent;
   color: #2c6eaf;
   border: 2px solid #2c6eaf;
 }
-.lux-button.outline[data-v-0f0a32e2]:focus,
-.lux-button.outline[data-v-0f0a32e2]:hover {
+.lux-button.outline[data-v-5b3e9994]:focus,
+.lux-button.outline[data-v-5b3e9994]:hover {
   color: #23578b;
   border-color: #23578b;
 }
-.lux-button.text[data-v-0f0a32e2] {
+.lux-button.text[data-v-5b3e9994] {
   background-color: transparent;
 }
-.lux-button.dropdown[data-v-0f0a32e2] {
+.lux-button.dropdown[data-v-5b3e9994] {
   box-shadow: inset 0 1px 0 0 rgba(0, 17, 35, 0.07), 0 0 0 1px #cccfd3;
   background: #fff;
   border-radius: 3px;
@@ -1183,32 +1183,32 @@ button.lux-close {
   background-size: 0.65em auto, 100%;
   padding-right: 36px;
 }
-.lux-button.dropdown[data-v-0f0a32e2]:hover {
+.lux-button.dropdown[data-v-5b3e9994]:hover {
   box-shadow: 0 1px 5px 0 rgba(0, 17, 35, 0.07), 0 0 0 1px #99a0a7;
 }
-.small[data-v-0f0a32e2] {
+.small[data-v-5b3e9994] {
   padding: 7px 12px;
   font-size: 14px;
 }
-.medium[data-v-0f0a32e2] {
+.medium[data-v-5b3e9994] {
   padding: 9px 16px;
   font-size: 16px;
 }
-.large[data-v-0f0a32e2] {
+.large[data-v-5b3e9994] {
   padding: 11px 18px;
   font-size: 24px;
 }
-.lux-expanded[data-v-0f0a32e2] {
+.lux-expanded[data-v-5b3e9994] {
   display: block;
   width: 100%;
   max-width: 100%;
 }
-[disabled][data-v-0f0a32e2] {
+[disabled][data-v-5b3e9994] {
   background: #c5c8ce;
   cursor: not-allowed;
 }
-[disabled][data-v-0f0a32e2]:focus,
-[disabled][data-v-0f0a32e2]:hover {
+[disabled][data-v-5b3e9994]:focus,
+[disabled][data-v-5b3e9994]:hover {
   background: #c5c8ce;
 }
 fieldset[data-v-e556e8be] {

@@ -7146,7 +7146,6 @@ var system = (function(t) {
     e.a = o
   },
   "5mbo": function(t, e) {},
-  "5s61": function(t, e, n) {},
   "6/aR": function(t, e, n) {},
   "64/Z": function(t, e) {},
   "674y": function(t, e, n) {},
@@ -7657,6 +7656,11 @@ var system = (function(t) {
           hideLabel: { type: Boolean, default: !1 },
           icon: { type: String, default: "" },
         },
+        computed: {
+          iconComponent: function() {
+            return "lux-icon-" + this.icon
+          },
+        },
         methods: {
           buttonClicked: function(t) {
             this.customAlertEvent &&
@@ -7675,7 +7679,7 @@ var system = (function(t) {
           })
         },
       },
-      i = (n("cww/"), n("KHd+")),
+      i = (n("Rsh5"), n("KHd+")),
       a = n("jEXX"),
       o = n.n(a),
       s = Object(i.a)(
@@ -7702,14 +7706,12 @@ var system = (function(t) {
                     "div",
                     { staticClass: "prepend-icon" },
                     [
-                      "search" === t.icon
-                        ? n(
-                            "lux-icon-base",
-                            { attrs: { width: "18", height: "18", "icon-name": "search" } },
-                            [n("lux-icon-search")],
-                            1
-                          )
-                        : t._e(),
+                      n(
+                        "lux-icon-base",
+                        { attrs: { width: "18", height: "18", "icon-name": t.icon } },
+                        [n(t.iconComponent, { tag: "component" })],
+                        1
+                      ),
                     ],
                     1
                   )
@@ -7722,14 +7724,12 @@ var system = (function(t) {
                     "div",
                     { staticClass: "append-icon" },
                     [
-                      "search" === t.icon
-                        ? n(
-                            "lux-icon-base",
-                            { attrs: { width: "18", height: "18", "icon-name": "search" } },
-                            [n("lux-icon-search")],
-                            1
-                          )
-                        : t._e(),
+                      n(
+                        "lux-icon-base",
+                        { attrs: { width: "18", height: "18", "icon-name": t.icon } },
+                        [n(t.iconComponent, { tag: "component" })],
+                        1
+                      ),
                     ],
                     1
                   )
@@ -7741,7 +7741,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "0f0a32e2",
+        "5b3e9994",
         null
       )
     "function" == typeof o.a && o()(s), (s.options.__file = "InputButton.vue")
@@ -8171,6 +8171,7 @@ var system = (function(t) {
   BaqO: function(t, e, n) {
     t.exports = n("bzL3")
   },
+  BcKr: function(t, e, n) {},
   Bnag: function(t, e) {
     ;(t.exports = function() {
       throw new TypeError(
@@ -12671,6 +12672,11 @@ var system = (function(t) {
   },
   RVJi: function(t, e) {},
   RXAD: function(t, e, n) {},
+  Rsh5: function(t, e, n) {
+    "use strict"
+    var r = n("BcKr")
+    n.n(r).a
+  },
   "S/3G": function(t, e, n) {
     "use strict"
     n.r(e)
@@ -14268,11 +14274,6 @@ var system = (function(t) {
   cu24: function(t, e, n) {
     "use strict"
     var r = n("aqOB")
-    n.n(r).a
-  },
-  "cww/": function(t, e, n) {
-    "use strict"
-    var r = n("5s61")
     n.n(r).a
   },
   d7pG: function(t, e, n) {
