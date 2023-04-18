@@ -7,14 +7,14 @@
     @click="buttonClicked($event)"
   >
     <div v-if="variation === 'icon-prepend'" class="prepend-icon">
-      <lux-icon-base width="18" height="18" v-if="icon === 'search'" icon-name="search">
-        <lux-icon-search></lux-icon-search>
+      <lux-icon-base width="18" height="18" :icon-name="icon">
+        <component :is="iconComponent"></component>
       </lux-icon-base>
     </div>
     <slot />
     <div v-if="variation === 'icon'" class="append-icon">
-      <lux-icon-base width="18" height="18" v-if="icon === 'search'" icon-name="search">
-        <lux-icon-search></lux-icon-search>
+      <lux-icon-base width="18" height="18" :icon-name="icon">
+        <component :is="iconComponent"></component>
       </lux-icon-base>
     </div>
   </button>
@@ -106,11 +106,17 @@ export default {
       default: false,
     },
     /**
-     * Indicates what icon to use.
+     * Indicates what icon to use. Values should be hyphenated and do not use the "lux-icon-" prefix.
+     * For example, instead of `lux-icon-search`, simply use `search`.
      */
     icon: {
       type: String,
       default: "",
+    },
+  },
+  computed: {
+    iconComponent() {
+      return "lux-icon-" + this.icon
     },
   },
   methods: {
