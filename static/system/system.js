@@ -14396,6 +14396,7 @@ var system = (function(t) {
   daU6: function(t, e) {},
   dpKW: function(t, e, n) {},
   e7Eb: function(t, e) {},
+  e8yv: function(t, e) {},
   eAtJ: function(t, e) {
     t.exports =
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg>'
@@ -14693,6 +14694,43 @@ var system = (function(t) {
     var r = n("b6L0")
     n.n(r).a
   },
+  geyv: function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = { name: "LuxIconEdit", status: "ready", release: "1.0.0", type: "Element" },
+      i = n("KHd+"),
+      a = n("e8yv"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e("g", [
+            e("path", {
+              attrs: {
+                d:
+                  "M19.9,7L17,4.1C16.9,4.1,16.8,4,16.7,4s-0.3,0.1-0.4,0.1L7.5,13c0,0-0.1,0.1-0.1,0.2l0,0c0,0,0,0,0,0l-2.1,4.9\n\t\tc-0.1,0.2,0,0.4,0.1,0.6c0.1,0.1,0.2,0.1,0.4,0.1c0.1,0,0.1,0,0.2,0l4.9-2.1h0l0,0c0.1,0,0.1-0.1,0.2-0.1l8.8-8.8\n\t\tC20,7.5,20,7.2,19.9,7z M10.7,15.5l-2.1-2.1L14.8,7L17,9.2L10.7,15.5z M8,14.2L9.8,16l-3.1,1.3L8,14.2z M17.7,8.5l-2.1-2.1l1.1-1.1\n\t\tl2.1,2.1L17.7,8.5z",
+              },
+            }),
+            this._v(" "),
+            e("path", {
+              attrs: {
+                d:
+                  "M12,0C5.4,0,0,5.4,0,12s5.4,12,12,12s12-5.4,12-12S18.6,0,12,0z M12,23C5.9,23,1,18.1,1,12C1,5.9,5.9,1,12,1s11,4.9,11,11\n\t\tC23,18.1,18.1,23,12,23z",
+              },
+            }),
+          ])
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      )
+    "function" == typeof o.a && o()(s), (s.options.__file = "LuxIconEdit.vue")
+    e.default = s.exports
+  },
   gkHm: function(t, e) {},
   gpvm: function(t, e, n) {},
   gtuO: function(t, e) {},
@@ -14773,6 +14811,7 @@ var system = (function(t) {
       "./LuxIconDerivativesHealthy.vue": "vknS",
       "./LuxIconDerivativesUnhealthy.vue": "llub",
       "./LuxIconDescending.vue": "o+Xd",
+      "./LuxIconEdit.vue": "geyv",
       "./LuxIconExclamation.vue": "S/3G",
       "./LuxIconFile.vue": "vnPu",
       "./LuxIconFileHealthy.vue": "KkuH",
