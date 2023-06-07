@@ -8846,15 +8846,15 @@ var system = (function(t) {
           )
         }
         var z = ("undefined" != typeof window ? window.cancelAnimationFrame : null) || clearTimeout,
-          N =
+          H =
             ("undefined" != typeof window ? window.requestAnimationFrame : null) ||
             function(t) {
               return setTimeout(t, 0)
             }
-        function H(t, e) {
+        function N(t, e) {
           return (
             z(t),
-            N(function() {
+            H(function() {
               ;(t = null), e()
             })
           )
@@ -8893,7 +8893,7 @@ var system = (function(t) {
               !this.$isServer &&
                 this.$metaInfo &&
                 this.$watch("$metaInfo", function() {
-                  n = H(n, function() {
+                  n = N(n, function() {
                     return t.$meta().refresh()
                   })
                 })
@@ -8901,21 +8901,21 @@ var system = (function(t) {
             activated: function() {
               var t = this
               this._hasMetaInfo &&
-                (n = H(n, function() {
+                (n = N(n, function() {
                   return t.$meta().refresh()
                 }))
             },
             deactivated: function() {
               var t = this
               this._hasMetaInfo &&
-                (n = H(n, function() {
+                (n = N(n, function() {
                   return t.$meta().refresh()
                 }))
             },
             beforeMount: function() {
               var t = this
               this._hasMetaInfo &&
-                (n = H(n, function() {
+                (n = N(n, function() {
                   return t.$meta().refresh()
                 }))
             },
@@ -8926,7 +8926,7 @@ var system = (function(t) {
                   ;(t.$el && null !== t.$el.offsetParent) ||
                     (clearInterval(e),
                     t.$parent &&
-                      (n = H(n, function() {
+                      (n = N(n, function() {
                         return t.$meta().refresh()
                       })))
                 }, 50)
@@ -9239,6 +9239,7 @@ var system = (function(t) {
     e.b = { counterModule: o, galleryModule: s }
   },
   HXRA: function(t, e) {},
+  HeHQ: function(t, e) {},
   HpXA: function(t, e) {},
   HsJ5: function(t, e, n) {
     "use strict"
@@ -9671,7 +9672,7 @@ var system = (function(t) {
         })
       var P = { D: "serif", C: "sans-serif" },
         z = null
-      function N() {
+      function H() {
         if (null === z) {
           var t = /AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent)
           z =
@@ -9680,7 +9681,7 @@ var system = (function(t) {
         }
         return z
       }
-      function H(t, e, n) {
+      function N(t, e, n) {
         for (var r in P) if (P.hasOwnProperty(r) && e === t.f[P[r]] && n === t.f[P[r]]) return !0
         return !1
       }
@@ -9688,10 +9689,10 @@ var system = (function(t) {
         var e,
           n = t.g.a.offsetWidth,
           r = t.h.a.offsetWidth
-        ;(e = n === t.f.serif && r === t.f["sans-serif"]) || (e = N() && H(t, n, r)),
+        ;(e = n === t.f.serif && r === t.f["sans-serif"]) || (e = H() && N(t, n, r)),
           e
             ? s() - t.A >= t.w
-              ? N() && H(t, n, r) && (null === t.u || t.u.hasOwnProperty(t.a.c))
+              ? H() && N(t, n, r) && (null === t.u || t.u.hasOwnProperty(t.a.c))
                 ? F(t, t.v)
                 : F(t, t.B)
               : (function(t) {
@@ -14402,6 +14403,93 @@ var system = (function(t) {
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg>'
   },
   eCho: function(t, e) {},
+  eJJI: function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = { name: "LuxIconView", status: "ready", release: "1.0.0", type: "Element" },
+      i = n("KHd+"),
+      a = n("HeHQ"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this,
+            e = t.$createElement,
+            n = t._self._c || e
+          return n("g", [
+            n("path", {
+              attrs: {
+                d:
+                  "M1.4,7.5c0.1,0,0.1,0.1,0.2,0.1c0.2,0,0.4-0.1,0.5-0.3c1-2.2,2.8-4,4.9-5.1c0.2-0.1,0.3-0.4,0.2-0.7\n\t\tC7.1,1.3,6.8,1.2,6.5,1.3C4.2,2.5,2.3,4.5,1.2,6.8C1.1,7.1,1.2,7.4,1.4,7.5z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M9.5,1.3c2.3-0.5,4.8-0.3,7,0.7c0.1,0,0.1,0,0.2,0c0.2,0,0.4-0.1,0.5-0.3c0.1-0.3,0-0.5-0.2-0.7C14.6,0,11.8-0.3,9.3,0.3\n\t\tC9,0.4,8.9,0.6,8.9,0.9S9.2,1.3,9.5,1.3z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M22.7,9.3c0.1,0.2,0.3,0.4,0.5,0.4c0,0,0.1,0,0.1,0c0.3-0.1,0.4-0.3,0.4-0.6c-0.6-2.5-2.1-4.8-4.2-6.5\n\t\tc-0.2-0.2-0.5-0.1-0.7,0.1s-0.1,0.5,0.1,0.7C20.7,4.9,22.1,7,22.7,9.3z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M1,12c0-0.7,0.1-1.5,0.2-2.2c0.1-0.3-0.1-0.5-0.4-0.6C0.6,9.2,0.3,9.3,0.2,9.6C0.1,10.4,0,11.2,0,12c0,1.8,0.4,3.6,1.2,5.2\n\t\tc0.1,0.2,0.3,0.3,0.4,0.3c0.1,0,0.1,0,0.2,0c0.2-0.1,0.4-0.4,0.2-0.7C1.4,15.3,1,13.7,1,12z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M18.9,20.6c-1.9,1.5-4.2,2.4-6.6,2.4c-0.3,0-0.5,0.2-0.5,0.5c0,0.3,0.2,0.5,0.5,0.5c0,0,0,0,0,0c2.7-0.1,5.2-1,7.2-2.6\n\t\tc0.2-0.2,0.2-0.5,0.1-0.7C19.4,20.5,19.1,20.4,18.9,20.6z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M23.5,11.5c-0.3,0-0.5,0.2-0.5,0.5c0,2.4-0.8,4.7-2.3,6.7c-0.2,0.2-0.1,0.5,0.1,0.7c0.1,0.1,0.2,0.1,0.3,0.1\n\t\tc0.1,0,0.3-0.1,0.4-0.2c1.6-2.1,2.5-4.6,2.5-7.3v0C24,11.7,23.8,11.5,23.5,11.5z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M9.6,22.7c-2.3-0.5-4.5-1.8-6-3.7c-0.2-0.2-0.5-0.2-0.7-0.1c-0.2,0.2-0.2,0.5-0.1,0.7c1.7,2,4,3.4,6.6,4c0,0,0.1,0,0.1,0\n\t\tc0.2,0,0.4-0.2,0.5-0.4C10,23.1,9.8,22.8,9.6,22.7z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M12,7c-4.6,0-8.2,4.5-8.4,4.7c-0.1,0.2-0.1,0.4,0,0.6C3.8,12.5,7.4,17,12,17c4.6,0,8.2-4.5,8.4-4.7c0.1-0.2,0.1-0.4,0-0.6\n\t\tC20.2,11.5,16.5,7,12,7z M12,16c-3.4,0-6.4-3-7.3-4c0.9-1,3.9-4,7.3-4c3.4,0,6.4,3,7.3,4C18.4,13,15.4,16,12,16z",
+              },
+            }),
+            t._v(" "),
+            n("path", {
+              attrs: {
+                d:
+                  "M12,9c-1.7,0-3,1.3-3,3s1.3,3,3,3s3-1.3,3-3S13.6,9,12,9z M12,14c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S13.1,14,12,14z",
+              },
+            }),
+          ])
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      )
+    "function" == typeof o.a && o()(s), (s.options.__file = "LuxIconView.vue")
+    e.default = s.exports
+  },
   eW0d: function(t, e, n) {
     "use strict"
     n.r(e)
@@ -14807,6 +14895,7 @@ var system = (function(t) {
       "./LuxIconBase.vue": "1dIj",
       "./LuxIconClock.vue": "/kEJ",
       "./LuxIconConsulting.vue": "y6ju",
+      "./LuxIconDelivery.vue": "tFln",
       "./LuxIconDenied.vue": "8fTi",
       "./LuxIconDerivativesHealthy.vue": "vknS",
       "./LuxIconDerivativesUnhealthy.vue": "llub",
@@ -14839,6 +14928,7 @@ var system = (function(t) {
       "./LuxIconUnsorted.vue": "6z2N",
       "./LuxIconUserHome.vue": "WHI8",
       "./LuxIconVacation.vue": "rGKY",
+      "./LuxIconView.vue": "eJJI",
     }
     function i(t) {
       var e = a(t)
@@ -19626,7 +19716,7 @@ var system = (function(t) {
         }
       }
       var z = ["component", "directive", "filter"],
-        N = [
+        H = [
           "beforeCreate",
           "created",
           "beforeMount",
@@ -19640,7 +19730,7 @@ var system = (function(t) {
           "errorCaptured",
           "serverPrefetch",
         ],
-        H = {
+        N = {
           optionMergeStrategies: Object.create(null),
           silent: !1,
           productionTip: !1,
@@ -19657,7 +19747,7 @@ var system = (function(t) {
           parsePlatformTagName: I,
           mustUseProp: j,
           async: !0,
-          _lifecycleHooks: N,
+          _lifecycleHooks: H,
         },
         V = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/
       function F(t) {
@@ -19929,7 +20019,7 @@ var system = (function(t) {
         (Ot.prototype.observeArray = function(t) {
           for (var e = 0, n = t.length; e < n; e++) Mt(t[e])
         })
-      var At = H.optionMergeStrategies
+      var At = N.optionMergeStrategies
       function jt(t, e) {
         if (!e) return t
         for (var n, r, i, a = ct ? Reflect.ownKeys(e) : Object.keys(e), o = 0; o < a.length; o++)
@@ -19971,7 +20061,7 @@ var system = (function(t) {
       ;(At.data = function(t, e, n) {
         return n ? It(t, e, n) : e && "function" != typeof e ? t : It(t, e)
       }),
-        N.forEach(function(t) {
+        H.forEach(function(t) {
           At[t] = Tt
         }),
         z.forEach(function(t) {
@@ -20050,7 +20140,7 @@ var system = (function(t) {
         }
         return o
       }
-      function Nt(t, e, n, r) {
+      function Ht(t, e, n, r) {
         if ("string" == typeof n) {
           var i = t[e]
           if (_(i, n)) return i[n]
@@ -20060,7 +20150,7 @@ var system = (function(t) {
           return _(i, o) ? i[o] : i[n] || i[a] || i[o]
         }
       }
-      function Ht(t, e, n, r) {
+      function Nt(t, e, n, r) {
         var i = e[t],
           a = !_(n, t),
           o = n[t],
@@ -20139,9 +20229,9 @@ var system = (function(t) {
         return a
       }
       function Ut(t, e, n) {
-        if (H.errorHandler)
+        if (N.errorHandler)
           try {
-            return H.errorHandler.call(null, t, e, n)
+            return N.errorHandler.call(null, t, e, n)
           } catch (e) {
             e !== t && Wt(e, null, "config.errorHandler")
           }
@@ -20426,14 +20516,14 @@ var system = (function(t) {
         return o ? this.$createElement("template", { slot: o }, i) : i
       }
       function we(t) {
-        return Nt(this.$options, "filters", t) || I
+        return Ht(this.$options, "filters", t) || I
       }
       function Ce(t, e) {
         return Array.isArray(t) ? -1 === t.indexOf(e) : t !== e
       }
       function Se(t, e, n, r, i) {
-        var a = H.keyCodes[e] || n
-        return i && r && !H.keyCodes[e] ? Ce(i, r) : a ? Ce(a, t) : r ? M(r) !== e : void 0 === t
+        var a = N.keyCodes[e] || n
+        return i && r && !N.keyCodes[e] ? Ce(i, r) : a ? Ce(a, t) : r ? M(r) !== e : void 0 === t
       }
       function Oe(t, e, n, r, i) {
         if (n)
@@ -20445,7 +20535,7 @@ var system = (function(t) {
               else {
                 var s = t.attrs && t.attrs.type
                 a =
-                  r || H.mustUseProp(e, s, o)
+                  r || N.mustUseProp(e, s, o)
                     ? t.domProps || (t.domProps = {})
                     : t.attrs || (t.attrs = {})
               }
@@ -20585,11 +20675,11 @@ var system = (function(t) {
         for (var n in e) t[C(n)] = e[n]
       }
       Te($e.prototype)
-      var Ne = {
+      var He = {
           init: function(t, e) {
             if (t.componentInstance && !t.componentInstance._isDestroyed && t.data.keepAlive) {
               var n = t
-              Ne.prepatch(n, n)
+              He.prepatch(n, n)
             } else {
               ;(t.componentInstance = (function(t, e) {
                 var n = { _isComponent: !0, _parentVnode: t, parent: e },
@@ -20623,7 +20713,7 @@ var system = (function(t) {
                 for (var l = t._props, f = t.$options._propKeys || [], d = 0; d < f.length; d++) {
                   var p = f[d],
                     h = t.$options.props
-                  l[p] = Ht(p, h, e, t)
+                  l[p] = Nt(p, h, e, t)
                 }
                 St(!0), (t.$options.propsData = e)
               }
@@ -20658,7 +20748,7 @@ var system = (function(t) {
                 : e.$destroy())
           },
         },
-        He = Object.keys(Ne)
+        Ne = Object.keys(He)
       function Ve(t, e, o, c, u) {
         if (!r(t)) {
           var l = o.$options._base
@@ -20761,7 +20851,7 @@ var system = (function(t) {
                 var s = t.options,
                   c = {},
                   u = s.props
-                if (i(u)) for (var l in u) c[l] = Ht(l, u, e || n)
+                if (i(u)) for (var l in u) c[l] = Nt(l, u, e || n)
                 else i(r.attrs) && ze(c, r.attrs), i(r.props) && ze(c, r.props)
                 var f = new $e(r, c, o, a, t),
                   d = s.render.call(null, f._c, f)
@@ -20778,10 +20868,10 @@ var system = (function(t) {
               ;(e = {}), v && (e.slot = v)
             }
             !(function(t) {
-              for (var e = t.hook || (t.hook = {}), n = 0; n < He.length; n++) {
-                var r = He[n],
+              for (var e = t.hook || (t.hook = {}), n = 0; n < Ne.length; n++) {
+                var r = Ne[n],
                   i = e[r],
-                  a = Ne[r]
+                  a = He[r]
                 i === a || (i && i._merged) || (e[r] = i ? Fe(a, i) : a)
               }
             })(e)
@@ -20828,10 +20918,10 @@ var system = (function(t) {
             var u, l
             if ("string" == typeof e) {
               var f
-              ;(l = (t.$vnode && t.$vnode.ns) || H.getTagNamespace(e)),
-                (u = H.isReservedTag(e)
-                  ? new vt(H.parsePlatformTagName(e), n, o, void 0, void 0, t)
-                  : (n && n.pre) || !i((f = Nt(t.$options, "components", e)))
+              ;(l = (t.$vnode && t.$vnode.ns) || N.getTagNamespace(e)),
+                (u = N.isReservedTag(e)
+                  ? new vt(N.parsePlatformTagName(e), n, o, void 0, void 0, t)
+                  : (n && n.pre) || !i((f = Ht(t.$options, "components", e)))
                   ? new vt(e, n, o, void 0, void 0, t)
                   : Ve(f, n, t, o, e))
             } else u = Ve(e, n, t, o)
@@ -20965,7 +21055,7 @@ var system = (function(t) {
               r._watcher === n && r._isMounted && !r._isDestroyed && en(r, "updated")
             }
           })(r),
-          at && H.devtools && at.emit("flush")
+          at && N.devtools && at.emit("flush")
       }
       var pn = 0,
         hn = function(t, e, n, r, i) {
@@ -21100,7 +21190,7 @@ var system = (function(t) {
             t.$parent && St(!1)
             var a = function(a) {
               i.push(a)
-              var o = Ht(a, e, n, t)
+              var o = Nt(a, e, n, t)
               kt(r, a, o), a in t || mn(t, "_props", a)
             }
             for (var o in e) a(o)
@@ -21563,7 +21653,7 @@ var system = (function(t) {
       !(function(t) {
         var e = {
           get: function() {
-            return H
+            return N
           },
         }
         Object.defineProperty(t, "config", e),
@@ -21636,10 +21726,10 @@ var system = (function(t) {
         },
         Pn = v("contenteditable,draggable,spellcheck"),
         zn = v("events,caret,typing,plaintext-only"),
-        Nn = v(
+        Hn = v(
           "allowfullscreen,async,autofocus,autoplay,checked,compact,controls,declare,default,defaultchecked,defaultmuted,defaultselected,defer,disabled,enabled,formnovalidate,hidden,indeterminate,inert,ismap,itemscope,loop,multiple,muted,nohref,noresize,noshade,novalidate,nowrap,open,pauseonexit,readonly,required,reversed,scoped,seamless,selected,sortable,truespeed,typemustmatch,visible"
         ),
-        Hn = "http://www.w3.org/1999/xlink",
+        Nn = "http://www.w3.org/1999/xlink",
         Vn = function(t) {
           return ":" === t.charAt(5) && "xlink" === t.slice(0, 5)
         },
@@ -21857,7 +21947,7 @@ var system = (function(t) {
         for (n = 0; n < t.length; n++)
           (r = t[n]).modifiers || (r.modifiers = lr),
             (i[dr(r)] = r),
-            (r.def = Nt(e.$options, "directives", r.name))
+            (r.def = Ht(e.$options, "directives", r.name))
         return i
       }
       function dr(t) {
@@ -21886,13 +21976,13 @@ var system = (function(t) {
           for (a in (i(u.__ob__) && (u = e.data.attrs = E({}, u)), u))
             (o = u[a]), c[a] !== o && mr(s, a, o, e.data.pre)
           for (a in ((X || Z) && u.value !== c.value && mr(s, "value", u.value), c))
-            r(u[a]) && (Vn(a) ? s.removeAttributeNS(Hn, Fn(a)) : Pn(a) || s.removeAttribute(a))
+            r(u[a]) && (Vn(a) ? s.removeAttributeNS(Nn, Fn(a)) : Pn(a) || s.removeAttribute(a))
         }
       }
       function mr(t, e, n, r) {
         r || t.tagName.indexOf("-") > -1
           ? gr(t, e, n)
-          : Nn(e)
+          : Hn(e)
           ? Rn(n)
             ? t.removeAttribute(e)
             : ((n = "allowfullscreen" === e && "EMBED" === t.tagName ? "true" : e),
@@ -21910,8 +22000,8 @@ var system = (function(t) {
             )
           : Vn(e)
           ? Rn(n)
-            ? t.removeAttributeNS(Hn, Fn(e))
-            : t.setAttributeNS(Hn, e, n)
+            ? t.removeAttributeNS(Nn, Fn(e))
+            : t.setAttributeNS(Nn, e, n)
           : gr(t, e, n)
       }
       function gr(t, e, n) {
@@ -22077,15 +22167,15 @@ var system = (function(t) {
         Array.isArray(f) ? (a ? f.unshift(l) : f.push(l)) : (u[e] = f ? (a ? [l, f] : [f, l]) : l),
           (t.plain = !1)
       }
-      function Nr(t, e, n) {
-        var r = Hr(t, ":" + e) || Hr(t, "v-bind:" + e)
+      function Hr(t, e, n) {
+        var r = Nr(t, ":" + e) || Nr(t, "v-bind:" + e)
         if (null != r) return Dr(r)
         if (!1 !== n) {
-          var i = Hr(t, e)
+          var i = Nr(t, e)
           if (null != i) return JSON.stringify(i)
         }
       }
-      function Hr(t, e, n) {
+      function Nr(t, e, n) {
         var r
         if (null != (r = t.attrsMap[e]))
           for (var i = t.attrsList, a = 0, o = i.length; a < o; a++)
@@ -22501,27 +22591,27 @@ var system = (function(t) {
               $ = h(s(S) ? S.enter : S)
             0
             var z = !1 !== o && !J,
-              N = Hi(j),
-              H = (n._enterCb = P(function() {
+              H = Ni(j),
+              N = (n._enterCb = P(function() {
                 z && (Li(n, L), Li(n, E)),
-                  H.cancelled ? (z && Li(n, D), T && T(n)) : I && I(n),
+                  N.cancelled ? (z && Li(n, D), T && T(n)) : I && I(n),
                   (n._enterCb = null)
               }))
             t.data.show ||
               ue(t, "insert", function() {
                 var e = n.parentNode,
                   r = e && e._pending && e._pending[t.key]
-                r && r.tag === t.tag && r.elm._leaveCb && r.elm._leaveCb(), j && j(n, H)
+                r && r.tag === t.tag && r.elm._leaveCb && r.elm._leaveCb(), j && j(n, N)
               }),
               A && A(n),
               z &&
                 (Ei(n, D),
                 Ei(n, E),
                 Di(function() {
-                  Li(n, D), H.cancelled || (Ei(n, L), N || (Ni($) ? setTimeout(H, $) : Ai(n, c, H)))
+                  Li(n, D), N.cancelled || (Ei(n, L), H || (Hi($) ? setTimeout(N, $) : Ai(n, c, N)))
                 })),
-              t.data.show && (e && e(), j && j(n, H)),
-              z || N || H()
+              t.data.show && (e && e(), j && j(n, N)),
+              z || H || N()
           }
         }
       }
@@ -22543,7 +22633,7 @@ var system = (function(t) {
             g = a.delayLeave,
             y = a.duration,
             b = !1 !== o && !J,
-            _ = Hi(p),
+            _ = Ni(p),
             x = h(s(y) ? y.leave : y)
           0
           var w = (n._leaveCb = P(function() {
@@ -22564,19 +22654,19 @@ var system = (function(t) {
               (Ei(n, u),
               Ei(n, f),
               Di(function() {
-                Li(n, u), w.cancelled || (Ei(n, l), _ || (Ni(x) ? setTimeout(w, x) : Ai(n, c, w)))
+                Li(n, u), w.cancelled || (Ei(n, l), _ || (Hi(x) ? setTimeout(w, x) : Ai(n, c, w)))
               })),
             p && p(n, w),
             b || _ || w())
         }
       }
-      function Ni(t) {
+      function Hi(t) {
         return "number" == typeof t && !isNaN(t)
       }
-      function Hi(t) {
+      function Ni(t) {
         if (r(t)) return !1
         var e = t.fns
-        return i(e) ? Hi(Array.isArray(e) ? e[0] : e) : (t._length || t.length) > 1
+        return i(e) ? Ni(Array.isArray(e) ? e[0] : e) : (t._length || t.length) > 1
       }
       function Vi(t, e) {
         !0 !== e.data.show && Pi(e)
@@ -23280,7 +23370,7 @@ var system = (function(t) {
         }),
         U &&
           setTimeout(function() {
-            H.devtools && at && at.emit("init", On)
+            N.devtools && at && at.emit("init", On)
           }, 0)
       var la = /\{\{((?:.|\r?\n)+?)\}\}/g,
         fa = /[-.*+?^${}()|[\]\/\\]/g,
@@ -23293,9 +23383,9 @@ var system = (function(t) {
         staticKeys: ["staticClass"],
         transformNode: function(t, e) {
           e.warn
-          var n = Hr(t, "class")
+          var n = Nr(t, "class")
           n && (t.staticClass = JSON.stringify(n))
-          var r = Nr(t, "class", !1)
+          var r = Hr(t, "class", !1)
           r && (t.classBinding = r)
         },
         genData: function(t) {
@@ -23312,9 +23402,9 @@ var system = (function(t) {
           staticKeys: ["staticStyle"],
           transformNode: function(t, e) {
             e.warn
-            var n = Hr(t, "style")
+            var n = Nr(t, "style")
             n && (t.staticStyle = JSON.stringify(oi(n)))
-            var r = Nr(t, "style", !1)
+            var r = Hr(t, "style", !1)
             r && (t.styleBinding = r)
           },
           genData: function(t) {
@@ -23369,8 +23459,8 @@ var system = (function(t) {
           return ja[t]
         })
       }
-      var Na,
-        Ha,
+      var Ha,
+        Na,
         Va,
         Fa,
         Ra,
@@ -23402,7 +23492,7 @@ var system = (function(t) {
         }
       }
       function oo(t, e) {
-        ;(Na = e.warn || Lr),
+        ;(Ha = e.warn || Lr),
           (Ya = e.isPreTag || j),
           (Ba = e.mustUseProp || j),
           (Ka = e.getTagNamespace || j)
@@ -23416,7 +23506,7 @@ var system = (function(t) {
           (Va = Ar(e.modules, "transformNode")),
           (Fa = Ar(e.modules, "preTransformNode")),
           (Ra = Ar(e.modules, "postTransformNode")),
-          (Ha = e.delimiters))
+          (Na = e.delimiters))
         var r,
           i,
           a = [],
@@ -23611,7 +23701,7 @@ var system = (function(t) {
             }
             M()
           })(t, {
-            warn: Na,
+            warn: Ha,
             expectHTML: e.expectHTML,
             isUnaryTag: e.isUnaryTag,
             canBeLeftOpenTag: e.canBeLeftOpenTag,
@@ -23641,7 +23731,7 @@ var system = (function(t) {
               for (var v = 0; v < Fa.length; v++) h = Fa[v](h, e) || h
               c ||
                 (!(function(t) {
-                  null != Hr(t, "v-pre") && (t.pre = !0)
+                  null != Nr(t, "v-pre") && (t.pre = !0)
                 })(h),
                 h.pre && (c = !0)),
                 Ya(h.tag) && (u = !0),
@@ -23658,16 +23748,16 @@ var system = (function(t) {
                   : h.processed ||
                     (co(h),
                     (function(t) {
-                      var e = Hr(t, "v-if")
+                      var e = Nr(t, "v-if")
                       if (e) (t.if = e), uo(t, { exp: e, block: t })
                       else {
-                        null != Hr(t, "v-else") && (t.else = !0)
-                        var n = Hr(t, "v-else-if")
+                        null != Nr(t, "v-else") && (t.else = !0)
+                        var n = Nr(t, "v-else-if")
                         n && (t.elseif = n)
                       }
                     })(h),
                     (function(t) {
-                      null != Hr(t, "v-once") && (t.once = !0)
+                      null != Nr(t, "v-once") && (t.once = !0)
                     })(h)),
                 r || (r = h),
                 o ? l(h) : ((i = h), a.push(h))
@@ -23719,7 +23809,7 @@ var system = (function(t) {
                           { expression: o.join("+"), tokens: s }
                         )
                       }
-                    })(t, Ha))
+                    })(t, Na))
                       ? (l = { type: 2, expression: a.expression, tokens: a.tokens, text: t })
                       : (" " === t && f.length && " " === f[f.length - 1].text) ||
                         (l = { type: 3, text: t }),
@@ -23739,14 +23829,14 @@ var system = (function(t) {
       function so(t, e) {
         var n
         !(function(t) {
-          var e = Nr(t, "key")
+          var e = Hr(t, "key")
           if (e) {
             t.key = e
           }
         })(t),
           (t.plain = !t.key && !t.scopedSlots && !t.attrsList.length),
           (function(t) {
-            var e = Nr(t, "ref")
+            var e = Hr(t, "ref")
             e &&
               ((t.ref = e),
               (t.refInFor = (function(t) {
@@ -23761,9 +23851,9 @@ var system = (function(t) {
           (function(t) {
             var e
             "template" === t.tag
-              ? ((e = Hr(t, "scope")), (t.slotScope = e || Hr(t, "slot-scope")))
-              : (e = Hr(t, "slot-scope")) && (t.slotScope = e)
-            var n = Nr(t, "slot")
+              ? ((e = Nr(t, "scope")), (t.slotScope = e || Nr(t, "slot-scope")))
+              : (e = Nr(t, "slot-scope")) && (t.slotScope = e)
+            var n = Hr(t, "slot")
             n &&
               ((t.slotTarget = '""' === n ? '"default"' : n),
               (t.slotTargetDynamic = !(!t.attrsMap[":slot"] && !t.attrsMap["v-bind:slot"])),
@@ -23808,11 +23898,11 @@ var system = (function(t) {
               }
             }
           })(t),
-          "slot" === (n = t).tag && (n.slotName = Nr(n, "name")),
+          "slot" === (n = t).tag && (n.slotName = Hr(n, "name")),
           (function(t) {
             var e
-            ;(e = Nr(t, "is")) && (t.component = e)
-            null != Hr(t, "inline-template") && (t.inlineTemplate = !0)
+            ;(e = Hr(t, "is")) && (t.component = e)
+            null != Nr(t, "inline-template") && (t.inlineTemplate = !0)
           })(t)
         for (var r = 0; r < Va.length; r++) t = Va[r](t, e) || t
         return (
@@ -23874,7 +23964,7 @@ var system = (function(t) {
       }
       function co(t) {
         var e
-        if ((e = Hr(t, "v-for"))) {
+        if ((e = Nr(t, "v-for"))) {
           var n = (function(t) {
             var e = t.match(qa)
             if (!e) return
@@ -23933,14 +24023,14 @@ var system = (function(t) {
                 r = t.attrsMap
               if (!r["v-model"]) return
               if (
-                ((r[":type"] || r["v-bind:type"]) && (n = Nr(t, "type")),
+                ((r[":type"] || r["v-bind:type"]) && (n = Hr(t, "type")),
                 r.type || n || !r["v-bind"] || (n = "(" + r["v-bind"] + ").type"),
                 n)
               ) {
-                var i = Hr(t, "v-if", !0),
+                var i = Nr(t, "v-if", !0),
                   a = i ? "&&(" + i + ")" : "",
-                  o = null != Hr(t, "v-else", !0),
-                  s = Hr(t, "v-else-if", !0),
+                  o = null != Nr(t, "v-else", !0),
+                  s = Nr(t, "v-else-if", !0),
                   c = mo(t)
                 co(c),
                   Tr(c, "type", "checkbox"),
@@ -23949,13 +24039,13 @@ var system = (function(t) {
                   (c.if = "(" + n + ")==='checkbox'" + a),
                   uo(c, { exp: c.if, block: c })
                 var u = mo(t)
-                Hr(u, "v-for", !0),
+                Nr(u, "v-for", !0),
                   Tr(u, "type", "radio"),
                   so(u, e),
                   uo(c, { exp: "(" + n + ")==='radio'" + a, block: u })
                 var l = mo(t)
                 return (
-                  Hr(l, "v-for", !0),
+                  Nr(l, "v-for", !0),
                   Tr(l, ":type", n),
                   so(l, e),
                   uo(c, { exp: i, block: l }),
@@ -23993,9 +24083,9 @@ var system = (function(t) {
               else if ("input" === a && "checkbox" === o)
                 !(function(t, e, n) {
                   var r = n && n.number,
-                    i = Nr(t, "value") || "null",
-                    a = Nr(t, "true-value") || "true",
-                    o = Nr(t, "false-value") || "false"
+                    i = Hr(t, "value") || "null",
+                    a = Hr(t, "true-value") || "true",
+                    o = Hr(t, "false-value") || "false"
                   jr(
                     t,
                     "checked",
@@ -24033,7 +24123,7 @@ var system = (function(t) {
               else if ("input" === a && "radio" === o)
                 !(function(t, e, n) {
                   var r = n && n.number,
-                    i = Nr(t, "value") || "null"
+                    i = Hr(t, "value") || "null"
                   jr(t, "checked", "_q(" + e + "," + (i = r ? "_n(" + i + ")" : i) + ")"),
                     zr(t, "change", Yr(e, i), null, !0)
                 })(t, r, i)
@@ -24057,7 +24147,7 @@ var system = (function(t) {
                     (s || o) && zr(t, "blur", "$forceUpdate()")
                 })(t, r, i)
               else {
-                if (!H.isReservedTag(a)) return Rr(t, r, i), !1
+                if (!N.isReservedTag(a)) return Rr(t, r, i), !1
               }
               return !0
             },
@@ -24318,9 +24408,9 @@ var system = (function(t) {
       function Po(t, e) {
         if ((t.parent && (t.pre = t.pre || t.parent.pre), t.staticRoot && !t.staticProcessed))
           return zo(t, e)
-        if (t.once && !t.onceProcessed) return No(t, e)
+        if (t.once && !t.onceProcessed) return Ho(t, e)
         if (t.for && !t.forProcessed) return Vo(t, e)
-        if (t.if && !t.ifProcessed) return Ho(t, e)
+        if (t.if && !t.ifProcessed) return No(t, e)
         if ("template" !== t.tag || t.slotTarget || e.pre) {
           if ("slot" === t.tag)
             return (function(t, e) {
@@ -24368,8 +24458,8 @@ var system = (function(t) {
           "_m(" + (e.staticRenderFns.length - 1) + (t.staticInFor ? ",true" : "") + ")"
         )
       }
-      function No(t, e) {
-        if (((t.onceProcessed = !0), t.if && !t.ifProcessed)) return Ho(t, e)
+      function Ho(t, e) {
+        if (((t.onceProcessed = !0), t.if && !t.ifProcessed)) return No(t, e)
         if (t.staticInFor) {
           for (var n = "", r = t.parent; r; ) {
             if (r.for) {
@@ -24382,7 +24472,7 @@ var system = (function(t) {
         }
         return zo(t, e)
       }
-      function Ho(t, e, n, r) {
+      function No(t, e, n, r) {
         return (
           (t.ifProcessed = !0),
           (function t(e, n, r, i) {
@@ -24390,7 +24480,7 @@ var system = (function(t) {
             var a = e.shift()
             return a.exp ? "(" + a.exp + ")?" + o(a.block) + ":" + t(e, n, r, i) : "" + o(a.block)
             function o(t) {
-              return r ? r(t, n) : t.once ? No(t, n) : Po(t, n)
+              return r ? r(t, n) : t.once ? Ho(t, n) : Po(t, n)
             }
           })(t.ifConditions.slice(), e, n, r)
         )
@@ -24534,7 +24624,7 @@ var system = (function(t) {
       }
       function Yo(t, e) {
         var n = t.attrsMap["slot-scope"]
-        if (t.if && !t.ifProcessed && !n) return Ho(t, e, Yo, "null")
+        if (t.if && !t.ifProcessed && !n) return No(t, e, Yo, "null")
         if (t.for && !t.forProcessed) return Vo(t, e, Yo)
         var r = "_empty_" === t.slotScope ? "" : String(t.slotScope),
           i =
@@ -25381,10 +25471,10 @@ var system = (function(t) {
         }
       }
     }
-    function N(t, e, n) {
+    function H(t, e, n) {
       ;(t.scrollLeft += e), (t.scrollTop += n)
     }
-    function H(t) {
+    function N(t) {
       var e = window.Polymer,
         n = window.jQuery || window.Zepto
       return e && e.dom ? e.dom(t).cloneNode(!0) : n ? n(t).clone(!0)[0] : t.cloneNode(!0)
@@ -25794,7 +25884,7 @@ var system = (function(t) {
         },
         !0
       )
-    var Nt = function(t) {
+    var Ht = function(t) {
         if (X) {
           t = t.touches ? t.touches[0] : t
           var e =
@@ -25821,7 +25911,7 @@ var system = (function(t) {
         }
         var i, a, o
       },
-      Ht = function(t) {
+      Nt = function(t) {
         X && X.parentNode[R]._isOutsideThisEl(t.target)
       }
     function Vt(t, e) {
@@ -26024,9 +26114,9 @@ var system = (function(t) {
             o.ignore.split(",").forEach(function(t) {
               k(X, t.trim(), Rt)
             }),
-            g(s, "dragover", Nt),
-            g(s, "mousemove", Nt),
-            g(s, "touchmove", Nt),
+            g(s, "dragover", Ht),
+            g(s, "mousemove", Ht),
+            g(s, "touchmove", Ht),
             g(s, "mouseup", i._onDrop),
             g(s, "touchend", i._onDrop),
             g(s, "touchcancel", i._onDrop),
@@ -26086,7 +26176,7 @@ var system = (function(t) {
       },
       _dragStarted: function(t, e) {
         if (((xt = !1), Q && X)) {
-          q("dragStarted", this, { evt: e }), this.nativeDraggable && g(document, "dragover", Ht)
+          q("dragStarted", this, { evt: e }), this.nativeDraggable && g(document, "dragover", Nt)
           var n = this.options
           !t && S(X, n.dragClass, !1),
             S(X, n.ghostClass, !0),
@@ -26218,7 +26308,7 @@ var system = (function(t) {
             ? this._onDrop()
             : (q("setupClone", this),
               Vt.eventCanceled ||
-                (((nt = H(X)).draggable = !1),
+                (((nt = N(X)).draggable = !1),
                 (nt.style["will-change"] = ""),
                 this._hideClone(),
                 S(nt, this.options.chosenClass, !1),
@@ -26273,7 +26363,7 @@ var system = (function(t) {
             (s.animated && s.animatingX && s.animatingY) ||
             h._ignoreWhileAnimating === s
           )
-            return H(!1)
+            return N(!1)
           if (
             ((wt = !1),
             l &&
@@ -26297,7 +26387,7 @@ var system = (function(t) {
                 this._hideClone(),
                 P("revert"),
                 Vt.eventCanceled || (tt ? Q.insertBefore(X, tt) : Q.appendChild(X)),
-                H(!0)
+                N(!0)
               )
             var m = j(a, c.draggable)
             if (
@@ -26312,13 +26402,13 @@ var system = (function(t) {
               })(t, i, this) &&
                 !m.animated)
             ) {
-              if (m === X) return H(!1)
+              if (m === X) return N(!1)
               if (
                 (m && a === t.target && (s = m),
                 s && (n = E(s)),
                 !1 !== Ft(Q, a, X, e, s, n, t, !!s))
               )
-                return z(), a.appendChild(X), (J = a), V(), H(!0)
+                return z(), a.appendChild(X), (J = a), V(), N(!0)
             } else if (s.parentNode === a) {
               n = E(s)
               var g,
@@ -26379,7 +26469,7 @@ var system = (function(t) {
                   ;(D -= g), (b = J.children[D])
                 } while (b && ("none" === O(b, "display") || b === Z))
               }
-              if (0 === g || b === s) return H(!1)
+              if (0 === g || b === s) return N(!1)
               ;(gt = s), (yt = g)
               var A = s.nextElementSibling,
                 T = !1,
@@ -26391,14 +26481,14 @@ var system = (function(t) {
                   setTimeout(Yt, 30),
                   z(),
                   T && !A ? a.appendChild(X) : s.parentNode.insertBefore(X, T ? A : s),
-                  M && N(M, 0, k - M.scrollTop),
+                  M && H(M, 0, k - M.scrollTop),
                   (J = X.parentNode),
                   void 0 === y || Ot || (bt = Math.abs(y - E(s)[C])),
                   V(),
-                  H(!0)
+                  N(!0)
                 )
             }
-            if (a.contains(X)) return H(!1)
+            if (a.contains(X)) return N(!1)
           }
           return !1
         }
@@ -26417,7 +26507,7 @@ var system = (function(t) {
                 canSort: d,
                 fromSortable: p,
                 target: s,
-                completed: H,
+                completed: N,
                 onMove: function(n, r) {
                   return Ft(Q, a, X, e, n, E(n), t, r)
                 },
@@ -26432,7 +26522,7 @@ var system = (function(t) {
             h.captureAnimationState(),
             h !== p && p.captureAnimationState()
         }
-        function H(e) {
+        function N(e) {
           return (
             P("dragOverCompleted", { insertion: e }),
             e &&
@@ -26450,7 +26540,7 @@ var system = (function(t) {
             c.dragoverBubble ||
               t.rootEl ||
               s === document ||
-              (X.parentNode[R]._isOutsideThisEl(t.target), !e && Nt(t)),
+              (X.parentNode[R]._isOutsideThisEl(t.target), !e && Ht(t)),
             !c.dragoverBubble && t.stopPropagation && t.stopPropagation(),
             (v = !0)
           )
@@ -26473,9 +26563,9 @@ var system = (function(t) {
         y(document, "mousemove", this._onTouchMove),
           y(document, "touchmove", this._onTouchMove),
           y(document, "pointermove", this._onTouchMove),
-          y(document, "dragover", Nt),
-          y(document, "mousemove", Nt),
-          y(document, "touchmove", Nt)
+          y(document, "dragover", Ht),
+          y(document, "mousemove", Ht),
+          y(document, "touchmove", Ht)
       },
       _offUpEvents: function() {
         var t = this.el.ownerDocument
@@ -26661,7 +26751,7 @@ var system = (function(t) {
         throttle: z,
         closest: x,
         toggleClass: S,
-        clone: H,
+        clone: N,
         index: I,
         nextTick: Kt,
         cancelNextTick: Ut,
@@ -26764,7 +26854,7 @@ var system = (function(t) {
                     ;("function" == typeof i &&
                       "continue" !==
                         i.call(Vt.dragged.parentNode[R], n, e, t, Jt, Qt[this.layer].el)) ||
-                      N(Qt[this.layer].el, n, e)
+                      H(Qt[this.layer].el, n, e)
                   }.bind({ layer: f }),
                   24
                 )))),
@@ -26932,7 +27022,7 @@ var system = (function(t) {
               n = t.cancel
             if (this.isMultiDrag) {
               for (var r = 0; r < he.length; r++)
-                ve.push(H(he[r])),
+                ve.push(N(he[r])),
                   (ve[r].sortableIndex = he[r].sortableIndex),
                   (ve[r].draggable = !1),
                   (ve[r].style["will-change"] = ""),
@@ -27826,6 +27916,7 @@ var system = (function(t) {
     e.default = s.exports
   },
   rGn2: function(t, e) {},
+  rNHH: function(t, e) {},
   rPeu: function(t, e, n) {},
   rou7: function(t, e, n) {},
   s1dr: function(t, e, n) {},
@@ -29563,6 +29654,71 @@ var system = (function(t) {
         }).default
       }),
       (t.exports = r(n("qkdH")))
+  },
+  tFln: function(t, e, n) {
+    "use strict"
+    n.r(e)
+    var r = { name: "LuxIconDelivery", status: "ready", release: "1.0.0", type: "Element" },
+      i = n("KHd+"),
+      a = n("rNHH"),
+      o = n.n(a),
+      s = Object(i.a)(
+        r,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e("g", [
+            e("path", {
+              attrs: {
+                d:
+                  "M23.9,16.2l-2.5-4C21.3,12.1,21.2,12,21,12h-4V9.5C17,9.2,16.8,9,16.5,9H11v1h5v9l-4.8,0c-0.3-0.6-1-1-1.7-1\n\t\ts-1.4,0.4-1.7,1H6v-7H5v7.5C5,19.8,5.2,20,5.5,20h2c0,1.1,0.9,2,2,2s2-0.9,2-2l5,0c0,0,0.1,0,0.1,0h0.9c0,0,0,0,0,0\n\t\tc0,1.1,0.9,2,2,2s2-0.9,2-2c0,0,0,0,0,0h2c0.3,0,0.5-0.2,0.5-0.5v-3C24,16.4,24,16.3,23.9,16.2z M9.5,21c-0.6,0-1-0.4-1-1\n\t\ts0.4-1,1-1s1,0.4,1,1S10.1,21,9.5,21z M20.7,13l1.9,3H17v-3H20.7z M19.5,21c-0.6,0-1-0.4-1-1s0.4-1,1-1s1,0.4,1,1S20.1,21,19.5,21z\n\t\t M21.2,19c-0.4-0.6-1-1-1.7-1c-0.7,0-1.4,0.4-1.7,1H17v-2h6v2L21.2,19L21.2,19z",
+              },
+            }),
+            this._v(" "),
+            e("path", {
+              attrs: {
+                d:
+                  "M5,11c2.7,0,5-2.3,5-5S7.7,1,5,1S0,3.3,0,6S2.3,11,5,11z M5,2c2.2,0,4,1.8,4,4s-1.8,4-4,4S1,8.2,1,6S2.8,2,5,2z",
+              },
+            }),
+            this._v(" "),
+            e("path", {
+              attrs: {
+                d:
+                  "M4.5,7h2C6.8,7,7,6.8,7,6.5S6.8,6,6.5,6H5V3.5C5,3.2,4.8,3,4.5,3S4,3.2,4,3.5v3C4,6.8,4.2,7,4.5,7z",
+              },
+            }),
+            this._v(" "),
+            e("path", {
+              attrs: {
+                d:
+                  "M3.5,14l-3,0h0C0.2,14,0,14.2,0,14.5C0,14.8,0.2,15,0.5,15l3,0h0C3.8,15,4,14.8,4,14.5C4,14.2,3.8,14,3.5,14z",
+              },
+            }),
+            this._v(" "),
+            e("path", {
+              attrs: {
+                d:
+                  "M3.5,16L2,16c0,0,0,0,0,0c-0.3,0-0.5,0.2-0.5,0.5S1.7,17,2,17l1.5,0c0,0,0,0,0,0C3.8,17,4,16.8,4,16.5S3.8,16,3.5,16z",
+              },
+            }),
+            this._v(" "),
+            e("path", {
+              attrs: {
+                d:
+                  "M3.5,18L3,18c-0.3,0-0.5,0.2-0.5,0.5C2.5,18.8,2.7,19,3,19l0.5,0c0,0,0,0,0,0C3.8,19,4,18.8,4,18.5C4,18.2,3.8,18,3.5,18z",
+              },
+            }),
+          ])
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      )
+    "function" == typeof o.a && o()(s), (s.options.__file = "LuxIconDelivery.vue")
+    e.default = s.exports
   },
   tbEL: function(t, e, n) {},
   tl6t: function(t, e, n) {
