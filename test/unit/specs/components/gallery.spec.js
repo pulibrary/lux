@@ -60,8 +60,9 @@ describe("Gallery.vue", () => {
   //   expect(wrapper.vm.items[0].id).toBe(3)
   // })
 
-  it("sizes the card correctly", () => {
+  it("sizes the card correctly", async () => {
     wrapper.setProps({ cardPixelWidth: 200 })
+    await localVue.nextTick()
     const card = wrapper.find(".lux-galleryCard")
     expect(card.attributes().cardpixelwidth).toBe("200")
   })

@@ -16,14 +16,16 @@ describe("GridItem.vue", () => {
     })
   })
 
-  it("should have the appropriate class to define the columns", () => {
+  it("should have the appropriate class to define the columns", async () => {
     wrapper.setProps({ columns: "lg-9 sm-6" })
+    await localVue.nextTick()
     const gridItem = wrapper.find(".lux-col")
     expect(gridItem.is(".lg-9.sm-6")).toBe(true)
   })
 
-  it("should have the appropriate class to define the vertical alignment", () => {
+  it("should have the appropriate class to define the vertical alignment", async () => {
     wrapper.setProps({ vertical: "start" })
+    await localVue.nextTick()
     const gridItem = wrapper.find(".lux-col")
     expect(gridItem.is(".start")).toBe(true)
   })

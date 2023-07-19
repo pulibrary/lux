@@ -55,23 +55,26 @@ describe("InputRadio.vue", () => {
     expect(label.attributes().for).toBe("radio-opt2")
   })
 
-  it("should stack if vertical is true", () => {
+  it("should stack if vertical is true", async () => {
     const radio = wrapper.findAll(".lux-radio").at(0)
     expect(radio.classes()).toContain("lux-inline")
     wrapper.setProps({ vertical: true })
+    await localVue.nextTick()
     expect(radio.classes()).not.toContain("lux-inline")
   })
 
-  it("should display an errormessage with the proper role when passed in as a prop", () => {
+  it("should display an errormessage with the proper role when passed in as a prop", async () => {
     expect(wrapper.find(".lux-error").exists()).toBe(false)
     wrapper.setProps({ errormessage: "Something went wrong." })
+    await localVue.nextTick()
     expect(wrapper.find(".lux-error").exists()).toBe(true)
     expect(wrapper.find(".lux-error").attributes().role).toBe("alert")
   })
 
-  it("should display a legend if groupLabel is passed in as a prop", () => {
+  it("should display a legend if groupLabel is passed in as a prop", async () => {
     expect(wrapper.find("legend").exists()).toBe(false)
     wrapper.setProps({ groupLabel: "Multiple choice:" })
+    await localVue.nextTick()
     expect(wrapper.find("legend").exists()).toBe(true)
   })
 

@@ -23,15 +23,17 @@ describe("LuxSelect2.vue", () => {
     })
   })
 
-  it("should accept an optional label", () => {
+  it("should accept an optional label", async () => {
     expect(wrapper.find("label").exists()).toBe(false)
     wrapper.setProps({ inputLabel: "Multiple choice:" })
+    await localVue.nextTick()
     expect(wrapper.find("label").exists()).toBe(true)
     expect(wrapper.find("label").text()).toBe("Multiple choice:")
   })
 
-  it("should connect the label to the field using the id", () => {
+  it("should connect the label to the field using the id", async () => {
     wrapper.setProps({ inputLabel: "Multiple choice:" })
+    await localVue.nextTick()
     expect(wrapper.find("label").attributes("for")).toBe("test_id")
     expect(wrapper.find("input").attributes("id")).toBe("test_id")
   })
@@ -55,11 +57,12 @@ describe("LuxSelect2.vue", () => {
     expect(selected_hash.text().includes('code": "js"')).toBe(true)
   })
 
-  it("should have an optional placeholder with a default", () => {
+  it("should have an optional placeholder with a default", async () => {
     var placeholder = wrapper.find("input").attributes("placeholder")
 
     expect(placeholder).toBe("Search or add a tag")
     wrapper.setProps({ placeholder: "Search or add an accessibility need" })
+    await localVue.nextTick()
     var placeholder = wrapper.find("input").attributes("placeholder")
     expect(placeholder).toBe("Search or add an accessibility need")
   })

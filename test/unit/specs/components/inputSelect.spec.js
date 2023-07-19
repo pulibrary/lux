@@ -46,16 +46,18 @@ describe("InputSelect.vue", () => {
     expect(Object.prototype.hasOwnProperty.call(emitted, "inputblur")).toBe(true)
   })
 
-  it("should have a label if passed in", () => {
+  it("should have a label if passed in", async () => {
     expect(wrapper.find("label").exists()).toBe(false)
     wrapper.setProps({ label: "Multiple choice:" })
+    await localVue.nextTick()
     expect(wrapper.find("label").exists()).toBe(true)
     expect(wrapper.find("label").text()).toBe("Multiple choice:")
   })
 
-  it("should display an errormessage with the proper role when passed in as a prop", () => {
+  it("should display an errormessage with the proper role when passed in as a prop", async () => {
     expect(wrapper.find(".lux-error").exists()).toBe(false)
     wrapper.setProps({ errormessage: "Something went wrong." })
+    await localVue.nextTick()
     expect(wrapper.find(".lux-error").exists()).toBe(true)
     expect(wrapper.find(".lux-error").attributes().role).toBe("alert")
   })

@@ -85,8 +85,9 @@ describe("DataTable.vue", () => {
     expect(wrapper.vm.isRight("right")).toBe(true)
   })
 
-  it("should show tfoot if summaryLabel is present", () => {
+  it("should show tfoot if summaryLabel is present", async () => {
     wrapper.setProps({ summaryLabel: "Average" })
+    await localVue.nextTick()
     const th = wrapper.find("tfoot th")
     expect(th.text()).toBe("Average")
   })
