@@ -20,10 +20,11 @@ describe("Tag.vue", () => {
     })
   })
 
-  it("should render the correct type", () => {
+  it("should render the correct type", async () => {
     const tag = wrapper.find(".lux-tag.tag")
     expect(tag.is("ul")).toBe(true)
     wrapper.setProps({ type: "filter" })
+    await localVue.nextTick()
     const filter = wrapper.find(".lux-tag.filter")
     expect(filter.is("ul")).toBe(true)
   })

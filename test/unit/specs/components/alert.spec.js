@@ -4,6 +4,12 @@ import Alert from "@/elements/Alert.vue"
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
 
+const transitionStub = () => ({
+  render: function(h) {
+    return this.$options._renderChildren
+  },
+})
+
 describe("Alert.vue", () => {
   let wrapper
 
@@ -12,6 +18,9 @@ describe("Alert.vue", () => {
       localVue,
       slots: {
         default: "Here's some info for you.",
+      },
+      stubs: {
+        transition: transitionStub(),
       },
       // if props are set here, buttons aren't rendered
       // props: {
@@ -25,17 +34,20 @@ describe("Alert.vue", () => {
     expect(el.text()).toBe("Here's some info for you.")
   })
 
-  it("should have a button when dismissible", () => {
+  it("should have a button when dismissible", async () => {
     wrapper.setProps({ dismissible: true })
+    await localVue.nextTick()
     const button = wrapper.find("button")
     expect(wrapper.vm.dismissible).toBe(true)
     expect(button.is("button")).toBe(true)
   })
 
-  it("should be dismissible on click", () => {
+  it("should be dismissible on click", async () => {
     wrapper.setProps({ dismissible: true })
+    await localVue.nextTick()
     const button = wrapper.find("button")
     button.trigger("click")
+    await localVue.nextTick()
     expect(wrapper.isEmpty()).toBe(true)
   })
 
@@ -54,8 +66,9 @@ describe("Alert.vue", () => {
     expect(wrapper.vm.show).toBe(false)
   })
 
-  it("should hide after 2 seconds when autoclear is true", () => {
+  it("should hide after 2 seconds when autoclear is true", async () => {
     wrapper.setProps({ autoclear: true })
+    await localVue.nextTick()
     const el = wrapper.find(".lux-alert")
     expect(wrapper.vm.show).toBe(true)
     // wait 3 seconds and see if it's hidden

@@ -25,10 +25,11 @@ describe("MenuBar.vue", () => {
     })
   })
 
-  it("should be a nav element if the type prop value is 'links'", () => {
+  it("should be a nav element if the type prop value is 'links'", async () => {
     expect(wrapper.find("nav").exists()).toBe(true)
     expect(wrapper.find("div").exists()).toBe(false)
     wrapper.setProps({ type: "buttons" })
+    await localVue.nextTick()
     expect(wrapper.find("nav").exists()).toBe(false)
     expect(wrapper.find("div").exists()).toBe(true)
   })
@@ -40,8 +41,9 @@ describe("MenuBar.vue", () => {
     expect(Object.prototype.hasOwnProperty.call(emitted1, "menu-item-clicked")).toBe(true)
   })
 
-  it("should emit the correct event when menu-item is clicked", () => {
+  it("should emit the correct event when menu-item is clicked", async () => {
     wrapper.setProps({ type: "buttons" })
+    await localVue.nextTick()
     const menuItem = wrapper.find(".lux-menu-item")
     menuItem.trigger("click")
     const emitted2 = wrapper.emitted()

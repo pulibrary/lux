@@ -13,10 +13,11 @@ describe("Loader.vue", () => {
     })
   })
 
-  it("should be full screen when fullscreen prop is true", () => {
+  it("should be full screen when fullscreen prop is true", async () => {
     const overlay = wrapper.find(".lux-overlay")
     expect(overlay.classes()).not.toContain("lux-fullscreen")
     wrapper.setProps({ fullscreen: true })
+    await localVue.nextTick()
     const fs_overlay = wrapper.find(".lux-overlay")
     expect(fs_overlay.classes()).toContain("lux-fullscreen")
   })

@@ -61,9 +61,10 @@ describe("InputAutocomplete.vue", () => {
     expect(wrapper.vm.inputValue).toBe("Foo")
   })
 
-  it("should have a label if passed in", () => {
+  it("should have a label if passed in", async () => {
     expect(wrapper.find("label").exists()).toBe(false)
     wrapper.setProps({ label: "Fill in the blank:" })
+    await localVue.nextTick()
     expect(wrapper.find("label").exists()).toBe(true)
     expect(wrapper.find("label").text()).toBe("Fill in the blank:")
   })

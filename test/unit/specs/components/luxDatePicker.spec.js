@@ -4,13 +4,19 @@ import LuxDatePicker from "@/elements/LuxDatePicker.vue"
 // create an extended `Vue` constructor
 const localVue = createLocalVue()
 
+const transitionStub = () => ({
+  render: function(h) {
+    return this.$options._renderChildren
+  },
+})
+
 describe("LuxDatePicker.vue", () => {
   let wrapper
 
   beforeEach(() => {
     wrapper = mount(LuxDatePicker, {
       localVue,
-      stubs: ["wrapper", "input-text"],
+      stubs: { wrapper: true, "input-text": true, transition: transitionStub() },
       propsData: {
         id: "startDate",
         label: "Start Date",
