@@ -25,6 +25,12 @@ describe("MenuBar.vue", () => {
     })
   })
 
+  it("should not have a 'presentation' role within the main menu", async () => {
+    wrapper.setProps({ type: "main-menu" })
+    await localVue.nextTick()
+    expect(wrapper.element.innerHTML).not.toContain('role="presentation"')
+  })
+
   it("should be a nav element if the type prop value is 'links'", async () => {
     expect(wrapper.find("nav").exists()).toBe(true)
     expect(wrapper.find("div").exists()).toBe(false)
