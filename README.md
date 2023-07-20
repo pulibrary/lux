@@ -89,6 +89,6 @@ yarn run deploy
 
 ## To publish a new version to npm:
 
-1.  Pull latest master with merged changes.
+1.  Pull latest main with merged changes.
 2.  Run `yarn release`
 3.  :tada:
