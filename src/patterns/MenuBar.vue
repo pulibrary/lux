@@ -76,7 +76,6 @@
     </button>
     <ul class="lux-main-menu-list" :class="{ 'lux-show': isVisible }">
       <li
-        role="presentation"
         v-for="(item, index) in menuItems"
         :key="index"
         :class="{ 'lux-has-children': item.children }"
@@ -92,7 +91,7 @@
             {{ item.name }}
           </button>
           <ul role="menu" :class="{ 'lux-show': index === activeItem }">
-            <li role="presentation" v-for="(child, index) in item.children" :key="index">
+            <li v-for="(child, index) in item.children" :key="index">
               <a
                 role="menuitem"
                 :key="index"
