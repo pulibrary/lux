@@ -4,7 +4,7 @@ LUX Design System is a UI Design System based on [VueDS](https://viljamis.com/20
 
 ## What browsers are supported?
 
-The development environment supports the following browsers. If we want to edit the browsers supported in production we can edit the [browsers list in package.json](https://github.com/pulibrary/lux/blob/master/package.json#L172-L180). To see what browsers are selected by the browser list, run `npx browserslist --config="package.json"` in the root directory of this project.
+The development environment supports the following browsers. If we want to edit the browsers supported in production we can edit the [browsers list in package.json](https://github.com/pulibrary/lux/blob/main/package.json#L172-L180). To see what browsers are selected by the browser list, run `npx browserslist --config="package.json"` in the root directory of this project.
 
 | BROWSER           | VERSION         |
 | ----------------- | --------------- |
@@ -41,7 +41,7 @@ We want to start this conversation before investing too much effort. We will bui
 
 ## Can I convert YAML tokens to more than just SCSS and JSON?
 
-Definitely. See [Theo’s docs](https://github.com/salesforce-ux/theo). It allows you to convert the tokens to almost any format you can think of. The formats used are being configured in [package.json](https://github.com/pulibrary/lux/blob/master/#L25).
+Definitely. See [Theo’s docs](https://github.com/salesforce-ux/theo). It allows you to convert the tokens to almost any format you can think of. The formats used are being configured in [package.json](https://github.com/pulibrary/lux/blob/main/#L25).
 
 ## I can’t figure out what icons are available?
 
