@@ -89,6 +89,7 @@ yarn run deploy
 
 ## To publish a new version to npm:
 
+1.  If you don't already have np installed, `yarn global add np`.  If you are running an old version of node (e.g. Node 12), you may need to install an older version of np (e.g. `yarn global add np@5.0.0`)
 1.  Pull latest main with merged changes.
 2.  Run `yarn release`
 3.  :tada:
