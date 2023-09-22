@@ -19,6 +19,7 @@
         :value="!date ? '' : date.toLocaleDateString('en-US')"
         @input="updateInput($event)"
         :placeholder="placeholder"
+        :helper="helper"
       ></input-text>
     </v-date-picker>
     <v-date-picker
@@ -40,6 +41,7 @@
         :value="!range ? '' : this.formatStart() + ' - ' + this.formatEnd()"
         @input="updateRangeInput($event)"
         :placeholder="placeholder"
+        :helper="helper"
       ></input-text>
     </v-date-picker>
   </div>
@@ -189,6 +191,13 @@ export default {
       default: null,
       required: false,
     },
+    /**
+     * The helper text a user should get.
+     */
+    helper: {
+      type: String,
+      default: "",
+    },
   },
   methods: {
     calendarClosedSingle(value) {
@@ -290,7 +299,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <lux-date-picker id="dateRange" name="daterange" label="Date Range" mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]"  placeholder="01/10/2020" />
+    <lux-date-picker id="dateRange" name="daterange" label="Date Range" helper="Please enter both start and end dates." mode="range" :disabled-dates="[{ start: null, end: new Date(2019, 05, 01)}, { start: new Date(), end: null }]"  placeholder="01/10/2020" />
 
     <lux-date-picker id="today" name="today" label="Today's Date" mode="single" :holidays="['2020-02-20','2020-02-21']" :defaultDate="new Date()" />
   </div>
