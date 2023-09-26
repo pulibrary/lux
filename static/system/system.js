@@ -7833,6 +7833,7 @@ var system = (function(t) {
             defaultDates: { type: Object, default: null, required: !1 },
             disabledDates: { type: Array, default: null, required: !1 },
             holidays: { type: Array, default: null, required: !1 },
+            helper: { type: String, default: "" },
           },
           methods: {
             calendarClosedSingle: function(t) {
@@ -7940,6 +7941,7 @@ var system = (function(t) {
                           size: t.size,
                           value: t.date ? t.date.toLocaleDateString("en-US") : "",
                           placeholder: t.placeholder,
+                          helper: t.helper,
                         },
                         on: {
                           input: function(e) {
@@ -7986,6 +7988,7 @@ var system = (function(t) {
                           required: t.required,
                           value: t.range ? this.formatStart() + " - " + this.formatEnd() : "",
                           placeholder: t.placeholder,
+                          helper: t.helper,
                         },
                         on: {
                           input: function(e) {
