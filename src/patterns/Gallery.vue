@@ -10,7 +10,8 @@
       :selected="isSelected(item)"
       :disabled="isDisabled(item)"
       :edited="hasChanged(item.id)"
-      @click.capture="select(item.id, $event)">
+      @click.capture="select(item.id, $event)"
+    >
       <media-image :src="item.mediaUrl"></media-image>
       <heading level="h2">{{ item.title }}</heading>
       <text-style variation="default">{{ item.caption }}</text-style>
@@ -96,6 +97,11 @@ export default {
       //console.log(this.gallery.selected.indexOf(item) > -1)
       return this.gallery.selected.indexOf(item) > -1
     },
+    emitSelectEvent: function(value) {
+      this.$emit("gallery-items-selected", {
+        event: value,
+      })
+    },
     select: function(id, event) {
       if (!this.isDisabled(this.getItemById(id))) {
         // can't select disabled item
@@ -104,6 +110,7 @@ export default {
           selected = this.gallery.selected
           selected.push(this.getItemById(id))
           store.commit("SELECT", selected)
+          // trigger custom event when selected
         } else {
           if (this.gallery.selected.length === 1 && event.shiftKey) {
             var first = this.getItemIndexById(this.gallery.selected[0].id)
@@ -114,6 +121,7 @@ export default {
               selected.push(this.items[i])
             }
             store.commit("SELECT", selected)
+            // trigger custom event when selected
           } else {
             store.commit("SELECT", [this.getItemById(id)])
           }
