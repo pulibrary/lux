@@ -45,7 +45,6 @@
                 >Study Spaces and Lockers</a
               >
             </li>
-            <li><a href="https://library.princeton.edu/help/trace-materials">Trace a Book</a></li>
             <li><a href="https://library.princeton.edu/accounts">Your Accounts</a></li>
           </ul>
         </nav>
