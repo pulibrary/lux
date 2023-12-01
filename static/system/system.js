@@ -13294,6 +13294,14 @@ var system = (function(t) {
                       ]),
                       t._v(" "),
                       n("li", [
+                        n(
+                          "a",
+                          { attrs: { href: "https://library.princeton.edu/help/trace-materials" } },
+                          [t._v("Trace a Book")]
+                        ),
+                      ]),
+                      t._v(" "),
+                      n("li", [
                         n("a", { attrs: { href: "https://library.princeton.edu/accounts" } }, [
                           t._v("Your Accounts"),
                         ]),
@@ -27632,6 +27640,14 @@ var system = (function(t) {
                             attrs: { href: "https://library.princeton.edu/services/study-spaces" },
                           },
                           [t._v("Study Spaces and Lockers")]
+                        ),
+                      ]),
+                      t._v(" "),
+                      n("li", [
+                        n(
+                          "a",
+                          { attrs: { href: "https://library.princeton.edu/help/trace-materials" } },
+                          [t._v("Trace a Book")]
                         ),
                       ]),
                       t._v(" "),
