@@ -7,7 +7,12 @@
           <ul>
             <li><a href="https://dss.princeton.edu">Data and Statistics</a></li>
             <li><a href="https://library.princeton.edu/research/databases">Databases</a></li>
-            <li><a href="https://catalog.princeton.edu/?f%5Baccess_facet%5D%5B%5D=Online&f%5Bformat%5D%5B%5D=Journal">E-journals</a></li>
+            <li>
+              <a
+                href="https://catalog.princeton.edu/?f%5Baccess_facet%5D%5B%5D=Online&f%5Bformat%5D%5B%5D=Journal"
+                >E-journals</a
+              >
+            </li>
             <li><a href="https://library.princeton.edu/library-guides">Research Guides</a></li>
             <li><a href="https://catalog.princeton.edu/">Catalog</a></li>
             <li>
@@ -49,7 +54,6 @@
                 >Study Spaces and Lockers</a
               >
             </li>
-            <li><a href="https://library.princeton.edu/help/trace-materials">Trace a Book</a></li>
             <li><a href="https://library.princeton.edu/accounts">Your Accounts</a></li>
           </ul>
         </nav>
