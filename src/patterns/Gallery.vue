@@ -10,7 +10,8 @@
       :selected="isSelected(item)"
       :disabled="isDisabled(item)"
       :edited="hasChanged(item.id)"
-      @click.capture="select(item.id, $event)">
+      @click.capture="select(item.id, $event)"
+    >
       <media-image :src="item.mediaUrl"></media-image>
       <heading level="h2">{{ item.title }}</heading>
       <text-style variation="default">{{ item.caption }}</text-style>
@@ -97,6 +98,7 @@ export default {
       return this.gallery.selected.indexOf(item) > -1
     },
     select: function(id, event) {
+      this.$emit("card-clicked", event)
       if (!this.isDisabled(this.getItemById(id))) {
         // can't select disabled item
         let selected = []
