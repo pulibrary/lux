@@ -14123,7 +14123,7 @@ var system = (function(t) {
             return this.gallery.selected.indexOf(t) > -1
           },
           select: function(t, e) {
-            if (!this.isDisabled(this.getItemById(t))) {
+            if ((this.$emit("card-clicked", e), !this.isDisabled(this.getItemById(t)))) {
               var n = []
               if (e.metaKey)
                 (n = this.gallery.selected).push(this.getItemById(t)), a.a.commit("SELECT", n)
