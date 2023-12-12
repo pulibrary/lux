@@ -108,7 +108,7 @@ export default {
 
   &:focus,
   &-selected {
-    box-shadow: $box-shadow-selected;
+    box-shadow: 0px 0px 5px 3px #e77500;
   }
 
   &-edited {
