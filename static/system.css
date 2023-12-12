@@ -156,7 +156,7 @@ button.lux-close {
 }
 .lux-card-selected,
 .lux-card:focus {
-  box-shadow: 0 0 0 1px #e77500;
+  box-shadow: 0 0 5px 3px #e77500;
 }
 .lux-card-edited {
   background: #e77500;
