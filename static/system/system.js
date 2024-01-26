@@ -8014,6 +8014,7 @@ var system = (function(t) {
     e.default = c.exports
   },
   AeGV: function(t, e, n) {},
+  AkcU: function(t, e, n) {},
   Akpa: function(t, e, n) {
     "use strict"
     var r = n("rPeu")
@@ -8261,6 +8262,11 @@ var system = (function(t) {
   CPix: function(t, e, n) {
     "use strict"
     var r = n("hR8r")
+    n.n(r).a
+  },
+  "CV/J": function(t, e, n) {
+    "use strict"
+    var r = n("AkcU")
     n.n(r).a
   },
   ConA: function(t, e, n) {
@@ -9168,7 +9174,6 @@ var system = (function(t) {
     "function" == typeof o.a && o()(s), (s.options.__file = "LuxIconFileUnhealthy.vue")
     e.default = s.exports
   },
-  FJRS: function(t, e, n) {},
   FXzT: function(t, e, n) {
     "use strict"
     var r = n("c0zK")
@@ -9179,11 +9184,6 @@ var system = (function(t) {
   GqHY: function(t, e, n) {
     "use strict"
     var r = n("674y")
-    n.n(r).a
-  },
-  GxD9: function(t, e, n) {
-    "use strict"
-    var r = n("FJRS")
     n.n(r).a
   },
   H3bh: function(t, e, n) {},
@@ -14603,7 +14603,7 @@ var system = (function(t) {
         type: "Element",
         props: { type: { type: String, default: "span" } },
       },
-      i = (n("GxD9"), n("KHd+")),
+      i = (n("CV/J"), n("KHd+")),
       a = n("eCho"),
       o = n.n(a),
       s = Object(i.a)(
@@ -14612,7 +14612,7 @@ var system = (function(t) {
           var t = this.$createElement,
             e = this._self._c || t
           return e(this.type, { tag: "component", staticClass: "lux-accessibility" }, [
-            e("a", { attrs: { href: "https://accessibility.princeton.edu/" } }, [
+            e("a", { attrs: { href: "https://accessibility.princeton.edu/help" } }, [
               this._v("Accessibility"),
             ]),
           ])
@@ -14620,7 +14620,7 @@ var system = (function(t) {
         [],
         !1,
         null,
-        "958b8e4e",
+        "7c263178",
         null
       )
     "function" == typeof o.a && o()(s), (s.options.__file = "_UniversityAccessibility.vue")
