@@ -38,7 +38,7 @@
     "theo:onchange": "onchange \"./src/tokens/*.yml\" -- npm run theo",
     "test": "npm-run-all theo unit",
     "deploy": "npm run build:app; npm run build:docs; push-dir --dir=dist --branch=gh-pages --cleanup",
-    "release": "np && npm run deploy",
+    "release": "np --branch main && npm run deploy",
     "version": "npm-run-all build:system build:static && git add ."
   },
   "husky": {
