@@ -89,7 +89,16 @@ yarn run deploy
 
 ## To publish a new version to npm:
 
-1.  If you don't already have np installed, `yarn global add np`.  If you are running an old version of node (e.g. Node 12), you may need to install an older version of np (e.g. `yarn global add np@6.5.0`)
+1.  If you don't already have np installed, `yarn global add np`. If you are running an old version of node (e.g. Node 12), you may need to install an older version of np (e.g. `yarn global add np@6.5.0`)
+1.  If you have a passphrase on your ssh key, run
+    `ssh-add ~/.ssh/id_ed25519` (or wherever your key is located).
+1.  If you use a security key, rather than an authenticator app, for
+    two-factor authentication in npmjs.com, make sure that
+    "Require two-factor authentication for write actions" is not
+    checked in your account 2FA settings. If it is checked, np will
+    ask you for an OTP from your phone, and won't allow you to push
+    without it.
 1.  Pull latest main with merged changes.
-2.  Run `yarn release`
-3.  :tada:
+1.  Run `yarn login`
+1.  Run `yarn release`
+1.  :tada:
