@@ -2,6 +2,12 @@
 
 # LUX Design System
 
+## Important
+
+This repo is for Lux version 4 and earlier.  For current releases of Lux, please see the [Lux Design System documentation](https://pulibrary.github.io/lux-design-system/) or [code repository](https://github.com/pulibrary/lux-design-system).
+
+## Docs
+
 [View the docs](https://pulibrary.github.io/lux/docs/#/Getting%20Started)
 
 ## To add to your project:
